@@ -13,4 +13,11 @@ public class HomeController {
 		
 	}
 	
+	//shopmall.go			(마스터에서 홈페이지로 가는것)
+	@RequestMapping(value = "admin.shopmall.go", method = RequestMethod.GET)
+	public String shopMallGO() {
+
+			return "index";
+	}
+	
 }
