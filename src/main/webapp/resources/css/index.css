@@ -26,6 +26,7 @@ header {
   position: sticky;
   top: -30px;
   border-bottom: 1px solid #aaa;
+  z-index: 1;
 }
 
 header a {
