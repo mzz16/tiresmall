@@ -1,14 +1,12 @@
 @import "reset.css";
 
 .index_container {
-  height: 100vh;
   display: grid;
-  grid-template-rows: 100px 1fr 200px;
+  grid-template-rows: 100px 1fr 180px;
 }
 
 .index_wrapper {
   width: 1200px;
-  height: inherit;
   min-width: 1200px;
 }
 
@@ -24,6 +22,9 @@ footer {
 }
 
 header {
+  background-color: white;
+  position: sticky;
+  top: -30px;
   border-bottom: 1px solid #aaa;
 }
 
@@ -38,6 +39,10 @@ footer {
 
 footer a {
   color: white;
+}
+
+.index_video {
+  width: 100%;
 }
 
 .index_hWrapper {
@@ -77,12 +82,21 @@ footer a {
 
 .index_fWrapper {
   display: grid;
-  grid-template-rows: 60px 140px;
+  grid-template-rows: 80px 100px;
 }
 
 .index_fTop {
+  padding: 0 10px;
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 30px;
   border-bottom: 1px solid #fff;
+}
+
+.index_fBottom {
+  padding: 0 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
 }
