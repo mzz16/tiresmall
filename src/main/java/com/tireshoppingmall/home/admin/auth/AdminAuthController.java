@@ -11,7 +11,7 @@ public class AdminAuthController {
 
 	
 	//admin.auth.go
-	@RequestMapping(value = "admin.auth.go", method = RequestMethod.GET)
+	@RequestMapping(value = "/admin.auth.go", method = RequestMethod.GET)
 	public String authGo(HttpServletRequest req) {
 		
 		req.setAttribute("contentPage", "auth.jsp");

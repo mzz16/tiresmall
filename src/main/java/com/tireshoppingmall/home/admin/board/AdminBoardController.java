@@ -19,19 +19,19 @@ public class AdminBoardController {
 	private BoardDAO bDAO;
 	
   //admin.comunity.go
-  @RequestMapping(value = "admin.comunity.go", method = RequestMethod.GET)
+	@RequestMapping(value = "/admin.comunity.go", method = RequestMethod.GET)
 	public String comunityGo(HttpServletRequest req) {
 		
 		req.setAttribute("contentPage", "comunity.jsp");
 		return "admin/master";
 	}
   
-	@RequestMapping(value = "/", method = RequestMethod.GET)
+	@RequestMapping(value = "/admin.notice.go", method = RequestMethod.GET)
 	public String notice(HttpServletRequest req) {
 		
 		bDAO.getAllNotice(req);
 		
-		return "board";
+		return "admin/board/notice_board";
 	}
 
 	@RequestMapping(value = "/search.do", method = RequestMethod.GET)
@@ -39,7 +39,7 @@ public class AdminBoardController {
 		
 		bDAO.search(req, sDTO);
 		
-		return "board";
+		return "admin/board/notice_board";
 	}
 
 	@RequestMapping(value = "/reg.notice.do", method = RequestMethod.GET)
@@ -48,7 +48,7 @@ public class AdminBoardController {
 		bDAO.regNotice(req, nDTO);
 		bDAO.getAllNotice(req);
 		
-		return "board";
+		return "admin/board/notice_board";
 	}
 
 	@RequestMapping(value = "/update.notice.do", method = RequestMethod.GET)
@@ -57,7 +57,7 @@ public class AdminBoardController {
 		bDAO.updateNotice(req, nDTO);
 		bDAO.getAllNotice(req);
 		
-		return "board";
+		return "admin/board/notice_board";
 	}
 
 	@RequestMapping(value = "/delete.notice.do", method = RequestMethod.GET)
@@ -66,6 +66,6 @@ public class AdminBoardController {
 		bDAO.deleteNotice(req, nDTO);
 		bDAO.getAllNotice(req);
 		
-		return "board";
+		return "admin/board/notice_board";
 	}
 }

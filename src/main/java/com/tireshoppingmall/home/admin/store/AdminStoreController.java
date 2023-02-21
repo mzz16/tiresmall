@@ -11,7 +11,7 @@ public class AdminStoreController {
 
 	
 	//admin.company.go
-	@RequestMapping(value = "admin.company.go", method = RequestMethod.GET)
+	@RequestMapping(value = "/admin.company.go", method = RequestMethod.GET)
 	public String companyGo(HttpServletRequest req) {
 		
 		req.setAttribute("contentPage", "company.jsp");

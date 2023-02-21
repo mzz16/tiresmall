@@ -11,7 +11,7 @@ public class AdminCarController {
 
 	
 	//admin.car.go
-	@RequestMapping(value = "admin.car.go", method = RequestMethod.GET)
+	@RequestMapping(value = "/admin.car.go", method = RequestMethod.GET)
 	public String carGo(HttpServletRequest req) {
 		
 		req.setAttribute("contentPage", "car.jsp");

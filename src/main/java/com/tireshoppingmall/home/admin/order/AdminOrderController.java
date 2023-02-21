@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class AdminOrderController {
 	
 	//admin.order.go
-	@RequestMapping(value = "admin.order.go", method = RequestMethod.GET)
+	@RequestMapping(value = "/admin.order.go", method = RequestMethod.GET)
 	public String orderGo(HttpServletRequest req) {
 		
 		req.setAttribute("contentPage", "order.jsp");
