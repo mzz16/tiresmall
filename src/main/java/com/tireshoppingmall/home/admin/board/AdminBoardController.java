@@ -41,11 +41,11 @@ public class AdminBoardController {
 	public String regNotice(HttpServletRequest req, NoticeDTO nDTO) {
 		
 		bDAO.regNotice(req, nDTO);
-		bDAO.getAllNotice(req);
+		/*bDAO.getAllNotice(req);*/
 		
-		req.setAttribute("subMenuPage", "board/board_subMenu.jsp");
-		req.setAttribute("contentPage", "board/notice_board.jsp");
-		return "admin/master";
+		/*req.setAttribute("subMenuPage", "board/board_subMenu.jsp");
+		req.setAttribute("contentPage", "board/notice_board.jsp");*/
+		return "redirect:admin.notice.go";
 	}
 
 	@RequestMapping(value = "/update.notice.do", method = RequestMethod.GET)

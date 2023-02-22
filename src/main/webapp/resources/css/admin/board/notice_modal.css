@@ -1,9 +1,5 @@
 @charset "UTF-8";
 
-button{
-	border:none;
-}
-
 .modal_table {
 	background-color: white;
 	width: 100%;
@@ -38,6 +34,13 @@ button{
 	height: 70px;
 }
 
+.modalBtn1{
+	color: white;
+	background-color: black;
+}
+.modalBtn2{
+	color: black;
+}
 #n_txt {
 	width: 90%;
     height: 280px;
@@ -64,19 +67,16 @@ button{
 }
 
 .modalBtn1{
-	width: 50px;
+	width: 70px;
 	height: 35px;
-	border-radius: 15px;
 	margin: 5px;
 	font-size:large;
-	background-color: #c56cf0;
 }
 
 .modalBtn2{
-	width: 50px;
+	width: 70px;
 	height: 35px;
-	border-radius: 15px;
 	margin: 10px;
 	font-size:large;
-	background-color: gray;
+	background-color: white;
 }

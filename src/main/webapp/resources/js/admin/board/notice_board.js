@@ -1,4 +1,3 @@
-
 function updateNotice(id,sortation,title,txt,date) {
 	$('#notice_modal').show();
 	$("body").css("overflow", 'hidden');
@@ -7,7 +6,9 @@ function updateNotice(id,sortation,title,txt,date) {
 	$("#n_sortation").val(sortation);
 	$("#n_txt").val(txt);
 	$("#n_date").val(date);
-	$("#reg_modal").attr("action", "update.notice.do");
+	 
+	$("#reg_modal").attr("action", "update.notice.do")
+	
 }
 
 function deleteNotice(id) {
@@ -31,6 +32,7 @@ $('#notice_reg_modal').click(function() {
 	$("#n_txt").val('');
 	$("#n_date").val('');
 	//모달 on
+	$("#reg_modal").attr("action", "reg.notice.do")
 	$("body").css("overflow", 'hidden');
 	
 })

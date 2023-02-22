@@ -96,18 +96,18 @@
 								<td colspan="5">해당 목록이없습니다</td>
 							</tr>
 						</c:if>
-						<c:forEach var="n" items="${notice }">
+						<c:forEach var="n" items="${notice }" varStatus="status">
 							<tr>
-								<td class="td_c1">${n.n_id }</td>
+								<td class="td_c1">${status.count }</td>
 								<td class="td_c2">${n.n_sortation }</td>
 								<td class="td_c3">${n.n_title }</td>
 								<td class="td_c4"><fmt:formatDate
 										pattern="yyyy-MM-dd HH:mm:ss" value="${n.n_date }" /></td>
 								<td class="td_c5">
 									<div class="tdBtn">
-										<button type="button"
+										<button id="updBtn" type="button"
 											onclick="updateNotice(${n.n_id},'${n.n_sortation }','${n.n_title }','${n.n_txt } ','${n.n_date }')">수정</button>
-										<button type="button" onclick="deleteNotice(${n.n_id})">삭제</button>
+										<button id="delBtn" type="button" onclick="deleteNotice(${n.n_id})">삭제</button>
 									</div>
 								</td>
 							</tr>

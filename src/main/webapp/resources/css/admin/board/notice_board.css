@@ -79,8 +79,7 @@ a {
 	justify-content: center;
 	align-items: center;
 	display: flex;
-	border-radius: 5px;
-	background: linear-gradient(to bottom, rgba(255,255,255,0.15) 0%, rgba(0,0,0,0.15) 100%), radial-gradient(at top center, rgba(255,255,255,0.40) 0%, rgba(0,0,0,0.40) 120%) #989898;
+	background-color: black;
 	color: white;
 }
 
@@ -94,8 +93,7 @@ a {
 	justify-content: center;
 	align-items: center;
 	display: flex;
-	border-radius: 5px;
-	background: linear-gradient(to bottom, rgba(255,255,255,0.15) 0%, rgba(0,0,0,0.15) 100%), radial-gradient(at top center, rgba(255,255,255,0.40) 0%, rgba(0,0,0,0.40) 120%) #989898;
+	background-color: black;
 	color: white;
 }
 
@@ -168,9 +166,6 @@ textarea:focus{
 	box-shadow: 0 4px 15px 0 rgba(126, 52, 161, 0.75);
 }
 
-.notice_content {
-	width: 100%;
-}
 
 .notice_content td {
 	padding: 20px;
@@ -180,9 +175,8 @@ textarea:focus{
 .th_head {
 	font-size: 15pt;
 	padding: 20px;
-	background: linear-gradient(to bottom, rgba(255,255,255,0.15) 0%, rgba(0,0,0,0.15) 100%), radial-gradient(at top center, rgba(255,255,255,0.40) 0%, rgba(0,0,0,0.40) 120%) #989898;
-    background-blend-mode: multiply,multiply;
-    color: antiquewhite;
+	background-color: black;
+    color: white;
 }
 
 .td_c1 {
@@ -213,9 +207,18 @@ textarea:focus{
 .tdBtn>button {
 	width: 80px;
 	height: 30px;
-	border-radius: 6px;
-	border: none;
+	border: 1px solid black;
 }
+
+#updBtn{
+	color: white;
+	background-color: black;
+}
+
+#delBtn{
+	color: black;
+}
+
 
 #notice_modal {
 	position: absolute;
