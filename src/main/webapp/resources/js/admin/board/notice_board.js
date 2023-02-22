@@ -16,7 +16,7 @@ function deleteNotice(id) {
 	if (ok) {
 		location.href='delete.notice.do?n_id='+id;
 	}else {
-		
+		location.href='admin.notice.go';
 	}
 	
 	
@@ -25,6 +25,11 @@ function deleteNotice(id) {
 $('#notice_reg_modal').click(function() {
 	
 	$('#notice_modal').show();
+	$("#n_id").val('');
+	$("#n_title").val('');
+	$("#n_sortation").val('');
+	$("#n_txt").val('');
+	$("#n_date").val('');
 	//모달 on
 	$("body").css("overflow", 'hidden');
 	

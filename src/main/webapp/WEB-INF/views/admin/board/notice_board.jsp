@@ -11,8 +11,8 @@
 <script src="https://code.jquery.com/jquery-3.6.3.js"
 	integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM="
 	crossorigin="anonymous"></script>
-<link rel="stylesheet" href="resources/board.css">
-<link rel="stylesheet" href="resources/modal.css">
+<link rel="stylesheet" href="resources/css/admin/board/notice_board.css">
+<link rel="stylesheet" href="resources/css/admin/board/notice_modal.css">
 </head>
 <body>
 	<div id="notice_modal" class="notice_modal hidden"
@@ -117,6 +117,6 @@
 			</form>
 		</div>
 	</div>
-	<script src="resources/board.js"></script>
+	<script src="resources/js/admin/board/notice_board.js"></script>
 </body>
 </html>
