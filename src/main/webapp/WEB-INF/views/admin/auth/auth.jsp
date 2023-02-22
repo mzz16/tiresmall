@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<div>
+	<div class="container">
 		<form action="searchAuth.do">
 			<div style="display: flex;">
 				<div>

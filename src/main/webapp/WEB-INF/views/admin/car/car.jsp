@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,6 +7,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1>차종관리페이지</h1>
+	<div class="container sub">
+		<h1>차종관리페이지</h1>
+	</div>
 </body>
 </html>

@@ -43,7 +43,3 @@ $("#cancleModal").click(function() {
 	$("body").css("overflow", 'auto');
 	
 });
-
-$('#searchBtn').click(function(){
-    $('.notice_form').css("padding-top", "35px");
-  });
