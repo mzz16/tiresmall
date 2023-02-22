@@ -7,19 +7,29 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>회원관리페이지</h1>
-
 	<div>
 		<form action="searchAuth.do">
-			<span>구분<input></span> 
-			<span>아아디<input></span> 
-			<span>이름<input></span>
-			<span>자동차번호<input></span> 
-			<span>업체명<input></span>
-			<span>구분<input></span>
-
+			<div style="display: flex;">
+				<div>
+					<label for="auth_sortation"> 구분<input id="auth_sortation"
+						name=""></label>
+				</div>
+				<div>
+					<label for="auth_id"> 아이디<input id="auth_id" name=""></label>
+				</div>
+				<div>
+					<label for="auth_name"> 이름<input id="auth_name" name=""></label>
+				</div>
+				<div>
+					<label for="auth_carnumber"> 자동차번호<input
+						id="auth_carnumber" name=""></label>
+				</div>
+				<div>
+					<label for="auth_companyMame"> 업체명<input
+						id="auth_companyMame" name=""></label>
+				</div>
+			</div>
 		</form>
-
 
 		<table border="1" width="100%">
 			<tr>
@@ -30,7 +40,6 @@
 				<td>연락처</td>
 				<td>자동차번호</td>
 				<td>등록일</td>
-				<td>관리</td>
 			</tr>
 		</table>
 	</div>

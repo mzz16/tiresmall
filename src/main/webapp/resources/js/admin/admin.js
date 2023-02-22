@@ -1,39 +1,67 @@
 $(function() {
 	let sub = $('#whatMenu').val();
+	let menuNum=1;
 	if(sub == 'order'){
-		subMenu()
+		subMenu(menuNum);
 		$("#subMenu").css("display","none");
-		$("#adminContent").css("margin-top","90px");		
+		$("#adminContent").css("margin-top","60px");		
 	}else if(sub == 'tire'){
-		subMenu()
+		menuNum=2;
+		subMenu(menuNum);
 		$("#subMenu").css("display","fiex");
-		$("#adminContent").css("margin-top","140px");
+		$("#adminContent").css("margin-top","110px");
 	}else if(sub == 'car'){
-		subMenu()
+		menuNum=3;
+		subMenu(menuNum);
 		$("#subMenu").css("display","fiex");
-		$("#adminContent").css("margin-top","140px");
+		$("#adminContent").css("margin-top","110px");
 	}else if(sub == 'auth'){
-		subMenu()
+		menuNum=4;
+		subMenu(menuNum);
 		$("#subMenu").css("display","none");
-		$("#adminContent").css("margin-top","90px");
+		$("#adminContent").css("margin-top","60px");
 	}else if(sub == 'store'){
-		subMenu()
+		menuNum=5;
+		subMenu(menuNum);
 		$("#subMenu").css("display","none");
-		$("#adminContent").css("margin-top","90px");
+		$("#adminContent").css("margin-top","60px");
 	}else if(sub == 'notice'){
-		subMenu()
+		menuNum=6;
+		subMenu(menuNum);
 		$("#subMenu").css("display","fiex");
-		$("#adminContent").css("margin-top","140px");
+		$("#adminContent").css("margin-top","110px");
 	}
+	
+	
+	sub=$("#sm").val();
+	
+	if(sm = 1){
+		$(".subMenuContent1").css("background-color","black")
+		.css("color","white").css("border-radius","20px");
+	}else if(sm = 2){
+		$(".subMenuContent2").css("background-color","black")
+		.css("color","white").css("border-radius","20px");
+	}else if(sm = 3){
+		$(".subMenuContent3").css("background-color","black")
+		.css("color","white").css("border-radius","20px");
+	}else if(sm = 4){
+		$(".subMenuContent4").css("background-color","black")
+		.css("color","white").css("border-radius","20px");
+	}
+	
+	
+	
 });
 
 
-function subMenu() {
-	$("#menuTitle").css("border-top-left-radius","20px");
-	$("#menuTitle").css("border-top-right-radius","20px");
-	$("#menuTitle").css("border-color","white");
-	
-	
+function subMenu(no) {
+	$("#menuTitle"+no).css("border-top-left-radius","20px");
+	$("#menuTitle"+no).css("border-top-right-radius","20px");
+	$("#menuTitle"+no).css("background-color","white");
+	$("#menuTitle"+no).css("color","#181c32");
 }
 
+function notSubMenu() {
+	
+}
 
