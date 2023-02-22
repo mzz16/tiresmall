@@ -13,7 +13,7 @@ public class AdminOrderController {
 	@RequestMapping(value = "/admin.order.go", method = RequestMethod.GET)
 	public String orderGo(HttpServletRequest req) {
 		
-		req.setAttribute("contentPage", "order.jsp");
+		req.setAttribute("contentPage", "order/order.jsp");
 		return "admin/master";
 	}
 	

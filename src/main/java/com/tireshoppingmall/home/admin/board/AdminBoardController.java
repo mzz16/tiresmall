@@ -17,14 +17,6 @@ public class AdminBoardController {
 
 	@Autowired
 	private BoardDAO bDAO;
-	
-  //admin.comunity.go
-	@RequestMapping(value = "/admin.comunity.go", method = RequestMethod.GET)
-	public String comunityGo(HttpServletRequest req) {
-		
-		req.setAttribute("contentPage", "comunity.jsp");
-		return "admin/master";
-	}
   
 	@RequestMapping(value = "/admin.notice.go", method = RequestMethod.GET)
 	public String notice(HttpServletRequest req) {
