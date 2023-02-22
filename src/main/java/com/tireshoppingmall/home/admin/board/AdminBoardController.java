@@ -22,8 +22,9 @@ public class AdminBoardController {
 	public String notice(HttpServletRequest req) {
 		
 		bDAO.getAllNotice(req);
-		
-		return "admin/board/notice_board";
+		req.setAttribute("subMenuPage", "board/board_subMenu.jsp");
+		req.setAttribute("contentPage", "board/notice_board.jsp");
+		return "admin/master";
 	}
 
 	@RequestMapping(value = "/search.do", method = RequestMethod.GET)
@@ -31,7 +32,9 @@ public class AdminBoardController {
 		
 		bDAO.search(req, sDTO);
 		
-		return "admin/board/notice_board";
+		req.setAttribute("subMenuPage", "board/board_subMenu.jsp");
+		req.setAttribute("contentPage", "board/notice_board.jsp");
+		return "admin/master";
 	}
 
 	@RequestMapping(value = "/reg.notice.do", method = RequestMethod.GET)
@@ -40,7 +43,9 @@ public class AdminBoardController {
 		bDAO.regNotice(req, nDTO);
 		bDAO.getAllNotice(req);
 		
-		return "admin/board/notice_board";
+		req.setAttribute("subMenuPage", "board/board_subMenu.jsp");
+		req.setAttribute("contentPage", "board/notice_board.jsp");
+		return "admin/master";
 	}
 
 	@RequestMapping(value = "/update.notice.do", method = RequestMethod.GET)
@@ -49,7 +54,9 @@ public class AdminBoardController {
 		bDAO.updateNotice(req, nDTO);
 		bDAO.getAllNotice(req);
 		
-		return "admin/board/notice_board";
+		req.setAttribute("subMenuPage", "board/board_subMenu.jsp");
+		req.setAttribute("contentPage", "board/notice_board.jsp");
+		return "admin/master";
 	}
 
 	@RequestMapping(value = "/delete.notice.do", method = RequestMethod.GET)
@@ -58,6 +65,8 @@ public class AdminBoardController {
 		bDAO.deleteNotice(req, nDTO);
 		bDAO.getAllNotice(req);
 		
-		return "admin/board/notice_board";
+		req.setAttribute("subMenuPage", "board/board_subMenu.jsp");
+		req.setAttribute("contentPage", "board/notice_board.jsp");
+		return "admin/master";
 	}
 }

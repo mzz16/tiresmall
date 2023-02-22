@@ -12,6 +12,11 @@ body {
   display: flex;
   align-items: flex-end;
   background-color: #009ef7;
+ 
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
 }
 #mainMenuba2 {
   width: 100%;
@@ -67,10 +72,16 @@ body {
 }
 
 #subMenu{
+	background-color:white;
+	position: fixed;
 	width: 100%;
-	height:20px;
+	height:60px;
+	top: 80px;
 }
 
+#adminContent{
+	position: fixed;
+}
 
 
 
