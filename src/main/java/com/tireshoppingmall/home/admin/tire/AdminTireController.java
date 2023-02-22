@@ -12,7 +12,7 @@ public class AdminTireController {
 	//admin.tire.go
 	@RequestMapping(value = "/admin.tire.go", method = RequestMethod.GET)
 	public String tireGo(HttpServletRequest req) {
-		
+		req.setAttribute("subMenuPage", "tire/tire_subMenu.jsp");
 		req.setAttribute("contentPage", "tire/tire.jsp");
 		return "admin/master";
 	}

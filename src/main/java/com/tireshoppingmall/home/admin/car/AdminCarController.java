@@ -14,6 +14,7 @@ public class AdminCarController {
 	@RequestMapping(value = "/admin.car.go", method = RequestMethod.GET)
 	public String carGo(HttpServletRequest req) {
 		
+		req.setAttribute("subMenuPage", "car/car_subMenu.jsp");
 		req.setAttribute("contentPage", "car/car.jsp");
 		return "admin/master";
 	}
