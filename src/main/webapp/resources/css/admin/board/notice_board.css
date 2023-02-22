@@ -15,7 +15,8 @@ a {
 }
 
 .container {
-	      height: auto;
+    height: auto;
+    margin-top: 140px;
 }
 
 .DashBoard {
