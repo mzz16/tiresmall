@@ -13,6 +13,7 @@
 <script src="resources/js/admin/admin.js"></script>
 </head>
 <body>
+	<div id="header">
 	<div id="mainMenuba">
 		<nav id="mainMenu">
 			 <div class="index_logo">
@@ -29,8 +30,9 @@
 		</nav>
 		<input id="whatMenu" type="hidden" value="${param.m}">
 	</div>
-	<div id="subMenu">
+	<div>
 		<jsp:include page="${subMenuPage }"></jsp:include>
+	</div>
 	</div>
 	<!--위 내용이 나올때는 top 120px  -->
 	<div id="adminContent">

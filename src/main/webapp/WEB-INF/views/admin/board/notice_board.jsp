@@ -57,7 +57,7 @@
 
 
 
-	<div class="container">
+	<div class="container sub">
 		<div class="DashBoard">
 			<form class="notice_form" action="search.do">
 				<div>
@@ -75,7 +75,7 @@
 						<input name="titleInput" id="n_title">
 					</div>
 					<div class="button_box">
-						<button class="awesomeBtn color-1">검색</button>
+						<button id="searchBtn" class="awesomeBtn color-1">검색</button>
 						<button type="button" class="awesomeBtn color-2"
 							id="notice_reg_modal">신규 등록</button>
 					</div>

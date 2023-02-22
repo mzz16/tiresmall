@@ -44,4 +44,6 @@ $("#cancleModal").click(function() {
 	
 });
 
-
+$('#searchBtn').click(function(){
+    $('.notice_form').css("padding-top", "35px");
+  });

@@ -4,32 +4,26 @@ $(function() {
 	if(sub == 'order'){
 		subMenu(menuNum);
 		$("#subMenu").css("display","none");
-		$("#adminContent").css("margin-top","60px");		
 	}else if(sub == 'tire'){
 		menuNum=2;
 		subMenu(menuNum);
 		$("#subMenu").css("display","fiex");
-		$("#adminContent").css("margin-top","110px");
 	}else if(sub == 'car'){
 		menuNum=3;
 		subMenu(menuNum);
 		$("#subMenu").css("display","fiex");
-		$("#adminContent").css("margin-top","110px");
 	}else if(sub == 'auth'){
 		menuNum=4;
 		subMenu(menuNum);
 		$("#subMenu").css("display","none");
-		$("#adminContent").css("margin-top","60px");
 	}else if(sub == 'store'){
 		menuNum=5;
 		subMenu(menuNum);
 		$("#subMenu").css("display","none");
-		$("#adminContent").css("margin-top","60px");
 	}else if(sub == 'notice'){
 		menuNum=6;
 		subMenu(menuNum);
 		$("#subMenu").css("display","fiex");
-		$("#adminContent").css("margin-top","110px");
 	}
 	
 	

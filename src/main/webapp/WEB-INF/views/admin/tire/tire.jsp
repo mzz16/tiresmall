@@ -5,8 +5,11 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+
 </head>
 <body>
+<div class="container sub">
 <h1>타이어관리페이지</h1>
+</div>
 </body>
 </html>
