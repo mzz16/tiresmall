@@ -3,27 +3,27 @@ $(function() {
 	if(sub == 'order'){
 		subMenu()
 		$("#subMenu").css("display","none");
-		$("#adminContent").css("top","90px");		
+		$("#adminContent").css("margin-top","90px");		
 	}else if(sub == 'tire'){
 		subMenu()
 		$("#subMenu").css("display","fiex");
-		$("#adminContent").css("top","140px");
+		$("#adminContent").css("margin-top","140px");
 	}else if(sub == 'car'){
 		subMenu()
 		$("#subMenu").css("display","fiex");
-		$("#adminContent").css("top","140px");
+		$("#adminContent").css("margin-top","140px");
 	}else if(sub == 'auth'){
 		subMenu()
 		$("#subMenu").css("display","none");
-		$("#adminContent").css("top","90px");
+		$("#adminContent").css("margin-top","90px");
 	}else if(sub == 'store'){
 		subMenu()
 		$("#subMenu").css("display","none");
-		$("#adminContent").css("top","90px");
+		$("#adminContent").css("margin-top","90px");
 	}else if(sub == 'notice'){
 		subMenu()
 		$("#subMenu").css("display","fiex");
-		$("#adminContent").css("top","140px");
+		$("#adminContent").css("margin-top","140px");
 	}
 });
 
