@@ -15,13 +15,13 @@
 <body>
 	<div id="mainMenuba">
 		<nav id="mainMenu">
-			<div id="menulogo" onclick="location.href='admin.shopmall.go'">로고</div>
+			<div id="menulogo" onclick="/">로고</div>
 			<div id="menuTitle" onclick="location.href='admin.order.go'">주문 관리</div>
 			<div id="menuTitle" onclick="location.href='admin.tire.go'">타이어상품 관리</div>
 			<div id="menuTitle" onclick="location.href='admin.car.go'">차종 관리</div>
 			<div id="menuTitle" onclick="location.href='admin.auth.go'">회원 관리</div>
-			<div id="menuTitle" onclick="location.href='admin.company.go'">장착점 관리</div>
-			<div id="menuTitle" onclick="location.href='admin.comunity.go'">게시판 관리</div>
+			<div id="menuTitle" onclick="location.href='admin.store.go'">장착점 관리</div>
+			<div id="menuTitle" onclick="location.href='admin.notice.go'">게시판 관리</div>
 		</nav>
 	<%-- <input id="whatMenu" type="hidden" value="${whatPage}">
 		<div id="subMenu">내용이 들어갈것들 왜 안나올까?

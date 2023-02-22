@@ -11,10 +11,10 @@ public class AdminStoreController {
 
 	
 	//admin.company.go
-	@RequestMapping(value = "/admin.company.go", method = RequestMethod.GET)
+	@RequestMapping(value = "/admin.store.go", method = RequestMethod.GET)
 	public String companyGo(HttpServletRequest req) {
 		
-		req.setAttribute("contentPage", "company.jsp");
+		req.setAttribute("contentPage", "store/store.jsp");
 		return "admin/master";
 	}
 }
