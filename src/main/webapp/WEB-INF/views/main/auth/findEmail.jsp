@@ -15,7 +15,7 @@
 		</a> 
 		</div>
 		<div id="login_box">
-			<div id="login_box_title">ID로그인 </div>
+			<div id="login_box_title">E-mail 찾기 </div>
 			<input id="login_id" name="login_id" placeholder="아이디">		
 			<input id="login_pw" name="login_pw" placeholder="비밀번호">		
 		</div>
@@ -23,7 +23,7 @@
 			<button>로그인</button>
 		</div>
 		<div id="login_other_btn"> 
-			<span onclick="location.href='findEmail.go'">아이디 찾기</span>		
+			<span>아이디 찾기</span>		
 			<span>| 비밀번호 찾기 |</span>		
 			<span onclick="location.href='authTermsOfUse.go'">회원가입</span>		
 		</div>

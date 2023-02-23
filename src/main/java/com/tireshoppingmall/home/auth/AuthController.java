@@ -16,6 +16,10 @@ public class AuthController {
 	public String authRegGo(Model model) {
 		return "main/auth/authReg";
 	}
+	@RequestMapping(value = "/findEmail.go", method = RequestMethod.GET)
+	public String findEmailGo(Model model) {
+		return "main/auth/findEmail";
+	}
 	
 	
 	
