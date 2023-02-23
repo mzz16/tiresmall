@@ -40,16 +40,6 @@
 		</div>
 		<div id="join_pic"></div>
 		<div id="join_policy"></div>
-
-
-
-
-
-
-
-
-
-
 	</div>
 </body>
 </html>

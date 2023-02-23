@@ -7,12 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
- <video
-   class="index_video"
-   src="resources/web/main_movie.mp4"
-   autoplay
-   loop
-   muted
- ></video>
+	차종으로 검색
 </body>
 </html>

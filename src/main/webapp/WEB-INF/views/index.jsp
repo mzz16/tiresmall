@@ -28,7 +28,7 @@ prefix="c"%>
           </div>
           <div class="index_hBottom">
             <div class="index_logo">
-              <a href="">
+              <a href="/home">
                 <img src="resources/web/logo.png" style="height: 50px" />
               </a>
             </div>
@@ -45,7 +45,6 @@ prefix="c"%>
             </div>
             <div class="index_sideNav">
               <a href="/">장바구니</a>
-              <button>더 보기</button>
             </div>
           </div>
         </div>
@@ -78,13 +77,7 @@ prefix="c"%>
         </div>
       </header>
       <main>
-        <video
-          class="index_video"
-          src="resources/web/main_movie.mp4"
-          autoplay
-          loop
-          muted
-        ></video>
+      	<jsp:include page="${content}"></jsp:include>
       </main>
       <footer>
         <div class="index_wrapper index_fWrapper">
