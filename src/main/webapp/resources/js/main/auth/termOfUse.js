@@ -1,6 +1,6 @@
 $(function() {
-	var agreementAll = document.join_form.agreementAll;
-	console.log(!($('#agreementAll').is(':checked')));
+	//var agreementAll = document.join_form.agreementAll;
+	//console.log(!($('#agreementAll').is(':checked')));
 	
 //체크박스 전체 선택
 $("#join_policy").on("click", "#agreementAll", function () {
