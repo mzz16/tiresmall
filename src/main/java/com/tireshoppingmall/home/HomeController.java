@@ -46,4 +46,34 @@ public class HomeController {
 		return "index";
 	}
 	
+	@RequestMapping(value = "/store1", method = RequestMethod.GET)
+	public String goStore1(Model model) {
+		model.addAttribute("content", "main/store/store.jsp");
+		return "index";
+	}
+	
+	@RequestMapping(value = "/store2", method = RequestMethod.GET)
+	public String goStore2(Model model) {
+		model.addAttribute("content", "main/store/store.jsp");
+		return "index";
+	}
+	
+	@RequestMapping(value = "/store3", method = RequestMethod.GET)
+	public String goStore3(Model model) {
+		model.addAttribute("content", "main/store/store.jsp");
+		return "index";
+	}
+	
+	@RequestMapping(value = "/store4", method = RequestMethod.GET)
+	public String goStore4(Model model) {
+		model.addAttribute("content", "main/store/store.jsp");
+		return "index";
+	}
+	
+	@RequestMapping(value = "/store5", method = RequestMethod.GET)
+	public String goStore5(Model model) {
+		model.addAttribute("content", "main/store/store.jsp");
+		return "index";
+	}
+	
 }
