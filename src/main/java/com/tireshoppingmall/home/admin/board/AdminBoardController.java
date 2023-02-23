@@ -17,6 +17,9 @@ public class AdminBoardController {
 
 	@Autowired
 	private BoardDAO bDAO;
+	
+	@Autowired
+	private FaqDAO faqDAO;
   
 	@RequestMapping(value = "/admin.notice.go", method = RequestMethod.GET)
 	public String notice(HttpServletRequest req) {
@@ -69,4 +72,15 @@ public class AdminBoardController {
 		req.setAttribute("contentPage", "board/notice_board.jsp");
 		return "admin/master";
 	}
+	
+	
+	@RequestMapping(value = "/admin.faq.go", method = RequestMethod.GET)
+	public String faq(HttpServletRequest req) {
+		
+		faqDAO.getAllfaq(req);
+		req.setAttribute("subMenuPage", "board/board_subMenu.jsp");
+		req.setAttribute("contentPage", "board/faq_board.jsp");
+		return "admin/master";
+	}
+	
 }

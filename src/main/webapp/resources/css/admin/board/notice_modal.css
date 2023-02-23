@@ -50,6 +50,22 @@
     font-size: 1.5rem;
 }
 
+#f_txt {
+	width: 90%;
+    height: 280px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    resize: none;
+    font-size: 1.5rem;
+}
+
+#f_title {
+	height: 30px;
+	width: 80%;
+}
+#f_title:focus {
+	outline: none;
+}
 #n_title {
 	height: 30px;
 	width: 80%;

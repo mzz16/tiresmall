@@ -1,25 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.tireshoppingmall.home.admin.board.AdminBoardMapper">
+
+	<!-- Notice mapper  -->
 	
+	<!-- Notice 전체 조회  -->
 	<select id="getAllNotice" resultType="com.tireshoppingmall.home.admin.board.NoticeDTO">
 		select * from notice order by n_id
 	</select>
 
+	<!-- Notice 검색 전체 조회  -->
 	<select id="searchAllNotice" parameterType="com.tireshoppingmall.home.admin.board.SearchDTO" resultType="com.tireshoppingmall.home.admin.board.NoticeDTO">
 		select * from notice where n_title like '%'|| #{titleInput} ||'%' and n_sortation like '%'||#{selectOption}||'%' order by n_id
 	</select>
 	
+	<!-- Notice 등록  -->
 	<insert id="regNotice" parameterType="com.tireshoppingmall.home.admin.board.NoticeDTO">
 		insert into notice values(notice_seq.nextval, #{selectOption}, #{n_title}, #{n_txt}, sysdate)
 	</insert>
 
+	<!-- Notice 업데이트 -->
 	<update id="updateNotice">
 		update notice set n_sortation = #{selectOption}, n_title = #{n_title}, n_txt = #{n_txt}, n_date = sysdate where n_id = #{n_id}
 	</update>
 	
+	<!-- Notice 삭제 -->
 	<delete id="deleteNotice">
 		delete notice where n_id = #{n_id}
 	</delete>
+	
+	
+	<!-- FAQ mapper  -->
+	
+	<select id="getAllFaq" resultType="com.tireshoppingmall.home.admin.board.FaqDTO">
+		select * from faq order by f_id
+	</select>
+	
+	
 	
 </mapper>
