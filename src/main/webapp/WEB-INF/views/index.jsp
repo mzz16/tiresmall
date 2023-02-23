@@ -1,5 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+pageEncoding="UTF-8"%> <%@ taglib uri="http://java.sun.com/jsp/jstl/core"
+prefix="c"%>
 <!DOCTYPE html>
 <html>
   <head>
@@ -8,48 +9,75 @@
     <link rel="stylesheet" href="resources/css/index.css" />
   </head>
   <body>
+    <div class="index_shadow"></div>
     <div class="index_container">
       <header>
         <div class="index_wrapper index_hWrapper">
           <div class="index_hTop">
-            <a href="admin.order.go">관리자</a>
-            <a href="/">로그인</a>
-            <a href="/">회원가입</a>
-            <a href="/">비회원 주문조회</a>
-            <a href="/">실시간 상담</a>
+            <div class="index_hTopLeft">
+              <a href="admin.order.go?m=order">관리자</a>
+              <a href="/">구매가이드</a>
+              <a href="/">실시간 상담</a>
+            </div>
+            <div class="index_hTopRight">
+              <a href="login">로그인</a>
+              <a href="join">회원가입</a>
+              <a href="non-member">비회원 주문조회</a>
+              <a href="/">고객센터</a>
+            </div>
           </div>
           <div class="index_hBottom">
             <div class="index_logo">
-              <a href="/">
+              <a href="/home">
                 <img src="resources/web/logo.png" style="height: 50px" />
               </a>
             </div>
-            <div class="index_nav">
-              <div class="index_nMenu">
-                <a href="/">타이어 찾기</a>
+            <div class="index_topNav">
+              <div class="index_tnMenu index_tnSearch">
+                <a href="search.car">타이어 찾기</a>
               </div>
-              <div class="index_nMenu">
+              <div class="index_tnMenu index_tnBrand">
                 <a href="/">브랜드별 타이어</a>
               </div>
-              <div class="index_nMenu">
-                <a href="/">매장 안내</a>
+              <div class="index_tnMenu index_tnStore">
+                <a href="store1">매장 안내</a>
               </div>
             </div>
             <div class="index_sideNav">
               <a href="/">장바구니</a>
-              <button>더 보기</button>
             </div>
           </div>
         </div>
+        <div class="index_dropMenu">
+          <ul class="index_dropSearch index_dropWrapper">
+            <li class="index_dropMenu_menu">
+              <a href="search.car">차종으로 검색</a>
+              <a href="search.size">타이어 사이즈로 검색</a>
+              <a href="search.product">제품명으로 찾기</a>
+            </li>
+          </ul>
+          <ul class="index_dropBrand index_dropWrapper">
+            <li class="index_dropMenu_menu">
+              <a href="/">넥센타이어</a>
+              <a href="/">한국타이어</a>
+              <a href="/">콘티넨탈타이어</a>
+              <a href="/">피렐리타이어</a>
+              <a href="/">미쉐린타이어</a>
+            </li>
+          </ul>
+          <ul class="index_dropStore index_dropWrapper">
+            <li class="index_dropMenu_menu">
+              <a href="store1">타이어쇼핑몰</a>
+              <a href="store2">타이어테크 죽동점</a>
+              <a href="store3">논산 타이어쇼핑몰(타이어테크 시청점)</a>
+              <a href="store4">타이어테크 연무점</a>
+              <a href="store5">타이어테크 반월점</a>
+            </li>
+          </ul>
+        </div>
       </header>
       <main>
-        <video
-          class="index_video"
-          src="resources/web/main_movie.mp4"
-          autoplay
-          loop
-          muted
-        ></video>
+      	<jsp:include page="${content}"></jsp:include>
       </main>
       <footer>
         <div class="index_wrapper index_fWrapper">
@@ -80,5 +108,6 @@
         </div>
       </footer>
     </div>
+    <script src="resources/js/index.js"></script>
   </body>
 </html>

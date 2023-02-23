@@ -17,5 +17,15 @@ public interface AdminBoardMapper {
 
 	boolean deleteNotice(NoticeDTO nDTO);
 
+	List<FaqDTO> getAllFaq();
+
+	List<FaqDTO> searchAllFaq(SearchDTO sDTO);
+
+	int regFaq(FaqDTO faqDTO);
+
+	int updateFaq(FaqDTO faqDTO);
+
+	boolean deleteFaq(FaqDTO faqDTO);
+
 	
 }

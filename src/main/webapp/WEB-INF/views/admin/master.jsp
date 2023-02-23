@@ -10,30 +10,34 @@
 	integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM="
 	crossorigin="anonymous"></script>
 </head>
-<script src="resources/master/js/master.js"></script>
+<script src="resources/js/admin/admin.js"></script>
 </head>
 <body>
+	<div id="header">
 	<div id="mainMenuba">
 		<nav id="mainMenu">
-			<div id="menulogo" onclick="location.href='admin.shopmall.go'">로고</div>
-			<div id="menuTitle" onclick="location.href='admin.order.go'">주문 관리</div>
-			<div id="menuTitle" onclick="location.href='admin.tire.go'">타이어상품 관리</div>
-			<div id="menuTitle" onclick="location.href='admin.car.go'">차종 관리</div>
-			<div id="menuTitle" onclick="location.href='admin.auth.go'">회원 관리</div>
-			<div id="menuTitle" onclick="location.href='admin.company.go'">장착점 관리</div>
-			<div id="menuTitle" onclick="location.href='admin.comunity.go'">게시판 관리</div>
+			 <div class="index_logo">
+              <a href="/home">
+                <img src="resources/web/logo.png" style="height: 50px" />
+              </a>
+            </div>
+			<div id="menuTitle1" onclick="location.href='admin.order.go?m=order'">주문 관리</div>
+			<div id="menuTitle2" onclick="location.href='admin.tire.go?m=tire&sm=1'">타이어상품 관리</div>
+			<div id="menuTitle3" onclick="location.href='admin.car.go?m=car&sm=1'">차종 관리</div>
+			<div id="menuTitle4" onclick="location.href='admin.auth.go?m=auth'">회원 관리</div>
+			<div id="menuTitle5" onclick="location.href='admin.store.go?m=store'">장착점 관리</div>
+			<div id="menuTitle6" onclick="location.href='admin.notice.go?m=notice&sm=1'">게시판 관리</div>
 		</nav>
-	<%-- <input id="whatMenu" type="hidden" value="${whatPage}">
-		<div id="subMenu">내용이 들어갈것들 왜 안나올까?
-	</div> --%>
-
+		<input id="whatMenu" type="hidden" value="${param.m}">
 	</div>
-
-
 	<div>
+		<jsp:include page="${subMenuPage }"></jsp:include>
+	</div>
+	</div>
+	<!--위 내용이 나올때는 top 120px  -->
+	<div id="adminContent">
 		<jsp:include page="${contentPage }"></jsp:include>
 	</div>
-
 
 </body>
 </html>

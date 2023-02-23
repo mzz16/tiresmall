@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1>정착점관리페이지</h1>
+	사이즈로 검색
 </body>
 </html>

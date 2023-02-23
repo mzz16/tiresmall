@@ -18,20 +18,18 @@ public class AdminBoardController {
 	@Autowired
 	private BoardDAO bDAO;
 	
-  //admin.comunity.go
-	@RequestMapping(value = "/admin.comunity.go", method = RequestMethod.GET)
-	public String comunityGo(HttpServletRequest req) {
-		
-		req.setAttribute("contentPage", "comunity.jsp");
-		return "admin/master";
-	}
-  
+	@Autowired
+	private FaqDAO faqDAO;
+    
+	/* notice DAO */
+	
 	@RequestMapping(value = "/admin.notice.go", method = RequestMethod.GET)
 	public String notice(HttpServletRequest req) {
 		
 		bDAO.getAllNotice(req);
-		
-		return "admin/board/notice_board";
+		req.setAttribute("subMenuPage", "board/board_subMenu.jsp");
+		req.setAttribute("contentPage", "board/notice_board.jsp");
+		return "admin/master";
 	}
 
 	@RequestMapping(value = "/search.do", method = RequestMethod.GET)
@@ -39,16 +37,20 @@ public class AdminBoardController {
 		
 		bDAO.search(req, sDTO);
 		
-		return "admin/board/notice_board";
+		req.setAttribute("subMenuPage", "board/board_subMenu.jsp");
+		req.setAttribute("contentPage", "board/notice_board.jsp");
+		return "admin/master";
 	}
 
 	@RequestMapping(value = "/reg.notice.do", method = RequestMethod.GET)
 	public String regNotice(HttpServletRequest req, NoticeDTO nDTO) {
 		
 		bDAO.regNotice(req, nDTO);
-		bDAO.getAllNotice(req);
+		/*bDAO.getAllNotice(req);*/
 		
-		return "admin/board/notice_board";
+		/*req.setAttribute("subMenuPage", "board/board_subMenu.jsp");
+		req.setAttribute("contentPage", "board/notice_board.jsp");*/
+		return "redirect:admin.notice.go";
 	}
 
 	@RequestMapping(value = "/update.notice.do", method = RequestMethod.GET)
@@ -57,7 +59,9 @@ public class AdminBoardController {
 		bDAO.updateNotice(req, nDTO);
 		bDAO.getAllNotice(req);
 		
-		return "admin/board/notice_board";
+		req.setAttribute("subMenuPage", "board/board_subMenu.jsp");
+		req.setAttribute("contentPage", "board/notice_board.jsp");
+		return "admin/master";
 	}
 
 	@RequestMapping(value = "/delete.notice.do", method = RequestMethod.GET)
@@ -66,6 +70,60 @@ public class AdminBoardController {
 		bDAO.deleteNotice(req, nDTO);
 		bDAO.getAllNotice(req);
 		
-		return "admin/board/notice_board";
+		req.setAttribute("subMenuPage", "board/board_subMenu.jsp");
+		req.setAttribute("contentPage", "board/notice_board.jsp");
+		return "admin/master";
 	}
+	
+	/* FAQ DAO */
+	
+	@RequestMapping(value = "/admin.faq.go", method = RequestMethod.GET)
+	public String faq(HttpServletRequest req) {
+		
+		faqDAO.getAllFaq(req);
+		req.setAttribute("subMenuPage", "board/board_subMenu.jsp");
+		req.setAttribute("contentPage", "board/faq_board.jsp");
+		return "admin/master";
+	}
+	
+	@RequestMapping(value = "/search.faq.do", method = RequestMethod.GET)
+	public String searchFaq(HttpServletRequest req, SearchDTO sDTO) {
+		
+		faqDAO.searchFaq(req, sDTO);
+		
+		req.setAttribute("subMenuPage", "board/board_subMenu.jsp");
+		req.setAttribute("contentPage", "board/faq_board.jsp");
+		return "admin/master";
+	}
+
+	@RequestMapping(value = "/reg.faq.do", method = RequestMethod.GET)
+	public String regFaq(HttpServletRequest req, FaqDTO faqDTO) {
+		
+		faqDAO.regFaq(req, faqDTO);
+		
+		return "redirect:admin.faq.go";
+	}
+
+	@RequestMapping(value = "/update.faq.do", method = RequestMethod.GET)
+	public String updateFaq(HttpServletRequest req, FaqDTO faqDTO) {
+		
+		faqDAO.updateFaq(req, faqDTO);
+		faqDAO.getAllFaq(req);
+		
+		req.setAttribute("subMenuPage", "board/board_subMenu.jsp");
+		req.setAttribute("contentPage", "board/faq_board.jsp");
+		return "admin/master";
+	}
+	
+	@RequestMapping(value = "/delete.faq.do", method = RequestMethod.GET)
+	public String deleteFaq(HttpServletRequest req, FaqDTO faqDTO) {
+		
+		faqDAO.deleteFaq(req, faqDTO);
+		faqDAO.getAllFaq(req);
+		
+		req.setAttribute("subMenuPage", "board/board_subMenu.jsp");
+		req.setAttribute("contentPage", "board/faq_board.jsp");
+		return "admin/master";
+	}
+	
 }

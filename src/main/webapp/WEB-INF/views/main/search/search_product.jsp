@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1>게시판관리페이지</h1>
+	상품명으로 검색
 </body>
 </html>

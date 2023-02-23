@@ -7,6 +7,8 @@
 <title>Insert title here</title>
 </head>
 <body>
+<div class="container">
 <h1>주문페이지</h1>
+</div>
 </body>
 </html>

@@ -1,9 +1,5 @@
 @charset "UTF-8";
 
-button{
-	border:none;
-}
-
 .modal_table {
 	background-color: white;
 	width: 100%;
@@ -38,7 +34,14 @@ button{
 	height: 70px;
 }
 
-#n_txt {
+.modalBtn1{
+	color: white;
+	background-color: black;
+}
+.modalBtn2{
+	color: black;
+}
+#txtInput_M {
 	width: 90%;
     height: 280px;
     margin-top: 10px;
@@ -47,11 +50,11 @@ button{
     font-size: 1.5rem;
 }
 
-#n_title {
+#titleInput_M {
 	height: 30px;
 	width: 80%;
 }
-#n_title:focus {
+#titleInput_M:focus {
 	outline: none;
 }
 .modal-wrapper {
@@ -64,19 +67,16 @@ button{
 }
 
 .modalBtn1{
-	width: 50px;
+	width: 70px;
 	height: 35px;
-	border-radius: 15px;
 	margin: 5px;
 	font-size:large;
-	background-color: #c56cf0;
 }
 
 .modalBtn2{
-	width: 50px;
+	width: 70px;
 	height: 35px;
-	border-radius: 15px;
 	margin: 10px;
 	font-size:large;
-	background-color: gray;
+	background-color: white;
 }

@@ -18,12 +18,12 @@
 	<div id="notice_modal" class="notice_modal hidden"
 		style="display: none;">
 
-		<form id="reg_modal" action="reg.notice.do">
+		<form id="reg_modal" action="reg.faq.do">
 			<div class="modal-wrapper">
 				<div class="notice_modalcontent">
-					<div class="notice_header">공지사항</div>
+					<div class="notice_header">FAQ</div>
 					<div>
-						<input type="hidden" name="n_id" id="idInput_M">
+						<input type="hidden" name="f_id" id="idInput_M">
 
 						<table class="modal_table" border="1">
 							<tr>
@@ -31,16 +31,18 @@
 								<td>구분</td>
 								<td width="100px;"><select name="selectOption"
 									id="sortationSelect_M" class="notice_select">
-										<option value="안내">안내</option>
-										<option value="매장">매장</option>
-										<option value="프로모션">프로모션</option>
+										<option value="주문/배송">주문/배송</option>
+										<option value="상품관련">상품관련</option>
+										<option value="장착관련">장착관련</option>
+										<option value="반품/교환/취소">반품/교환/취소</option>
+										<option value="회원">회원</option>
 								</select></td>
 								<td>제목</td>
-								<td><input name="n_title" id="titleInput_M"></td>
+								<td><input name="f_title" id="titleInput_M"></td>
 							</tr>
 							<tr>
 								<td>내용</td>
-								<td align="center" colspan="4"><textarea name="n_txt"
+								<td align="center" colspan="4"><textarea name="f_txt"
 										id="txtInput_M"></textarea></td>
 							</tr>
 						</table>
@@ -59,25 +61,27 @@
 
 	<div class="container sub">
 		<div class="DashBoard">
-			<form class="notice_form" action="search.do">
+			<form class="notice_form" action="search.faq.do">
 				<div>
 					<div class="select_box">
 						<div>구분</div>
 						<select name="selectOption" id="sortationSelect" class="notice_select">
 							<option value="0">전체</option>
-							<option value="1">안내</option>
-							<option value="2">매장</option>
-							<option value="3">프로모션</option>
+							<option value="1">주문/배송</option>
+							<option value="2">상품관련</option>
+							<option value="3">장착관련</option>
+							<option value="4">반품/교환/취소</option>
+							<option value="5">회원</option>
 						</select>
 					</div>
 					<div class="input_box">
 						<div>제목</div>
-						<input name="titleInput" id="n_title">
+						<input name="titleInput" id="f_title">
 					</div>
 					<div class="button_box">
 						<button id="searchBtn" class="awesomeBtn color-1">검색</button>
 						<button type="button" class="awesomeBtn color-2"
-							id="notice_reg_modal">신규 등록</button>
+							id="faq_reg_modal">신규 등록</button>
 					</div>
 				</div>
 
@@ -91,23 +95,23 @@
 							<th class="th_head">게시일</th>
 							<th class="th_head"></th>
 						</tr>
-						<c:if test="${empty notice}">
+						<c:if test="${empty faq}">
 							<tr>
 								<td colspan="5">해당 목록이없습니다</td>
 							</tr>
 						</c:if>
-						<c:forEach var="n" items="${notice }" varStatus="status">
+						<c:forEach var="f" items="${faq }" varStatus="status">
 							<tr>
 								<td class="td_c1">${status.count }</td>
-								<td class="td_c2">${n.n_sortation }</td>
-								<td class="td_c3">${n.n_title }</td>
+								<td class="td_c2">${f.f_sortation }</td>
+								<td class="td_c3">${f.f_title }</td>
 								<td class="td_c4"><fmt:formatDate
-										pattern="yyyy-MM-dd HH:mm:ss" value="${n.n_date }" /></td>
+										pattern="yyyy-MM-dd HH:mm:ss" value="${f.f_date }" /></td>
 								<td class="td_c5">
 									<div class="tdBtn">
 										<button id="updBtn" type="button"
-											onclick="updateNotice('${n.n_id}','${n.n_sortation }','${n.n_title }','${n.n_txt } ','${n.n_date }')">수정</button>
-										<button id="delBtn" type="button" onclick="deleteNotice(${n.n_id})">삭제</button>
+											onclick="updateFaq('${f.f_id}','${f.f_sortation }','${f.f_title }','${f.f_txt } ','${f.f_date }')">수정</button>
+										<button id="delBtn" type="button" onclick="deleteFaq(${f.f_id})">삭제</button>
 									</div>
 								</td>
 							</tr>

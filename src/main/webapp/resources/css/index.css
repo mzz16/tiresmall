@@ -1,31 +1,29 @@
 @import "reset.css";
 
-.index_container {
-  display: grid;
-  grid-template-rows: 100px 1fr 180px;
-}
-
 .index_wrapper {
   width: 1200px;
   min-width: 1200px;
+}
+
+.index_shadow {
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 100%;
+  height: 100%;
+  z-index: -1;
 }
 
 a {
   text-decoration: none;
 }
 
-header,
-main,
-footer {
-  display: flex;
-  justify-content: center;
-}
-
 header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   background-color: white;
   position: sticky;
   top: -30px;
-  border-bottom: 1px solid #aaa;
   z-index: 1;
 }
 
@@ -33,7 +31,15 @@ header a {
   color: black;
 }
 
+main {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+}
+
 footer {
+  display: flex;
+  justify-content: center;
   background-color: #ab1e21;
   color: #fff;
 }
@@ -53,9 +59,8 @@ footer a {
 
 .index_hTop {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   align-items: center;
-  gap: 10px;
 }
 
 .index_hBottom {
@@ -64,12 +69,13 @@ footer a {
   align-items: center;
 }
 
-.index_nav {
+.index_topNav {
   display: grid;
   grid-template-columns: repeat(3, 250px);
 }
 
-.index_nMenu {
+.index_tnMenu {
+  height: 70px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -79,6 +85,35 @@ footer a {
   display: flex;
   justify-content: flex-end;
   align-items: center;
+}
+
+.index_dropMenu {
+  top: 100px;
+  width: 100%;
+  height: 0;
+  overflow: hidden;
+  position: absolute;
+  background-color: #ab1e21;
+  display: flex;
+  justify-content: center;
+  transition: all 0.3s ease-in-out;
+}
+
+.index_dropWrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.index_dropMenu_menu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  height: 100px;
+}
+
+.index_dropMenu_menu a {
+  color: white;
 }
 
 .index_fWrapper {
