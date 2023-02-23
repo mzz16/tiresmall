@@ -5,11 +5,14 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="resources/css/main/auth/login.css">
+<link rel="stylesheet" href="resources/css/main/auth/auth.css">
 </head>
 <body>
 	<div id="login_container">
-		<div id="login_logo"><img alt="" src="resources/img/logo.jpg"> 
+		<div id="login_logo">
+		<a href="/home">
+		<img alt="" src="resources/web/logo.png">
+		</a> 
 		</div>
 		<div id="login_box">
 			<div id="login_box_title">ID로그인 </div>
@@ -22,7 +25,7 @@
 		<div id="login_other_btn"> 
 			<span>아이디 찾기</span>		
 			<span>| 비밀번호 찾기 |</span>		
-			<span>회원가입</span>		
+			<span onclick="location.href='authTermsOfUse.go'">회원가입</span>		
 		</div>
 		<div id="login_social"></div>
 	</div>
