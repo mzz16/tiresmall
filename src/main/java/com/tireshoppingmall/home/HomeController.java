@@ -24,7 +24,7 @@ public class HomeController {
 	@RequestMapping(value = "/join", method = RequestMethod.GET)
 	public String goJoin() {
 		
-		return "main/auth/join";
+		return "main/auth/termsOfUse";
 		
 	}
 	
