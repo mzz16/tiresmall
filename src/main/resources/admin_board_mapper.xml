@@ -1,25 +1,58 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.tireshoppingmall.home.admin.board.AdminBoardMapper">
+
+	<!-- Notice mapper  -->
 	
+	<!-- Notice 전체 조회  -->
 	<select id="getAllNotice" resultType="com.tireshoppingmall.home.admin.board.NoticeDTO">
 		select * from notice order by n_id
 	</select>
 
+	<!-- Notice 검색 전체 조회  -->
 	<select id="searchAllNotice" parameterType="com.tireshoppingmall.home.admin.board.SearchDTO" resultType="com.tireshoppingmall.home.admin.board.NoticeDTO">
 		select * from notice where n_title like '%'|| #{titleInput} ||'%' and n_sortation like '%'||#{selectOption}||'%' order by n_id
 	</select>
 	
+	<!-- Notice 등록  -->
 	<insert id="regNotice" parameterType="com.tireshoppingmall.home.admin.board.NoticeDTO">
 		insert into notice values(notice_seq.nextval, #{selectOption}, #{n_title}, #{n_txt}, sysdate)
 	</insert>
 
+	<!-- Notice 업데이트 -->
 	<update id="updateNotice">
 		update notice set n_sortation = #{selectOption}, n_title = #{n_title}, n_txt = #{n_txt}, n_date = sysdate where n_id = #{n_id}
 	</update>
 	
+	<!-- Notice 삭제 -->
 	<delete id="deleteNotice">
 		delete notice where n_id = #{n_id}
 	</delete>
 	
+	
+	<!-- FAQ mapper  -->
+	
+	<select id="getAllFaq" resultType="com.tireshoppingmall.home.admin.board.FaqDTO">
+		select * from faq order by f_id
+	</select>
+	
+	<!-- FAQ 검색 전체 조회  -->
+	<select id="searchAllFaq" parameterType="com.tireshoppingmall.home.admin.board.SearchDTO" resultType="com.tireshoppingmall.home.admin.board.FaqDTO">
+		select * from faq where f_title like '%'|| #{titleInput} ||'%' and f_sortation like '%'||#{selectOption}||'%' order by f_id
+	</select>
+	
+	<!-- FAQ 등록  -->
+	<insert id="regFaq" parameterType="com.tireshoppingmall.home.admin.board.FaqDTO">
+		insert into faq values(faq_seq.nextval, #{selectOption}, #{f_title}, #{f_txt}, sysdate)
+	</insert>
+	
+	<!-- FAQ 업데이트 -->
+	<update id="updateFaq" parameterType="com.tireshoppingmall.home.admin.board.FaqDTO">
+		update faq set f_sortation = #{selectOption}, f_title = #{f_title}, f_txt = #{f_txt}, f_date = sysdate where f_id = #{f_id}
+	</update>
+	
+	<!-- FAQ 삭제 -->
+	<delete id="deleteFaq">
+		delete faq where f_id = #{f_id}
+	</delete>
 </mapper>
