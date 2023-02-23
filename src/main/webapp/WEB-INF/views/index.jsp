@@ -12,7 +12,7 @@
       <header>
         <div class="index_wrapper index_hWrapper">
           <div class="index_hTop">
-            <a href="/">관리자</a>
+            <a href="admin.order.go">관리자</a>
             <a href="/">로그인</a>
             <a href="/">회원가입</a>
             <a href="/">비회원 주문조회</a>
