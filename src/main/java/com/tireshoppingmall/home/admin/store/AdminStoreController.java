@@ -22,4 +22,36 @@ public class AdminStoreController {
 		bDAO.getAllBranch(m);
 		return "admin/master";
 	}
+	
+	@RequestMapping(value = "/admin.store.reg.go", method = RequestMethod.GET)
+	public String storeRegGo(Model m,HttpServletRequest req) {
+		
+		return "admin/store/regbranch";
+		
+	}
+
+
+	
+	@RequestMapping(value = "/reg.branch.do", method = RequestMethod.GET)
+	public String storeRegDo(BranchDTO b,HttpServletRequest req) {
+		
+		bDAO.regBranch(b,req);
+		
+		return "admin/store/regbranch";
+		
+	}
+
+	@RequestMapping(value = "/branch.search.name", method = RequestMethod.GET)
+	public String branchSearchname(BranchDTO b,Model m,HttpServletRequest req) {
+		req.setAttribute("contentPage", "store/branch.jsp");
+		bDAO.branchSearchname(b,m);
+		return "admin/master";
+		
+	}
+
+
+
+
+
+
 }
