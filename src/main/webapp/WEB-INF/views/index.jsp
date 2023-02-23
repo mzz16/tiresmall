@@ -40,7 +40,7 @@ prefix="c"%>
                 <a href="/">브랜드별 타이어</a>
               </div>
               <div class="index_tnMenu index_tnStore">
-                <a href="/">매장 안내</a>
+                <a href="store1">매장 안내</a>
               </div>
             </div>
             <div class="index_sideNav">
@@ -67,11 +67,11 @@ prefix="c"%>
           </ul>
           <ul class="index_dropStore index_dropWrapper">
             <li class="index_dropMenu_menu">
-              <a href="/">타이어쇼핑몰</a>
-              <a href="/">타이어테크 죽동점</a>
-              <a href="/">논산 타이어쇼핑몰(타이어테크 시청점)</a>
-              <a href="/">타이어테크 연무점</a>
-              <a href="/">타이어테크 반월점</a>
+              <a href="store1">타이어쇼핑몰</a>
+              <a href="store2">타이어테크 죽동점</a>
+              <a href="store3">논산 타이어쇼핑몰(타이어테크 시청점)</a>
+              <a href="store4">타이어테크 연무점</a>
+              <a href="store5">타이어테크 반월점</a>
             </li>
           </ul>
         </div>
