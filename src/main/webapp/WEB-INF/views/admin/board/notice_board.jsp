@@ -106,7 +106,7 @@
 								<td class="td_c5">
 									<div class="tdBtn">
 										<button id="updBtn" type="button"
-											onclick="updateNotice(${n.n_id},'${n.n_sortation }','${n.n_title }','${n.n_txt } ','${n.n_date }')">수정</button>
+											onclick="updateNotice('${n.n_id}','${n.n_sortation }','${n.n_title }','${n.n_txt } ','${n.n_date }')">수정</button>
 										<button id="delBtn" type="button" onclick="deleteNotice(${n.n_id})">삭제</button>
 									</div>
 								</td>

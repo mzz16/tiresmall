@@ -110,8 +110,8 @@
 								<td class="td_c5">
 									<div class="tdBtn">
 										<button id="updBtn" type="button"
-											onclick="updateNotice(${f.f_id},'${f.f_sortation }','${f.f_title }','${f.f_txt } ','${f.f_date }')">수정</button>
-										<button id="delBtn" type="button" onclick="deleteNotice(${f.f_id})">삭제</button>
+											onclick="updateFaq('${f.f_id}','${f.f_sortation }','${f.f_title }','${f.f_txt } ','${f.f_date }')">수정</button>
+										<button id="delBtn" type="button" onclick="deleteFaq(${f.f_id})">삭제</button>
 									</div>
 								</td>
 							</tr>

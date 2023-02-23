@@ -14,7 +14,7 @@ public class FaqDAO {
 	@Autowired
 	private SqlSession ss;
 
-	public void getAllfaq(HttpServletRequest req) {
+	public void getAllFaq(HttpServletRequest req) {
 
 		List<FaqDTO> faq = ss.getMapper(AdminBoardMapper.class).getAllFaq();
 		req.setAttribute("faq", faq);
@@ -31,11 +31,27 @@ public class FaqDAO {
 
 	public void regFaq(HttpServletRequest req, FaqDTO faqDTO) {
 		if(ss.getMapper(AdminBoardMapper.class).regFaq(faqDTO) == 1) {
-			req.setAttribute("faqR", "등록 성공");
+			req.setAttribute("regR", "등록 성공");
 		}else {
-			req.setAttribute("faqR", "등록 실패");
+			req.setAttribute("regR", "등록 실패");
 		}
 		
+	}
+
+	public void updateFaq(HttpServletRequest req, FaqDTO faqDTO) {
+		if(ss.getMapper(AdminBoardMapper.class).updateFaq(faqDTO) >= 1) {
+			req.setAttribute("updateR", "업데이트 성공");
+		}else {
+			req.setAttribute("updateR", "업데이트 실패");
+		}
+	}
+
+	public void deleteFaq(HttpServletRequest req, FaqDTO faqDTO) {
+		if(ss.getMapper(AdminBoardMapper.class).deleteFaq(faqDTO)) {
+			System.out.println("삭제 성공");
+		} else {
+			System.err.println("삭제 실패");
+		}
 	}
 
 	

@@ -45,5 +45,14 @@
 	<insert id="regFaq" parameterType="com.tireshoppingmall.home.admin.board.FaqDTO">
 		insert into faq values(faq_seq.nextval, #{selectOption}, #{f_title}, #{f_txt}, sysdate)
 	</insert>
-
+	
+	<!-- FAQ 업데이트 -->
+	<update id="updateFaq" parameterType="com.tireshoppingmall.home.admin.board.FaqDTO">
+		update faq set f_sortation = #{selectOption}, f_title = #{f_title}, f_txt = #{f_txt}, f_date = sysdate where f_id = #{f_id}
+	</update>
+	
+	<!-- FAQ 삭제 -->
+	<delete id="deleteFaq">
+		delete faq where f_id = #{f_id}
+	</delete>
 </mapper>

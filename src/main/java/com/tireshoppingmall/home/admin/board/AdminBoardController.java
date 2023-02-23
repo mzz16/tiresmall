@@ -80,7 +80,7 @@ public class AdminBoardController {
 	@RequestMapping(value = "/admin.faq.go", method = RequestMethod.GET)
 	public String faq(HttpServletRequest req) {
 		
-		faqDAO.getAllfaq(req);
+		faqDAO.getAllFaq(req);
 		req.setAttribute("subMenuPage", "board/board_subMenu.jsp");
 		req.setAttribute("contentPage", "board/faq_board.jsp");
 		return "admin/master";
@@ -104,4 +104,26 @@ public class AdminBoardController {
 		return "redirect:admin.faq.go";
 	}
 
+	@RequestMapping(value = "/update.faq.do", method = RequestMethod.GET)
+	public String updateFaq(HttpServletRequest req, FaqDTO faqDTO) {
+		
+		faqDAO.updateFaq(req, faqDTO);
+		faqDAO.getAllFaq(req);
+		
+		req.setAttribute("subMenuPage", "board/board_subMenu.jsp");
+		req.setAttribute("contentPage", "board/faq_board.jsp");
+		return "admin/master";
+	}
+	
+	@RequestMapping(value = "/delete.faq.do", method = RequestMethod.GET)
+	public String deleteFaq(HttpServletRequest req, FaqDTO faqDTO) {
+		
+		faqDAO.deleteFaq(req, faqDTO);
+		faqDAO.getAllFaq(req);
+		
+		req.setAttribute("subMenuPage", "board/board_subMenu.jsp");
+		req.setAttribute("contentPage", "board/faq_board.jsp");
+		return "admin/master";
+	}
+	
 }

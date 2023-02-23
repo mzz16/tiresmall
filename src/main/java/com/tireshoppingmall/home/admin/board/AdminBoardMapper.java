@@ -23,5 +23,9 @@ public interface AdminBoardMapper {
 
 	int regFaq(FaqDTO faqDTO);
 
+	int updateFaq(FaqDTO faqDTO);
+
+	boolean deleteFaq(FaqDTO faqDTO);
+
 	
 }
