@@ -8,7 +8,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
-<link rel="stylesheet" href="resources/css/branch-findselect.css">
+<link rel="stylesheet" href="resources/css/admin/store/branch-findselect.css">
 
 <script type="text/javascript">
 
@@ -120,6 +120,23 @@ No.
 </div>
 </div>
 </div>
+
+<div  class = "branchdatalist_div"  style="border: 1px solid gray; float:left;">
+<c:forEach var = "b" items = "${branchs }">
+<div style=" float:left;">
+<div style=" float:left;">${b.b_no }</div>
+<div style=" float:left;">[${b.b_sortation}] ${b.b_branchname }</div>
+<div style=" float:left;">${b.b_branchnumber } </div>
+<div style=" float:left;">${b.b_area }</div>
+<div style=" float:left;"><button>수정</button><button>삭제</button></div>
+
+
+</div>
+
+</c:forEach>
+</div>
+
+
 
 </body>
 </html>
