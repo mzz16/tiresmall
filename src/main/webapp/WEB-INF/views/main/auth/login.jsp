@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="resources/css/auth/login.css">
+<link rel="stylesheet" href="resources/css/main/auth/login.css">
 </head>
 <body>
 	<div id="login_container">
