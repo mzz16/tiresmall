@@ -30,8 +30,8 @@
 		<beans:property name="url"
 			value="jdbc:oracle:thin:@localhost:1521:xe" />
 
-		<beans:property name="username" value="c##pyw1004" />
-		<beans:property name="password" value="pyw1004" />
+		<beans:property name="username" value="c##ojh1004" />
+		<beans:property name="password" value="ojh1004" />
 
 
 	</beans:bean>
@@ -57,6 +57,7 @@
 				<beans:value>classpath:board_mapper.xml</beans:value>
 				<beans:value>classpath:product_mapper.xml</beans:value>
 				<beans:value>classpath:search_mapper.xml</beans:value>
+				<beans:value>classpath:store_mapper.xml</beans:value>
 			</beans:list>
 		</beans:property>
 	</beans:bean>
