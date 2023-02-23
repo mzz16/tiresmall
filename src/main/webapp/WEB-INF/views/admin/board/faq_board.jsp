@@ -23,27 +23,27 @@
 				<div class="notice_modalcontent">
 					<div class="notice_header">FAQ</div>
 					<div>
-						<input type="hidden" name="f_id" id="f_id">
+						<input type="hidden" name="f_id" id="idInput_M">
 
 						<table class="modal_table" border="1">
 							<tr>
 								<td class="notice_left_header">구분/제목</td>
 								<td>구분</td>
 								<td width="100px;"><select name="selectOption"
-									id="f_sortation" class="notice_select">
+									id="sortationSelect_M" class="notice_select">
 										<option value="주문/배송">주문/배송</option>
 										<option value="상품관련">상품관련</option>
 										<option value="장착관련">장착관련</option>
 										<option value="반품/교환/취소">반품/교환/취소</option>
-										<option value="취소">취소</option>
+										<option value="회원">회원</option>
 								</select></td>
 								<td>제목</td>
-								<td><input name="f_title" id="f_title"></td>
+								<td><input name="f_title" id="titleInput_M"></td>
 							</tr>
 							<tr>
 								<td>내용</td>
 								<td align="center" colspan="4"><textarea name="f_txt"
-										id="f_txt"></textarea></td>
+										id="txtInput_M"></textarea></td>
 							</tr>
 						</table>
 
@@ -61,16 +61,17 @@
 
 	<div class="container sub">
 		<div class="DashBoard">
-			<form class="notice_form" action="search.do">
+			<form class="notice_form" action="search.faq.do">
 				<div>
 					<div class="select_box">
 						<div>구분</div>
-						<select name="selectOption" id="f_sortation" class="notice_select">
-							<option value="0">주문/배송</option>
-							<option value="1">상품관련</option>
-							<option value="2">장착관련</option>
-							<option value="3">반품/교환/취소</option>
-							<option value="4">취소</option>
+						<select name="selectOption" id="sortationSelect" class="notice_select">
+							<option value="0">전체</option>
+							<option value="1">주문/배송</option>
+							<option value="2">상품관련</option>
+							<option value="3">장착관련</option>
+							<option value="4">반품/교환/취소</option>
+							<option value="5">회원</option>
 						</select>
 					</div>
 					<div class="input_box">
@@ -80,7 +81,7 @@
 					<div class="button_box">
 						<button id="searchBtn" class="awesomeBtn color-1">검색</button>
 						<button type="button" class="awesomeBtn color-2"
-							id="notice_reg_modal">신규 등록</button>
+							id="faq_reg_modal">신규 등록</button>
 					</div>
 				</div>
 

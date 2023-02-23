@@ -19,5 +19,9 @@ public interface AdminBoardMapper {
 
 	List<FaqDTO> getAllFaq();
 
+	List<FaqDTO> searchAllFaq(SearchDTO sDTO);
+
+	int regFaq(FaqDTO faqDTO);
+
 	
 }

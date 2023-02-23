@@ -23,25 +23,25 @@
 				<div class="notice_modalcontent">
 					<div class="notice_header">공지사항</div>
 					<div>
-						<input type="hidden" name="n_id" id="n_id">
+						<input type="hidden" name="n_id" id="idInput_M">
 
 						<table class="modal_table" border="1">
 							<tr>
 								<td class="notice_left_header">구분/제목</td>
 								<td>구분</td>
 								<td width="100px;"><select name="selectOption"
-									id="n_sortation" class="notice_select">
+									id="sortationSelect_M" class="notice_select">
 										<option value="안내">안내</option>
 										<option value="매장">매장</option>
 										<option value="프로모션">프로모션</option>
 								</select></td>
 								<td>제목</td>
-								<td><input name="n_title" id="n_title"></td>
+								<td><input name="n_title" id="titleInput_M"></td>
 							</tr>
 							<tr>
 								<td>내용</td>
 								<td align="center" colspan="4"><textarea name="n_txt"
-										id="n_txt"></textarea></td>
+										id="txtInput_M"></textarea></td>
 							</tr>
 						</table>
 
@@ -63,7 +63,7 @@
 				<div>
 					<div class="select_box">
 						<div>구분</div>
-						<select name="selectOption" id="n_sortation" class="notice_select">
+						<select name="selectOption" id="sortationSelect" class="notice_select">
 							<option value="0">전체</option>
 							<option value="1">안내</option>
 							<option value="2">매장</option>

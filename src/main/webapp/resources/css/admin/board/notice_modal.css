@@ -41,7 +41,7 @@
 .modalBtn2{
 	color: black;
 }
-#n_txt {
+#txtInput_M {
 	width: 90%;
     height: 280px;
     margin-top: 10px;
@@ -50,27 +50,11 @@
     font-size: 1.5rem;
 }
 
-#f_txt {
-	width: 90%;
-    height: 280px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    resize: none;
-    font-size: 1.5rem;
-}
-
-#f_title {
+#titleInput_M {
 	height: 30px;
 	width: 80%;
 }
-#f_title:focus {
-	outline: none;
-}
-#n_title {
-	height: 30px;
-	width: 80%;
-}
-#n_title:focus {
+#titleInput_M:focus {
 	outline: none;
 }
 .modal-wrapper {

@@ -1,10 +1,15 @@
+const idInput = $('#idInput_M')
+const sortation = $('#sortationSelect_M')
+const titleInput = $('#titleInput_M')
+const txtInput = $('#txtInput_M')
+
 function updateNotice(id,sortation,title,txt,date) {
 	$('#notice_modal').show();
 	$("body").css("overflow", 'hidden');
-	$("#n_id").val(id);
-	$("#n_title").val(title);
-	$("#n_sortation").val(sortation);
-	$("#n_txt").val(txt);
+	$(idInput).val(id);
+	$(titleInput).val(title);
+	$(sortation).val(sortation);
+	$(txtInput).val(txt);
 	$("#n_date").val(date);
 	 
 	$("#reg_modal").attr("action", "update.notice.do")
@@ -26,13 +31,27 @@ function deleteNotice(id) {
 $('#notice_reg_modal').click(function() {
 	
 	$('#notice_modal').show();
-	$("#n_id").val('');
-	$("#n_title").val('');
-	$("#n_sortation").val('');
-	$("#n_txt").val('');
+	$(idInput).val('');
+	$(titleInput).val('');
+	$(sortation).val('');
+	$(txtInput).val('');
 	$("#n_date").val('');
 	//모달 on
 	$("#reg_modal").attr("action", "reg.notice.do")
+	$("body").css("overflow", 'hidden');
+	
+})
+
+$('#faq_reg_modal').click(function() {
+	
+	$('#notice_modal').show();
+	$(idInput).val('');
+	$(titleInput).val('');
+	$(sortation).val('');
+	$(txtInput).val('');
+	$("#f_date").val('');
+	//모달 on
+	$("#reg_modal").attr("action", "reg.faq.do")
 	$("body").css("overflow", 'hidden');
 	
 })

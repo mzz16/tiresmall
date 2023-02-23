@@ -36,6 +36,14 @@
 		select * from faq order by f_id
 	</select>
 	
+	<!-- FAQ 검색 전체 조회  -->
+	<select id="searchAllFaq" parameterType="com.tireshoppingmall.home.admin.board.SearchDTO" resultType="com.tireshoppingmall.home.admin.board.FaqDTO">
+		select * from faq where f_title like '%'|| #{titleInput} ||'%' and f_sortation like '%'||#{selectOption}||'%' order by f_id
+	</select>
 	
-	
+	<!-- FAQ 등록  -->
+	<insert id="regFaq" parameterType="com.tireshoppingmall.home.admin.board.FaqDTO">
+		insert into faq values(faq_seq.nextval, #{selectOption}, #{f_title}, #{f_txt}, sysdate)
+	</insert>
+
 </mapper>

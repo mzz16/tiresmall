@@ -4,7 +4,7 @@ import java.util.Date;
 
 public class FaqDTO {
 
-	private int f_id;
+	private String f_id;
 	private String f_sortation;
 	private String f_title;
 	private String f_txt;
@@ -15,7 +15,7 @@ public class FaqDTO {
 		// TODO Auto-generated constructor stub
 	}
 
-	public FaqDTO(int f_id, String f_sortation, String f_title, String f_txt, Date f_date, String selectOption) {
+	public FaqDTO(String f_id, String f_sortation, String f_title, String f_txt, Date f_date, String selectOption) {
 		super();
 		this.f_id = f_id;
 		this.f_sortation = f_sortation;
@@ -25,11 +25,11 @@ public class FaqDTO {
 		this.selectOption = selectOption;
 	}
 
-	public int getF_id() {
+	public String getF_id() {
 		return f_id;
 	}
 
-	public void setF_id(int f_id) {
+	public void setF_id(String f_id) {
 		this.f_id = f_id;
 	}
 
