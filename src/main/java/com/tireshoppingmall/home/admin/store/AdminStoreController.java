@@ -15,8 +15,8 @@ public class AdminStoreController {
 	private BranchDAO bDAO;
 	
 	
-	//admin.company.go
-	@RequestMapping(value = "/admin.company.go", method = RequestMethod.GET)
+	//admin.store.go
+	@RequestMapping(value = "/admin.store.go", method = RequestMethod.GET)
 	public String companyGo(Model m,HttpServletRequest req) {
 		req.setAttribute("contentPage", "store/branch.jsp");
 		bDAO.getAllBranch(m);

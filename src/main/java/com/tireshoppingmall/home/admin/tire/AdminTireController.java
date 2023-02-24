@@ -17,8 +17,29 @@ public class AdminTireController {
 		return "admin/master";
 	}
 	
+	//admin.tire.brand.go
+	@RequestMapping(value = "/admin.tire.brand.go", method = RequestMethod.GET)
+	public String tireBrandGo(HttpServletRequest req) {
+		req.setAttribute("subMenuPage", "tire/tire_subMenu.jsp");
+		req.setAttribute("contentPage", "tire/tire_brand.jsp");
+		return "admin/master";
+	}
 	
+	//admin.tire.discount.go
+	@RequestMapping(value = "/admin.tire.discount.go", method = RequestMethod.GET)
+	public String tireDiscountGo(HttpServletRequest req) {
+		req.setAttribute("subMenuPage", "tire/tire_subMenu.jsp");
+		req.setAttribute("contentPage", "tire/tire_discount.jsp");
+		return "admin/master";
+	}
 	
+	//admin.tire.charicteristic.go
+	@RequestMapping(value = "/admin.tire.charicteristic.go", method = RequestMethod.GET)
+	public String tireCharicteristicGo(HttpServletRequest req) {
+		req.setAttribute("subMenuPage", "tire/tire_subMenu.jsp");
+		req.setAttribute("contentPage", "tire/tire_charicteristic.jsp");
+		return "admin/master";
+	}
 	
 	
 }
