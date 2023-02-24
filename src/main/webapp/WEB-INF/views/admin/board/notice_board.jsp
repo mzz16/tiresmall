@@ -89,7 +89,7 @@
 							<th class="th_head">구분</th>
 							<th class="th_head">제목</th>
 							<th class="th_head">게시일</th>
-							<th class="th_head"></th>
+							<th class="th_head">관리</th>
 						</tr>
 						<c:if test="${empty notice}">
 							<tr>

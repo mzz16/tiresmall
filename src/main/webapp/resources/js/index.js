@@ -11,12 +11,12 @@ const dropStore = document.querySelector(".index_dropStore");
 
 topNav.addEventListener("mouseenter", () => {
   dropMenu.style.height = "100px";
-  shadow.style.zIndex = "0";
+  shadow.style.zIndex = "99";
 });
 
 header.addEventListener("mouseleave", () => {
   dropMenu.style.height = "0";
-  shadow.style.zIndex = "-1";
+  shadow.style.zIndex = "-100";
 });
 
 searchMenu.addEventListener("mouseenter", () => {

@@ -19,6 +19,14 @@ public class AdminCarController {
 		return "admin/master";
 	}
 	
+	//admin.car.brand.go
+	@RequestMapping(value = "/admin.car.brand.go", method = RequestMethod.GET)
+	public String carBrandGo(HttpServletRequest req) {
+		
+		req.setAttribute("subMenuPage", "car/car_subMenu.jsp");
+		req.setAttribute("contentPage", "car/car_brand.jsp");
+		return "admin/master";
+	}
 	
 	
 }
