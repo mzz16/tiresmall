@@ -1,4 +1,5 @@
 @import "reset.css";
+@import "main/home/main_home.css";
 
 .index_wrapper {
   width: 1200px;
@@ -10,7 +11,7 @@
   background-color: rgba(0, 0, 0, 0.5);
   width: 100%;
   height: 100%;
-  z-index: -1;
+  z-index: -100;
 }
 
 a {
@@ -24,7 +25,7 @@ header {
   background-color: white;
   position: sticky;
   top: -30px;
-  z-index: 1;
+  z-index: 100;
 }
 
 header a {
@@ -32,8 +33,6 @@ header a {
 }
 
 main {
-  display: flex;
-  flex-direction: column;
   background-color: white;
 }
 
@@ -46,10 +45,6 @@ footer {
 
 footer a {
   color: white;
-}
-
-.index_video {
-  width: 100%;
 }
 
 .index_hWrapper {

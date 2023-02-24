@@ -110,5 +110,6 @@ pageEncoding="UTF-8"%>
       </footer>
     </div>
     <script src="resources/js/index.js"></script>
+    <script src="https://kit.fontawesome.com/e41d253229.js" crossorigin="anonymous"></script>
   </body>
 </html>
