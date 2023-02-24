@@ -1,1 +1,89 @@
 @charset "UTF-8";
+
+#auth_searchBox{
+	display: flex;
+	
+}
+
+
+#auth_container{
+	
+
+	
+}
+
+#auth_searchBox{
+	padding-top: 20px;
+}
+
+.auth_serachTitle{
+	display: flex;
+}
+/*margin-left: 30px;
+    width: 70px;
+    height: 40px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    background-color: black;
+    color: white;  */
+    
+    
+    
+#auth_content{
+/* 	margin-top:20px; */
+    width: 100%;
+    	
+    
+}
+
+.auth_form{
+	height:50px;
+	width: 100%;
+	background-image: linear-gradient(to top, #fff1eb 0%, #ace0f9 100%);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+.auth_content_title{
+    font-size: 15pt;
+    padding: 20px;
+    background-color: black;
+    color: white;
+    text-align: center;
+	border: 1px solid white;
+}
+.auth_no{
+	width: 5%;
+}
+.auth_sortation{
+	width: 8%;
+}
+.auth_id{
+	width: 17%;
+}
+.auth_name{
+	width: 10%;
+}
+.auth_phoneNum{
+	width:15%;
+}
+.auth_carNum{
+	width:20%;
+}
+.auth_date{
+	width:10%;
+}
+.auth_management{
+	width: 15%;
+}

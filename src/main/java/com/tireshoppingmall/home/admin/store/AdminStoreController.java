@@ -13,10 +13,10 @@ public class AdminStoreController {
 
 	@Autowired
 	private BranchDAO bDAO;
-
-	// admin.company.go
+	
+	//admin.store.go
 	@RequestMapping(value = "/admin.store.go", method = RequestMethod.GET)
-	public String companyGo(Model m, HttpServletRequest req) {
+	public String companyGo(Model m,HttpServletRequest req) {
 		req.setAttribute("contentPage", "store/branch.jsp");
 		bDAO.getAllBranch(m);
 		return "admin/master";
