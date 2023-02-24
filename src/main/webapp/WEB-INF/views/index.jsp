@@ -1,11 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-pageEncoding="UTF-8"%> <%@ taglib uri="http://java.sun.com/jsp/jstl/core"
-prefix="c"%>
+pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
   <head>
     <meta charset="UTF-8" />
     <title>대전 타이어쇼핑몰</title>
+    <link rel="shortcut icon" href="resources/web/favicon.png" type="image/png">
+	<link rel="icon" href="resources/web/favicon.png" type="image/png">
     <link rel="stylesheet" href="resources/css/index.css" />
   </head>
   <body>
