@@ -42,7 +42,7 @@ $('document').ready(
 
 			// 시/도 선택 박스 초기화
 
-			$("select[name^=sido]").each(
+			$("select[name^=b_area1]").each(
 					function() {
 						$selsido = $(this);
 						$.each(eval(area0), function() {
@@ -55,7 +55,7 @@ $('document').ready(
 
 			// 시/도 선택시 구/군 설정
 
-			$("select[name^=sido]").change(
+			$("select[name^=b_area1]").change(
 					function() {
 						var area = "area"
 								+ $("option", $(this)).index(
@@ -66,7 +66,7 @@ $('document').ready(
 						$("option", $gugun).remove(); // 구군 초기화
 
 						if (area == "area0")
-							$gugun.append("<option value=''>구/군 선택</option>");
+							$gugun.append("<option value=''>구/군 선택 </option>");
 						else {
 							$.each(eval(area), function() {
 								$gugun.append("<option value='" + this + "'>"
@@ -76,3 +76,10 @@ $('document').ready(
 					});
 
 		});
+
+
+function regbranchopen(){
+	window.open("admin.store.reg.go","신규등록","width=800 height=600")
+}
+
+
