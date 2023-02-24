@@ -8,26 +8,48 @@
 <link rel="stylesheet" href="resources/css/main/auth/auth.css">
 </head>
 <body>
-	<div id="login_container">
-		<div id="login_logo">
-		<a href="/home">
-		<img alt="" src="resources/web/logo.png">
-		</a> 
+	<form  action="authReg.do"  method="post" enctype="multipart/form-data"
+		name="join_form" onsubmit="return joinCheck();">
+		
+		<div id="find_container">
+			<div id="find_logo">
+				<a href="/home">
+				<img alt="" src="resources/web/logo.png">
+				</a>
+			</div>
+			
+			<div class="find_box">
+				<div class="find_title">
+					<div id="find_title_id">이메일(아이디) 찾기</div>
+					<div id="find_title_pw">비밀번호 찾기</div>
+				</div>
+				<div id="find_input">
+					<span>이름</span>
+					<input name="a_email">
+				</div>
+				<div id="find_input">
+					<span>전화번호</span>
+					<input name="a_phoneNum">
+				</div>
+			</div>
+			
+			<div id="join_pic"></div>
+			<div id="join_policy"></div>
+			
+			<div id="join_btn">
+			<button>아이디 찾기</button>
+			</div>
 		</div>
-		<div id="login_box">
-			<div id="login_box_title">E-mail 찾기 </div>
-			<input id="login_id" name="login_id" placeholder="아이디">		
-			<input id="login_pw" name="login_pw" placeholder="비밀번호">		
-		</div>
-		<div id="login_btn"> 
-			<button>로그인</button>
-		</div>
-		<div id="login_other_btn"> 
-			<span>아이디 찾기</span>		
-			<span>| 비밀번호 찾기 |</span>		
-			<span onclick="location.href='authTermsOfUse.go'">회원가입</span>		
-		</div>
-		<div id="login_social"></div>
+		</form>
+
+
+
+
+
+
+
+
+
 	</div>
 </body>
 </html>
