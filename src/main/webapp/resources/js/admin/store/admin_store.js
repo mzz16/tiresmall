@@ -81,3 +81,5 @@ $('document').ready(
 function regbranchopen(){
 	window.open("admin.store.reg.go","신규등록","width=800 height=600")
 }
+
+
