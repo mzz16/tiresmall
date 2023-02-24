@@ -29,11 +29,11 @@ function updateFaq(id,sortation,title,txt,date) {
 	
 }
 
-function deleteNotice(id) {
+function deleteNotice(no) {
 	let ok = confirm('공지사항을 삭제 하시겠습니까?')
 	
 	if (ok) {
-		location.href='delete.notice.do?n_id='+id;
+		location.href='delete.notice.do?n_no='+no;
 	}else {
 		location.href='admin.notice.go';
 	}
@@ -41,11 +41,11 @@ function deleteNotice(id) {
 	
 }
 
-function deleteFaq(id) {
+function deleteFaq(no) {
 	let ok = confirm('공지사항을 삭제 하시겠습니까?')
 	
 	if (ok) {
-		location.href='delete.faq.do?f_id='+id;
+		location.href='delete.faq.do?f_no='+no;
 	}else {
 		location.href='admin.faq.go';
 	}
