@@ -27,12 +27,9 @@ function agreeCheck() {
 	return true;
 }
 
-
-
-
-
-
-
+function goHome(){
+	href.locaion='home';
+}
 
 
 
