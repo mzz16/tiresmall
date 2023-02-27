@@ -18,7 +18,30 @@ $("#join_policy").on("click", ".agreements", function() {
     $("#agreementAll").prop("checked", is_checked);
 });
 
+
+// findEmail 아이디 찾기 페이지 제어
+	//첫 페이지 이동시 숨김처리
+$('#find_pw').hide();
+$('.findTab a').on('click', function (e) {
+	  
+	  e.preventDefault();
+	  
+	  $(this).parent().addClass('active');
+	  $(this).parent().siblings().removeClass('active');
+	  
+	  target = $(this).attr('href');
+
+	  $('.find_content > div').not(target).hide();
+	  
+	  $(target).fadeIn(600);
+	  
+	});
+
+
 });
+
+
+
 function agreeCheck() {
 	if (!($('#agreementAll').is(':checked'))) {
 		alert('대전 타이어스몰 이용약관과 개인정보 수집 이용에 모두 동의해주세요.')
@@ -30,6 +53,5 @@ function agreeCheck() {
 function goHome(){
 	href.locaion='home';
 }
-
 
 

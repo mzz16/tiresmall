@@ -23,8 +23,7 @@
 			<button>로그인</button>
 		</div>
 		<div id="login_other_btn"> 
-			<span onclick="location.href='findEmail.go'">아이디 찾기</span>		
-			<span>| 비밀번호 찾기 |</span>		
+			<span onclick="location.href='findEmail.go'">아이디/비밀번호 찾기 |</span>		
 			<span onclick="location.href='authTermsOfUse.go'">회원가입</span>		
 		</div>
 		<div id="login_social"></div>
