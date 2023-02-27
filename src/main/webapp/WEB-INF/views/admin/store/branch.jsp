@@ -22,7 +22,6 @@
 		if (ok) {
 			location.href = 'admin.store.delete.go?b_id=' + iddd;
 		}
-
 	}
 	
 	

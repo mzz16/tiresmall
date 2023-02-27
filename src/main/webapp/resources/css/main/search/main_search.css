@@ -1,0 +1,27 @@
+.searchContainer {
+	width: 1200px;
+    margin: auto;
+    padding: 30px 0 30px 0;
+    background-color: #ab1e21;
+}
+
+.searchIng {
+	width: 100px;
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+	display: inline-block;
+	background-color: #3d3d3e;
+	color: white;
+	border-radius: 10px;
+	margin: 0 15px;
+}
+
+.ingBox {
+	width: 200px;
+	height: 40px;
+	line-height: 40px;
+	margin: 0;
+	padding: 0;
+	border: 0;
+}

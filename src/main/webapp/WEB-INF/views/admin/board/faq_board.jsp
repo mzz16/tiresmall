@@ -23,7 +23,7 @@
 				<div class="notice_modalcontent">
 					<div class="notice_header">FAQ</div>
 					<div>
-						<input type="hidden" name="f_id" id="idInput_M">
+						<input type="hidden" name="f_no" id="idInput_M">
 
 						<table class="modal_table" border="1">
 							<tr>
@@ -110,8 +110,8 @@
 								<td class="td_c5">
 									<div class="tdBtn">
 										<button id="updBtn" type="button"
-											onclick="updateFaq('${f.f_id}','${f.f_sortation }','${f.f_title }','${f.f_txt } ','${f.f_date }')">수정</button>
-										<button id="delBtn" type="button" onclick="deleteFaq(${f.f_id})">삭제</button>
+											onclick="updateFaq('${f.f_no}','${f.f_sortation }','${f.f_title }','${f.f_txt } ','${f.f_date }')">수정</button>
+										<button id="delBtn" type="button" onclick="deleteFaq(${f.f_no})">삭제</button>
 									</div>
 								</td>
 							</tr>

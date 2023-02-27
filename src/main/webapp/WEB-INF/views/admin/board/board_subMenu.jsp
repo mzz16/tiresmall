@@ -12,7 +12,7 @@
 		<div class="subMenuContent2" onclick="location.href='주소?m=notice&sm=2'">1:1문의 관리</div>
 		<div class="subMenuContent3" onclick="location.href='admin.faq.go?m=notice&sm=3'">FAQ</div>
 		<div class="subMenuContent4" onclick="location.href='주소?m=notice&sm=4'">이벤트</div>
+		<input id="sm" type="hidden" value="${param.sm }">
 	</div>
-	<input id="sm"type="hidden" value="${param.sm }">
 </body>
 </html>

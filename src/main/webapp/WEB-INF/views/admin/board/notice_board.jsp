@@ -23,7 +23,7 @@
 				<div class="notice_modalcontent">
 					<div class="notice_header">공지사항</div>
 					<div>
-						<input type="hidden" name="n_id" id="idInput_M">
+						<input type="hidden" name="n_no" id="idInput_M">
 
 						<table class="modal_table" border="1">
 							<tr>
@@ -89,7 +89,7 @@
 							<th class="th_head">구분</th>
 							<th class="th_head">제목</th>
 							<th class="th_head">게시일</th>
-							<th class="th_head"></th>
+							<th class="th_head">관리</th>
 						</tr>
 						<c:if test="${empty notice}">
 							<tr>
@@ -106,8 +106,8 @@
 								<td class="td_c5">
 									<div class="tdBtn">
 										<button id="updBtn" type="button"
-											onclick="updateNotice('${n.n_id}','${n.n_sortation }','${n.n_title }','${n.n_txt } ','${n.n_date }')">수정</button>
-										<button id="delBtn" type="button" onclick="deleteNotice(${n.n_id})">삭제</button>
+											onclick="updateNotice('${n.n_no}','${n.n_sortation }','${n.n_title }','${n.n_txt } ','${n.n_date }')">수정</button>
+										<button id="delBtn" type="button" onclick="deleteNotice(${n.n_no})">삭제</button>
 									</div>
 								</td>
 							</tr>

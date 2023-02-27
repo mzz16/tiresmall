@@ -1,11 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-pageEncoding="UTF-8"%> <%@ taglib uri="http://java.sun.com/jsp/jstl/core"
-prefix="c"%>
+pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
   <head>
     <meta charset="UTF-8" />
     <title>대전 타이어쇼핑몰</title>
+    <link rel="shortcut icon" href="resources/web/favicon.png" type="image/png">
+	<link rel="icon" href="resources/web/favicon.png" type="image/png">
     <link rel="stylesheet" href="resources/css/index.css" />
   </head>
   <body>
@@ -40,7 +41,7 @@ prefix="c"%>
                 <a href="/">브랜드별 타이어</a>
               </div>
               <div class="index_tnMenu index_tnStore">
-                <a href="store1">매장 안내</a>
+                <a href="store?id=1">매장 안내</a>
               </div>
             </div>
             <div class="index_sideNav">
@@ -67,11 +68,11 @@ prefix="c"%>
           </ul>
           <ul class="index_dropStore index_dropWrapper">
             <li class="index_dropMenu_menu">
-              <a href="store1">타이어쇼핑몰</a>
-              <a href="store2">타이어테크 죽동점</a>
-              <a href="store3">논산 타이어쇼핑몰(타이어테크 시청점)</a>
-              <a href="store4">타이어테크 연무점</a>
-              <a href="store5">타이어테크 반월점</a>
+              <a href="store?id=1">타이어쇼핑몰</a>
+              <a href="store?id=2">타이어테크 죽동점</a>
+              <a href="store?id=3">논산 타이어쇼핑몰(타이어테크 시청점)</a>
+              <a href="store?id=4">타이어테크 연무점</a>
+              <a href="store?id=5">타이어테크 반월점</a>
             </li>
           </ul>
         </div>
@@ -109,5 +110,6 @@ prefix="c"%>
       </footer>
     </div>
     <script src="resources/js/index.js"></script>
+    <script src="https://kit.fontawesome.com/e41d253229.js" crossorigin="anonymous"></script>
   </body>
 </html>
