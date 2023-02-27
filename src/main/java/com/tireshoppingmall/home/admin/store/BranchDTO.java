@@ -14,7 +14,7 @@ public class BranchDTO {
 	private String b_manager;
 	private String  b_managernumber;
 	private String b_branchname;
-	private int b_branchnumber;
+	private String b_branchnumber;
 	private String b_cr;
 	private String b_email;
 	
@@ -125,17 +125,14 @@ public class BranchDTO {
 		this.b_manager = b_manager;
 	}
 
-
 	public String getB_managernumber() {
 		return b_managernumber;
 	}
 
-
 	public void setB_managernumber(String b_managernumber) {
 		this.b_managernumber = b_managernumber;
 	}
-
-
+  
 	public String getB_branchname() {
 		return b_branchname;
 	}
@@ -144,11 +141,11 @@ public class BranchDTO {
 		this.b_branchname = b_branchname;
 	}
 
-	public int getB_branchnumber() {
+	public String getB_branchnumber() {
 		return b_branchnumber;
 	}
 
-	public void setB_branchnumber(int b_branchnumber) {
+	public void setB_branchnumber(String b_branchnumber) {
 		this.b_branchnumber = b_branchnumber;
 	}
 
