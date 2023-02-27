@@ -8,9 +8,9 @@ b_time varchar2(50 char) not null,
 b_service varchar2(100 char) not null,
 b_mapdata varchar2(2000 char) not null,
 b_manager varchar2(20 char) ,
-b_managernumber number(11) ,
+b_managernumber varchar2(13 char) ,
 b_branchname varchar2(20 char) ,
-b_branchnumber number(11) ,
+b_branchnumber varchar2(13 char) ,
 b_cr varchar2(20 char)  ,
 b_email varchar2(30 char)	
 
