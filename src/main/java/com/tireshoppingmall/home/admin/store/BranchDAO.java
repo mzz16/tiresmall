@@ -36,8 +36,8 @@ public class BranchDAO {
 		String b_mapdata = req.getParameter("b_mapdata");
 		String b_name = req.getParameter("b_name");
 		String b_manager = req.getParameter("b_manager");
-		int b_managernumber = Integer.parseInt(req.getParameter("b_managernumber"));
-		int b_branchnumber = Integer.parseInt(req.getParameter("b_branchnumber"));
+		String b_managernumber = req.getParameter("b_managernumber");
+		String b_branchnumber = req.getParameter("b_branchnumber");
 		String b_branchname = req.getParameter("b_branchname");
 		String b_cr = req.getParameter("b_cr");
 		String b_email = req.getParameter("b_email");

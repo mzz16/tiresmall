@@ -12,9 +12,9 @@ public class BranchDTO {
 	private String b_service;
 	private String b_mapdata;
 	private String b_manager;
-	private int  b_managernumber;
+	private String  b_managernumber;
 	private String b_branchname;
-	private int b_branchnumber;
+	private String b_branchnumber;
 	private String b_cr;
 	private String b_email;
 	
@@ -22,8 +22,9 @@ public class BranchDTO {
 		// TODO Auto-generated constructor stub
 	}
 
+
 	public BranchDTO(int b_no, String b_id, String b_sortation, String b_area, String b_addr, String b_name,
-			String b_time, String b_service, String b_mapdata, String b_manager, int b_managernumber,
+			String b_time, String b_service, String b_mapdata, String b_manager, String b_managernumber,
 			String b_branchname, int b_branchnumber, String b_cr, String b_email) {
 		super();
 		this.b_no = b_no;
@@ -42,6 +43,7 @@ public class BranchDTO {
 		this.b_cr = b_cr;
 		this.b_email = b_email;
 	}
+
 
 	public int getB_no() {
 		return b_no;
@@ -123,14 +125,14 @@ public class BranchDTO {
 		this.b_manager = b_manager;
 	}
 
-	public int getB_managernumber() {
+	public String getB_managernumber() {
 		return b_managernumber;
 	}
 
-	public void setB_managernumber(int b_managernumber) {
+	public void setB_managernumber(String b_managernumber) {
 		this.b_managernumber = b_managernumber;
 	}
-
+  
 	public String getB_branchname() {
 		return b_branchname;
 	}
@@ -139,11 +141,11 @@ public class BranchDTO {
 		this.b_branchname = b_branchname;
 	}
 
-	public int getB_branchnumber() {
+	public String getB_branchnumber() {
 		return b_branchnumber;
 	}
 
-	public void setB_branchnumber(int b_branchnumber) {
+	public void setB_branchnumber(String b_branchnumber) {
 		this.b_branchnumber = b_branchnumber;
 	}
 

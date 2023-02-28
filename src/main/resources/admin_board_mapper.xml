@@ -6,12 +6,12 @@
 	
 	<!-- Notice 전체 조회  -->
 	<select id="getAllNotice" resultType="com.tireshoppingmall.home.admin.board.NoticeDTO">
-		select * from notice order by n_id
+		select * from notice order by n_no
 	</select>
 
 	<!-- Notice 검색 전체 조회  -->
 	<select id="searchAllNotice" parameterType="com.tireshoppingmall.home.admin.board.SearchDTO" resultType="com.tireshoppingmall.home.admin.board.NoticeDTO">
-		select * from notice where n_title like '%'|| #{titleInput} ||'%' and n_sortation like '%'||#{selectOption}||'%' order by n_id
+		select * from notice where n_title like '%'|| #{titleInput} ||'%' and n_sortation like '%'||#{selectOption}||'%' order by n_no
 	</select>
 	
 	<!-- Notice 등록  -->
@@ -21,24 +21,24 @@
 
 	<!-- Notice 업데이트 -->
 	<update id="updateNotice">
-		update notice set n_sortation = #{selectOption}, n_title = #{n_title}, n_txt = #{n_txt}, n_date = sysdate where n_id = #{n_id}
+		update notice set n_sortation = #{selectOption}, n_title = #{n_title}, n_txt = #{n_txt}, n_date = sysdate where n_no = #{n_no}
 	</update>
 	
 	<!-- Notice 삭제 -->
 	<delete id="deleteNotice">
-		delete notice where n_id = #{n_id}
+		delete notice where n_no = #{n_no}
 	</delete>
 	
 	
 	<!-- FAQ mapper  -->
 	
 	<select id="getAllFaq" resultType="com.tireshoppingmall.home.admin.board.FaqDTO">
-		select * from faq order by f_id
+		select * from faq order by f_no
 	</select>
 	
 	<!-- FAQ 검색 전체 조회  -->
 	<select id="searchAllFaq" parameterType="com.tireshoppingmall.home.admin.board.SearchDTO" resultType="com.tireshoppingmall.home.admin.board.FaqDTO">
-		select * from faq where f_title like '%'|| #{titleInput} ||'%' and f_sortation like '%'||#{selectOption}||'%' order by f_id
+		select * from faq where f_title like '%'|| #{titleInput} ||'%' and f_sortation like '%'||#{selectOption}||'%' order by f_no
 	</select>
 	
 	<!-- FAQ 등록  -->
@@ -48,11 +48,45 @@
 	
 	<!-- FAQ 업데이트 -->
 	<update id="updateFaq" parameterType="com.tireshoppingmall.home.admin.board.FaqDTO">
-		update faq set f_sortation = #{selectOption}, f_title = #{f_title}, f_txt = #{f_txt}, f_date = sysdate where f_id = #{f_id}
+		update faq set f_sortation = #{selectOption}, f_title = #{f_title}, f_txt = #{f_txt}, f_date = sysdate where f_no = #{f_no}
 	</update>
 	
 	<!-- FAQ 삭제 -->
 	<delete id="deleteFaq">
-		delete faq where f_id = #{f_id}
+		delete faq where f_no = #{f_no}
 	</delete>
+	
+	<!-- QNA mapper  -->
+	
+	<select id="getAllQna" resultType="com.tireshoppingmall.home.admin.board.QnaDTO">
+select q_no, q_title, q_txt, q_date, q_id, q_reply_has, a_id, a_name
+from qna, auth where q_id = a_id order by q_no
+	</select>
+
+	<select id="searchQnA" parameterType="com.tireshoppingmall.home.admin.board.QnaSearchDTO" resultType="com.tireshoppingmall.home.admin.board.QnaDTO">
+			select q.*, a.a_id, a.a_name
+			from qna q, auth a where q.q_id = a.a_id and
+			<if test="nameInput != ''">
+            a_name = #{nameInput} and
+			</if>
+			<if test="idInput != ''">
+            a_id = #{idInput} and
+            </if>
+            q_title like '%'||#{titleInput}||'%'
+            order by q_no
+	</select>
+	
+	<insert id="insertQnAReply" parameterType="com.tireshoppingmall.home.admin.board.QnaReplyDTO">
+		insert into qna_reply values(qna_reply_seq.nextval, #{q_reply_txt},sysdate,#{q_reply_board_no})
+	</insert>
+	<update id="updateQna">
+		update qna
+		set q_reply_has = 1
+		where q_no = #{q_reply_board_no}
+	</update>
+	
+	<select id="getReply" resultType="com.tireshoppingmall.home.admin.board.QnaReplyDTO">
+		select * from qna_reply where q_reply_board_no = #{q_reply_board_no}
+	</select>
+	
 </mapper>
