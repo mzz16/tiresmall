@@ -335,7 +335,7 @@ cyberbureau.police.go.kr
 				</div>
 				
 				<div id="tou_btn">
-				<button type="button" onclick="">취소</button>
+				<button type="button" onclick="goHome()">취소</button>
 				<button >확인</button>
 				</div>
 			</div>

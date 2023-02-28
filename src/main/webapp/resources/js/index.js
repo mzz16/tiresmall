@@ -1,7 +1,7 @@
 const header = document.querySelector("header");
 const topNav = document.querySelector(".index_topNav");
 const dropMenu = document.querySelector(".index_dropMenu");
-const shadow = document.querySelector(".index_shadow");
+const indexShadow = document.querySelector(".index_shadow");
 const searchMenu = document.querySelector(".index_tnSearch");
 const brandMenu = document.querySelector(".index_tnBrand");
 const storeMenu = document.querySelector(".index_tnStore");
@@ -11,12 +11,12 @@ const dropStore = document.querySelector(".index_dropStore");
 
 topNav.addEventListener("mouseenter", () => {
   dropMenu.style.height = "100px";
-  shadow.style.zIndex = "0";
+  indexShadow.style.zIndex = "99";
 });
 
 header.addEventListener("mouseleave", () => {
   dropMenu.style.height = "0";
-  shadow.style.zIndex = "-1";
+  indexShadow.style.zIndex = "-100";
 });
 
 searchMenu.addEventListener("mouseenter", () => {

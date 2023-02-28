@@ -4,6 +4,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import com.tireshoppingmall.home.store.StoreDAO;
 
 @Controller
 public class HomeController {
@@ -46,32 +49,9 @@ public class HomeController {
 		return "index";
 	}
 	
-	@RequestMapping(value = "/store1", method = RequestMethod.GET)
-	public String goStore1(Model model) {
-		model.addAttribute("content", "main/store/store.jsp");
-		return "index";
-	}
-	
-	@RequestMapping(value = "/store2", method = RequestMethod.GET)
-	public String goStore2(Model model) {
-		model.addAttribute("content", "main/store/store.jsp");
-		return "index";
-	}
-	
-	@RequestMapping(value = "/store3", method = RequestMethod.GET)
-	public String goStore3(Model model) {
-		model.addAttribute("content", "main/store/store.jsp");
-		return "index";
-	}
-	
-	@RequestMapping(value = "/store4", method = RequestMethod.GET)
-	public String goStore4(Model model) {
-		model.addAttribute("content", "main/store/store.jsp");
-		return "index";
-	}
-	
-	@RequestMapping(value = "/store5", method = RequestMethod.GET)
-	public String goStore5(Model model) {
+	@RequestMapping(value = "/store", method = RequestMethod.GET)
+	public String goStore(Model model, @RequestParam int id) {
+		StoreDAO.getAStore(model, id);
 		model.addAttribute("content", "main/store/store.jsp");
 		return "index";
 	}

@@ -27,18 +27,18 @@ $(function() {
 	}
 	
 	
-	sub=$("#sm").val();
-	
-	if(sm = 1){
+	let sm = $("#sm").val();
+	/*alert(11)*/
+	if(sm == 1){
 		$(".subMenuContent1").css("background-color","black")
 		.css("color","white").css("border-radius","20px");
-	}else if(sm = 2){
+	}else if(sm == 2){
 		$(".subMenuContent2").css("background-color","black")
 		.css("color","white").css("border-radius","20px");
-	}else if(sm = 3){
+	}else if(sm == 3){
 		$(".subMenuContent3").css("background-color","black")
 		.css("color","white").css("border-radius","20px");
-	}else if(sm = 4){
+	}else if(sm == 4){
 		$(".subMenuContent4").css("background-color","black")
 		.css("color","white").css("border-radius","20px");
 	}

@@ -20,6 +20,9 @@ public class AdminBoardController {
 	
 	@Autowired
 	private FaqDAO faqDAO;
+	
+	@Autowired
+	private QnaDAO qnaDAO;
     
 	/* notice DAO */
 	
@@ -123,6 +126,17 @@ public class AdminBoardController {
 		
 		req.setAttribute("subMenuPage", "board/board_subMenu.jsp");
 		req.setAttribute("contentPage", "board/faq_board.jsp");
+		return "admin/master";
+	}
+	
+	/* OneByOne DAO */
+	
+	@RequestMapping(value = "/admin.qna.go", method = RequestMethod.GET)
+	public String oneByone(HttpServletRequest req) {
+		
+		qnaDAO.getAllQna(req);
+		req.setAttribute("subMenuPage", "board/board_subMenu.jsp");
+		req.setAttribute("contentPage", "board/qna_board.jsp");
 		return "admin/master";
 	}
 	
