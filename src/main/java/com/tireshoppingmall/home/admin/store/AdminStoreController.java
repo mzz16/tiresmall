@@ -25,7 +25,7 @@ public class AdminStoreController {
 	@RequestMapping(value = "/admin.store.reg.go", method = RequestMethod.GET)
 	public String storeRegGo(Model m, HttpServletRequest req) {
 
-		return "admin/store/regbranch";
+		return "admin/master";
 
 	}
 
@@ -33,7 +33,7 @@ public class AdminStoreController {
 	public String storeRegDo(BranchDTO b, HttpServletRequest req) {
 
 		bDAO.regBranch(b, req);
-		return "admin/store/regbranch";
+		return "admin/master";
 
 	}
 
