@@ -6,11 +6,10 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="resources/css/main/auth/auth.css">
+<script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="resources/js/main/auth/termOfUse.js"></script>
 </head>
 <body>
-	<form  action="authReg.do"  method="post" enctype="multipart/form-data"
-		name="join_form" onsubmit="return joinCheck();">
-		
 		<div id="find_container">
 			<div id="find_logo">
 				<a href="/home">
@@ -18,38 +17,46 @@
 				</a>
 			</div>
 			
-			<div class="find_box">
-				<div class="find_title">
-					<div id="find_title_id">이메일(아이디) 찾기</div>
-					<div id="find_title_pw">비밀번호 찾기</div>
-				</div>
-				<div id="find_input">
-					<span>이름</span>
-					<input name="a_email">
-				</div>
-				<div id="find_input">
-					<span>전화번호</span>
-					<input name="a_phoneNum">
-				</div>
+			<div class="find_title">
+				<div class="findTab active" > <a href="#find_email">이메일(아이디) 찾기</a></div>
+				<div class="findTab" ><a href="#find_pw">비밀번호 찾기</a></div>
 			</div>
+			<div class="find_content">
+				<div id="find_email" >
+						<div id="find_input">
+							<span>이름</span>
+							<input name="a_name">
+						</div>
+						<div id="find_input">							
+							<span>전화번호</span>
+							<input name="a_phoneNum">
+						</div>
+						<div id="find_btn">
+							<button>아이디 찾기</button>
+						</div>
+				</div>
+				<!-- 비밀번호 화면 -->
+				<div id="find_pw">
+						<div id="find_input">
+							<span>이메일</span>
+							<input name="a_email" type="email" required >
+						</div>
+						<div id="find_input">
+							<span>이름</span>
+							<input name="a_name">
+						</div>
+						<div id="find_input">							
+							<span>전화번호</span>
+							<input name="a_phoneNum">
+						</div>
+					
+						<div id="find_btn">
+							<button>비밀번호 찾기</button>
+						</div>
+				</div>
 			
-			<div id="join_pic"></div>
-			<div id="join_policy"></div>
-			
-			<div id="join_btn">
-			<button>아이디 찾기</button>
 			</div>
 		</div>
-		</form>
 
-
-
-
-
-
-
-
-
-	</div>
 </body>
 </html>
