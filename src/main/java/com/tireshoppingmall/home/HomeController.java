@@ -31,6 +31,15 @@ public class HomeController {
 		
 	}
 	
+	@RequestMapping(value = "/board.home", method = RequestMethod.GET)
+	public String boardHome(Model model) {
+		model.addAttribute("content", "main/board/board.jsp");
+		model.addAttribute("board_contents", "board_home.jsp");
+		model.addAttribute("board_whereAmIOne", "");
+		model.addAttribute("board_whereAmITwo", "고객센터");
+		return "index";
+	}
+	
 	@RequestMapping(value = "/search.size", method = RequestMethod.GET)
 	public String goSearchSize(Model model) {
 		model.addAttribute("content", "main/search/search_size.jsp");
