@@ -19,7 +19,7 @@ pageEncoding="UTF-8"%>
     <div class="home_container">
       <section>
         <h1 class="home_title">
-          <img src="resources/web/logo3.png" style="height: 35px" />
+          <img src="resources/web/logo4.png" style="height: 35px" />
           <span>이용 방법</span>
         </h1>
         <div class="home_manual">
@@ -60,7 +60,7 @@ pageEncoding="UTF-8"%>
         </div>
       </section>
       <section>
-        <h1 class="home_title">MD 추천 타이어</h1>
+        <h1 class="home_title home_title2">MD 추천 타이어</h1>
         <div class="home_recommend">
           <a class="home_recommend_menu">
             <div class="home_shadow"></div>
@@ -109,7 +109,7 @@ pageEncoding="UTF-8"%>
         </div>
       </section>
       <section class="home_store_section">
-        <h1 class="home_title">매장 안내</h1>
+        <h1 class="home_title home_title2">매장 안내</h1>
         <div class="home_store">
           <a class="home_store_menu" href="/">
             <div class="home_shadow"></div>

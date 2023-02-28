@@ -69,7 +69,7 @@ pageEncoding="UTF-8"%>
               <a href="/">한국타이어</a>
               <a href="/">콘티넨탈타이어</a>
               <a href="/">피렐리타이어</a>
-              <a href="/">미쉐린타이어</a>
+              <a href="detail.test">미쉐린타이어</a>
             </li>
           </ul>
           <ul class="index_dropStore index_dropWrapper">

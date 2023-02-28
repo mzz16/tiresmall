@@ -12,7 +12,7 @@ public class BranchDTO {
 	private String b_service;
 	private String b_mapdata;
 	private String b_manager;
-	private String  b_managernumber;
+	private String b_managernumber;
 	private String b_branchname;
 	private String b_branchnumber;
 	private String b_cr;
@@ -25,7 +25,7 @@ public class BranchDTO {
 
 	public BranchDTO(int b_no, String b_id, String b_sortation, String b_area, String b_addr, String b_name,
 			String b_time, String b_service, String b_mapdata, String b_manager, String b_managernumber,
-			String b_branchname, int b_branchnumber, String b_cr, String b_email) {
+			String b_branchname, String b_branchnumber, String b_cr, String b_email) {
 		super();
 		this.b_no = b_no;
 		this.b_id = b_id;
