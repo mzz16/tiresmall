@@ -8,6 +8,8 @@
 <script src="https://code.jquery.com/jquery-3.6.3.min.js"
 	integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU="
 	crossorigin="anonymous"></script>
+	<link rel="stylesheet"
+	href="resources/css/admin/store/branch-findselect.css">
 <script src="resources/js/admin/store/admin_store.js"></script>
 
 <script type="text/javascript">
@@ -36,13 +38,20 @@
 					value="${branch1.b_sortation }" />직영점(당일장착점) <input type='radio'
 					name='b_sortation' value="${branch1.b_sortation }" /> 제휴장착점</td>
 			</tr>
+			
+			<tr>
+				<td>사진</td>
+				<td><img class="b_img_css" src="resources/web/${branch1.b_file }"></td>
+			</tr>
+			
 
 
 			<tr>
 				<td>지역</td>
-				<td><select name="b_area1" id="sido1"></select> <select
-					name="b_area2" id="gugun1"></select></td>
+				<td><select name="b_area1" id="sido1"></select> <select name="b_area2" id="gugun1"></select></td>
 			</tr>
+
+
 
 
 			<tr>

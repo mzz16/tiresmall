@@ -16,6 +16,7 @@
 <link rel="stylesheet"
 	href="resources/css/admin/store/branch-findselect.css">
 <script src="resources/js/admin/store/admin_store.js"></script>
+
 <script type="text/javascript">
 	function deletebranch(iddd) {
 		let ok = confirm('정말 삭제하시겠습니까?');
@@ -24,9 +25,6 @@
 		}
 
 	}
-	
-	
-	
 
 	$(document).ready(
 			function($) {
@@ -54,20 +52,26 @@
 
 
 	<div class="branch-findselect">
+		<div class="branch-findarea">
 
+			<form action="branch.search.area">
+				<div class="branch-text1">주소 선택</div>
 
-		<div class="branch-text1">주소 선택</div>
+				<select name="b_area1" id="sido1"></select> <select name="b_area2"
+					id="gugun1"></select>
 
-		<select name="b_area1" id="sido1"></select> <select name="b_area2"
-			id="gugun1"></select>
+				<button class="branch-findareabutton">주소 검색</button>
 
-
+			</form>
+		</div>
 		<div class="branch-text2" style="float: left;">장착점명</div>
+
 		<form action="branch.search.branchname">
 
 
 			<input name="b_branchname" style="text-align: center; height: 38px;">
-			<button class="branchsearchButton" style="float: right;">검색</button>
+			<button class="branchsearchButton" style="float: right;">장착점명
+				검색</button>
 
 		</form>
 
@@ -78,9 +82,6 @@
 
 
 	</div>
-
-
-
 
 
 
@@ -111,9 +112,10 @@
 			</div>
 			<div class="branchdatalist_div4" style="float: left;">${b.b_area }</div>
 			<div class="branchdatalist_div5" style="float: left;">
+
 				<button class="updatebranchbutton"
-					onclick="window.open('admin.store.update.go?b_id=${b.b_id}', 'window_name', 'width=430, height=500');">수정</button>
-				<button class="updatebranchbutton"
+					onclick="window.open('admin.store.update.go?b_id=${b.b_id}','window_name' ,'width=1000, height=800');">수정</button>
+				<button class="updatebranchbutton" id="updatebranch('${b.b_id}')"
 					onclick="deletebranch('${b.b_id}')">삭제</button>
 			</div>
 
@@ -121,15 +123,20 @@
 	</c:forEach>
 
 
-	<div id="regpopup01">
+
+	<div id="regpopup01" class="regbuttonarea">
 		<div class="close">close</div>
 		<div>
-			<form action="reg.branch.do">
+			<form action="reg.branch.do" method="post" enctype="multipart/form-data">
 				<table border="1" class="">
 					<tr>
 						<td>구분</td>
 						<td><input type='radio' name='b_sortation' value='직영점(당일장착점)' />직영점(당일장착점)
 							<input type='radio' name='b_sortation' value='제휴장착점' /> 제휴장착점</td>
+					</tr>
+					<tr>
+						<td>사진</td>
+						<td><input type="file" name = "file"></td>
 					</tr>
 					<tr>
 						<td>임시 id</td>
@@ -158,12 +165,12 @@
 
 					<tr>
 						<td>영업시간</td>
-						<td><input name="b_time" id= "inputregtime"></td>
+						<td><input name="b_time" id="inputregtime"></td>
 					</tr>
 
 					<tr>
 						<td>취급서비스</td>
-						<td><input name="b_service"></td>
+						<td><input name="b_service" id="service"></td>
 					</tr>
 
 					<tr>
@@ -173,118 +180,34 @@
 
 					<tr>
 						<td>연락처명</td>
-						<td>담당자명	<input name="b_manager"> 전화번호 <input
+						<td>담당자명 <input name="b_manager"> 전화번호 <input
 							name="b_managernumber"></td>
 					</tr>
 
 					<tr>
 						<td>사업자정보</td>
-						<td>업체명	 <input name="b_branchname"> 사업자번호	 <input
-							name="b_branchnumber"><br>대표자명		<input name="b_cr">
-							사업자이메일	<input name="b_email"></td>
+						<td class = "branchinfoareasangdanframe"><div class="branchinfoareasangdan" style=" float: left;">
+								<div style=" float: left;"><div class = "branchnamestyle1">업체명</div> <input name="b_branchname" style="height: 30px; width:165px;"></div>
+								
+								<div style=" float: left;"><div class = "branchnamestyle2">사업자번호</div><input name="b_branchnumber" style="height: 30px;"></div>
+								
+							</div> <br>
+							<div class="branchinfoareahadan" style=" float: left;">
+								<div style=" float: left;"><div class = "branchnamestyle3">대표자명</div> <input name="b_cr" style="height: 30px; width:150px;"></div>
+								
+								<div class="" style=" float: left;"><div class = "branchnamestyle4">사업자이메일</div> <input name="b_email" style="height: 30px;"> </div>
+								
+							</div></td>
 					</tr>
 
-
+					<tr>
+						<td colspan=2><div class="regokbutton">
+								<button class="regokbutton1" id="regbranch">등록</button>
+							</div></td>
 				</table>
-				<button id="regbranch">등록</button>
 			</form>
 		</div>
 	</div>
-
-
-
-
-
-
-	<%-- <div class="openPopup">클릭하면 팝업이 나와요</div>   
-<div id="popup01">
-   <div class="close">close</div>
-   <div>팝업 내용</div>
- </div>  --%>
-
-
-
-
-
-	<form action="admin.store.update.do">
-		<table border="1">
-			<tr>
-				<td>구분</td>
-				<td><input type='radio' name='b_sortation'
-					value="${branch1.b_sortation }" />직영점(당일장착점) <input type='radio'
-					name='b_sortation' value="${branch1.b_sortation }" /> 제휴장착점</td>
-			</tr>
-
-
-			<tr>
-				<td>지역</td>
-				<td><select name="b_area1" id="sido1"></select> <select
-					name="b_area2" id="gugun1"></select></td>
-			</tr>
-
-
-			<tr>
-				<td>장착점명</td>
-				<td><input name="b_name" value="${branch1.b_name }"></td>
-			</tr>
-
-			<tr>
-				<td>상세주소</td>
-				<td><input name="b_addr" value="${branch1.b_addr }"></td>
-			</tr>
-
-			<tr>
-				<td>영업시간</td>
-				<td><input name="b_time" value="${branch1.b_time }"></td>
-			</tr>
-
-			<tr>
-				<td>취급서비스</td>
-				<td><input name="b_service" value="${branch1.b_service }"></td>
-			</tr>
-
-			<tr>
-				<td>지도데이터</td>
-				<td><input name="b_mapdata" value="${branch1.b_mapdata }"></td>
-			</tr>
-
-			<tr>
-				<td>연락처</td>
-				<td>담당자명 <input name="b_manager" value="${branch1.b_manager }">
-					전화번호 <input name="b_managernumber"
-					value="${branch1.b_managernumber }"></td>
-			</tr>
-
-			<tr>
-				<td>사업자정보</td>
-				<td>업체명<input name="b_branchname"
-					value="${branch1.b_branchname }">사업자번호<input
-					name="b_branchnumber" value="${branch1.b_branchnumber }"><br>대표자명<input
-					name="b_cr" value="${branch1.b_cr }">사업자이메일<input
-					name="b_email" value="${branch1.b_email }"></td>
-			</tr>
-
-
-		</table>
-		<button name="b_id" id="updateb_id" value="${branch1.b_id }">수정</button>
-		
-		
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

@@ -12,13 +12,12 @@ b_managernumber varchar2(13 char) ,
 b_branchname varchar2(20 char) ,
 b_branchnumber varchar2(13 char) ,
 b_cr varchar2(20 char)  ,
-b_email varchar2(30 char)	
-
+b_email varchar2(30 char),	
+b_file varchar2(2000 char)
 );
 
-insert into branch values('id','직영점','성남','중원구','현식','평일낮','한국타이어','대충지도','1','2','3','4','5','6');
-insert into branch values('id2','제휴장착점','서울','강남구','민지','일요일','서울타이어','섬세지도','1','2','3','4','5','6');
-insert into branch values('id3','직영점','서울','강북구','유리','월요일','강북타이어','알찬지도','1','2','3','4','5','6');
+insert into branch values('id','직영점','성남','중원구','현식','평일낮','한국타이어','대충지도','1','2','3','4','5','6','a.jpg');
+insert into branch values('id2','제휴장착점','서울','강남구','민지','일요일','서울타이어','섬세지도','1','2','3','4','5','6','a.jpg');
 
 
 
