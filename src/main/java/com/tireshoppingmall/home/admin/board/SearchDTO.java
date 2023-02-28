@@ -9,7 +9,17 @@ public class SearchDTO {
 	private BigDecimal start;
 	private BigDecimal end;
 
-	
+	public SearchDTO() {
+		// TODO Auto-generated constructor stub
+	}
+
+	public SearchDTO(String selectOption, String titleInput, BigDecimal start, BigDecimal end) {
+		super();
+		this.selectOption = selectOption;
+		this.titleInput = titleInput;
+		this.start = start;
+		this.end = end;
+	}
 
 	public String getSelectOption() {
 		return selectOption;
@@ -43,7 +53,4 @@ public class SearchDTO {
 		this.end = end;
 	}
 
-
-	
-	
 }

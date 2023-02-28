@@ -9,22 +9,18 @@
 <script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
 <script type="text/javascript">
 $(function() {	
-	$("#searchCarType").click(function() {
-		$("#carTypeDialog")[0].showModal();
-	});
+	
 });
 </script>
 
 </head>
 <body>
+	<div class="searchTopImgWrapper"></div>
+	<div class="searchTireSizeGuideWrapper"></div>
 	<div class="searchContainer">
-		<label id="searchCarType">
-			<div class="searchIng">단면폭</div><input class="ingBox" readonly></input>
-			<div class="searchIng">단면폭</div><input class="ingBox" readonly></input>
-			<div class="searchIng">단면폭</div><input class="ingBox" readonly></input>
-		</label>
-		<dialog id="carTypeDialog">dd</dialog>
-		<button class="searchIng">검색</button>
+		<div class="searchConditionWrapper">
+			<div class="conditionSubtitle">단면폭</div>
+		</div>
 	</div>
 </body>
 </html>

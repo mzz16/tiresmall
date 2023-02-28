@@ -37,6 +37,11 @@ public interface AdminBoardMapper {
 
 	void updateQna(QnaReplyDTO qnaReplyDTO);
 
+	int getNoticeCount(SearchDTO search);
+
+	List<NoticeDTO> getNotice(SearchDTO search);
+
+	
 
 	
 }
