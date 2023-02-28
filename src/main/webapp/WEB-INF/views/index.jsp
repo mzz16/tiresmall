@@ -14,17 +14,25 @@ pageEncoding="UTF-8"%>
     <div class="index_container">
       <header>
         <div class="index_wrapper index_hWrapper">
+        <!-- 
+          <div class="index_hTop">
+            <div>
+            	슬라이드배너
+            </div>
+          </div>
+         -->
           <div class="index_hTop">
             <div class="index_hTopLeft">
               <a href="admin.order.go?m=order">관리자</a>
-              <a href="/">구매가이드</a>
-              <a href="/">실시간 상담</a>
+              <input class="board_contentType" value="${board_contents }" type="hidden">
+              <a href="board.shoppingGuide">구매가이드</a>
+              <a href="board.askByKakao">카카오톡상담</a>
             </div>
             <div class="index_hTopRight">
               <a href="login">로그인</a>
               <a href="join">회원가입</a>
               <a href="non-member">비회원 주문조회</a>
-              <a href="/">고객센터</a>
+              <a href="board.home">고객센터</a>
             </div>
           </div>
           <div class="index_hBottom">
@@ -111,5 +119,6 @@ pageEncoding="UTF-8"%>
     </div>
     <script src="resources/js/index.js"></script>
     <script src="https://kit.fontawesome.com/e41d253229.js" crossorigin="anonymous"></script>
+    <script src="resources/js/main/board/main_board.js"></script>
   </body>
 </html>

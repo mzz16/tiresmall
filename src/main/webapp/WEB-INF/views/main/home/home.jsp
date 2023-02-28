@@ -83,7 +83,7 @@ pageEncoding="UTF-8"%>
           <div class="home_board_box">
             <div class="home_title home_board_title">
               <h1>공지사항</h1>
-              <a href="/">더 보기</a>
+              <a href="board.notice">더 보기</a>
             </div>
             <ul class="home_board_content">
               <li>공지사항 1</li>
@@ -96,7 +96,7 @@ pageEncoding="UTF-8"%>
           <div class="home_board_box">
             <div class="home_title home_board_title">
               <h1>이벤트</h1>
-              <a href="/">더 보기</a>
+              <a href="board.event">더 보기</a>
             </div>
             <ul class="home_board_content">
               <li>이벤트 1</li>
