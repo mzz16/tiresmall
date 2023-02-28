@@ -14,7 +14,7 @@ public class BranchDTO {
 	private String b_service;
 	private String b_mapdata;
 	private String b_manager;
-	private String  b_managernumber;
+	private String b_managernumber;
 	private String b_branchname;
 	private String b_branchnumber;
 	private String b_cr;
@@ -25,18 +25,10 @@ public class BranchDTO {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-<<<<<<< HEAD
 	public BranchDTO(int b_no, String b_id, String b_sortation, String b_area, String b_addr, String b_name,
 			String b_time, String b_service, String b_mapdata, String b_manager, String b_managernumber,
 			String b_branchname, String b_branchnumber, String b_cr, String b_email, MultipartFile file,
 			String b_file) {
-=======
-
-
-	public BranchDTO(int b_no, String b_id, String b_sortation, String b_area, String b_addr, String b_name,
-			String b_time, String b_service, String b_mapdata, String b_manager, String b_managernumber,
-			String b_branchname, int b_branchnumber, String b_cr, String b_email) {
->>>>>>> 985fca62d7edfdf36f03cc2efd462e1592965390
 		super();
 		this.b_no = b_no;
 		this.b_id = b_id;
@@ -56,11 +48,7 @@ public class BranchDTO {
 		this.file = file;
 		this.b_file = b_file;
 	}
-<<<<<<< HEAD
-=======
-
-
->>>>>>> 985fca62d7edfdf36f03cc2efd462e1592965390
+  
 	public int getB_no() {
 		return b_no;
 	}
@@ -127,10 +115,6 @@ public class BranchDTO {
 	public void setB_managernumber(String b_managernumber) {
 		this.b_managernumber = b_managernumber;
 	}
-<<<<<<< HEAD
-=======
-  
->>>>>>> 985fca62d7edfdf36f03cc2efd462e1592965390
 	public String getB_branchname() {
 		return b_branchname;
 	}

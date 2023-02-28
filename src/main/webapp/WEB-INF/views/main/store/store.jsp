@@ -62,26 +62,34 @@
 		<div id="store_wrap_info">
 			<div id="store_info_name">[${store.b_sortation}] ${store.b_name } </div>
 			<div class="store_info_row">
-				<div class="store_info_row_index">위치안내 :</div>
+				<div class="store_info_row_index">위치안내 </div>
 				<div class="store_info_row_content storeAddress">${store.b_area } ${store.b_addr }</div>
 			</div>
 			<div class="store_info_row">
-				<div class="store_info_row_index">전화번호 :</div>
+				<div class="store_info_row_index">전화번호 </div>
 				<div class="store_info_row_content">${store.b_managernumber }</div>
 			</div>
 			<div class="store_info_row">
-				<div class="store_info_row_index">영업시간 :</div>
+				<div class="store_info_row_index">영업시간 </div>
 				<div class="store_info_row_content">${store.b_time }</div>
 			</div>
 			<div class="store_info_row">
-				<div class="store_info_row_index">취급품목 :</div>
+				<div class="store_info_row_index">취급품목 </div>
 				<div class="store_info_row_content">${store.b_service}</div>
 			</div>
 		</div>
 			<input id="location" value="${store.b_mapdata }" type="hidden"></input>
 			<input id="location_lng" type="hidden"></input>
 			<input id="location_lat" type="hidden"></input>
-		<div id="store_wrap_map1">
+				
+		<div id="store_wrap_banner">
+			<%-- <input id="store_banner_img" value="${store.b_img }"></input> --%>
+			<img src="">
+		</div>
+		
+		<h1 id="store_map_title">오시는 길</h1>
+		
+		<div id="store_wrap_map">
 			<!--  
 			직영점 36.3417632		127.3663178
 			죽동점 36.369228		127.338054
@@ -90,12 +98,52 @@
 			반월점 36.208517		127.0937896
 			 -->
 		</div>
-				
-		<div id="store_wrap_banner">
-			<img src="">
-		</div>
+		
+		<!-- <div id="store_wrap_likeNotice">
+			<div id="store_likeNotice_notice">
+				<div class="store_likeNotice_title">
+					<h1>공지사항</h1>
+					<a href="/">더 보기</a>
+				</div>
+				<div id="store_notice_content" class="store_likeNotice_content">
+					공지사항들
+				</div>
+			</div>
+			<div id="store_likeNotice_CS">
+				<div class="store_likeNotice_title">
+					<h1>고객센터 안내</h1>
+				</div>
+				<div id="store_CS_content" class="store_likeNotice_content">
+					<h1>010-5125-8008</h1>
+					<h2>타이어 전문 상담</h2>
+					평일 08:30~19:00 / 토요일 08:30~16:00(일요일 휴무)
+				</div>
+				<div id="store_CS_btns">
+					<div id="store_btns_1on1" onclick="location.href='/'">
+						1:1 고객상담
+					</div>
+					<div id="store_btns_faq" onclick="location.href='/'">
+						FAQ 바로가기
+					</div>
+				</div>
+			</div>
+			<div id="store_likeNotice_store">
+				<div class="store_likeNotice_title">
+					<h1>직영점 바로 장착 안내</h1>
+				</div>
+				<div id="store_store_content" class="store_likeNotice_content">
+					오늘 예약 하고 바로 장착 !
+					<h2>문의 상담 : 010-5125-8008</h2>
+					평일 08:30~19:00 / 토요일 08:30~16:00(일요일 휴무)
+				</div>
+				<div id="store_btns_storeLocation">
+					당일장착점 위치 안내
+				</div>
+			</div>
+		</div>-->	
+		
 	</div>
-
+	
 
 </body>
 </html>

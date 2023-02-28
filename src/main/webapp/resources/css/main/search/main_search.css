@@ -1,27 +1,33 @@
 .searchContainer {
 	width: 1200px;
-    margin: auto;
-    padding: 30px 0 30px 0;
-    background-color: #ab1e21;
+	margin: auto;
 }
 
-.searchIng {
-	width: 100px;
-	height: 40px;
-	line-height: 40px;
-	text-align: center;
-	display: inline-block;
-	background-color: #3d3d3e;
-	color: white;
-	border-radius: 10px;
-	margin: 0 15px;
+.searchTopImgWrapper {
+	max-width: 1900px;
+	height: 378px;
+	margin: auto;
+	background-image: url("../../../web/main/search/searchTopImg.png");
+	background-repeat: no-repeat;
+	background-size: contain;
 }
 
-.ingBox {
-	width: 200px;
-	height: 40px;
-	line-height: 40px;
-	margin: 0;
-	padding: 0;
-	border: 0;
+.searchTireSizeGuideWrapper {
+	max-width: 1900px;
+	height: 650px;
+	margin: auto;
+	background-image: url("../../../web/main/search/searchTireGuideImg.png");
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-position: center;
+}
+
+.searchConditionWrapper {
+	display: flex;	
+}
+
+.conditionSubtitle {
+	font-size: 32px;
+	font-weight: 700;
+	padding: 30px 0 25px 0;
 }

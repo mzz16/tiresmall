@@ -55,5 +55,15 @@ public class HomeController {
 		model.addAttribute("content", "main/store/store.jsp");
 		return "index";
 	}
+	@RequestMapping(value = "/product", method = RequestMethod.GET)
+	public String goBrand(Model model) {
+		model.addAttribute("content", "main/product/product.jsp");
+		return "index";
+	}
 	
+	@RequestMapping(value = "/detail.test", method = RequestMethod.GET)
+	public String goDetailTest(Model model) {
+		model.addAttribute("content", "main/product/detail.jsp");
+		return "index";
+	}
 }

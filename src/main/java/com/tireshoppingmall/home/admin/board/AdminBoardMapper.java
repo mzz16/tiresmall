@@ -27,5 +27,21 @@ public interface AdminBoardMapper {
 
 	boolean deleteFaq(FaqDTO faqDTO);
 
+	List<QnaDTO> getAllQna();
+
+	List<QnaDTO> searchQnA(QnaSearchDTO qnaSearchDTO);
+
+	int insertQnAReply(QnaReplyDTO qnaReplyDTO);
+
+	QnaReplyDTO getReply(QnaReplyDTO qnaReplyDTO);
+
+	void updateQna(QnaReplyDTO qnaReplyDTO);
+
+	int getNoticeCount(SearchDTO search);
+
+	List<NoticeDTO> getNotice(SearchDTO search);
+
+	
+
 	
 }

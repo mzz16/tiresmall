@@ -29,8 +29,8 @@
 		<beans:property name="driverClassName" value="oracle.jdbc.driver.OracleDriver" />
 		<beans:property name="url"
 			value="jdbc:oracle:thin:@localhost:1521:xe" />
-		<beans:property name="username" value="c##ojh1004" />
-		<beans:property name="password" value="ojh1004" />
+		<beans:property name="username" value="c##kms96" />
+		<beans:property name="password" value="kms96" />
 	</beans:bean>
 
 	<beans:bean id="transactionManager"
@@ -67,6 +67,10 @@
 	<beans:bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
       <beans:property name="maxUploadSize" value="10485760" />
       <beans:property name="defaultEncoding" value="utf-8" />
+	</beans:bean>
+   
+   <beans:bean id="no" class="com.tireshoppingmall.home.admin.board.NoticeOption">
+		<beans:constructor-arg value="7"></beans:constructor-arg>
 	</beans:bean>
    
 </beans:beans>
