@@ -21,6 +21,9 @@ public interface AdminStoreMapper {
 
 
 	int deletebranch(BranchDTO b);
+
+
+	List<BranchDTO> branchSearcharea(BranchDTO b);
 	
 	
 }

@@ -14,7 +14,7 @@
 		parameterType="com.tireshoppingmall.home.admin.store.BranchDTO">
 
 		insert into branch
-		values(#{b_id},#{b_sortation},#{b_area},#{b_addr},#{b_name},#{b_time},#{b_service},#{b_mapdata},#{b_manager},#{b_managernumber},#{b_branchname},#{b_branchnumber},#{b_cr},#{b_email})
+		values(#{b_id},#{b_sortation},#{b_area},#{b_addr},#{b_name},#{b_time},#{b_service},#{b_mapdata},#{b_manager},#{b_managernumber},#{b_branchname},#{b_branchnumber},#{b_cr},#{b_email},#{b_file})
 
 
 	</insert>
@@ -23,6 +23,13 @@
 		resultType="com.tireshoppingmall.home.admin.store.BranchDTO">
 
 		select * from branch where b_branchname like '%'||#{b_branchname}||'%'
+
+	</select>
+	
+		<select id="branchSearcharea"
+		resultType="com.tireshoppingmall.home.admin.store.BranchDTO">
+
+		select * from branch where b_area like '%'||#{b_area}||'%'
 
 	</select>
 
@@ -49,7 +56,8 @@
 		b_branchname = #{b_branchname},
 		b_branchnumber = #{b_branchnumber},
 		b_cr = #{b_cr},
-		b_email = #{b_email}
+		b_email = #{b_email},
+		b_file = #{b_file}
 
 		where b_id = #{b_id}
 
