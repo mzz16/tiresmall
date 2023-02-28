@@ -69,4 +69,8 @@
       <beans:property name="defaultEncoding" value="utf-8" />
 	</beans:bean>
    
+   <beans:bean id="no" class="com.tireshoppingmall.home.admin.board.NoticeOption">
+		<beans:constructor-arg value="7"></beans:constructor-arg>
+	</beans:bean>
+   
 </beans:beans>

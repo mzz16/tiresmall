@@ -29,6 +29,31 @@
 		delete notice where n_no = #{n_no}
 	</delete>
 	
+	<!-- Notice 페이징 -->
+	<select id="getNoticeCount" resultType="int">
+		select count(*)
+		from notice
+		where n_title like '%'||#{titleInput}||'%'
+	</select>
+	
+	<select id="getNotice" resultType="com.tireshoppingmall.home.admin.board.NoticeDTO">
+		select * from 
+			(select rownum as rn, n_no, n_sortation, n_title, n_txt, n_date from(
+			select * from notice where n_title like '%'||#{titleInput}||'%'
+			<choose>
+				<when test="selectOption == 1">
+					and n_sortation = '안내' 
+				</when>
+				<when test="selectOption == 2">
+					and n_sortation = '매장'
+				</when>
+				<when test="selectOption == 3">
+					and n_sortation = '프로모션'
+				</when>
+			</choose>
+			order by n_no desc)
+			)where rn &gt;= #{start} and rn &lt;= #{end}
+	</select>
 	
 	<!-- FAQ mapper  -->
 	
@@ -58,11 +83,13 @@
 	
 	<!-- QNA mapper  -->
 	
+	<!-- QNA 전체 조회 -->
 	<select id="getAllQna" resultType="com.tireshoppingmall.home.admin.board.QnaDTO">
-select q_no, q_title, q_txt, q_date, q_id, q_reply_has, a_id, a_name
-from qna, auth where q_id = a_id order by q_no
+		select q_no, q_title, q_txt, q_date, q_id, q_reply_has, a_id, a_name
+		from qna, auth where q_id = a_id order by q_no
 	</select>
 
+	<!-- QNA 부분 검색-->
 	<select id="searchQnA" parameterType="com.tireshoppingmall.home.admin.board.QnaSearchDTO" resultType="com.tireshoppingmall.home.admin.board.QnaDTO">
 			select q.*, a.a_id, a.a_name
 			from qna q, auth a where q.q_id = a.a_id and
@@ -76,15 +103,19 @@ from qna, auth where q_id = a_id order by q_no
             order by q_no
 	</select>
 	
+	<!-- QNA 답변-->
 	<insert id="insertQnAReply" parameterType="com.tireshoppingmall.home.admin.board.QnaReplyDTO">
 		insert into qna_reply values(qna_reply_seq.nextval, #{q_reply_txt},sysdate,#{q_reply_board_no})
 	</insert>
+	
+	<!-- QNA 답변 완료 처리-->
 	<update id="updateQna">
 		update qna
 		set q_reply_has = 1
 		where q_no = #{q_reply_board_no}
 	</update>
 	
+	<!-- QNA 모달에 값 가져오기-->
 	<select id="getReply" resultType="com.tireshoppingmall.home.admin.board.QnaReplyDTO">
 		select * from qna_reply where q_reply_board_no = #{q_reply_board_no}
 	</select>
