@@ -2,6 +2,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Do+Hyeon&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap');
 
+
+:root {
+  --color-success: #23d160;
+  --color-error: #f14668;
+  --color-basicRed:#b20433;
+  --color-grayLigt:#e6e4e3;
+}
+
+
 body {
   background-color: white;
   color: black;
@@ -62,11 +71,12 @@ body {
 	font-size: 26pt;
 	width: 300px;
 	height: 46px;
-	background-color: rgb(183,62,65);
+	background: var(--color-basicRed);
 	border-radius: 10px;
 	color: white;
 	box-shadow: 2px 2px 2px 2px gray;
 	border: none;
+	cursor:pointer;
 	}
 	
 #login_other_btn{
@@ -113,11 +123,12 @@ body {
 	font-size: 26pt;
 	width: 300px;
 	height: 46px;
-	background-color: rgb(183,62,65);
+	background: var(--color-basicRed);
 	border-radius: 10px;
 	color: white;
 	box-shadow: 2px 2px 2px 2px gray;
 	border: none;
+	cursor:pointer;
 	}
 
 .join_box{
@@ -160,11 +171,12 @@ body {
 	font-size: 16pt;
 	width: 150px;
 	height: 30px;
-	background-color: rgb(183,62,65);
+	background: var(--color-basicRed);
 	border-radius: 10px;
 	color: white;
 	box-shadow: 2px 2px 2px 2px gray;
 	border: none;
+	cursor:pointer;
 	}
 #tou_btn button:nth-child(1){
 	background-color: gray;
@@ -202,8 +214,14 @@ body {
 
 /*---------------findEmail-----------------*/
 
+.find_content > div:last-child {
+  display:none;
+}
+
+
 #find_input{
 	display: flex;
+	width: 400px;
 }
 
 #find_container{
@@ -229,80 +247,125 @@ body {
  padding-bottom: 7px;
  font-family: 'Do Hyeon', sans-serif;
  font-size: 16pt;
- background-color: gray;
  display: flex;
- width: 300px;
- height: 30px;
- flex: 1 1 0;	
+ width: 500px;
+ height:80px;
+ justify-content:center;
+ align-items: center;
+ padding-bottom: 30px;
 }
 
-#find_title_id{
-	width: 150px;
-	height: 30px;	
-	border: 1px solid black;
+.findTab active{
+	width: 200px;
+	height: 60px;
+	line-height:60px;	
+	text-align:center;
+	background: var(--color-basicRed);
+	color: white;
+	border: 1px soild black;
+}
+.findTab{
+	width: 200px;
+	height: 60px;
+	line-height:60px;	
+	text-align:center;
+	background-color: #77767c;
+	color: white;
 }
 
+.find_content{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 
-
-#join_btn{
+#find_btn{
 	padding-top: 20px;
 	padding-bottom: 20px;
 }
-#join_btn button{
+#find_btn button{
 	font-family: 'Black Han Sans', sans-serif;
 	font-size: 26pt;
 	width: 300px;
 	height: 46px;
-	background-color: rgb(183,62,65);
+	background: var(--color-basicRed);
 	border-radius: 10px;
 	color: white;
 	box-shadow: 2px 2px 2px 2px gray;
 	border: none;
+	cursor:pointer;
 	}
-
-.find_box{
+#find_email{
 	display:flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items:center;
 	width: 600px;
+	padding-bottom: 30px;
 }
-.find_box span {
+#find_email span {
 	width:100px;
 	font-size: 16pt;
 	padding-right: 15px;
 	font-family: 'Do Hyeon', sans-serif;
 	line-height: 32.5px;
 }
+#find_email input{
+	width: 300px;
+	height: 30px;
+}
+#find_email input:focus {
+	outline-color:rgb(183,62,65);
+}
+#find_pw{
+	display:flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items:center;
+	width: 600px;
+	padding-bottom: 30px;
+}
+#find_pw span {
+	width:100px;
+	font-size: 16pt;
+	padding-right: 15px;
+	font-family: 'Do Hyeon', sans-serif;
+	line-height: 32.5px;
+}
+#find_pw input{
+	width: 300px;
+	height: 30px;
+}
+#find_pw input:focus {
+	outline-color:rgb(183,62,65);
+}
 #find_input{
  padding-bottom: 16px;
 }
 
-.find_box input{
-	width: 200px;
-	height: 30px;
+
+.findTab a{
+	display:block;
+    text-decoration:none;
+    background-color: gray;
+    color: var(--color-grayLigt);
+    cursor:pointer;
+    transition:.5s ease;
 }
-.find_box input:focus {
-	outline-color:rgb(183,62,65);
+.findTab a:hover{
+	background: var(--color-basicRed);
+	color: white;
+}
+.active a {
+	background: var(--color-basicRed);
+	color:white;
+	
 }
 
-  letter-spacing:.1em;
-  background:$main;
-  color:$white;
-  transition:all.5s ease;
-  -webkit-appearance: none;
-  &:hover, &:focus {
-    background:$main-dark;
-  }
-}
 
-.button-block {
-  display:block;
-  width:100%;
-}
 
-.forgot {
-  margin-top:-20px;
-  text-align:right;
-}
+
+
+
 

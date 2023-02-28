@@ -5,8 +5,6 @@ pageEncoding="UTF-8"%>
   <head>
     <meta charset="UTF-8" />
     <title>대전 타이어쇼핑몰</title>
-    <link rel="shortcut icon" href="resources/web/favicon.png" type="image/png">
-	<link rel="icon" href="resources/web/favicon.png" type="image/png">
     <link rel="stylesheet" href="resources/css/index.css" />
   </head>
   <body>
@@ -27,6 +25,11 @@ pageEncoding="UTF-8"%>
               <input class="board_contentType" value="${board_contents }" type="hidden">
               <a href="board.shoppingGuide">구매가이드</a>
               <a href="board.askByKakao">카카오톡상담</a>
+        <div class="index_header">
+          <div class="index_hTop">
+            <div class="index_hTopLeft">
+              <a href="admin.order.go?m=order">관리자</a>
+              <a href="/">실시간 상담</a>
             </div>
             <div class="index_hTopRight">
               <a href="login">로그인</a>
@@ -38,7 +41,7 @@ pageEncoding="UTF-8"%>
           <div class="index_hBottom">
             <div class="index_logo">
               <a href="/home">
-                <img src="resources/web/logo.png" style="height: 50px" />
+                <img src="resources/web/logo.png" style="width: 190px" />
               </a>
             </div>
             <div class="index_topNav">
@@ -51,8 +54,12 @@ pageEncoding="UTF-8"%>
               <div class="index_tnMenu index_tnStore">
                 <a href="store?id=1">매장 안내</a>
               </div>
+              <div class="index_tnMenu index_tnBoard">
+                <a href="/">뉴스 & 이벤트</a>
+              </div>
             </div>
             <div class="index_sideNav">
+              <a href="/">고객센터</a>
               <a href="/">장바구니</a>
             </div>
           </div>
@@ -71,7 +78,7 @@ pageEncoding="UTF-8"%>
               <a href="/">한국타이어</a>
               <a href="/">콘티넨탈타이어</a>
               <a href="/">피렐리타이어</a>
-              <a href="/">미쉐린타이어</a>
+              <a href="detail.test">미쉐린타이어</a>
             </li>
           </ul>
           <ul class="index_dropStore index_dropWrapper">
@@ -86,13 +93,13 @@ pageEncoding="UTF-8"%>
         </div>
       </header>
       <main>
-      	<jsp:include page="${content}"></jsp:include>
+        <jsp:include page="${content}"></jsp:include>
       </main>
       <footer>
-        <div class="index_wrapper index_fWrapper">
+        <div class="index_footer">
           <div class="index_fTop">
             <div class="index_fLogo">
-              <img src="resources/web/logo2.png" style="height: 40px" />
+              <img src="resources/web/logo2.png" style="width: 190px" />
             </div>
             <div class="index_fNav">
               <a href="/">이용약관 |</a>
@@ -120,5 +127,9 @@ pageEncoding="UTF-8"%>
     <script src="resources/js/index.js"></script>
     <script src="https://kit.fontawesome.com/e41d253229.js" crossorigin="anonymous"></script>
     <script src="resources/js/main/board/main_board.js"></script>
+    <script
+      src="https://kit.fontawesome.com/e41d253229.js"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>

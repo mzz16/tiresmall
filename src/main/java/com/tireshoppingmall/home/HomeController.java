@@ -65,4 +65,9 @@ public class HomeController {
 		return "index";
 	}
 	
+	@RequestMapping(value = "/detail.test", method = RequestMethod.GET)
+	public String goDetailTest(Model model) {
+		model.addAttribute("content", "main/product/detail.jsp");
+		return "index";
+	}
 }
