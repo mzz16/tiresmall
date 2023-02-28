@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.multipart.MultipartFile;
 
 @Controller
 public class AdminStoreController {
@@ -29,10 +30,10 @@ public class AdminStoreController {
 
 	}
 
-	@RequestMapping(value = "/reg.branch.do", method = RequestMethod.GET)
-	public String storeRegDo(BranchDTO b, HttpServletRequest req) {
+	@RequestMapping(value = "/reg.branch.do", method = RequestMethod.POST)
+	public String storeRegDo(MultipartFile file,BranchDTO b, HttpServletRequest req) {
 
-		bDAO.regBranch(b, req);
+		bDAO.regBranch(file,b, req);
 		return "admin/master";
 
 	}
@@ -44,6 +45,16 @@ public class AdminStoreController {
 		return "admin/master";
 
 	}
+	
+	@RequestMapping(value = "/branch.search.area", method = RequestMethod.GET)
+	public String branchSearcharea(BranchDTO b, Model m, HttpServletRequest req) {
+		bDAO.branchSearcharea(req,b, m);
+		req.setAttribute("contentPage", "store/branch.jsp");
+		return "admin/master";
+
+	}
+	
+	
 
 	@RequestMapping(value = "/admin.store.update.go", method = RequestMethod.GET)
 	public String branchupdateGo(BranchDTO b, Model m, HttpServletRequest req) {

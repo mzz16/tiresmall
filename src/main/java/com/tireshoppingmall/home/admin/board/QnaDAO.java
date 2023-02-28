@@ -16,20 +16,11 @@ public class QnaDAO {
 
 	public void getAllQna(HttpServletRequest req) {
 		List<QnaDTO> qna = ss.getMapper(AdminBoardMapper.class).getAllQna();
-		for (QnaDTO qnaDTO : qna) {
-			System.out.println(qnaDTO.toString());
-		}
 		req.setAttribute("qna", qna);
 	}
 
 	public void searchQnA(QnaSearchDTO qnaSearchDTO, HttpServletRequest req) {
-		System.out.println(1);
 		List<QnaDTO> qna = ss.getMapper(AdminBoardMapper.class).searchQnA(qnaSearchDTO);
-		System.out.println(qna);
-		for (QnaDTO qnaDTO : qna) {
-			System.out.println(qnaDTO.toString());
-		}
-		
 		req.setAttribute("qna", qna);
 	}
 
@@ -37,7 +28,6 @@ public class QnaDAO {
 		qnaReplyDTO.setQ_reply_board_no(req.getParameter("q_no"));
 		if(ss.getMapper(AdminBoardMapper.class).insertQnAReply(qnaReplyDTO)==1) {
 			ss.getMapper(AdminBoardMapper.class).updateQna(qnaReplyDTO);
-			System.out.println("답글 됨");
 		};
 		
 		

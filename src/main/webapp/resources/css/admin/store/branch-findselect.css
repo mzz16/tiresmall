@@ -5,6 +5,7 @@ width: 200px;
 padding: .8em .5em; 
 border: 1px solid #999;
 display: flex;
+margin-right:5px;
 }
 
 .branch-findselect{
@@ -17,6 +18,17 @@ position:relative;
 
 }
 
+.branch-findarea{
+	
+	
+	float:left;
+	
+}
+
+.b_img_css{
+	
+	width:150px;
+}
 
 .branchsearchButton{
 	
@@ -30,14 +42,16 @@ position:relative;
     cursor: pointer;
     color:white;
     position:relative;
+   
 	
 }
 
 .branch-text1{
+	float:left;
 	display: flex;
 	padding-top:6.5px;
 	padding-bottom:7px;
-	border: solid 3px;
+	border: solid 2.5px;
 	border-radius: 10px 0 0 10px;
 	 padding-left: 2px;
 	 padding-right: 2px;
@@ -47,19 +61,38 @@ position:relative;
 
 
 .branch-text2{
+float:left;
 	display: flex;
-	padding-top:7px;
-	padding-bottom:7px;
-	border: solid 1px;
-   margin-left : 18px;
-    padding-left: 2px;
+	padding-top:9px;
+	padding-bottom:9.5px;
+	border: solid 2.5px;
+	border-radius: 10px 0 0 10px;
+	margin-left:20px;
+	 padding-left: 2px;
 	 padding-right: 2px;
-	 border-radius: 10px 0 0 10px;
-     	background-color: #C0C0C0;
-     	position:relative;
+	 background-color: #C0C0C0;
+	position:relative;
 }
 
+.b_area2{
+	margin-right:5px;
+	
+}
 
+.branch-findareabutton{
+	
+	display: flex;
+	background: #0080FF;
+	margin-left:5px;
+	  border-radius: 5px;
+    border: 1px solid #000;
+    padding: 8px 10px;
+    font-size: 1em;
+    cursor: pointer;
+    color:white;
+    position:relative;
+	
+}
 
 
 .branchRegButton{
@@ -171,6 +204,12 @@ position:relative;
   
 }
 
+.regbuttonarea{
+	
+	border: 1px solid #000;
+	background-color: #fff;
+}
+
 .updatebranchbutton {
 	width: 130px;
   height: 40px;
@@ -220,7 +259,7 @@ position:relative;
 }
 #regpopup01{
 width: 800px;
-height: 500px;
+height: 600px;
 position: absolute;
 top: 50%;
 left: 50%;
@@ -322,7 +361,15 @@ z-index: 2;
 
 
 
+.regokbutton{
+	
+	text-align: center;
+}
 
+.regokbutton1{
+	
+	display :inline-block;
+}
 
 
 
@@ -404,9 +451,180 @@ a {
   
   
   }
+  
+ .branchinfoarea1{
+
+ }
+ 
+  .branchinfoarea2{
+   
+ }
+ 
+  .branchinfoarea3{
+ 
+ }
+ 
+  .branchinfoarea4{
+
+ }
+
+
+.branchnamestyle1{
+	
+		float:left;
+	display: flex;
+	padding-top:6.5px;
+	padding-bottom:7px;
+	border: solid 2.5px;
+	border-radius: 10px 0 0 10px;
+	 padding-left: 2px;
+	 padding-right: 2px;
+	 background-color: #C0C0C0;
+	position:relative;
+	margin-bottom: 20px;
+	
+}
+
+
+.branchnamestyle2{
+	
+		float:left;
+	display: flex;
+	padding-top:6.5px;
+	padding-bottom:7px;
+	border: solid 2.5px;
+	border-radius: 10px 0 0 10px;
+	 padding-left: 2px;
+	 padding-right: 2px;
+	 background-color: #C0C0C0;
+	position:relative;
+	margin-left:20px;
+	margin-bottom: 20px;
+	
+}
+
+.branchnamestyle3{
+	
+		float:left;
+	display: flex;
+	padding-top:6.5px;
+	padding-bottom:7px;
+	border: solid 2.5px;
+	border-radius: 10px 0 0 10px;
+	 padding-left: 2px;
+	 padding-right: 2px;
+	 background-color: #C0C0C0;
+	position:relative;
+	margin-bottom: 10px;
+	
+}
+
+.branchnamestyle4{
+	
+		float:left;
+	display: flex;
+	padding-top:6.5px;
+	padding-bottom:7px;
+	border: solid 2.5px;
+	border-radius: 10px 0 0 10px;
+	 padding-left: 2px;
+	 padding-right: 2px;
+	 background-color: #C0C0C0;
+	position:relative;
+	margin-left:20px;
+	margin-bottom: 10px;
+	
+}
+
+
+.branchinfoareasangdanframe{
+	
+	 text-align: center;
+	 
+}
 
 
 
 
+
+#updatepopup01{
+    display: none;
+}
+#updatepopup01{
+width: 500px;
+height: 500px;
+position: absolute;
+top: 50%;
+left: 50%;
+margin: -250px 0 0 -250px;
+background-color: #fff;
+z-index: 2;
+    }
+.backon{
+    content: "";
+    width: 100%;
+    height: 100%;
+    background: #00000054;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+.close{
+  position:absolute;
+  top:-25px;
+  right: 0;
+  cursor:pointer;
+}
+
+.openPopup{
+
+  cursor:pointer;
+
+}
+
+
+
+
+
+
+
+
+
+#updatepopup01{
+    display: none;
+}
+#updatepopup01{
+width: 500px;
+height: 500px;
+position: absolute;
+top: 50%;
+left: 50%;
+margin: -250px 0 0 -250px;
+background-color: #fff;
+z-index: 2;
+    }
+.backon{
+    content: "";
+    width: 100%;
+    height: 100%;
+    background: #00000054;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+.close{
+  position:absolute;
+  top:-25px;
+  right: 0;
+  cursor:pointer;
+}
+
+.openPopup{
+
+  cursor:pointer;
+
+}
 
 

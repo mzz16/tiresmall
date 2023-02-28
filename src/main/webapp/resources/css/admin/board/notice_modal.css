@@ -5,6 +5,9 @@
 	width: 100%;
 	height: 100%;
 }
+.left_td{
+	background-color: #708090;
+}
 
 .modal_table td {
 	text-align: center;

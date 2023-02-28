@@ -1,14 +1,26 @@
 package com.tireshoppingmall.home.admin.store;
 
+import java.io.File;
+import java.io.IOException;
+import java.util.UUID;
+
+import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
+import org.springframework.web.multipart.MultipartFile;
+
 
 @Service
 public class BranchDAO {
+	
+
+	@Autowired
+	private ServletContext servletContext;
+
 
 	@Autowired
 	private SqlSession ss;
@@ -21,9 +33,10 @@ public class BranchDAO {
 
 	}
 
-	public void regBranch(BranchDTO b, HttpServletRequest req) {
-
-		AdminStoreMapper mm = ss.getMapper(AdminStoreMapper.class);
+	public void regBranch(MultipartFile file,BranchDTO b, HttpServletRequest req) {
+		
+		
+		
 
 		String b_id = req.getParameter("b_id");
 		String b_area1 = req.getParameter("b_area1");
@@ -59,15 +72,64 @@ public class BranchDAO {
 		System.out.println(b_cr);
 		System.out.println(b_email);
 
-		if (mm.regBranch(b) == 1) {
-			System.out.println("등록성공");
-			req.setAttribute("r", "등록성공");
-		} else {
+		
+		
+		
+		
+		String fileRealName = b.getFile().getOriginalFilename(); 
+		long size = file.getSize(); 
+		
+		System.out.println("파일명 : "  + fileRealName);
+		System.out.println("용량크기(byte) : " + size);
+		
+		String fileExtension = fileRealName.substring(fileRealName.lastIndexOf("."),fileRealName.length());
+		String uploadFolder = servletContext.getRealPath("resources/web");
+		
+		
+		UUID uuid = UUID.randomUUID();
+		System.out.println(uuid.toString());
+		String[] uuids = uuid.toString().split("-");
+		
+		String uniqueName = uuids[0];
+		System.out.println("생성된 고유문자열" + uniqueName);
+		System.out.println("확장자명" + fileExtension);
+		
+		
 
-			req.setAttribute("r", "등록 실패");
-		}
+		File saveFile = new File(uploadFolder+"\\"+uniqueName + fileExtension);  // 적용 후
+	
+	
+		try {
+			b.getFile().transferTo(saveFile);
+			b.setB_file(uniqueName+fileExtension);
+			AdminStoreMapper mm = ss.getMapper(AdminStoreMapper.class);
+			System.out.println("upload successed!");
+			req.setAttribute("fileName", uniqueName+fileExtension);
+		
+			if (mm.regBranch(b) == 1) {
+	            System.out.println("등록성공");
+	            req.setAttribute("r", "등록성공");
+	        } else {
+	            req.setAttribute("r", "등록 실패");
+	        }
 
+	    } catch (IllegalStateException e) {
+	        e.printStackTrace();
+	    } catch (IOException e) {
+	        e.printStackTrace();
+	    }
 	}
+		
+			
+			
+		
+			
+			
+			
+			
+			
+
+	
 
 	public void branchSearchbranchname(BranchDTO b, Model m) {
 		m.addAttribute("branchs", mapper.branchSearchbranchname(b));
@@ -76,6 +138,19 @@ public class BranchDAO {
 
 	}
 
+	
+	public void branchSearcharea(HttpServletRequest req, BranchDTO b, Model m) {
+		
+		String b_area1 = req.getParameter("b_area1");
+		String b_area2 = req.getParameter("b_area2");
+		String b_area = b_area1 + "\t" + b_area2;
+		b.setB_area(b_area);
+		
+		
+		m.addAttribute("branchs", mapper.branchSearcharea(b));
+		
+	}
+	
 	public void getbranch(BranchDTO b, HttpServletRequest req) {
 		BranchDTO branch = mapper.getbranch(b);
 		req.setAttribute("branch1", branch);
@@ -102,5 +177,7 @@ public class BranchDAO {
 		}
 
 	}
+
+	
 
 }
