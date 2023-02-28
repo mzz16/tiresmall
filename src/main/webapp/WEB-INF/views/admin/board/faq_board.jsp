@@ -27,7 +27,7 @@
 
 						<table class="modal_table" border="1">
 							<tr>
-								<td class="notice_left_header">구분/제목</td>
+								<td class="left_td">구분/제목</td>
 								<td>구분</td>
 								<td width="100px;"><select name="selectOption"
 									id="sortationSelect_M" class="notice_select">
@@ -37,7 +37,7 @@
 										<option value="반품/교환/취소">반품/교환/취소</option>
 										<option value="회원">회원</option>
 								</select></td>
-								<td>제목</td>
+								<td class="left_td">제목</td>
 								<td><input name="f_title" id="titleInput_M"></td>
 							</tr>
 							<tr>
