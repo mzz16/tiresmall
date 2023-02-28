@@ -7,16 +7,16 @@ pageEncoding="UTF-8"%>
     <title>Insert title here</title>
   </head>
   <body>
-    <div class="home_video">
-      <video
-        src="resources/web/main/home/main_movie.mp4"
-        autoplay
-        muted
-        loop
-        style="width: 100%"
-      ></video>
-    </div>
     <div class="home_container">
+      <div class="home_video">
+        <video
+          src="resources/web/main/home/main_movie.mp4"
+          autoplay
+          muted
+          loop
+          style="width: 100%"
+        ></video>
+      </div>
       <section>
         <h1 class="home_title">
           <img src="resources/web/logo4.png" style="height: 35px" />
@@ -39,35 +39,6 @@ pageEncoding="UTF-8"%>
             <h3 class="home_manual_title">2. 당일장착점 예약</h3>
             <span class="home_manual_txt">직영점 타이어 장착일 예약하기</span>
           </div>
-<<<<<<< HEAD
-        </section>
-        <section class="home_board_section">
-          <div class="home_board_box">
-            <div class="home_title home_board_title">
-              <h1>공지사항</h1>
-              <a href="board.notice">더 보기</a>
-            </div>
-            <ul class="home_board_content">
-              <li>공지사항 1</li>
-              <li>공지사항 2</li>
-              <li>공지사항 3</li>
-              <li>공지사항 4</li>
-              <li>공지사항 5</li>
-            </ul>
-          </div>
-          <div class="home_board_box">
-            <div class="home_title home_board_title">
-              <h1>이벤트</h1>
-              <a href="board.event">더 보기</a>
-            </div>
-            <ul class="home_board_content">
-              <li>이벤트 1</li>
-              <li>이벤트 2</li>
-              <li>이벤트 3</li>
-              <li>이벤트 4</li>
-              <li>이벤트 5</li>
-            </ul>
-=======
           <div class="home_manual_menu">
             <img
               src="resources/web/main/home/manual_3.png"
@@ -85,12 +56,11 @@ pageEncoding="UTF-8"%>
             />
             <h3 class="home_manual_title">4. 장착점 방문</h3>
             <span class="home_manual_txt">장착 후 현장결제 및 안전운전</span>
->>>>>>> a17ce92b344f6cb732a734ab1b42991add176f97
           </div>
         </div>
       </section>
       <section>
-        <h1 class="home_title home_title2">MD 추천 타이어</h1>
+        <h1 class="home_title">MD 추천 타이어</h1>
         <div class="home_recommend">
           <a class="home_recommend_menu">
             <div class="home_shadow"></div>
@@ -114,7 +84,7 @@ pageEncoding="UTF-8"%>
         <div class="home_board_box">
           <div class="home_title home_board_title">
             <h1>공지사항</h1>
-            <a href="/">더 보기</a>
+            <a href="board.notice">더 보기</a>
           </div>
           <ul class="home_board_content">
             <li>공지사항 1</li>
@@ -127,7 +97,7 @@ pageEncoding="UTF-8"%>
         <div class="home_board_box">
           <div class="home_title home_board_title">
             <h1>이벤트</h1>
-            <a href="/">더 보기</a>
+            <a href="board.event">더 보기</a>
           </div>
           <ul class="home_board_content">
             <li>이벤트 1</li>
@@ -139,7 +109,7 @@ pageEncoding="UTF-8"%>
         </div>
       </section>
       <section class="home_store_section">
-        <h1 class="home_title home_title2">매장 안내</h1>
+        <h1 class="home_title">매장 안내</h1>
         <div class="home_store">
           <a class="home_store_menu" href="/">
             <div class="home_shadow"></div>

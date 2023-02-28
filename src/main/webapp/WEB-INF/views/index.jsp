@@ -5,37 +5,33 @@ pageEncoding="UTF-8"%>
   <head>
     <meta charset="UTF-8" />
     <title>대전 타이어쇼핑몰</title>
+    <link
+      rel="shortcut icon"
+      href="resources/web/favicon.png"
+      type="image/png"
+    />
+    <link rel="icon" href="resources/web/favicon.png" type="image/png" />
     <link rel="stylesheet" href="resources/css/index.css" />
   </head>
   <body>
     <div class="index_shadow"></div>
     <div class="index_container">
       <header>
-        <div class="index_wrapper index_hWrapper">
-        <!-- 
-          <div class="index_hTop">
-            <div>
-            	슬라이드배너
-            </div>
-          </div>
-         -->
-          <div class="index_hTop">
-            <div class="index_hTopLeft">
-              <a href="admin.order.go?m=order">관리자</a>
-              <input class="board_contentType" value="${board_contents }" type="hidden">
-              <a href="board.shoppingGuide">구매가이드</a>
-              <a href="board.askByKakao">카카오톡상담</a>
         <div class="index_header">
           <div class="index_hTop">
             <div class="index_hTopLeft">
               <a href="admin.order.go?m=order">관리자</a>
-              <a href="/">실시간 상담</a>
+              <input
+                class="board_contentType"
+                value="${board_contents}"
+                type="hidden"
+              />
+              <a href="board.shoppingGuide">구매가이드</a>
+              <a href="board.askByKakao">카카오톡상담</a>
             </div>
             <div class="index_hTopRight">
               <a href="login">로그인</a>
-              <a href="join">회원가입</a>
               <a href="non-member">비회원 주문조회</a>
-              <a href="board.home">고객센터</a>
             </div>
           </div>
           <div class="index_hBottom">
@@ -55,11 +51,10 @@ pageEncoding="UTF-8"%>
                 <a href="store?id=1">매장 안내</a>
               </div>
               <div class="index_tnMenu index_tnBoard">
-                <a href="/">뉴스 & 이벤트</a>
+                <a href="board.home">고객센터</a>
               </div>
             </div>
             <div class="index_sideNav">
-              <a href="/">고객센터</a>
               <a href="/">장바구니</a>
             </div>
           </div>
@@ -88,6 +83,14 @@ pageEncoding="UTF-8"%>
               <a href="store?id=3">논산 타이어쇼핑몰(타이어테크 시청점)</a>
               <a href="store?id=4">타이어테크 연무점</a>
               <a href="store?id=5">타이어테크 반월점</a>
+            </li>
+          </ul>
+          <ul class="index_dropBoard index_dropWrapper">
+            <li class="index_dropMenu_menu">
+              <a href="board.notice">공지사항</a>
+              <a href="board.event">이벤트</a>
+              <a href="board.faq">FAQ</a>
+              <a href="board.askBySite">1:1 문의</a>
             </li>
           </ul>
         </div>
@@ -125,7 +128,10 @@ pageEncoding="UTF-8"%>
       </footer>
     </div>
     <script src="resources/js/index.js"></script>
-    <script src="https://kit.fontawesome.com/e41d253229.js" crossorigin="anonymous"></script>
+    <script
+      src="https://kit.fontawesome.com/e41d253229.js"
+      crossorigin="anonymous"
+    ></script>
     <script src="resources/js/main/board/main_board.js"></script>
     <script
       src="https://kit.fontawesome.com/e41d253229.js"
