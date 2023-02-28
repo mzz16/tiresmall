@@ -183,7 +183,7 @@ public class AdminBoardController {
 		qnaDAO.insertQnAReply(qnaReplyDTO, req);
 		req.setAttribute("subMenuPage", "board/board_subMenu.jsp");
 		req.setAttribute("contentPage", "board/qna_board.jsp");
-		return "admin/master";
+		return "redirect:admin.qna.go";
 	}
 
 	@ResponseBody
