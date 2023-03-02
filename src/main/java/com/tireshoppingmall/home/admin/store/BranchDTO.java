@@ -14,7 +14,7 @@ public class BranchDTO {
 	private String b_service;
 	private String b_mapdata;
 	private String b_manager;
-	private String  b_managernumber;
+	private String b_managernumber;
 	private String b_branchname;
 	private String b_branchnumber;
 	private String b_cr;
@@ -33,7 +33,7 @@ public class BranchDTO {
 
 
 
-	
+
 		super();
 		this.b_no = b_no;
 		this.b_id = b_id;

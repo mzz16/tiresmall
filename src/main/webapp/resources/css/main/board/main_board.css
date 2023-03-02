@@ -1,0 +1,62 @@
+.board_mainContainer {
+	display: grid;
+	grid-template-columns: 250px 1fr;
+	grid-template-rows: 103px 1fr 180px;		/*수정필요*/
+	grid-template-areas:	"link title"
+							"menu contents"
+							"info contents";
+							
+	width: 1200px;								/*수정필요*/
+	height: 630px;	/*100vh;*/					/*수정필요*/
+	margin: auto;
+}
+
+.board_link {
+	grid-area: link;
+	
+	padding: 10px;
+	
+	background-color: #ab1e21;
+}
+
+.board_title {
+	grid-area: title;
+	
+	display : flex;
+	justify-content : center;
+	align-items : center;
+	
+	background-color: #ab1e21;
+	
+	font-size: 30px;
+    font-weight: 700;
+    
+    color: white;
+}
+
+.board_sideMenu {
+	grid-area: menu;
+}
+
+.board_sideMenu > div > a:hover {
+	font-weight: 700;
+    color: #ab1e21;
+}
+
+.board_imHere {
+	font-weight: 700;
+    color: #ab1e21;
+}
+
+
+.board_sideInfo {
+	grid-area: info;
+}
+
+.board_sideInfo > .tab {
+	white-space: pre;
+}
+
+.board_contentsArea {
+	grid-area: contents;
+}

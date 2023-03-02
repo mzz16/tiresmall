@@ -27,7 +27,7 @@
 
 						<table class="modal_table" border="1">
 							<tr>
-								<td class="notice_left_header">구분/제목</td>
+								<td class="left_td">구분/제목</td>
 								<td>구분</td>
 								<td width="100px;"><select name="selectOption"
 									id="sortationSelect_M" class="notice_select">
@@ -39,7 +39,7 @@
 								<td><input name="n_title" id="titleInput_M"></td>
 							</tr>
 							<tr>
-								<td>내용</td>
+								<td class="left_td">내용</td>
 								<td align="center" colspan="4"><textarea name="n_txt"
 										id="txtInput_M"></textarea></td>
 							</tr>
@@ -63,7 +63,8 @@
 				<div>
 					<div class="select_box">
 						<div>구분</div>
-						<select name="selectOption" id="sortationSelect" class="notice_select">
+						<select name="selectOption" id="sortationSelect"
+							class="notice_select">
 							<option value="0">전체</option>
 							<option value="1">안내</option>
 							<option value="2">매장</option>
@@ -91,12 +92,12 @@
 							<th class="th_head">게시일</th>
 							<th class="th_head">관리</th>
 						</tr>
-						<c:if test="${empty notice}">
+						<c:if test="${empty notices}">
 							<tr>
 								<td colspan="5">해당 목록이없습니다</td>
 							</tr>
 						</c:if>
-						<c:forEach var="n" items="${notice }" varStatus="status">
+						<c:forEach var="n" items="${notices }" varStatus="status">
 							<tr>
 								<td class="td_c1">${status.count }</td>
 								<td class="td_c2">${n.n_sortation }</td>
@@ -107,7 +108,8 @@
 									<div class="tdBtn">
 										<button id="updBtn" type="button"
 											onclick="updateNotice('${n.n_no}','${n.n_sortation }','${n.n_title }','${n.n_txt } ','${n.n_date }')">수정</button>
-										<button id="delBtn" type="button" onclick="deleteNotice(${n.n_no})">삭제</button>
+										<button id="delBtn" type="button"
+											onclick="deleteNotice(${n.n_no})">삭제</button>
 									</div>
 								</td>
 							</tr>
@@ -116,6 +118,26 @@
 				</div>
 			</form>
 		</div>
+	</div>
+	<div style="text-align:center; border: 1px solid red;">
+		<c:if test="${curPage != 1 }">
+			<a href="notice.page.change?p=${curPage - 1 }">&lt;</a>
+		</c:if>
+
+		<c:forEach var="page" begin="1" end="${pageCount }">
+			<c:choose>
+					<c:when test="${page eq param.p}">
+						<a class="page-link" href="notice.page.change?p=${page }"
+							style="background-color: #76d7ea;">[${page }] </a>
+					</c:when>
+					<c:otherwise>
+						<a class="page-link" href="notice.page.change?p=${page }">[${page }] </a>
+					</c:otherwise>
+				</c:choose>
+		</c:forEach>
+		<c:if test="${curPage != pageCount }">
+			<a href="notice.page.change?p=${curPage + 1 }">&gt;</a>
+		</c:if>
 	</div>
 	<script src="resources/js/admin/board/notice_board.js"></script>
 </body>
