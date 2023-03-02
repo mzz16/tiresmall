@@ -2,6 +2,8 @@ package com.tireshoppingmall.home.admin.board;
 
 import java.math.BigDecimal;
 
+import javax.servlet.http.HttpServletRequest;
+
 public class SearchDTO {
 
 	private String selectOption;
@@ -51,6 +53,10 @@ public class SearchDTO {
 
 	public void setEnd(BigDecimal end) {
 		this.end = end;
+	}
+	
+	public static void clearSearch(HttpServletRequest req) {
+		req.getSession().setAttribute("searchDTO", null);
 	}
 
 }

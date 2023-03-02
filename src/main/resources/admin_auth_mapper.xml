@@ -2,8 +2,8 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.tireshoppingmall.home.admin.auth.AdminAuthMapper">
 
-	<select id="getAllAuth" resultType="com.tireshoppingmall.home.admin.auth.AuthDTO">
+<!-- 	<select id="getAllAuth" resultType="com.tireshoppingmall.home.admin.auth.AuthDAO">
 		select * from auth
-	</select>
+	</select> -->
 	
 </mapper>

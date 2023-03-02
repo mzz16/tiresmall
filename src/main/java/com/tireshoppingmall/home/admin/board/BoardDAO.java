@@ -30,7 +30,7 @@ public class BoardDAO {
 	public void calcAllNoticeCount() {
 		SearchDTO sSel = new SearchDTO("","", null, null);
 		allNoticeCount = ss.getMapper(AdminBoardMapper.class).getNoticeCount(sSel);
-		
+		System.out.println(allNoticeCount);
 	}
 	
 
@@ -39,9 +39,8 @@ public class BoardDAO {
 		int start = (pageNo - 1) * count + 1;
 		int end = start + (count - 1);
 		
-		SearchDTO search = (SearchDTO) req.getSession().getAttribute("titleInput");
+		SearchDTO search = (SearchDTO) req.getSession().getAttribute("searchDTO");
 		int noticeCount = 0;
-		
 		if (search == null) {
 			search = new SearchDTO();
 			search.setTitleInput("");
@@ -55,9 +54,11 @@ public class BoardDAO {
 			noticeCount = ss.getMapper(AdminBoardMapper.class).getNoticeCount(search);
 		}
 		List<NoticeDTO> notices = ss.getMapper(AdminBoardMapper.class).getNotice(search);
-	
+		System.out.println(count);
+		System.out.println(allNoticeCount);
 		int pageCount = (int) Math.ceil(noticeCount / (double) count);
 		System.out.println(noticeCount);
+		System.out.println(pageCount);
 	
 		req.setAttribute("pageCount", pageCount);
 		req.setAttribute("notices", notices);
@@ -105,6 +106,12 @@ public class BoardDAO {
 		} else {
 			System.err.println("삭제 실패");
 		}
+		
+	}
+	
+	public void searchBoard(SearchDTO sDTO, HttpServletRequest req) {
+
+		req.getSession().setAttribute("searchDTO", sDTO);
 		
 	}
 

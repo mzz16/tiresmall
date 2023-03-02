@@ -41,6 +41,10 @@ public interface AdminBoardMapper {
 
 	List<NoticeDTO> getNotice(SearchDTO search);
 
+	int getFaqCount(SearchDTO search);
+
+	List<FaqDTO> getFaq(SearchDTO search);
+
 	
 
 	

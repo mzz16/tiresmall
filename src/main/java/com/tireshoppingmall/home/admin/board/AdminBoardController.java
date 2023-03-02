@@ -41,7 +41,7 @@ public class AdminBoardController {
 			bDAO.calcAllNoticeCount();
 			firstReq = false;
 		}
-
+		SearchDTO.clearSearch(req);
 		bDAO.getNotice(1, req);
 		/* bDAO.getAllNotice(req); */
 		req.setAttribute("subMenuPage", "board/board_subMenu.jsp");
@@ -51,9 +51,11 @@ public class AdminBoardController {
 
 	@RequestMapping(value = "/search.do", method = RequestMethod.GET)
 	public String search(HttpServletRequest req, SearchDTO sDTO) {
-
-		bDAO.search(req, sDTO);
-
+		System.out.println(sDTO.getSelectOption());
+		System.out.println(sDTO.getTitleInput());
+		
+		bDAO.searchBoard(sDTO, req);
+		bDAO.getNotice(1, req);
 		req.setAttribute("subMenuPage", "board/board_subMenu.jsp");
 		req.setAttribute("contentPage", "board/notice_board.jsp");
 		return "admin/master";
@@ -111,7 +113,13 @@ public class AdminBoardController {
 	@RequestMapping(value = "/admin.faq.go", method = RequestMethod.GET)
 	public String faq(HttpServletRequest req) {
 
-		faqDAO.getAllFaq(req);
+		if (firstReq) {
+			faqDAO.calcAllFaqCount();
+			firstReq = false;
+		}
+		SearchDTO.clearSearch(req);
+		faqDAO.getFaq(1, req);
+		/* bDAO.getAllNotice(req); */
 		req.setAttribute("subMenuPage", "board/board_subMenu.jsp");
 		req.setAttribute("contentPage", "board/faq_board.jsp");
 		return "admin/master";
@@ -121,7 +129,7 @@ public class AdminBoardController {
 	public String searchFaq(HttpServletRequest req, SearchDTO sDTO) {
 
 		faqDAO.searchFaq(req, sDTO);
-
+		faqDAO.getFaq(1, req);
 		req.setAttribute("subMenuPage", "board/board_subMenu.jsp");
 		req.setAttribute("contentPage", "board/faq_board.jsp");
 		return "admin/master";
@@ -139,7 +147,7 @@ public class AdminBoardController {
 	public String updateFaq(HttpServletRequest req, FaqDTO faqDTO) {
 
 		faqDAO.updateFaq(req, faqDTO);
-		faqDAO.getAllFaq(req);
+		/*faqDAO.getAllFaq(req);*/
 
 		req.setAttribute("subMenuPage", "board/board_subMenu.jsp");
 		req.setAttribute("contentPage", "board/faq_board.jsp");
@@ -150,13 +158,23 @@ public class AdminBoardController {
 	public String deleteFaq(HttpServletRequest req, FaqDTO faqDTO) {
 
 		faqDAO.deleteFaq(req, faqDTO);
-		faqDAO.getAllFaq(req);
+		/*faqDAO.getAllFaq(req);*/
 
 		req.setAttribute("subMenuPage", "board/board_subMenu.jsp");
 		req.setAttribute("contentPage", "board/faq_board.jsp");
 		return "admin/master";
 	}
 
+	@RequestMapping(value = "/faq.page.change", method = RequestMethod.GET)
+	public String PagingFaq(HttpServletRequest req, @RequestParam int p) {
+		System.out.println(req.getParameter("p"));
+		faqDAO.getFaq(p, req);
+
+		req.setAttribute("subMenuPage", "board/board_subMenu.jsp");
+		req.setAttribute("contentPage", "board/faq_board.jsp");
+		return "admin/master";
+	}
+	
 	/* QNA DAO */
 
 	@RequestMapping(value = "/admin.qna.go", method = RequestMethod.GET)
