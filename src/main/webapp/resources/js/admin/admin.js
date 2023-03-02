@@ -16,12 +16,16 @@ $(function() {
 		menuNum=4;
 		subMenu(menuNum);
 		$("#subMenu").css("display","none");
-	}else if(sub == 'store'){
+	}else if(sub == 'rental'){
 		menuNum=5;
 		subMenu(menuNum);
 		$("#subMenu").css("display","none");
-	}else if(sub == 'notice'){
+	}else if(sub == 'store'){
 		menuNum=6;
+		subMenu(menuNum);
+		$("#subMenu").css("display","none");
+	}else if(sub == 'notice'){
+		menuNum=7;
 		subMenu(menuNum);
 		$("#subMenu").css("display","fiex");
 	}
