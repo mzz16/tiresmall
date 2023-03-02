@@ -28,7 +28,7 @@ public class BoardDAO {
 		this.allNoticeCount = allNoticeCount;
 	}
 	public void calcAllNoticeCount() {
-		SearchDTO sSel = new SearchDTO("","", null, null);
+		SearchDTO sSel = new SearchDTO("","", null, null,"","");
 		allNoticeCount = ss.getMapper(AdminBoardMapper.class).getNoticeCount(sSel);
 		System.out.println(allNoticeCount);
 	}

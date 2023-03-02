@@ -154,4 +154,11 @@
 		select * from qna_reply where q_reply_board_no = #{q_reply_board_no}
 	</select>
 	
+	<!-- FAQ 페이징 (faq 갯수 카운트) -->
+	<select id="getFaqCount" resultType="int">
+		select count(*)
+		from qna, auth
+		where q_title like '%'||#{titleInput}||'%'
+	</select>
+	
 </mapper>

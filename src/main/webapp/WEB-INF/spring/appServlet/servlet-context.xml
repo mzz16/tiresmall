@@ -77,6 +77,11 @@
    	<beans:bean id="fo" class="com.tireshoppingmall.home.admin.board.FaqOption">
    			<beans:constructor-arg value="7"></beans:constructor-arg>
    	</beans:bean>
+
+   <!-- QnA 몇개씩 보여줄지 -->
+   	<beans:bean id="qo" class="com.tireshoppingmall.home.admin.board.QnaOption">
+   			<beans:constructor-arg value="7"></beans:constructor-arg>
+   	</beans:bean>
    
    
 </beans:beans>

@@ -28,7 +28,7 @@ public class FaqDAO {
 		this.allFaqCount = allFaqCount;
 	}
 	public void calcAllFaqCount() {
-		SearchDTO sSel = new SearchDTO("","", null, null);
+		SearchDTO sSel = new SearchDTO("","", null, null,"","");
 		allFaqCount = ss.getMapper(AdminBoardMapper.class).getFaqCount(sSel);
 		System.out.println(allFaqCount);
 	}

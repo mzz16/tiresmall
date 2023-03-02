@@ -148,7 +148,8 @@ public class AdminBoardController {
 
 		faqDAO.updateFaq(req, faqDTO);
 		/*faqDAO.getAllFaq(req);*/
-
+		faqDAO.getFaq(1, req);
+		
 		req.setAttribute("subMenuPage", "board/board_subMenu.jsp");
 		req.setAttribute("contentPage", "board/faq_board.jsp");
 		return "admin/master";
@@ -159,7 +160,8 @@ public class AdminBoardController {
 
 		faqDAO.deleteFaq(req, faqDTO);
 		/*faqDAO.getAllFaq(req);*/
-
+		faqDAO.getFaq(1, req);
+		
 		req.setAttribute("subMenuPage", "board/board_subMenu.jsp");
 		req.setAttribute("contentPage", "board/faq_board.jsp");
 		return "admin/master";
@@ -178,18 +180,23 @@ public class AdminBoardController {
 	/* QNA DAO */
 
 	@RequestMapping(value = "/admin.qna.go", method = RequestMethod.GET)
-	public String oneByone(HttpServletRequest req) {
+	public String qna(HttpServletRequest req) {
 
-		qnaDAO.getAllQna(req);
+		if (firstReq) {
+			qnaDAO.calcAllQnaCount();
+			firstReq = false;
+		}
+		SearchDTO.clearSearch(req);
+		qnaDAO.getQna(p ,req);
 		req.setAttribute("subMenuPage", "board/board_subMenu.jsp");
 		req.setAttribute("contentPage", "board/qna_board.jsp");
 		return "admin/master";
 	}
 
 	@RequestMapping(value = "/search.qna.do", method = RequestMethod.GET)
-	public String searchQnA(QnaSearchDTO qnaSearchDTO, HttpServletRequest req) {
-		System.out.println(qnaSearchDTO.toString());
-		qnaDAO.searchQnA(qnaSearchDTO, req);
+	public String searchQnA(SearchDTO SearchDTO, HttpServletRequest req) {
+		System.out.println(SearchDTO.toString());
+		qnaDAO.searchQnA(SearchDTO, req);
 		req.setAttribute("subMenuPage", "board/board_subMenu.jsp");
 		req.setAttribute("contentPage", "board/qna_board.jsp");
 		return "admin/master";
