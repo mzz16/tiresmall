@@ -50,6 +50,7 @@
 				<beans:value>classpath:admin_order_mapper.xml</beans:value>
 				<beans:value>classpath:admin_store_mapper.xml</beans:value>
 				<beans:value>classpath:admin_tire_mapper.xml</beans:value>
+				<beans:value>classpath:admin_rental_mapper.xml</beans:value>
 				<beans:value>classpath:auth_mapper.xml</beans:value>
 				<beans:value>classpath:board_mapper.xml</beans:value>
 				<beans:value>classpath:product_mapper.xml</beans:value>

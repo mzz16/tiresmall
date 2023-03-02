@@ -12,7 +12,6 @@
 body {
 	margin: 0;
 	padding: 0;
-	background-color: rgb(234, 234, 234);
 	font-family: GmarketSansMedium;
 }
 
@@ -45,7 +44,7 @@ body {
 }
 
 #menuTitle1, #menuTitle2, #menuTitle3, #menuTitle4, #menuTitle5,
-	#menuTitle6 {
+	#menuTitle6,#menuTitle7 {
 	padding-left: 20px;
 	padding-right: 20px;
 	height: 50px;
@@ -60,7 +59,7 @@ body {
 }
 
 #menuTitle1:hover, #menuTitle2:hover, #menuTitle3:hover, #menuTitle4:hover,
-	#menuTitle5:hover, #menuTitle6:hover {
+	#menuTitle5:hover, #menuTitle6:hover, #menuTitle7:hover {
 	color: #181c32;
 }
 /* 
