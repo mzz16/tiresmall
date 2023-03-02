@@ -43,8 +43,6 @@
 						});
 
 			});
-
-	//<button class="updatebranchbutton" onclick="window.open('admin.store.update.go?b_id=${b.b_id}', 'window_name', 'width=430, height=500');">
 </script>
 </head>
 <body>
@@ -101,6 +99,8 @@
 		</div>
 	</div>
 
+
+
 	<c:forEach var="b" items="${branchs }" varStatus="status">
 		<div class="branchdatalist_div"
 			style="border: 1px solid gray; float: left;">
@@ -113,9 +113,14 @@
 			<div class="branchdatalist_div5" style="float: left;">
 
 				<button class="updatebranchbutton"
-					onclick="window.open('admin.store.update.go?b_id=${b.b_id}','window_name' ,'width=1000, height=800');">수정</button>
-				<button class="updatebranchbutton" id="updatebranch('${b.b_id}')"
-					onclick="deletebranch('${b.b_id}')">삭제</button>
+					onclick="updatebranch('${b.b_id}','${b.b_sortation }',
+					'${b.b_area }','${b.b_addr } ',
+					'${b.b_name }','${b.b_time }',
+					'${b.b_service }','${b.b_mapdata }','${b.b_manager }',
+					'${b.b_managernumber}','${b.b_branchname}','${b.b_branchnumber}',
+					'${b.b_cr}','${b.b_email}')">수정</button>
+				<button type="button" class="updatebranchbutton"
+					id="updatebranch('${b.b_id}')" onclick="deletebranch('${b.b_id}')">삭제</button>
 			</div>
 
 		</div>
@@ -126,16 +131,17 @@
 	<div id="regpopup01" class="regbuttonarea">
 		<div class="close">close</div>
 		<div>
-			<form action="reg.branch.do" method="post" enctype="multipart/form-data">
+			<form action="reg.branch.do" method="post"
+				enctype="multipart/form-data">
 				<table border="1" class="">
 					<tr>
 						<td>구분</td>
-						<td><input type='radio' name='b_sortation' value='직영점(당일장착점)' />직영점(당일장착점)
-							<input type='radio' name='b_sortation' value='제휴장착점' /> 제휴장착점</td>
+						<td><input type='radio' name='b_sortation'  value='직영점(당일장착점)' />직영점(당일장착점)
+							<input type='radio' name='b_sortation'  value='제휴장착점' /> 제휴장착점</td>
 					</tr>
 					<tr>
 						<td>사진</td>
-						<td><input type="file" name = "file"></td>
+						<td><input type="file" name="file"></td>
 					</tr>
 					<tr>
 						<td>임시 id</td>
@@ -185,17 +191,30 @@
 
 					<tr>
 						<td>사업자정보</td>
-						<td class = "branchinfoareasangdanframe"><div class="branchinfoareasangdan" style=" float: left;">
-								<div style=" float: left;"><div class = "branchnamestyle1">업체명</div> <input name="b_branchname" style="height: 30px; width:165px;"></div>
-								
-								<div style=" float: left;"><div class = "branchnamestyle2">사업자번호</div><input name="b_branchnumber" style="height: 30px;"></div>
-								
+						<td class="branchinfoareasangdanframe"><div
+								class="branchinfoareasangdan" style="float: left;">
+								<div style="float: left;">
+									<div class="branchnamestyle1">업체명</div>
+									<input name="b_branchname" style="height: 30px; width: 165px;">
+								</div>
+
+								<div style="float: left;">
+									<div class="branchnamestyle2">사업자번호</div>
+									<input name="b_branchnumber" style="height: 30px;">
+								</div>
+
 							</div> <br>
-							<div class="branchinfoareahadan" style=" float: left;">
-								<div style=" float: left;"><div class = "branchnamestyle3">대표자명</div> <input name="b_cr" style="height: 30px; width:150px;"></div>
-								
-								<div class="" style=" float: left;"><div class = "branchnamestyle4">사업자이메일</div> <input name="b_email" style="height: 30px;"> </div>
-								
+							<div class="branchinfoareahadan" style="float: left;">
+								<div style="float: left;">
+									<div class="branchnamestyle3">대표자명</div>
+									<input name="b_cr" style="height: 30px; width: 150px;">
+								</div>
+
+								<div class="" style="float: left;">
+									<div class="branchnamestyle4">사업자이메일</div>
+									<input name="b_email" style="height: 30px;">
+								</div>
+
 							</div></td>
 					</tr>
 
@@ -208,9 +227,78 @@
 		</div>
 	</div>
 
+	<div id="popup01">
+		<div class="close">close</div>
+		<div>
+			<form action="admin.store.update.do">
+				<table border="1">
+					<tr>
+						<td>구분</td>
+						<td><input type='radio' name='b_sortation' id='b_sortation_i' />직영점(당일장착점)
+							<input type='radio' name='b_sortation' id='b_sortation_i' />제휴장착점</td>
+					</tr>
+
+					<tr>
+						<td>사진</td>
+						<td><img class="b_img_css" id="b_file_i"> <input
+							type="hidden" name="b_id" id="b_id_i"></td>
+					</tr>
 
 
 
+					<tr>
+						<td>지역</td>
+						<td><select name="b_area1" id="sido1"></select> <select
+							name="b_area2" id="gugun1"></select></td>
+					</tr>
+
+
+					<tr>
+						<td>장착점명</td>
+						<td><input name="b_name" id='b_name_i'></td>
+					</tr>
+
+					<tr>
+						<td>상세주소</td>
+						<td><input name="b_addr" id='b_addr_i'></td>
+					</tr>
+
+					<tr>
+						<td>영업시간</td>
+						<td><input name="b_time" id='b_time_i'></td>
+					</tr>
+
+					<tr>
+						<td>취급서비스</td>
+						<td><input name="b_service" id='b_service_i'></td>
+					</tr>
+
+					<tr>
+						<td>지도데이터</td>
+						<td><input name="b_mapdata" id='b_mapdata_i'></td>
+					</tr>
+
+					<tr>
+						<td>연락처</td>
+						<td>담당자명 <input name="b_manager" id='b_manager_i'>
+							전화번호 <input name="b_managernumber" id='b_managernumber_i'></td>
+					</tr>
+
+					<tr>
+						<td>사업자정보</td>
+						<td>업체명<input name="b_branchname" id='b_branchname_i'>사업자번호<input
+							name="b_branchnumber" id='b_branchnumber_i'><br>대표자명<input
+							name="b_cr" id='b_cr_i'>사업자이메일<input name="b_email"
+							id='b_email_i'></td>
+					</tr>
+
+
+				</table>
+				<button name="b_id" id="updateb_id">수정</button>
+
+			</form>
+		</div>
+	</div>
 
 
 
