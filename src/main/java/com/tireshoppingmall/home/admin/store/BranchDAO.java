@@ -123,11 +123,6 @@ public class BranchDAO {
 			
 			
 		
-			
-			
-			
-			
-			
 
 	
 
@@ -163,10 +158,50 @@ public class BranchDAO {
 		String b_area2 = req.getParameter("b_area2");
 		String b_area = b_area1 + "\t" + b_area2;
 
-		b.setB_area(b_area);
+		String b_sortation = req.getParameter("b_sortation");
+		String b_id = req.getParameter("b_id");
+		String b_addr = req.getParameter("b_addr");
+		String b_time = req.getParameter("b_time");
+		String b_service = req.getParameter("b_service");
+		String b_mapdata = req.getParameter("b_mapdata");
+		String b_name = req.getParameter("b_name");
+		String b_manager = req.getParameter("b_manager");
+		String b_managernumber = req.getParameter("b_managernumber");
+		String b_branchnumber = req.getParameter("b_branchnumber");
+		String b_branchname = req.getParameter("b_branchname");
+		String b_cr = req.getParameter("b_cr");
+		String b_email = req.getParameter("b_email");
+		
 
-		if (mapper.updatebranch(b) == 1) {
+		b.setB_area(b_area);
+		
+		System.out.println(b_id);
+		System.out.println(b_sortation);
+		System.out.println(b_area);
+		System.out.println(b_addr);
+		System.out.println(b_name);
+		System.out.println(b_time);
+		System.out.println(b_service);
+		System.out.println(b_mapdata);
+		System.out.println(b_manager);
+		System.out.println(b_managernumber);
+		System.out.println(b_branchname);
+		System.out.println(b_branchnumber);
+		System.out.println(b_cr);
+		System.out.println(b_email);
+		
+
+		if (ss.getMapper(AdminStoreMapper.class).updatebranch(b) == 1) {
 			System.out.println("수정완료");
+			
+			
+			
+			
+			
+		}else {
+			System.out.println("수정실패");
+			
+			
 		}
 
 	}

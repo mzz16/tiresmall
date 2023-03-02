@@ -165,6 +165,7 @@ public class BranchDTO {
 				+ ", b_branchname=" + b_branchname + ", b_branchnumber=" + b_branchnumber + ", b_cr=" + b_cr
 				+ ", b_email=" + b_email + ", file=" + file + ", b_file=" + b_file + "]";
 	}
+
 	
 	
 }
