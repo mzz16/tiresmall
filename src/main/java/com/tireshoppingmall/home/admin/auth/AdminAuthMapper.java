@@ -6,4 +6,10 @@ public interface AdminAuthMapper {
 
 	List<AuthDAO> getAllAuth();
 
+	List<AuthDAO> seachAuth(AuthDTO aDTO);
+
+	int authDelete(AuthDTO aDTO);
+
+	int authUpdate(AuthDTO aDTO);
+
 }
