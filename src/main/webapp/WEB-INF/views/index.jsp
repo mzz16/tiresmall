@@ -128,10 +128,6 @@ pageEncoding="UTF-8"%>
       </footer>
     </div>
     <script src="resources/js/index.js"></script>
-    <script
-      src="https://kit.fontawesome.com/e41d253229.js"
-      crossorigin="anonymous"
-    ></script>
     <script src="resources/js/main/board/main_board.js"></script>
     <script
       src="https://kit.fontawesome.com/e41d253229.js"
