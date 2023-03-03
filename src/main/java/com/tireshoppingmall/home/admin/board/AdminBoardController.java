@@ -110,6 +110,7 @@ public class AdminBoardController {
 
 	/* FAQ DAO */
 
+	
 	@RequestMapping(value = "/admin.faq.go", method = RequestMethod.GET)
 	public String faq(HttpServletRequest req) {
 
@@ -187,7 +188,7 @@ public class AdminBoardController {
 			firstReq = false;
 		}
 		SearchDTO.clearSearch(req);
-		qnaDAO.getQna(p ,req);
+		qnaDAO.getQna(1 ,req);
 		req.setAttribute("subMenuPage", "board/board_subMenu.jsp");
 		req.setAttribute("contentPage", "board/qna_board.jsp");
 		return "admin/master";
@@ -218,4 +219,13 @@ public class AdminBoardController {
 		return qnaDAO.getReply(qnaReplyDTO);
 	}
 
+	@RequestMapping(value = "/qna.page.change", method = RequestMethod.GET)
+	public String PagingQna(HttpServletRequest req, @RequestParam int p) {
+		System.out.println(req.getParameter("p"));
+		qnaDAO.getQna(p, req);
+		
+		req.setAttribute("subMenuPage", "board/board_subMenu.jsp");
+		req.setAttribute("contentPage", "board/qna_board.jsp");
+		return "admin/master";
+	}
 }

@@ -21,11 +21,6 @@ public class QnaOption {
 		this.qnaCountPerPage = qnaCountPerPage;
 	}
 
-	public int getAllQnaCount() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
 	
 	
 }

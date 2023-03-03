@@ -94,12 +94,12 @@
 							<th class="th_head">게시일</th>
 							<th class="th_head">답변여부</th>
 						</tr>
-						<c:if test="${empty qna}">
+						<c:if test="${empty qnas}">
 							<tr>
 								<td colspan="5">해당 목록이없습니다</td>
 							</tr>
 						</c:if>
-						<c:forEach var="q" items="${qna }" varStatus="status">
+						<c:forEach var="q" items="${qnas }" varStatus="status">
 								<tr class="qna_modal_go">
 									<td class="td_c1">${status.count }
 										<input type="hidden" value="${q.q_no }">
@@ -123,6 +123,26 @@
 				</div>
 			</form>
 		</div>
+	</div>
+	<div style="text-align:center; border: 1px solid red;">
+		<c:if test="${curPage != 1 }">
+			<a href="qna.page.change?p=${curPage - 1 }">&lt;</a>
+		</c:if>
+
+		<c:forEach var="page" begin="1" end="${pageCount }">
+			<c:choose>
+					<c:when test="${page eq param.p}">
+						<a href="qna.page.change?p=${page }"
+							style="background-color: #76d7ea;">[${page }] </a>
+					</c:when>
+					<c:otherwise>
+						<a href="qna.page.change?p=${page }">[${page }] </a>
+					</c:otherwise>
+				</c:choose>
+		</c:forEach>
+		<c:if test="${curPage != pageCount }">
+			<a href="qna.page.change?p=${curPage + 1 }">&gt;</a>
+		</c:if>
 	</div>
 	<script src="resources/js/admin/board/qna_board.js"></script>
 </body>

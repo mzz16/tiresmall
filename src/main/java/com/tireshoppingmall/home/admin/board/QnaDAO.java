@@ -40,7 +40,7 @@ public class QnaDAO {
 	}
 	
 	public void getQna(int pageNo, HttpServletRequest req) {
-		int count = qo.getAllQnaCount();
+		int count = qo.getQnaCountPerPage();
 		int start = (pageNo - 1) * count + 1;
 		int end = start + (count - 1);
 		
@@ -50,8 +50,11 @@ public class QnaDAO {
 		if (search == null) {
 			search = new SearchDTO();
 			search.setTitleInput("");
+			System.out.println(search.getTitleInput());
 			search.setNameInput("");
+			System.out.println(search.getNameInput());
 			search.setIdInput("");
+			System.out.println(search.getIdInput());
 			search.setStart(new BigDecimal(start));
 			search.setEnd(new BigDecimal(end));
 			qnaCount = allQnaCount;

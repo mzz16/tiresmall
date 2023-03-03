@@ -124,7 +124,7 @@
 	</select>
 
 	<!-- QNA 부분 검색-->
-	<select id="searchQnA" parameterType="com.tireshoppingmall.home.admin.board.QnaSearchDTO" resultType="com.tireshoppingmall.home.admin.board.QnaDTO">
+	<select id="searchQnA" parameterType="com.tireshoppingmall.home.admin.board.SearchDTO" resultType="com.tireshoppingmall.home.admin.board.QnaDTO">
 			select q.*, a.a_id, a.a_name
 			from qna q, auth a where q.q_id = a.a_id and
 			<if test="nameInput != ''">
@@ -154,11 +154,29 @@
 		select * from qna_reply where q_reply_board_no = #{q_reply_board_no}
 	</select>
 	
-	<!-- FAQ 페이징 (faq 갯수 카운트) -->
-	<select id="getFaqCount" resultType="int">
+	<!-- QNA 페이징 (faq 갯수 카운트) -->
+	<select id="getQnaCount" resultType="int">
 		select count(*)
 		from qna, auth
-		where q_title like '%'||#{titleInput}||'%'
+		where a_id = q_id
+		and q_title like '%'||#{titleInput}||'%'
+        and q_id like '%'||#{idInput}||'%'
+        and a_name like '%'||#{nameInput}||'%'
 	</select>
 	
+	<!-- QNA 페이징-->
+	<select id="getQna" resultType="com.tireshoppingmall.home.admin.board.QnaDTO">
+		select * from
+        (select rownum as rn, q_no, q_title, q_txt, q_date,q_reply_has, a_id, a_name
+        from(select * from qna q, auth a where q.q_id = a.a_id and
+       		<if test="nameInput != ''">
+         	  a.a_name = #{nameInput} and
+			</if>
+			<if test="idInput != ''">
+          	  a.a_id = #{idInput} and
+            </if>
+           	  q.q_title like '%'||#{titleInput}||'%' order by q_no))
+        where rn &gt;= #{start} and rn &lt;= #{end}
+	</select>
+
 </mapper>
