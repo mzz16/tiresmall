@@ -4,6 +4,7 @@
 @import "main/home/main_home.css";
 @import "main/board/main_board.css";
 @import "main/product/product_detail.css";
+@import "main/product/product_cart.css";
 
 .index_container {
   min-width: 1200px;

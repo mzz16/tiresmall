@@ -68,7 +68,12 @@ pageEncoding="UTF-8"%>
           <li>타이어 장착 안내</li>
           <li>배송 / 반품 / 교환 / AS 안내</li>
         </ul>
-        <div class="detail_include"></div>
+        <div class="detail_include">
+          <ul></ul>
+          <ul></ul>
+          <ul></ul>
+          <ul></ul>
+        </div>
       </section>
     </div>
     <script src="https://code.jquery.com/jquery-latest.min.js"></script>

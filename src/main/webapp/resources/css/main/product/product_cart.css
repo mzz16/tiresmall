@@ -1,0 +1,5 @@
+.cart_container {
+  display: grid;
+  grid-template-columns: 1200px;
+  justify-content: center;
+}

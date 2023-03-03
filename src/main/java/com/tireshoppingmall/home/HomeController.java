@@ -70,6 +70,13 @@ public class HomeController {
 		return "index";
 	}
 	
+	
+	@RequestMapping(value = "/cart", method = RequestMethod.GET)
+	public String goCart(Model model) {
+		model.addAttribute("content", "main/product/cart.jsp");
+		return "index";
+	}
+	
 	@RequestMapping(value = "/detail.test", method = RequestMethod.GET)
 	public String goDetailTest(Model model) {
 		model.addAttribute("content", "main/product/detail.jsp");
