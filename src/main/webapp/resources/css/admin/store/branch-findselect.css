@@ -30,21 +30,36 @@ position:relative;
 	width:150px;
 }
 
-.branchsearchButton{
-	
-	display: flex;
-	background: #0080FF;
-	margin-left:5px;
-	  border-radius: 5px;
-    border: 1px solid #000;
-    padding: 8px 10px;
-    font-size: 1em;
-    cursor: pointer;
-    color:white;
-    position:relative;
-   
-	
+
+
+
+
+.branchsearchButton {
+  background-color: #5F5F5F;
+  color: #FFFFFF;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin-left:20px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 50px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  
 }
+
+.branchsearchButton:hover {
+  background-color: #FFFFFF;
+  color: #5F5F5F;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.4);
+}
+
+
+
 
 .branch-text1{
 	float:left;
@@ -63,11 +78,12 @@ position:relative;
 .branch-text2{
 float:left;
 	display: flex;
-	padding-top:9px;
-	padding-bottom:9.5px;
+	padding-top:7px;
+	padding-bottom:10px;
 	border: solid 2.5px;
 	border-radius: 10px 0 0 10px;
 	margin-left:20px;
+	top:0px;
 	 padding-left: 2px;
 	 padding-right: 2px;
 	 background-color: #C0C0C0;
@@ -81,35 +97,66 @@ float:left;
 
 .branch-findareabutton{
 	
-	display: flex;
-	background: #0080FF;
-	margin-left:5px;
-	  border-radius: 5px;
-    border: 1px solid #000;
-    padding: 8px 10px;
-    font-size: 1em;
-    cursor: pointer;
-    color:white;
-    position:relative;
+ background-color: #5F5F5F;
+  color: #FFFFFF;
+  border: none;
+ padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 50px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
 	
+}
+
+.branch-findareabutton:hover {
+  background-color: #FFFFFF;
+  color: #5F5F5F;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.4);
 }
 
 
 .branchRegButton{
 	
-	display: flex;
-	background: yellow;
-	margin-right:20px;
-	  border-radius: 5px;
-    border: 1px solid #000;
-    padding: 2px 5px;
-    font-size: 1em;
+	  width: 200px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #fff;
     cursor: pointer;
-    padding: 5px 10px;
-   
-	position:relative;
+    margin: 20px;
+    height: 55px;
+    text-align:center;
+    border: none;
+    background-size: 300% 100%;
+
+    border-radius: 50px;
+    moz-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+	
+	 background-image: linear-gradient(to right, #25aae1, #4481eb, #04befe, #3f86ed);
+    box-shadow: 0 4px 15px 0 rgba(65, 132, 234, 0.75);
 	
 }
+
+.branchRegButton:hover{
+	
+	   background-position: 100% 0;
+    moz-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+	
+}
+
+
+  
+
 
 
 .branchRegButton1{
@@ -118,6 +165,7 @@ float:left;
         position:relative;
 	
 }
+
 
 
 
@@ -262,7 +310,7 @@ width: 800px;
 height: 600px;
 position: absolute;
 top: 50%;
-left: 50%;
+left: 45%;
 margin: -250px 0 0 -250px;
 background-color: #fff;
 z-index: 2;
@@ -300,8 +348,8 @@ width: 500px;
 height: 500px;
 position: absolute;
 top: 50%;
-left: 50%;
-margin: -250px 0 0 -250px;
+left: 30%;
+margin: -50px 0 0 -250px;
 background-color: #fff;
 z-index: 2;
     }
@@ -343,10 +391,50 @@ z-index: 2;
 	
 }
 
+#inputid{
+	
+	
+	width:100px;
+	
+}
+
+#inputname{
+	
+
+	width:200px;
+}
+
+#inputaddr{
+	
+	
+	width:400px;
+	
+}
+
+#b_addr_i{
+	
+	width:400px;
+	
+}
+
+
+#b_time_i{
+
+width:400px;
+
+}
+
+
+#b_service_i{
+	
+	
+width:400px;
+	
+}
+
 
 #inputmapdata{
 	
-	height:100px;
 	width:300px;
 	
 }
@@ -355,10 +443,14 @@ z-index: 2;
 	
 	
 	width:300px;
-	height:100px;
 }
 
 
+#service{
+	
+width:300px;	
+	
+}
 
 
 .regokbutton{
@@ -369,6 +461,118 @@ z-index: 2;
 .regokbutton1{
 	
 	display :inline-block;
+}
+
+
+
+
+.regokbutton1{
+	
+	display :inline-block;
+}
+
+
+.updateokbutton{
+	
+	
+	
+	text-align: center;
+}
+
+
+.updateokbutton1{
+	
+	
+	display :inline-block;
+  width: 130px;
+  height: 40px;
+  color: #fff;
+  border-radius: 5px;
+  padding: 10px 25px;
+  font-family: 'Lato', sans-serif;
+  font-weight: 500;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+   box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
+   7px 7px 20px 0px rgba(0,0,0,.1),
+   4px 4px 5px 0px rgba(0,0,0,.1);
+  outline: none;
+  
+   background: rgb(0,172,238);
+background: linear-gradient(0deg, rgba(0,172,238,1) 0%, rgba(2,126,251,1) 100%);
+  width: 130px;
+  height: 40px;
+  line-height: 42px;
+  padding: 0;
+  border: none;
+    
+}
+
+
+
+
+
+.updateokbutton1 span {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.updateokbutton1:before,
+.updateokbutton1:after {
+  position: absolute;
+  content: "";
+  right: 0;
+  top: 0;
+   background: rgba(2,126,251,1);
+  transition: all 0.3s ease;
+}
+.updateokbutton1:before {
+  height: 0%;
+  width: 2px;
+}
+.updateokbutton1:after {
+  width: 0%;
+  height: 2px;
+}
+.updateokbutton1:hover{
+   background: transparent;
+  box-shadow: none;
+}
+.updateokbutton1:hover:before {
+  height: 100%;
+}
+.updateokbutton1:hover:after {
+  width: 100%;
+}
+.updateokbutton1 span:hover{
+   color: rgba(2,126,251,1);
+}
+.updateokbutton1 span:before,
+.updateokbutton1 span:after {
+  position: absolute;
+  content: "";
+  left: 0;
+  bottom: 0;
+   background: rgba(2,126,251,1);
+  transition: all 0.3s ease;
+}
+.updateokbutton1 span:before {
+  width: 2px;
+  height: 0%;
+}
+.updateokbutton1 span:after {
+  width: 0%;
+  height: 2px;
+}
+.updateokbutton1 span:hover:before {
+  height: 100%;
+}
+.updateokbutton1 span:hover:after {
+  width: 100%;
 }
 
 
@@ -590,11 +794,11 @@ z-index: 2;
     display: none;
 }
 #popup01{
-width: 500px;
-height: 500px;
+width: 800px;
+height: 600px;
 position: absolute;
 top: 50%;
-left: 50%;
+left: 40%;
 margin: -250px 0 0 -250px;
 background-color: #fff;
 z-index: 2;
@@ -614,6 +818,7 @@ z-index: 2;
   top:-25px;
   right: 0;
   cursor:pointer;
+  -webkit-text-stroke: 1px white;
 }
 
 .openPopup{
@@ -621,6 +826,12 @@ z-index: 2;
   cursor:pointer;
 
 }
+
+
+
+
+
+
 
 
 

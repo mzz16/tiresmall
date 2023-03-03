@@ -56,7 +56,8 @@ public class BranchDAO {
 		String b_email = req.getParameter("b_email");
 
 		b.setB_area(b_area);
-
+		
+	
 		System.out.println(b_id);
 		System.out.println(b_sortation);
 		System.out.println(b_area);
@@ -175,6 +176,12 @@ public class BranchDAO {
 
 		b.setB_area(b_area);
 		
+		System.out.println(b);
+		
+		System.out.println("-------------------");
+
+		
+		
 		System.out.println(b_id);
 		System.out.println(b_sortation);
 		System.out.println(b_area);
@@ -193,12 +200,10 @@ public class BranchDAO {
 
 		if (ss.getMapper(AdminStoreMapper.class).updatebranch(b) == 1) {
 			System.out.println("수정완료");
-			
-			
 		
 		}else {
 			System.out.println("수정실패");
-			
+
 			
 		}
 
