@@ -173,7 +173,7 @@ public class BranchDAO {
 		String b_cr = req.getParameter("b_cr");
 		String b_email = req.getParameter("b_email");
 		
-
+		
 		b.setB_area(b_area);
 		
 		System.out.println(b);

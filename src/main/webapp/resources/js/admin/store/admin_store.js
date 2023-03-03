@@ -100,7 +100,7 @@ function updatebranch(id, sortation, area, addr, name, time, service, mapdata,
 		    $('#b_id_i').val(id);
 		    $('#sido1').val(area);
 		   $('#gugun1').val(area);
-	$('#b_sortation_i').val(sortation);
+		   $('input[name=b_sortation_i]:checked').val(sortation);
 	$('#b_name_i').val(name);
 	$('#b_addr_i').val(addr);
 	$('#b_time_i').val(time);

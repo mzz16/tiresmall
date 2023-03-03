@@ -210,8 +210,9 @@
 					<tr>
 						<td style = "background-color:#0ec492">구분</td>
 						<td>
-						<input type='radio' name='b_sortation' id='b_sortation_i' />직영점(당일장착점)
-							<input type='radio' name='b_sortation' id='b_sortation_i' />제휴장착점</td>
+						<input type='radio' name='b_sortation' id='b_sortation_i'  value='직영점(당일장착점)' />직영점(당일장착점)
+							<input type='radio' name='b_sortation' id='b_sortation_i' value='제휴장착점' />제휴장착점</td>
+							
 					</tr>
 
 					

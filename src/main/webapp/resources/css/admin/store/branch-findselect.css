@@ -183,29 +183,29 @@ float:left;
 
 .branchdata_div .branchdata_div1{
 	height : 50px;
-	width: 20%;
+	width: 5%;
 }
 
 .branchdata_div .branchdata_div2{
 	height : 50px;
-	width: 20%;
+	width: 45%;
 }
 
 .branchdata_div .branchdata_div3{
 	height : 50px;
-	width: 20%;
+	width: 15%;
 }
 
 .branchdata_div .branchdata_div4{
 	height : 50px;
-	width: 20%;
+	width: 15%;
 }
 
 .branchdata_div .branchdata_div5{
 	height : 50px;
 	width: 20%;
 	position: absolute;
-	left:80.5%;
+	left:80.35%;
 }
 
 .branchdatalist_div{
@@ -219,24 +219,24 @@ float:left;
 }
 
 .branchdatalist_div1{
-	width: 20%;
+	width: 5%;
 	 border: 1px solid #000;
 }
 
 .branchdatalist_div2{
 	 border: 1px solid #000;
-	width: 20%;
+	width: 45%;
 }
 
 .branchdatalist_div3{
 	 border: 1px solid #000;
-	width: 20%;
+	width: 15%;
 	
 }
 
 .branchdatalist_div4{
 	 border: 1px solid #000;
-	width: 20%;
+	width: 15%;
 	
 }
 
@@ -244,7 +244,7 @@ float:left;
 	 border: 1px solid #000;
 	width: 20%;
 	position: absolute;
-	left:80.5%;
+	left:80.35%;
 }
 
 
@@ -264,6 +264,7 @@ float:left;
   padding: 10px 25px;
   border: 2px solid #000;
   font-family: 'Lato', sans-serif;
+  top:5px;
   font-weight: 500;
   background: transparent;
   cursor: pointer;
@@ -456,19 +457,43 @@ width:300px;
 .regokbutton{
 	
 	text-align: center;
+
 }
 
 .regokbutton1{
 	
 	display :inline-block;
+	 padding-left: 40px;
+	 padding-right: 40px;
+	 padding-top:15px;
+	  padding-bottom: 15px;
+color: #fff;
+    cursor: pointer;
+    text-align:center;
+    border: none;
+    background-size: 100% 100%;
+
+    border-radius: 5px;
+    moz-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+	
+	 background-image: linear-gradient(to right, #25aae1, #4481eb, #04befe, #3f86ed);
+    box-shadow: 0 4px 15px 0 rgba(65, 132, 234, 0.75);
 }
 
 
 
 
-.regokbutton1{
+.regokbutton1.hover{
 	
-	display :inline-block;
+	
+background-position: 100% 0;
+    moz-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
 }
 
 
@@ -477,6 +502,9 @@ width:300px;
 	
 	
 	text-align: center;
+	
+	
+	
 }
 
 
@@ -484,96 +512,45 @@ width:300px;
 	
 	
 	display :inline-block;
-  width: 130px;
-  height: 40px;
-  color: #fff;
-  border-radius: 5px;
-  padding: 10px 25px;
-  font-family: 'Lato', sans-serif;
-  font-weight: 500;
-  background: transparent;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  position: relative;
-  display: inline-block;
-   box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
-   7px 7px 20px 0px rgba(0,0,0,.1),
-   4px 4px 5px 0px rgba(0,0,0,.1);
-  outline: none;
-  
-   background: rgb(0,172,238);
-background: linear-gradient(0deg, rgba(0,172,238,1) 0%, rgba(2,126,251,1) 100%);
-  width: 130px;
-  height: 40px;
-  line-height: 42px;
-  padding: 0;
-  border: none;
+	 padding-left: 40px;
+	 padding-right: 40px;
+	 padding-top:15px;
+	  padding-bottom: 15px;
+color: #fff;
+    cursor: pointer;
+    text-align:center;
+    border: none;
+    background-size: 100% 100%;
+
+    border-radius: 5px;
+    moz-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+	
+	 background-image: linear-gradient(to right, #25aae1, #4481eb, #04befe, #3f86ed);
+    box-shadow: 0 4px 15px 0 rgba(65, 132, 234, 0.75);
+   
     
 }
 
 
 
+.updateokbutton1.hover{
+	
+	
+	display :inline-block;
+ 
+background-position: 100% 0;
+    moz-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+   
+    
+}
 
 
-.updateokbutton1 span {
-  position: relative;
-  display: block;
-  width: 100%;
-  height: 100%;
-}
-.updateokbutton1:before,
-.updateokbutton1:after {
-  position: absolute;
-  content: "";
-  right: 0;
-  top: 0;
-   background: rgba(2,126,251,1);
-  transition: all 0.3s ease;
-}
-.updateokbutton1:before {
-  height: 0%;
-  width: 2px;
-}
-.updateokbutton1:after {
-  width: 0%;
-  height: 2px;
-}
-.updateokbutton1:hover{
-   background: transparent;
-  box-shadow: none;
-}
-.updateokbutton1:hover:before {
-  height: 100%;
-}
-.updateokbutton1:hover:after {
-  width: 100%;
-}
-.updateokbutton1 span:hover{
-   color: rgba(2,126,251,1);
-}
-.updateokbutton1 span:before,
-.updateokbutton1 span:after {
-  position: absolute;
-  content: "";
-  left: 0;
-  bottom: 0;
-   background: rgba(2,126,251,1);
-  transition: all 0.3s ease;
-}
-.updateokbutton1 span:before {
-  width: 2px;
-  height: 0%;
-}
-.updateokbutton1 span:after {
-  width: 0%;
-  height: 2px;
-}
-.updateokbutton1 span:hover:before {
-  height: 100%;
-}
-.updateokbutton1 span:hover:after {
-  width: 100%;
-}
 
 
 
