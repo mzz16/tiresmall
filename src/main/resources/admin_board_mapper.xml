@@ -124,7 +124,7 @@
 	</select>
 
 	<!-- QNA 부분 검색-->
-	<select id="searchQnA" parameterType="com.tireshoppingmall.home.admin.board.SearchDTO" resultType="com.tireshoppingmall.home.admin.board.QnaDTO">
+	<!-- <select id="searchQnA" parameterType="com.tireshoppingmall.home.admin.board.SearchDTO" resultType="com.tireshoppingmall.home.admin.board.QnaDTO">
 			select q.*, a.a_id, a.a_name
 			from qna q, auth a where q.q_id = a.a_id and
 			<if test="nameInput != ''">
@@ -135,7 +135,7 @@
             </if>
             q_title like '%'||#{titleInput}||'%'
             order by q_no
-	</select>
+	</select> -->
 	
 	<!-- QNA 답변-->
 	<insert id="insertQnAReply" parameterType="com.tireshoppingmall.home.admin.board.QnaReplyDTO">
@@ -167,16 +167,17 @@
 	<!-- QNA 페이징-->
 	<select id="getQna" resultType="com.tireshoppingmall.home.admin.board.QnaDTO">
 		select * from
-        (select rownum as rn, q_no, q_title, q_txt, q_date,q_reply_has, a_id, a_name
+        (select rownum as rn, q_no, q_id, q_title, q_txt, q_date, q_reply_has, a_id, a_name
         from(select * from qna q, auth a where q.q_id = a.a_id and
        		<if test="nameInput != ''">
          	  a.a_name = #{nameInput} and
 			</if>
-			<if test="idInput != ''">
-          	  a.a_id = #{idInput} and
+			<if test="idInput != ''">	
+          	  q.q_id = #{idInput} and
             </if>
            	  q.q_title like '%'||#{titleInput}||'%' order by q_no))
         where rn &gt;= #{start} and rn &lt;= #{end}
 	</select>
+        
 
 </mapper>

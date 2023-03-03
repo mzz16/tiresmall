@@ -119,19 +119,18 @@
 			</form>
 		</div>
 	</div>
-	<div style="text-align:center; border: 1px solid red;">
+	<div id="paging-box">
 		<c:if test="${curPage != 1 }">
 			<a href="notice.page.change?p=${curPage - 1 }">&lt;</a>
 		</c:if>
 
 		<c:forEach var="page" begin="1" end="${pageCount }">
 			<c:choose>
-					<c:when test="${page eq param.p}">
-						<a href="notice.page.change?p=${page }"
-							style="background-color: #76d7ea;">[${page }] </a>
+					<c:when test="${page eq param.p or (curPage == 1 and curPage == page)}">
+						<a style="color:black" href="notice.page.change?p=${page }">${page } </a>
 					</c:when>
 					<c:otherwise>
-						<a href="notice.page.change?p=${page }">[${page }] </a>
+						<a href="notice.page.change?p=${page }">${page } </a>
 					</c:otherwise>
 				</c:choose>
 		</c:forEach>

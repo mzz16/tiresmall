@@ -50,16 +50,14 @@ public class QnaDAO {
 		if (search == null) {
 			search = new SearchDTO();
 			search.setTitleInput("");
-			System.out.println(search.getTitleInput());
 			search.setNameInput("");
-			System.out.println(search.getNameInput());
 			search.setIdInput("");
-			System.out.println(search.getIdInput());
 			search.setStart(new BigDecimal(start));
 			search.setEnd(new BigDecimal(end));
 			qnaCount = allQnaCount;
 			System.out.println("1-------" + allQnaCount);
 		}else {
+			System.out.println(search.toString());
 			search.setStart(new BigDecimal(start));
 			search.setEnd(new BigDecimal(end));
 			qnaCount = ss.getMapper(AdminBoardMapper.class).getQnaCount(search);
@@ -77,8 +75,7 @@ public class QnaDAO {
 	}
 	
 	public void searchQnA(SearchDTO SearchDTO, HttpServletRequest req) {
-		List<QnaDTO> qna = ss.getMapper(AdminBoardMapper.class).searchQnA(SearchDTO);
-		req.setAttribute("qnas", qna);
+		req.getSession().setAttribute("searchDTO", SearchDTO);
 	}
 
 	public void insertQnAReply(QnaReplyDTO qnaReplyDTO, HttpServletRequest req) {

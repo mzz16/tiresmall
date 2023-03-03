@@ -94,4 +94,13 @@ public class SearchDTO {
 		req.getSession().setAttribute("searchDTO", null);
 	}
 
+
+	@Override
+	public String toString() {
+		return "SearchDTO [selectOption=" + selectOption + ", titleInput=" + titleInput + ", start=" + start + ", end="
+				+ end + ", nameInput=" + nameInput + ", idInput=" + idInput + "]";
+	}
+
+	
+	
 }

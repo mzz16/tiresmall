@@ -196,8 +196,9 @@ public class AdminBoardController {
 
 	@RequestMapping(value = "/search.qna.do", method = RequestMethod.GET)
 	public String searchQnA(SearchDTO SearchDTO, HttpServletRequest req) {
-		System.out.println(SearchDTO.toString());
 		qnaDAO.searchQnA(SearchDTO, req);
+		qnaDAO.getQna(1 ,req);
+		
 		req.setAttribute("subMenuPage", "board/board_subMenu.jsp");
 		req.setAttribute("contentPage", "board/qna_board.jsp");
 		return "admin/master";

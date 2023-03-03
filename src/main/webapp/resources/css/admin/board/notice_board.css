@@ -13,6 +13,9 @@ a {
 	text-decoration: none
 }
 
+a:visited {
+	color: white;
+}
 .DashBoard {
 	width: 100%;
 }
@@ -40,7 +43,7 @@ a {
 
 .notice_content {
 	width: 100%;
-	margin-top: 20px;
+	padding-top: 10px;
 }
 
 .notice {
@@ -62,7 +65,7 @@ a {
 .select_box {
 	display: flex;
 	align-items: center;
-	margin-top: 20px;
+	margin-top: 10px;
 }
 
 .select_box>div {
@@ -92,9 +95,9 @@ a {
 
 .input_box>input {
 	width: 300px;
-	height: 30px;
-	font-size: 15pt;
-	margin: 10px;
+    height: 30px;
+    font-size: 15pt;
+    margin-left: 10px;
 }
 
 .input_box>input:focus {
@@ -105,16 +108,16 @@ textarea:focus{
 }
 .notice_select {
 	width: 200px;
-	font-size: 20px;
-	margin: 10px
+    font-size: 20px;
+    margin-left: 10px;
 }
 
 .input_box {
 	display: flex;
 	align-items: center;
 	margin-left: 20px;
-	width: 900px;
-	margin-top: 20px;
+	width: 700px;
+	margin-top: 10px;
 }
 
 .button_box {
@@ -123,7 +126,7 @@ textarea:focus{
 	justify-content: space-between;
 	align-items: center;
 	padding: 0 10px;
-	margin-top: 20px;
+	margin-top: 10px;
 }
 
 .awesomeBtn {
@@ -219,7 +222,24 @@ textarea:focus{
     height: 100vh;
 }
 
-
 .notice_modalcontent {
 	width: 70%;
+}
+
+#paging-box{
+	display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 40px;
+    background-color: white;
+    border: 1px solid;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+#paging-box a{
+	padding: 10px 10px;
+    margin: 5px;
+    background-color: gray;
 }
