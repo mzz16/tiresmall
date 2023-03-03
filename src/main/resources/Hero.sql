@@ -29,6 +29,10 @@ create table notice(
     n_txt varchar2(2000 char) not null,
     n_date date not null
 )
+
+select * from notice;
+drop taBLE NOTICE;
+
 delete from faq;
 drop table faq;
 

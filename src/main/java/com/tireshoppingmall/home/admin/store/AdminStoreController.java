@@ -56,20 +56,16 @@ public class AdminStoreController {
 	
 	
 
-	@RequestMapping(value = "/admin.store.update.go", method = RequestMethod.GET)
-	public String branchupdateGo(BranchDTO b, Model m, HttpServletRequest req) {
-		bDAO.getbranch(b, req);
-		return "admin/store/updatebranch";
 
-	}
 
 	@RequestMapping(value = "/admin.store.update.do", method = RequestMethod.GET)
 	public String branchupdateDo(BranchDTO b, Model m, HttpServletRequest req) {
 
 		bDAO.updatebranch(b, req);
-		bDAO.getbranch(b, req);
 		bDAO.getAllBranch(m);
 
+
+		req.setAttribute("contentPage", "store/branch.jsp");
 		return "admin/master";
 
 	}

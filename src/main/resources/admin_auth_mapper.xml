@@ -6,4 +6,52 @@
 		select * from auth
 	</select> -->
 	
+	<select id="seachAuth" resultType="com.tireshoppingmall.home.admin.auth.AuthDTO">
+		select * from auth 
+		where a_id like '%'||#{a_id}||'%' 
+		and a_name like '%'||#{a_name}||'%' 
+		<!--and a_carNum like '%'||#{a_carNum}||'%' -->
+		<choose>
+			<when test="a_Sortation==2">
+				and a_Sortation = '일반'
+			</when>
+			<when test="a_Sortation==3">
+				and a_Sortation = '업체'
+			</when>
+			<when test="a_Sortation==4">
+				and a_Sortation = '관리자'
+			</when>
+		</choose>
+		
+	</select>
+	
+	<delete id="authDelete">
+		delete auth where a_id = #{a_id}
+	</delete>
+	
+	
+	<update id="authUpdate">
+		update auth 
+		set a_Sortation 
+		<choose>
+			<when test="a_Sortation==1">
+				='일반'
+			</when>
+			<when test="a_Sortation==2">
+				= '업체'
+			</when>
+			<when test="a_Sortation==3">
+				= '관리자'
+			</when>
+		</choose>
+		
+		,a_name=#{a_name},a_phone=#{a_phone},a_address=#{a_address}
+		where a_id = #{a_id}
+	</update>
+	
+	
+	
+	
+	
+	
 </mapper>

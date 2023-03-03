@@ -1,5 +1,11 @@
 @charset "UTF-8";
 
+@auth_container{
+	position: relative;
+}
+
+
+
 #auth_searchBox{
 	display: flex;
 	
@@ -8,6 +14,8 @@
 #auth_content{
 	/* margin-top:20px;  */
     width: 100%;
+    text-align: center;
+    font-size: 20pt;
 
 }
 
@@ -85,7 +93,6 @@
     font-size: 1em;
     cursor: pointer;
     color: white;
-    position: relative;
     font-family: GmarketSansMedium;
 }
 
@@ -127,11 +134,186 @@
 #manyAuth_content{
 	text-align: center;
 	font-size: 15pt;	
-	border: 1px;
+	border-bottom: 5px solid black;
+}
+
+.auth_table_td{
+	border: 1px solid black;
+	padding-bottom: 3px;
+	padding-top: 3px;
 }
 
 
-
-.manyAuth_btn button {
-	margin-left: 20px;	
+#auth_Btn button{
+    background: #181C32;
+    margin-left: 20px;
+    border-radius: 5px;
+    border: 1px solid #000;
+    padding: 8px 10px;
+    font-size: 10pt;
+    cursor: pointer;
+    color: white;
+    font-family: GmarketSansMedium;
 }
+
+/* 모달 창  */
+
+#auth_modal {
+  top: -20px;	
+  position: absolute;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 5;
+  height: 102.5vh;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+#auth_modal_container {
+  border-radius: 40px;
+  border: 2px solid #212529;
+  background-color: white;
+  width: 1050px;
+  text-align: center;
+}
+#auth_modalInfo {
+  border-top-left-radius: 40px;
+  border-top-right-radius: 40px;
+  background-color: #eee;
+  border-bottom: 1px solid #212529;
+  padding: 15px;
+  font-size: 17pt;
+  font-weight: 900;
+}
+
+#auth_modal_page {
+  width: 100%;
+  padding: 30px;
+  padding-bottom: 5px;
+}
+
+#auth_basicInfo {
+  display: flex;
+}
+
+#auth_basic_content {
+  display: block;
+}
+
+.auth_modal_title {
+  width: 100px;
+  border-right: 1px solid #eee;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #212529;
+  color: white;
+}
+
+.auth_modal_content {
+  display: flex;
+  padding: 5px;
+  padding-bottom:10px;
+  padding-top:10px;
+  border: 1px solid #212529;
+  width: 880px;
+}
+
+#auth_companyInfo {
+  display: flex;
+}
+#auth__modal_searchTitle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 11pt;
+  margin-left: 10px;
+  margin-right: 10px;
+  padding: 6px;
+  border-radius: 8px;
+  background-color: #212529;
+  color: white;
+  height: 37px;
+}
+
+#auth_modal_sortation {
+  height: 28px;
+  width: 70px;
+  font-size: 12pt;
+  border-radius: 10px;
+  text-align: center;
+  align-items: center;
+  margin-left: 5px;
+  font-family: GmarketSansMedium;
+  valign: middle; 
+}
+
+.auth_modal_input {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 11pt;
+  margin-left: 10px;
+  margin-right: 10px;
+  padding: 6px;
+  border-radius: 8px;
+  background-color: #212529;
+  color: white;
+  height: 37px;
+}
+.auth_modal_input input {
+  margin-left: 5px;
+  width: 120px;
+  border-radius: 5px;
+  height: 20px;
+  font-family: GmarketSansMedium; 
+  height: 25px;
+  font-size: 12pt;
+}
+.auth_modal_id input,.auth_modal_car input{
+	width: 190px;
+}
+
+
+.auth_modal_addr input {
+  width: 600px;
+  font-family: GmarketSansMedium; 
+}
+#auth_modal_btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60px;
+}
+
+#auth_modal_btn button {
+  display: flex;
+  height: 37px;
+  background: #212529;
+  margin-right: 30px;
+  margin-left: 30px;
+  border-radius: 5px;
+  border: 1px solid #000;
+  padding: 8px 10px;
+  font-size: 1em;
+  cursor: pointer;
+  color: white;
+  font-family: GmarketSansMedium; 
+}
+#auth_modal_cancel{
+  display: flex;
+  height: 20px;
+  background: #212529;
+  margin-right: 30px;
+  margin-left: 30px;
+  border-radius: 5px;
+  border: 1px solid #000;
+  padding: 8px 10px;
+  font-size: 1em;
+  cursor: pointer;
+  color: white;
+  font-family: GmarketSansMedium; 
+}
+
+

@@ -60,8 +60,8 @@ $('document').ready(
 						var area = "area"
 								+ $("option", $(this)).index(
 										$("option:selected", $(this))); // 선택지역의
-																		// 구군
-																		// Array
+						// 구군
+						// Array
 						var $gugun = $(this).next(); // 선택영역 군구 객체
 						$("option", $gugun).remove(); // 구군 초기화
 
@@ -78,9 +78,39 @@ $('document').ready(
 		});
 
 
-function regbranchopen(){
-	window.open("admin.store.reg.go","신규등록","width=800 height=600")
+
+function updatebranch(id, sortation, area, addr, name, time, service, mapdata,
+		manager, managernumber, branchname, branchnumber, cr, email) {
+
+	
+	
+		    $("#popup01").show();   //팝업 오픈
+		    $("body").append('<div class="backon"></div>'); //뒷배경 생성
+		 
+		    
+		    $("body").on("click", function(event) { 
+		        if(event.target.className == 'close' || event.target.className == 'backon'){
+		            $("#popup01").hide(); //close버튼 이거나 뒷배경 클릭시 팝업 삭제
+		              $(".backon").hide();
+		        }
+		      });
+	
+		    $('#b_id_i').val(id);
+		    $('#sido1').val('');
+		   $('#gugun1').val('');
+	$('#b_sortation_i').val(sortation);
+	$('#b_name_i').val(name);
+	$('#b_addr_i').val(addr);
+	$('#b_time_i').val(time);
+	$('#b_service_i').val(service);
+	$('#b_mapdata_i').val(mapdata);
+	$('#b_manager_i').val(manager);
+	$('#b_managernumber_i').val(managernumber);
+	$('#b_branchname_i').val(branchname);
+	$('#b_branchnumber_i').val(branchnumber);
+	$('#b_cr_i').val(cr);
+	$('#b_email_i').val(email);
+
+	
+	
 }
-
-
-
