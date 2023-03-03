@@ -126,13 +126,13 @@
 	</div>
 	<div id="paging-box">
 		<c:if test="${curPage != 1 }">
-			<a href="qna.page.change?p=${curPage - 1 }">&lt;</a>
+			<a href="qna.page.change?p=${curPage - 1 }">이전</a>
 		</c:if>
 
 		<c:forEach var="page" begin="1" end="${pageCount }">
 			<c:choose>
 					<c:when test="${page eq param.p or (curPage == 1 and curPage == page)}}">
-						<a href="qna.page.change?p=${page }">${page } </a>
+						<a href="qna.page.change?p=${page }" style="color: black">${page } </a>
 					</c:when>
 					<c:otherwise>
 						<a href="qna.page.change?p=${page }">${page } </a>
@@ -140,7 +140,7 @@
 				</c:choose>
 		</c:forEach>
 		<c:if test="${curPage != pageCount }">
-			<a href="qna.page.change?p=${curPage + 1 }">&gt;</a>
+			<a href="qna.page.change?p=${curPage + 1 }">다음</a>
 		</c:if>
 	</div>
 	<script src="resources/js/admin/board/qna_board.js"></script>

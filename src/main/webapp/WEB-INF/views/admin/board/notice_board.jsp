@@ -121,7 +121,7 @@
 	</div>
 	<div id="paging-box">
 		<c:if test="${curPage != 1 }">
-			<a href="notice.page.change?p=${curPage - 1 }">&lt;</a>
+			<a href="notice.page.change?p=${curPage - 1 }">이전</a>
 		</c:if>
 
 		<c:forEach var="page" begin="1" end="${pageCount }">
@@ -135,7 +135,7 @@
 				</c:choose>
 		</c:forEach>
 		<c:if test="${curPage != pageCount }">
-			<a href="notice.page.change?p=${curPage + 1 }">&gt;</a>
+			<a href="notice.page.change?p=${curPage + 1 }">다음</a>
 		</c:if>
 	</div>
 	<script src="resources/js/admin/board/notice_board.js"></script>
