@@ -132,7 +132,7 @@
 		<c:forEach var="page" begin="1" end="${pageCount }">
 			<c:choose>
 					<c:when test="${page eq param.p or (curPage == 1 and curPage == page)}}">
-						<a href="qna.page.change?p=${page }" style="color: black">${page } </a>
+						<a href="qna.page.change?p=${page }" style="color: #00BFFF">${page } </a>
 					</c:when>
 					<c:otherwise>
 						<a href="qna.page.change?p=${page }">${page } </a>
