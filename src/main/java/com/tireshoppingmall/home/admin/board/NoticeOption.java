@@ -1,8 +1,5 @@
 package com.tireshoppingmall.home.admin.board;
 
-import org.springframework.stereotype.Service;
-
-@Service
 public class NoticeOption {
 
 	private int noticeCountPerPage;
