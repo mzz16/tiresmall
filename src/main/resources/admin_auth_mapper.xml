@@ -2,16 +2,10 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.tireshoppingmall.home.admin.auth.AdminAuthMapper">
 
-<<<<<<< HEAD
 	<select id="getAllAuth" resultType="com.tireshoppingmall.home.admin.auth.AuthDTO">
 		select * from auth a left OUTER JOIN my_car mycar
  		ON a.a_id = mycar.mc_id
 	</select>
-=======
-<!-- 	<select id="getAllAuth" resultType="com.tireshoppingmall.home.admin.auth.AuthDAO">
-		select * from auth
-	</select> -->
->>>>>>> 58e10fbf4214b4b729e51ebf0c0aa2084537cb52
 	
 	<select id="seachAuth" resultType="com.tireshoppingmall.home.admin.auth.AuthDTO">
 		select * from auth a left OUTER JOIN my_car mycar
