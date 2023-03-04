@@ -17,7 +17,9 @@ import com.tireshoppingmall.home.admin.board.SearchDTO;
 @Controller
 public class AdminBoardController {
 
-	private boolean firstReq;
+	private boolean noticeFirstReq;
+	private boolean faqFirstReq;
+	private boolean qnaFirstReq;
 
 	@Autowired
 	private BoardDAO bDAO;
@@ -29,7 +31,9 @@ public class AdminBoardController {
 	private QnaDAO qnaDAO;
 
 	public AdminBoardController() {
-		firstReq = true;
+		noticeFirstReq = true;
+		faqFirstReq = true;
+		qnaFirstReq = true;
 	}
 
 	/* notice DAO */
@@ -37,9 +41,9 @@ public class AdminBoardController {
 	@RequestMapping(value = "/admin.notice.go", method = RequestMethod.GET)
 	public String notice(HttpServletRequest req) {
 
-		if (firstReq) {
+		if (noticeFirstReq) {
 			bDAO.calcAllNoticeCount();
-			firstReq = false;
+			noticeFirstReq = false;
 		}
 		SearchDTO.clearSearch(req);
 		bDAO.getNotice(1, req);
@@ -114,9 +118,9 @@ public class AdminBoardController {
 	@RequestMapping(value = "/admin.faq.go", method = RequestMethod.GET)
 	public String faq(HttpServletRequest req) {
 
-		if (firstReq) {
+		if (faqFirstReq) {
 			faqDAO.calcAllFaqCount();
-			firstReq = false;
+			faqFirstReq = false;
 		}
 		SearchDTO.clearSearch(req);
 		faqDAO.getFaq(1, req);
@@ -183,9 +187,9 @@ public class AdminBoardController {
 	@RequestMapping(value = "/admin.qna.go", method = RequestMethod.GET)
 	public String qna(HttpServletRequest req) {
 
-		if (firstReq) {
+		if (qnaFirstReq) {
 			qnaDAO.calcAllQnaCount();
-			firstReq = false;
+			qnaFirstReq = false;
 		}
 		SearchDTO.clearSearch(req);
 		qnaDAO.getQna(1 ,req);
