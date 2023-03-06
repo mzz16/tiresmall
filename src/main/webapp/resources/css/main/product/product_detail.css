@@ -1,0 +1,39 @@
+.detail_container {
+  display: grid;
+  grid-template-columns: 1200px;
+  justify-content: center;
+}
+
+.detail_product {
+  display: grid;
+  grid-template-columns: repeat(2, 600px);
+  grid-template-rows: 400px;
+}
+
+.detail_img {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.detail_titles h1 {
+  margin-bottom: 20px;
+  font-size: 30px;
+  font-weight: 400;
+}
+
+.detail_titles h3 {
+  font-size: 20px;
+}
+
+.detail_nav {
+  display: grid;
+  grid-template-columns: repeat(4, 300px);
+  grid-template-rows: 50px;
+}
+
+.detail_nav li {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

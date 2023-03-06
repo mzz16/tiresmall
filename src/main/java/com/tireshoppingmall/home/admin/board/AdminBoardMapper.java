@@ -29,7 +29,7 @@ public interface AdminBoardMapper {
 
 	List<QnaDTO> getAllQna();
 
-	List<QnaDTO> searchQnA(QnaSearchDTO qnaSearchDTO);
+	List<QnaDTO> searchQnA(SearchDTO SearchDTO);
 
 	int insertQnAReply(QnaReplyDTO qnaReplyDTO);
 
@@ -40,6 +40,14 @@ public interface AdminBoardMapper {
 	int getNoticeCount(SearchDTO search);
 
 	List<NoticeDTO> getNotice(SearchDTO search);
+
+	int getFaqCount(SearchDTO search);
+
+	List<FaqDTO> getFaq(SearchDTO search);
+
+	int getQnaCount(SearchDTO search);
+
+	List<QnaDTO> getQna(SearchDTO search);
 
 	
 

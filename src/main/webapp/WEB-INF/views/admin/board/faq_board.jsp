@@ -37,11 +37,11 @@
 										<option value="반품/교환/취소">반품/교환/취소</option>
 										<option value="회원">회원</option>
 								</select></td>
-								<td class="left_td">제목</td>
+								<td>제목</td>
 								<td><input name="f_title" id="titleInput_M"></td>
 							</tr>
 							<tr>
-								<td>내용</td>
+								<td class="left_td">내용</td>
 								<td align="center" colspan="4"><textarea name="f_txt"
 										id="txtInput_M"></textarea></td>
 							</tr>
@@ -95,12 +95,12 @@
 							<th class="th_head">게시일</th>
 							<th class="th_head"></th>
 						</tr>
-						<c:if test="${empty faq}">
+						<c:if test="${empty faqs}">
 							<tr>
 								<td colspan="5">해당 목록이없습니다</td>
 							</tr>
 						</c:if>
-						<c:forEach var="f" items="${faq }" varStatus="status">
+						<c:forEach var="f" items="${faqs }" varStatus="status">
 							<tr>
 								<td class="td_c1">${status.count }</td>
 								<td class="td_c2">${f.f_sortation }</td>
@@ -120,6 +120,25 @@
 				</div>
 			</form>
 		</div>
+	</div>
+	<div id="paging-box">
+		<c:if test="${curPage != 1 }">
+			<a href="faq.page.change?p=${curPage - 1 }">이전</a>
+		</c:if>
+
+		<c:forEach var="page" begin="1" end="${pageCount }">
+			<c:choose>
+					<c:when test="${page eq param.p or (curPage == 1 and curPage == page)}">
+						<a href="faq.page.change?p=${page }" style="color: black">${page } </a>
+					</c:when>
+					<c:otherwise>
+						<a href="faq.page.change?p=${page }">${page } </a>
+					</c:otherwise>
+				</c:choose>
+		</c:forEach>
+		<c:if test="${curPage != pageCount }">
+			<a href="faq.page.change?p=${curPage + 1 }">다음</a>
+		</c:if>
 	</div>
 	<script src="resources/js/admin/board/notice_board.js"></script>
 </body>

@@ -29,6 +29,10 @@ create table notice(
     n_txt varchar2(2000 char) not null,
     n_date date not null
 )
+
+select * from notice;
+drop taBLE NOTICE;
+
 delete from faq;
 drop table faq;
 
@@ -110,3 +114,44 @@ select q.*, a.a_id, a.a_name
         
 select q_no, q_title, q_txt, q_date, q_id, q_reply_has, a_id, a_name
 from qna, auth where q_id = a_id order by q_no        
+
+select count(*)
+		from notice
+		where n_title like  '%테%'
+        
+select * from 
+(select rownum as rn, n_no, n_sortation, n_title, n_txt, n_date from(
+select * from notice where n_title like '%%' and n_sortation = '매장' order by n_no desc)
+)where rn >= 2 and rn <=3;
+
+select count(*)
+		from faq
+		where f_title like  '%테%'
+        
+       
+        
+        select count(*)
+		from qna, auth
+		where q_id = a_id
+        and q_title like '%%'
+        and q_id like '%%'
+        and a_name like '%%'
+        
+        
+        
+        select *
+		from qna, auth
+		where
+        q_id = a_id and
+        q_title like '%%'
+        and q_id like '%%'
+        and a_name like '%%'
+        
+        select * from qna;
+        select * from auth;
+        
+        select * from
+        (select rownum as rn, q_no, q_title, q_txt, q_date,q_reply_has, a_id, a_name
+        from(select * from qna q, auth a where q.q_id = a.a_id
+        and q.q_title like '%대%' and a.a_id = 'wm2' and a.a_name = '박영웅2' order by q_no))
+        where rn >= 1 and rn <= 2;
