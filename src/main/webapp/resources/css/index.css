@@ -136,3 +136,19 @@ section {
   width: 1200px;
   padding: 100px 0;
 }
+
+.include_navi {
+  display: flex;
+  justify-content: center;
+  background-color: var(--red);
+  color: white;
+  margin-bottom: 30px;
+  font-weight: 100;
+}
+
+.include_navi_wrapper {
+  padding: 20px 0;
+  width: 1200px;
+  display: flex;
+  gap: 10px;
+}
