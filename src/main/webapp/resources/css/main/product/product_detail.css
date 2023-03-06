@@ -1,4 +1,17 @@
+.detail_brand {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #822491;
+  height: 56px;
+}
+
+.detail_brand_wrapper {
+  width: 1200px;
+}
+
 .detail_container {
+  padding: 50px 0;
   display: grid;
   grid-template-columns: 1200px;
   justify-content: center;
