@@ -10,13 +10,20 @@ public class AuthDTO {
 	private String a_phone;
 	private String a_address;
 	private Date a_date;
-	
+
+	// my_car
+
+	private String mc_number;
+	private String mc_id;
+	private String mc_model;
+	private String mc_brand;
+	private int mc_year;
+
 	public AuthDTO() {
-		// TODO Auto-generated constructor stub
 	}
 
 	public AuthDTO(String a_id, String a_pw, String a_Sortation, String a_name, String a_phone, String a_address,
-			Date a_date) {
+			Date a_date, String mc_number, String mc_id, String mc_model, String mc_brand, int mc_year) {
 		super();
 		this.a_id = a_id;
 		this.a_pw = a_pw;
@@ -25,6 +32,11 @@ public class AuthDTO {
 		this.a_phone = a_phone;
 		this.a_address = a_address;
 		this.a_date = a_date;
+		this.mc_number = mc_number;
+		this.mc_id = mc_id;
+		this.mc_model = mc_model;
+		this.mc_brand = mc_brand;
+		this.mc_year = mc_year;
 	}
 
 	public String getA_id() {
@@ -82,9 +94,54 @@ public class AuthDTO {
 	public void setA_date(Date a_date) {
 		this.a_date = a_date;
 	}
-	
 
-	
+	public String getMc_number() {
+		return mc_number;
+	}
+
+	public void setMc_number(String mc_number) {
+		this.mc_number = mc_number;
+	}
+
+	public String getMc_id() {
+		return mc_id;
+	}
+
+	public void setMc_id(String mc_id) {
+		this.mc_id = mc_id;
+	}
+
+	public String getMc_model() {
+		return mc_model;
+	}
+
+	public void setMc_model(String mc_model) {
+		this.mc_model = mc_model;
+	}
+
+	public String getMc_brand() {
+		return mc_brand;
+	}
+
+	public void setMc_brand(String mc_brand) {
+		this.mc_brand = mc_brand;
+	}
+
+	public int getMc_year() {
+		return mc_year;
+	}
+
+	public void setMc_year(int mc_year) {
+		this.mc_year = mc_year;
+	}
+
+	@Override
+	public String toString() {
+		return "AuthDTO [a_id=" + a_id + ", a_pw=" + a_pw + ", a_Sortation=" + a_Sortation + ", a_name=" + a_name
+				+ ", a_phone=" + a_phone + ", a_address=" + a_address + ", a_date=" + a_date + ", mc_number="
+				+ mc_number + ", mc_id=" + mc_id + ", mc_model=" + mc_model + ", mc_brand=" + mc_brand + ", mc_year="
+				+ mc_year + "]";
+	}
 	
 	
 }
