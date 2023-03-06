@@ -44,3 +44,15 @@ select * from auth ;
 delete auth;
 drop table auth;
 drop table my_car;
+
+
+select * from auth,my_car
+where a_id=mc_id;
+
+
+
+
+
+
+
+
