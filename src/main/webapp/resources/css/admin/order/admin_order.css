@@ -1,1 +1,26 @@
 @charset "UTF-8";
+
+* {
+	margin: 0px;
+	padding: 0px;
+}
+
+ul, ol {
+	list-style: none;
+}
+
+a {
+	text-decoration: none
+}
+
+.no-drag{
+  -webkit-user-select:none;
+  -moz-user-select:none;
+  -ms-user-select:none;
+  user-select:none;
+  border-radius: 3px;
+}
+
+.DashBoard {
+	width: 100%;
+}
