@@ -4,6 +4,12 @@ import java.util.List;
 
 public interface ProductMapper {
 
-	List<ProductDTO> getProduct(int id);
+	List<ProductGroupDTO> getProductGroup(ProductSelector search);
+
+	int getProductGroupCount(ProductSelector search);
+
+	int getProductGroupBrandCount(ProductSelector search);
+
+	List<ProductGroupDTO> getProductBrandGroup(ProductSelector search);
 
 }
