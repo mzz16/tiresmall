@@ -85,9 +85,10 @@
    	<beans:bean id="qo" class="com.tireshoppingmall.home.admin.board.QnaOption">
    			<beans:constructor-arg value="7"></beans:constructor-arg>
    	</beans:bean>
+   	
    	<!-- auth 몇개씩 보여줄지 -->
    	<beans:bean id="ao" class="com.tireshoppingmall.home.admin.auth.AuthOption">
-   			<beans:constructor-arg value="7"></beans:constructor-arg>
+   			<beans:constructor-arg value="10"></beans:constructor-arg>
    	</beans:bean>
    
    
