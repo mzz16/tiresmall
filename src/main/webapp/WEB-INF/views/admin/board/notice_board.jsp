@@ -62,7 +62,7 @@
 			<form class="notice_form" action="search.do">
 				<div>
 					<div class="select_box">
-						<div>구분</div>
+						<div class="no-drag">구분</div>
 						<select name="selectOption" id="sortationSelect"
 							class="notice_select">
 							<option value="0">전체</option>
@@ -72,12 +72,12 @@
 						</select>
 					</div>
 					<div class="input_box">
-						<div>제목</div>
+						<div class="no-drag">제목</div>
 						<input name="titleInput" id="n_title">
 					</div>
 					<div class="button_box">
-						<button id="searchBtn" class="awesomeBtn color-1">검색</button>
-						<button type="button" class="awesomeBtn color-2"
+						<button id="searchBtn" class="noticeBtn color-1">검색</button>
+						<button type="button" class="noticeBtn color-2"
 							id="notice_reg_modal">신규 등록</button>
 					</div>
 				</div>
@@ -121,21 +121,21 @@
 	</div>
 	<div id="paging-box">
 		<c:if test="${curPage != 1 }">
-			<a href="notice.page.change?p=${curPage - 1 }">이전</a>
+			<a style="color: black;" href="notice.page.change?p=${curPage - 1 }">이전</a>
 		</c:if>
 
 		<c:forEach var="page" begin="1" end="${pageCount }">
 			<c:choose>
 					<c:when test="${page eq param.p or (curPage == 1 and curPage == page)}">
-						<a style="color:black" href="notice.page.change?p=${page }">${page } </a>
+						<a style="color:white; background-color: #333;" href="notice.page.change?p=${page }">${page } </a>
 					</c:when>
 					<c:otherwise>
-						<a href="notice.page.change?p=${page }">${page } </a>
+						<a style="color: black;" href="notice.page.change?p=${page }">${page } </a>
 					</c:otherwise>
 				</c:choose>
 		</c:forEach>
 		<c:if test="${curPage != pageCount }">
-			<a href="notice.page.change?p=${curPage + 1 }">다음</a>
+			<a style="color: black;" href="notice.page.change?p=${curPage + 1 }">다음</a>
 		</c:if>
 	</div>
 	<script src="resources/js/admin/board/notice_board.js"></script>

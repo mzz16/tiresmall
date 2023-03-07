@@ -55,7 +55,7 @@ pageEncoding="UTF-8"%>
               </div>
             </div>
             <div class="index_sideNav">
-              <a href="/">장바구니</a>
+              <a href="cart">장바구니</a>
             </div>
           </div>
         </div>
