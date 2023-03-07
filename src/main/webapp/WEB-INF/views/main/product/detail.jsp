@@ -7,8 +7,13 @@ pageEncoding="UTF-8"%>
     <title>Insert title here</title>
   </head>
   <body>
+    <div class="detail_brand">
+      <div class="detail_brand_wrapper">
+        <img src="resources/web/main/product/nexen.png" style="height: 25px" />
+      </div>
+    </div>
     <div class="detail_container">
-      <section class="detail_product">
+      <div class="detail_product">
         <div class="detail_img">
           <img src="resources/web/main/product/example.jpg" />
         </div>
@@ -18,7 +23,7 @@ pageEncoding="UTF-8"%>
             <h3>4계절 고급 세단 용 프리미엄 타이어</h3>
           </div>
           <div class="detail_option">
-            <div>
+            <div class="detail_size">
               <h5>사이즈 선택 :</h5>
               <select>
                 <option>1</option>
@@ -60,16 +65,25 @@ pageEncoding="UTF-8"%>
             <button>구매예약</button>
           </div>
         </div>
-      </section>
-      <section class="detail_content">
+      </div>
+      <div class="detail_content">
         <ul class="detail_nav">
           <li>상품정보</li>
           <li>구매 전 확인사항</li>
           <li>타이어 장착 안내</li>
           <li>배송 / 반품 / 교환 / AS 안내</li>
         </ul>
-        <div class="detail_include"></div>
-      </section>
+        <div class="detail_include">
+          <ul>
+            <li>
+              <img src="resources/web/main/product/detail.jpg" />
+            </li>
+          </ul>
+          <ul></ul>
+          <ul></ul>
+          <ul></ul>
+        </div>
+      </div>
     </div>
     <script src="https://code.jquery.com/jquery-latest.min.js"></script>
     <script src="resources/js/main/product/product_detail.js"></script>

@@ -49,13 +49,13 @@
 									</div>
 									<div class="auth_modal_content">
 										<div class="auth_modal_input  auth_modal_car">
-											차량번호 <input type="text" name="" />
+											차량번호 <input type="text" id="auth_carNUm"name="mc_number" />
 										</div>
 										<div class="auth_modal_input">
-											차량명 <input type="text" name="" />
+											차량명 <input type="text" id="auth_carModel" name="mc_model" />
 										</div>
 										<div class="auth_modal_input">
-											차량년식 <input type="text" name="" />
+											차량년식 <input type="text" id="auth_carYear" name="mc_year" />
 										</div>
 									</div>
 								</div>
@@ -161,12 +161,13 @@
 						<td class="auth_table_td">${a.a_id }</td>
 						<td class="auth_table_td">${a.a_name }</td>
 						<td class="auth_table_td">${a.a_phone }</td>
-						<td class="auth_table_td">차번호</td>
+						<td class="auth_table_td">${a.mc_number }<c:if test="${empty a.mc_number}">차 번호 없음</c:if></td>
 						<td class="auth_table_td"><fmt:formatDate value="${a.a_date }"
 								pattern="yyyy-MM-dd" /></td>
 						<td id="auth_Btn" class="auth_table_td">
 							<button class="auth_update" 
-							onclick="updateauth('${a.a_id }','${a.a_Sortation }','${a.a_name }','${a.a_phone }','${a.a_address }')">
+							onclick="updateauth('${a.a_id }','${a.a_Sortation }','${a.a_name }','${a.a_phone }','${a.a_address }'
+												,'${a.mc_number }','${a.mc_model }','${a.mc_year }')">
 							수정</button>
 							<button type="button"
 								onclick="deleteAuth('${a.a_id }')">삭제</button>

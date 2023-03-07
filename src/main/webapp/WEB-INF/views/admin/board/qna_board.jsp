@@ -67,19 +67,19 @@
 			<form class="notice_form" action="search.qna.do">
 				<div>
 					<div class="input_box2">
-						<div>회원명</div>
+						<div class="no-drag">회원명</div>
 						<input name="nameInput" id="a_name">
 					</div>
 					<div class="input_box1">
-						<div>회원아이디</div>
+						<div class="no-drag">회원아이디</div>
 						<input name="idInput" id="q_id">
 					</div>
 					<div class="input_box">
-						<div>제목</div>
+						<div class="no-drag">제목</div>
 						<input name="titleInput" id="q_title">
 					</div>
 					<div class="button_box">
-						<button id="searchBtn" class="awesomeBtn color-1">검색</button>
+						<button id="searchBtn" class="noticeBtn">검색</button>
 					</div>
 				</div>
 
@@ -94,12 +94,12 @@
 							<th class="th_head">게시일</th>
 							<th class="th_head">답변여부</th>
 						</tr>
-						<c:if test="${empty qna}">
+						<c:if test="${empty qnas}">
 							<tr>
 								<td colspan="5">해당 목록이없습니다</td>
 							</tr>
 						</c:if>
-						<c:forEach var="q" items="${qna }" varStatus="status">
+						<c:forEach var="q" items="${qnas }" varStatus="status">
 								<tr class="qna_modal_go">
 									<td class="td_c1">${status.count }
 										<input type="hidden" value="${q.q_no }">
@@ -123,6 +123,25 @@
 				</div>
 			</form>
 		</div>
+	</div>
+	<div id="paging-box">
+		<c:if test="${curPage != 1 }">
+			<a style="color: black;" href="qna.page.change?p=${curPage - 1 }">이전</a>
+		</c:if>
+
+		<c:forEach var="page" begin="1" end="${pageCount }">
+			<c:choose>
+					<c:when test="${page eq param.p or (curPage == 1 and curPage == page)}}">
+						<a style="color:white; background-color: #333;" href="qna.page.change?p=${page }" style="color: #00BFFF">${page } </a>
+					</c:when>
+					<c:otherwise>
+						<a style="color: black;" href="qna.page.change?p=${page }">${page } </a>
+					</c:otherwise>
+				</c:choose>
+		</c:forEach>
+		<c:if test="${curPage != pageCount }">
+			<a style="color: black;" href="qna.page.change?p=${curPage + 1 }">다음</a>
+		</c:if>
 	</div>
 	<script src="resources/js/admin/board/qna_board.js"></script>
 </body>
