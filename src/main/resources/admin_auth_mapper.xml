@@ -3,23 +3,27 @@
 <mapper namespace="com.tireshoppingmall.home.admin.auth.AdminAuthMapper">
 
 	<select id="getAllAuth" resultType="com.tireshoppingmall.home.admin.auth.AuthDTO">
-		select * from auth
+		select * from auth a left OUTER JOIN my_car mycar
+ 		ON a.a_id = mycar.mc_id
 	</select>
 	
 	<select id="seachAuth" resultType="com.tireshoppingmall.home.admin.auth.AuthDTO">
-		select * from auth 
-		where a_id like '%'||#{a_id}||'%' 
-		and a_name like '%'||#{a_name}||'%' 
+		select * from auth a left OUTER JOIN my_car mycar
+		on a.a_id = mycar.mc_id where
+		<if test="a_id != ''">
+			a.a_id = #{a_id} and 
+		</if>
+			a.a_name like '%'||#{a_name}||'%' 
 		<!--and a_carNum like '%'||#{a_carNum}||'%' -->
 		<choose>
 			<when test="a_Sortation==2">
-				and a_Sortation = '일반'
+				and a.a_Sortation = '일반'
 			</when>
 			<when test="a_Sortation==3">
-				and a_Sortation = '업체'
+				and a.a_Sortation = '업체'
 			</when>
 			<when test="a_Sortation==4">
-				and a_Sortation = '관리자'
+				and a.a_Sortation = '관리자'
 			</when>
 		</choose>
 		
@@ -32,24 +36,20 @@
 	
 	<update id="authUpdate">
 		update auth 
-		set a_Sortation 
+		set 
 		<choose>
 			<when test="a_Sortation==1">
-				='일반'
+				a_Sortation ='일반'
 			</when>
 			<when test="a_Sortation==2">
-				= '업체'
+				a_Sortation = '업체'
 			</when>
 			<when test="a_Sortation==3">
-				= '관리자'
+				a_Sortation = '관리자'
 			</when>
 		</choose>
-		
-		,a_name=#{a_name},a_phone=#{a_phone},a_address=#{a_address}
 		where a_id = #{a_id}
 	</update>
-	
-	
 	
 	
 	

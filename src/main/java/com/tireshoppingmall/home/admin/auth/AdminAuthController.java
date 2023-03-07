@@ -10,15 +10,26 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class AdminAuthController {
 
+	/*private boolean firstReq;*/
+	
 	@Autowired
 	private AuthDAO aDAO;
 	
+	/*public AdminAuthController() {
+		firstReq = true;
+	}*/
 	
 	
 	
 	//admin.auth.go
 	@RequestMapping(value = "/admin.auth.go", method = RequestMethod.GET)
 	public String authGo(HttpServletRequest req) {
+		
+		/*if (firstReq) {
+			aDAO.calcAllNoticeCount();
+			firstReq = false;
+		}
+		*/
 		
 		aDAO.getAllAuth(req);
 		

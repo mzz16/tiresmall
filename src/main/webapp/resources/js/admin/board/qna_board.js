@@ -9,6 +9,7 @@ const qnaDate = $('#date_M')
 $('.qna_modal_go').click(function() {
 
 	$('#qna_modal').show();
+	$('#qna_modal').css('z-index', '3');
 	// 모달 on
 	let contents = $(this).children();
 	let q_reply_board_no = 0;

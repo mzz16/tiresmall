@@ -43,7 +43,11 @@
 
 	<update id="updatebranch" parameterType="com.tireshoppingmall.home.admin.store.BranchDTO">
 
-		update branch set
+		update branch 
+		
+		
+		set
+		
 		b_sortation = #{b_sortation},
 		b_area = #{b_area},
 		b_addr = #{b_addr},
@@ -57,6 +61,8 @@
 		b_branchnumber = #{b_branchnumber},
 		b_cr = #{b_cr},
 		b_email = #{b_email}
+		
+		
 		where b_id = #{b_id}
 
 	</update>
