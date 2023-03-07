@@ -30,6 +30,8 @@ pageEncoding="UTF-8"%>
               <a href="board.askByKakao">카카오톡상담</a>
             </div>
             <div class="index_hTopRight">
+              <a> ${sessionScope.loginMember.i_name } </a>
+          	  <a>${loginOK }</a>
               <a href="login">로그인</a>
               <a href="non-member">비회원 주문조회</a>
             </div>
