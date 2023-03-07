@@ -67,16 +67,16 @@
 									<td class="td_c3">${o.o_ordernumber }</td>
 									<td class="td_c4"><fmt:formatDate
 											pattern="yyyy-MM-dd HH:mm:ss" value="${o.o_orderdate }" /></td>
-									<td class="td_c5">${o.a_name }</td>
-									<td class="td_c6">${o.a_phone }</td>
+									<td class="td_c5">${o.o_name }</td>
+									<td class="td_c6">${o.o_phone }</td>
 									<td class="td_c7">${o.o_ordername }</td>
 									<td class="td_c8">${o.o_price }</td>
 									<td class="td_c9">${o.o_paymethod }</td>
 									<td class="td_c10">${o.o_deliverymethod }</td>
 									<td class="td_c11">
-											<input type="hidden" value="${o.o_pay_has }">	
+											<input type="hidden" value="${o.o_step }">	
 									<%-- <c:choose>
-										<c:when test="${o.o_pay_has ne 결제완료}">결제대기/주문취소
+										<c:when test="${o.o_step ne 결제완료}">결제대기/주문취소
 										</c:when>
 										<c:otherwise>결제완료</c:otherwise>
 									</c:choose> --%>
@@ -96,7 +96,7 @@
 		<c:forEach var="page" begin="1" end="${pageCount }">
 			<c:choose>
 					<c:when test="${page eq param.p or (curPage == 1 and curPage == page)}}">
-						<a style="color:white; background-color: #333;" href="order.page.change?p=${page }" style="color: #00BFFF">${page } </a>
+						<a style="color:white; background-color: #333;" href="order.page.change?p=${page }">${page } </a>
 					</c:when>
 					<c:otherwise>
 						<a style="color: black;" href="order.page.change?p=${page }">${page } </a>
