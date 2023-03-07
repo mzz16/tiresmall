@@ -1,36 +1,18 @@
 package com.tireshoppingmall.home;
 
-import javax.servlet.http.HttpServletRequest;
-
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.tireshoppingmall.home.product.ProductDAO;
 import com.tireshoppingmall.home.store.StoreDAO;
 
 @Controller
 public class HomeController {
 	
-	@Autowired
-	private ProductDAO pDAO;
-	
-	private boolean firstReq;
-	
-	public HomeController() {
-		firstReq = true;
-	}
-	
-	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Model model) {
-		if(firstReq) {
-			pDAO.calcAllMsgCount();
-			firstReq = false;
-		}
 		
 		model.addAttribute("content", "main/home/home.jsp");
 		return "index";
@@ -81,14 +63,6 @@ public class HomeController {
 	public String goStore(Model model, @RequestParam int id) {
 		StoreDAO.getAStore(model, id);
 		model.addAttribute("content", "main/store/store.jsp");
-		return "index";
-	}
-	
-	@RequestMapping(value = "/product", method = RequestMethod.GET)
-	public String goProduct(HttpServletRequest request, @RequestParam int p) {
-		pDAO.clearSearch(request);
-		pDAO.getProductGroup(p, request);
-		request.setAttribute("content", "main/product/product.jsp");
 		return "index";
 	}
 	

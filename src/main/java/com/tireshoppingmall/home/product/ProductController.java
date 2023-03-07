@@ -14,6 +14,26 @@ public class ProductController {
 	@Autowired
 	private ProductDAO pDAO;
 	
+	private boolean firstReq;
+	
+	public ProductController() {
+		firstReq = true;
+	}
+	
+	@RequestMapping(value = "/product", method = RequestMethod.GET)
+	public String goProduct(HttpServletRequest request, @RequestParam int p) {
+		
+		if(firstReq) {
+			pDAO.calcAllMsgCount();
+			firstReq = false;
+		}
+		
+		pDAO.clearSearch(request);
+		pDAO.getProductGroup(p, request);
+		request.setAttribute("content", "main/product/product.jsp");
+		return "index";
+	}
+	
 	@RequestMapping(value = "/product.brand", method = RequestMethod.GET)
 	public String goProductBrand(HttpServletRequest request, @RequestParam String b, @RequestParam int p) {
 		pDAO.searchProductGroup(b, request);
