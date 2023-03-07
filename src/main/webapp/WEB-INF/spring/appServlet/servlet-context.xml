@@ -29,8 +29,8 @@
 		<beans:property name="driverClassName" value="oracle.jdbc.driver.OracleDriver" />
 		<beans:property name="url" value="jdbc:oracle:thin:@localhost:1521:xe" />
 
-		<beans:property name="username" value="c##pyw1004" />
-		<beans:property name="password" value="pyw1004" />
+		<beans:property name="username" value="c##lhb0103" />
+		<beans:property name="password" value="lhb0103" />
 
 	</beans:bean>
 
@@ -83,6 +83,12 @@
 
    <!-- QnA 몇개씩 보여줄지 -->
    	<beans:bean id="qo" class="com.tireshoppingmall.home.admin.board.QnaOption">
+   			<beans:constructor-arg value="7"></beans:constructor-arg>
+   	</beans:bean>
+   
+   <!-- Branch 몇개씩 보여줄지 -->
+   
+     	<beans:bean id="bo" class="com.tireshoppingmall.home.admin.store.BranchOption">
    			<beans:constructor-arg value="7"></beans:constructor-arg>
    	</beans:bean>
    
