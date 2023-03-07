@@ -26,7 +26,7 @@
 	<context:component-scan base-package="com.tireshoppingmall.home" />
 
 	<beans:bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource">
-		<!-- <beans:property name="driverClassName" value="oracle.jdbc.driver.OracleDriver" />
+		<beans:property name="driverClassName" value="oracle.jdbc.driver.OracleDriver" />
 		<beans:property name="url" value="jdbc:oracle:thin:@localhost:1521:xe" />
 		<beans:property name="username" value="c##kms96" />
 		<beans:property name="password" value="kms96" />
@@ -83,8 +83,19 @@
    	<beans:bean id="qo" class="com.tireshoppingmall.home.admin.board.QnaOption">
    			<beans:constructor-arg value="7"></beans:constructor-arg>
    	</beans:bean>
+   	
    	<!-- auth 몇개씩 보여줄지 -->
    	<beans:bean id="ao" class="com.tireshoppingmall.home.admin.auth.AuthOption">
+   			<beans:constructor-arg value="10"></beans:constructor-arg>
+   	</beans:bean>
+   	<!-- tireGroup 몇개씩 보여줄지 -->
+   	<beans:bean id="po" class="com.tireshoppingmall.home.product.ProductGroupOption">
+   			<beans:constructor-arg value="16"></beans:constructor-arg>
+   	</beans:bean>
+   
+   <!-- Branch 몇개씩 보여줄지 -->
+   
+     	<beans:bean id="bo" class="com.tireshoppingmall.home.admin.store.BranchOption">
    			<beans:constructor-arg value="7"></beans:constructor-arg>
    	</beans:bean>
    

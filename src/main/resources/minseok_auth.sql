@@ -80,3 +80,37 @@ where a_id=mc_id;
 
 
 update auth set a_Sortation ='일반' where a_id = 'wm2';
+
+
+
+select * from (select 
+	rownum as rn,a_id,a_Sortation,a_name,a_phone,a_address,a_date,mc_number,
+    mc_id,mc_model,mc_brand,mc_year
+	 from (select * from auth a left OUTER JOIN my_car mycar
+		on a.a_id = mycar.mc_id  where
+		
+			a.a_name like '%%' 
+           
+			order by a.a_date desc)
+			)where rn >= 1 and rn <= 7;
+	
+    
+    select * from auth a left OUTER JOIN my_car mycar
+		on a.a_id = mycar.mc_id  where
+			a.a_id like '%%'  and
+			a.a_name like '%영웅%' 
+            and a.a_Sortation = '일반'
+			order by a_date desc;
+
+
+
+
+
+
+
+
+
+
+
+
+

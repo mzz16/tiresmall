@@ -230,10 +230,11 @@
   font-size: 11pt;
   margin-left: 10px;
   margin-right: 10px;
-  padding: 6px;
+  padding-right:5px;
+  padding-left:5px;
   border-radius: 8px;
-  background-color: #212529;
-  color: white;
+  background-color: #c0c0c0;
+  color: black;
   height: 37px;
 }
 
@@ -247,6 +248,7 @@
   margin-left: 5px;
   font-family: GmarketSansMedium;
   valign: middle; 
+    border: none;
 }
 
 .auth_modal_input {
@@ -256,10 +258,11 @@
   font-size: 11pt;
   margin-left: 10px;
   margin-right: 10px;
-  padding: 6px;
+  padding-right:5px;
+  padding-left:5px;
   border-radius: 8px;
-  background-color: #212529;
-  color: white;
+  background-color: #c0c0c0;
+  color: black;
   height: 37px;
 }
 .auth_modal_input input {
@@ -270,6 +273,7 @@
   font-family: GmarketSansMedium; 
   height: 25px;
   font-size: 12pt;
+  border: none;
 }
 .auth_modal_id input,.auth_modal_car input{
 	width: 190px;
@@ -290,7 +294,6 @@
 #auth_modal_btn button {
   display: flex;
   height: 37px;
-  background: #212529;
   margin-right: 30px;
   margin-left: 30px;
   border-radius: 5px;

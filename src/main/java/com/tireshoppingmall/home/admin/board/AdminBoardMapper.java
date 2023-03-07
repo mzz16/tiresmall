@@ -2,6 +2,7 @@ package com.tireshoppingmall.home.admin.board;
 
 import java.util.List;
 
+import com.tireshoppingmall.home.admin.auth.AuthDTO;
 import com.tireshoppingmall.home.admin.board.NoticeDTO;
 import com.tireshoppingmall.home.admin.board.SearchDTO;
 
