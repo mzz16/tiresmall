@@ -1,6 +1,9 @@
 package com.tireshoppingmall.home.admin.auth;
 
+import java.math.BigDecimal;
 import java.util.Date;
+
+import javax.servlet.http.HttpServletRequest;
 
 public class AuthDTO {
 	private String a_id;
@@ -19,6 +22,13 @@ public class AuthDTO {
 	private String mc_brand;
 	private int mc_year;
 
+	
+	//페이징작업
+	private BigDecimal start;
+	private BigDecimal end;
+	
+	
+	
 	public AuthDTO() {
 	}
 
@@ -37,6 +47,18 @@ public class AuthDTO {
 		this.mc_model = mc_model;
 		this.mc_brand = mc_brand;
 		this.mc_year = mc_year;
+	}
+
+	
+
+	public AuthDTO(String a_id, String a_Sortation, String a_name, String mc_number, BigDecimal start, BigDecimal end) {
+		super();
+		this.a_id = a_id;
+		this.a_Sortation = a_Sortation;
+		this.a_name = a_name;
+		this.mc_number = mc_number;
+		this.start = start;
+		this.end = end;
 	}
 
 	public String getA_id() {
@@ -135,13 +157,43 @@ public class AuthDTO {
 		this.mc_year = mc_year;
 	}
 
+	public BigDecimal getStart() {
+		return start;
+	}
+
+	public void setStart(BigDecimal start) {
+		this.start = start;
+	}
+
+	public BigDecimal getEnd() {
+		return end;
+	}
+
+	public void setEnd(BigDecimal end) {
+		this.end = end;
+	}
+	
+	public static void AuthPagsing(HttpServletRequest req) {
+		req.getSession().setAttribute("authDTO", null);
+	}
+	
+	
+	
+	
+	
+	
+
 	@Override
 	public String toString() {
 		return "AuthDTO [a_id=" + a_id + ", a_pw=" + a_pw + ", a_Sortation=" + a_Sortation + ", a_name=" + a_name
 				+ ", a_phone=" + a_phone + ", a_address=" + a_address + ", a_date=" + a_date + ", mc_number="
 				+ mc_number + ", mc_id=" + mc_id + ", mc_model=" + mc_model + ", mc_brand=" + mc_brand + ", mc_year="
-				+ mc_year + "]";
+				+ mc_year + ", start=" + start + ", end=" + end + "]";
 	}
+
+	
+
+	
 	
 	
 }
