@@ -55,7 +55,8 @@ pageEncoding="UTF-8"%>
               </div>
             </div>
             <div class="index_sideNav">
-              <a href="cart">장바구니</a>
+              <a href="profile"><i class="fa-regular fa-user"></i></i></a>
+              <a href="cart"><i class="fa-solid fa-basket-shopping"></i></a>
             </div>
           </div>
         </div>
