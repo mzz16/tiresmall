@@ -35,7 +35,7 @@ public class AuthController {
 	public String authRegDo(HttpServletRequest req,MemberDTO mDTO) {
 		mDAO.regMember(req,mDTO);
 		req.setAttribute("content", "main/home/home.jsp");
-		return "redirect:index";
+		return "redirect:/";
 	}
 	@RequestMapping(value = "/findEmail.go", method = RequestMethod.GET)
 	public String findEmailGo(Model model) {
