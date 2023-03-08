@@ -28,12 +28,8 @@
 	<beans:bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource">
 		<beans:property name="driverClassName" value="oracle.jdbc.driver.OracleDriver" />
 		<beans:property name="url" value="jdbc:oracle:thin:@localhost:1521:xe" />
-
-
-		<beans:property name="username" value="c##kms96" />
-		<beans:property name="password" value="kms96" />
-
-
+		<beans:property name="username" value="c##ljh1004" />
+		<beans:property name="password" value="ljh1004" />
 	</beans:bean>
 
 	<beans:bean id="transactionManager"
@@ -54,7 +50,7 @@
 				<beans:value>classpath:admin_store_mapper.xml</beans:value>
 				<beans:value>classpath:admin_tire_mapper.xml</beans:value>
 				<beans:value>classpath:admin_rental_mapper.xml</beans:value>
-				<beans:value>classpath:auth_mapper.xml</beans:value>
+				<beans:value>classpath:member_mapper.xml</beans:value>
 				<beans:value>classpath:board_mapper.xml</beans:value>
 				<beans:value>classpath:product_mapper.xml</beans:value>
 				<beans:value>classpath:search_mapper.xml</beans:value>
@@ -87,9 +83,14 @@
    	<beans:bean id="qo" class="com.tireshoppingmall.home.admin.board.QnaOption">
    			<beans:constructor-arg value="7"></beans:constructor-arg>
    	</beans:bean>
+   	
    	<!-- auth 몇개씩 보여줄지 -->
    	<beans:bean id="ao" class="com.tireshoppingmall.home.admin.auth.AuthOption">
-   			<beans:constructor-arg value="7"></beans:constructor-arg>
+   			<beans:constructor-arg value="10"></beans:constructor-arg>
+   	</beans:bean>
+   	<!-- tireGroup 몇개씩 보여줄지 -->
+   	<beans:bean id="po" class="com.tireshoppingmall.home.product.ProductGroupOption">
+   			<beans:constructor-arg value="16"></beans:constructor-arg>
    	</beans:bean>
    
    <!-- Branch 몇개씩 보여줄지 -->

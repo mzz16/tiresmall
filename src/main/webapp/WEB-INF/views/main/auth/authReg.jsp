@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="resources/css/main/auth/auth.css">
 </head>
 <body>
-	<form  action="authReg.do"  method="post" enctype="multipart/form-data"
+	<form  action="authReg.do"  method="post" 
 		name="join_form" onsubmit="return joinCheck();">
 		<div id="join_container">
 			<div id="join_logo">
@@ -19,29 +19,29 @@
 			<div class="join_box">
 				<div class="join_title">이메일(아이디)</div>
 				<div id="email_input">
-					<input name="a_email">
+					<input name="u_id">
 				</div>
 			</div>
 			<div class="join_box">
 				<div class="join_title">비밀번호</div>
 				<div id="pw_input">
-					<input name="a_pw" type="password" >
+					<input name="pw_password" type="password" >
 				</div>
 				<div class="join_title">비밀번호확인</div>
 				<div id="pwCheck_input">
-					<input name="a_pw" type="password">
+					<input name="pw_pwCheck" type="password">
 				</div>
 			</div>
 			<div class="join_box">
 				<div class="join_title">이름</div>
 				<div id="name_input">
-					<input name="a_name">
+					<input name="i_name">
 				</div>
 			</div>
 			<div class="join_box">
 				<div class="join_title">전화번호</div>
 				<div id="phoneNum_input">
-					<input name="a_phoneNum">
+					<input name="i_phoneNum">
 				</div>
 			</div>
 			<div id="join_pic"></div>

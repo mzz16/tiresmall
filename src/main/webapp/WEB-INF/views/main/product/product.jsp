@@ -8,6 +8,10 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="resources/css/main/product/main_product.css">
+<script src="https://code.jquery.com/jquery-3.6.3.js"
+	integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM="
+	crossorigin="anonymous"></script>
+<script type="text/javascript" src="resources/js/main/product/main_product.js"></script>
 </head>
 <body>
 	<div id="product_wrap">
@@ -21,34 +25,41 @@
 					<h3>오늘 주문하고 바로 장착 가능하며 직영점 장착시 차량점검 무상 서비스 제공!</h3>
 			</div>
 		</div>
-		
+		<div id="product_search">
+			<span>총 ${theNumber }개 상품이 검색 되었습니다. </span>
+			<form action="product.search">
+				<input placeholder="타이어명 검색"><button>검색</button>
+			</form>
+		</div>
 		<div id="product_container">
-		
-			<%-- <c:forEach items="" var=""> --%>
+			<c:forEach items="${pGroups }" var="pGroup">
 				<a href="detail.test">
 					<div class="product_item">
+						<div class="product_item_hidden"></div>
+						<div class="product_item_border"></div>
 						<div class="product_item_img">
-						<%-- <c:choose>
-							<c:when test=""> --%>
+						<c:choose>
+							<c:when test="${pGroup.tg_img eq 'noimg'}">
 								<img src="resources/web/main/product/no-tire-image.jpg">
-							<%-- </c:when>
+							</c:when>
 							<c:otherwise>
-								<img src="resources/web/main/product/no-tire-img.jpg">
+								<img src="${pGroup.tg_img }"> <!-- 타이어 등록 기능 되면 경로지정 -->
 							</c:otherwise>					
-						</c:choose> --%>
+						</c:choose>
 						</div>
 						<div class="product_item_title">
-							<p>타이어 브랜드</p>
-							<p>타이어 이름</p>
+							<input type="hidden" value="${pGroup.tg_id }"/>
+							<p>${pGroup.tg_brand }</p>
+							<p>${pGroup.tg_name }</p>
 						</div>
-						<div class="product_item_text">설명(overflow시 ...)</div>
-						<div class="product_item_size">인치 최소값 ~ 인치 최대값</div>
+						<div class="product_item_text">${pGroup.tg_text }</div>
+						<div class="product_item_size"><span class="product_size_min"></span>인치  ~ <span class="product_size_max"></span>인치</div>
 						<div class="product_item_price"> 가격 최소값 ~ 가격 최대값</div>
 						<div class="product_item_detail"><i class="fa-solid fa-magnifying-glass"></i>상세보기</div>
 					</div>
 				</a>
-			<%-- </c:forEach> --%>
-			<a href="detail.test">
+			</c:forEach>
+			<!-- <a href="detail.test">
 				<div class="product_item">
 					<div class="product_item_img">
 						<img src="resources/web/main/product/as_t1.jpg">
@@ -272,9 +283,36 @@
 					<div class="product_item_price">44,600원 ~ 130,200원</div>
 					<div class="product_item_detail"><i class="fa-solid fa-magnifying-glass"></i>상세보기</div>
 				</div>
-			</a>
+			</a> -->
 		</div>
-		<div id="product_wrap_paging"><a href="#">이전</a> <a href="#">1</a> <a href="#">다음</a></div>
+		<div id="product_wrap_paging">
+			<c:if test="${curPage ne 1 }">
+				<div class="product_paging_firstLast"><a href="javascript:movePage(1)">1</a> . . .</div>
+			</c:if>
+			<c:choose>
+				<c:when test="${curPage eq 1 }">
+					<div class="product_paging_prevNext" style="color:lightgray">이전</div>
+				</c:when>
+				<c:otherwise>
+					<div class="product_paging_prevNext"><a href="javascript:movePage(${curPage -1})">이전</a></div>
+				</c:otherwise>
+			</c:choose>
+			<div id="product_paging_num">
+				<input type="hidden" id="product_curPage" value="${curPage }">
+				<input type="hidden" id="product_pageCount" value="${pageCount }">
+			</div>
+			<c:choose>
+				<c:when test="${curPage eq pageCount}">
+					<div class="product_paging_prevNext" style="color:lightgray">다음</div>
+				</c:when>
+				<c:otherwise>
+					<div class="product_paging_prevNext"><a href="javascript:movePage(${curPage +1})">다음</a></div>
+				</c:otherwise>
+			</c:choose>
+			<c:if test="${curPage ne pageCount }">
+				<div class="product_paging_firstLast">. . . <a href="javascript:movePage(${pageCount })">${pageCount}</a></div>
+			</c:if>
+		</div>
 	</div>
 	
 <script src="https://kit.fontawesome.com/772d40e343.js" crossorigin="anonymous"></script>

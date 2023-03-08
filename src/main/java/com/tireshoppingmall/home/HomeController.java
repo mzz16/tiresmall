@@ -6,7 +6,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.tireshoppingmall.home.product.ProductDAO;
 import com.tireshoppingmall.home.store.StoreDAO;
 
 @Controller
@@ -14,6 +13,7 @@ public class HomeController {
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Model model) {
+		
 		model.addAttribute("content", "main/home/home.jsp");
 		return "index";
 	}
@@ -65,12 +65,6 @@ public class HomeController {
 		model.addAttribute("content", "main/store/store.jsp");
 		return "index";
 	}
-	@RequestMapping(value = "/product", method = RequestMethod.GET)
-	public String goProduct(Model model) {
-		model.addAttribute("content", "main/product/product.jsp");
-		return "index";
-	}
-	
 	
 	@RequestMapping(value = "/cart", method = RequestMethod.GET)
 	public String goCart(Model model) {
