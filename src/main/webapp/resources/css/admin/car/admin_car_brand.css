@@ -8,7 +8,7 @@ display: flex;
 margin-right:5px;
 }
 
-.car-findselect{
+.brand-findselect{
 	
 	display: flex;
 	margin-left:5px;
@@ -18,7 +18,7 @@ position:relative;
 
 }
 
-.car-findarea{
+.brand-findarea{
 	
 	
 	float:left;
@@ -34,7 +34,7 @@ position:relative;
 
 
 
-.carsearchButton {
+.brandsearchButton {
   background-color: #5F5F5F;
   color: #FFFFFF;
   border: none;
@@ -52,7 +52,7 @@ position:relative;
   
 }
 
-.carsearchButton:hover {
+.brandsearchButton:hover {
   background-color: #FFFFFF;
   color: #5F5F5F;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.4);
@@ -61,7 +61,7 @@ position:relative;
 
 
 
-.car-text1{
+.brand-text1{
 	float:left;
 	display: flex;
 	padding-top:6.5px;
@@ -75,7 +75,7 @@ position:relative;
 }
 
 
-.car-text2{
+.brand-text2{
 float:left;
 	display: flex;
 	padding-top:7px;
@@ -95,7 +95,7 @@ float:left;
 	
 }
 
-.car-findareabutton{
+.brand-findareabutton{
 	
  background-color: #5F5F5F;
   color: #FFFFFF;
@@ -113,14 +113,14 @@ float:left;
 	
 }
 
-.car-findareabutton:hover {
+.brand-findareabutton:hover {
   background-color: #FFFFFF;
   color: #5F5F5F;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.4);
 }
 
 
-.carRegButton{
+.brandRegButton{
 	
 	  width: 200px;
     font-size: 16px;
@@ -144,7 +144,7 @@ float:left;
 	
 }
 
-.carRegButton:hover{
+.brandRegButton:hover{
 	
 	   background-position: 100% 0;
     moz-transition: all .4s ease-in-out;
@@ -159,7 +159,7 @@ float:left;
 
 
 
-.carRegButton1{
+.brandRegButton1{
 	 margin-left: auto;
 	  
         position:relative;
@@ -169,7 +169,7 @@ float:left;
 
 
 
-.cardata_div{
+.branddata_div{
 	
 	width: 100%; 
 	  display: inline-block;
@@ -181,46 +181,31 @@ float:left;
 	   color:white;
 }
 
-.cardata_div .cardata_div1{
-	height : 50px;
-	width: 8%;
-}
-
-.cardata_div .cardata_div2{
-	height : 50px;
-	width: 8%;
-}
-
-.cardata_div .cardata_div3{
-	height : 50px;
-	width: 8%;
-}
-
-.cardata_div .cardata_div4{
-	height : 50px;
-	width: 8%;
-}
-
-.cardata_div .cardata_div5{
-	height : 50px;
-	width: 8%;
-
-}
-
-.cardata_div .cardata_div6{
+.branddata_div .branddata_div1{
 	height : 50px;
 	width: 50%;
-
 }
 
-.cardata_div .cardata_div7{
+.branddata_div .branddata_div2{
+	height : 50px;
+	width: 20%;
+}
+
+.branddata_div .branddata_div3{
+	height : 50px;
+	width: 20%;
+}
+
+.branddata_div .branddata_div4{
 	height : 50px;
 	width: 10%;
 	position: absolute;
-	left:90.5%;
+	left:90.2%;
 }
 
-.cardatalist_div{
+
+
+.branddatalist_div{
 	width: 100%; 
 	  display: inline-block;
 	  text-align: center;
@@ -230,63 +215,34 @@ float:left;
 	
 }
 
-.cardatalist_div1{
+.branddatalist_div1{
 	width: 5%;
 	 border: 1px solid #000;
 }
 
-.cardatalist_div2{
+.branddatalist_div2{
 	 border: 1px solid #000;
 	width: 45%;
 }
 
-.cardatalist_div3{
+.branddatalist_div3{
 	 border: 1px solid #000;
 	width: 15%;
 	
 }
 
-.cardatalist_div4{
+.branddatalist_div4{
 	 border: 1px solid #000;
 	width: 15%;
 	
 }
 
-.cardatalist_div5{
+.branddatalist_div5{
 	 border: 1px solid #000;
 	width: 20%;
 	position: absolute;
 	left:80.35%;
 }
-
-
-.ftbttmstyle{
-	
-	 background-color: black;
-	   color:white;
-	width: 
-}
-
-
-.ftstyle{
-	
-	
-}
-
-.btstyle{
-	
-	
-}
-
-
-.tmstyle{
-	
-	
-}
-
-
-
-
 
 
 
@@ -300,7 +256,7 @@ float:left;
   
 }
 
-.car-paging-box{
+.brand-paging-box{
 	
 	
 	text-align: center;
@@ -314,7 +270,7 @@ float:left;
 	background-color: #fff;
 }
 
-.updatecarbutton {
+.updatebrandbutton {
 	width: 130px;
   height: 40px;
   padding: 10px 25px;
@@ -331,7 +287,7 @@ float:left;
   transition: all 0.3s ease;
   overflow: hidden;
 }
-.updatecarbutton:after {
+.updatebrandbutton:after {
   position: absolute;
   content: " ";
   z-index: -1;
@@ -341,14 +297,14 @@ float:left;
   height: 100%;
   transition: all 0.3s ease;
 }
-.updatecarbutton:hover {
+.updatebrandbutton:hover {
   box-shadow:  4px 4px 6px 0 rgba(255,255,255,.5),
               -4px -4px 6px 0 rgba(116, 125, 136, .2), 
     inset -4px -4px 6px 0 rgba(255,255,255,.5),
     inset 4px 4px 6px 0 rgba(116, 125, 136, .3);
   color: #fff;
 }
-.updatecarbutton:hover:after {
+.updatebrandbutton:hover:after {
   -webkit-transform: scale(2) rotate(180deg);
   transform: scale(2) rotate(180deg);
   background: #000;
@@ -689,24 +645,24 @@ a {
   
   }
   
- .carinfoarea1{
+ .brandinfoarea1{
 
  }
  
-  .carinfoarea2{
+  .brandinfoarea2{
    
  }
  
-  .carinfoarea3{
+  .brandinfoarea3{
  
  }
  
-  .carinfoarea4{
+  .brandinfoarea4{
 
  }
 
 
-.carnamestyle1{
+.brandnamestyle1{
 	
 		float:left;
 	display: flex;
@@ -723,7 +679,7 @@ a {
 }
 
 
-.carnamestyle2{
+.brandnamestyle2{
 	
 		float:left;
 	display: flex;
@@ -740,7 +696,7 @@ a {
 	
 }
 
-.carnamestyle3{
+.brandnamestyle3{
 	
 		float:left;
 	display: flex;
@@ -756,7 +712,7 @@ a {
 	
 }
 
-.carnamestyle4{
+.brandnamestyle4{
 	
 		float:left;
 	display: flex;
@@ -774,7 +730,7 @@ a {
 }
 
 
-.carinfoareasangdanframe{
+.brandinfoareasangdanframe{
 	
 	 text-align: center;
 	 
