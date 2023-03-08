@@ -133,5 +133,6 @@ pageEncoding="UTF-8"%>
       src="https://kit.fontawesome.com/e41d253229.js"
       crossorigin="anonymous"
     ></script>
+    <script type="text/javascript" src="resources/js/main/search/main_search.js"></script>
   </body>
 </html>
