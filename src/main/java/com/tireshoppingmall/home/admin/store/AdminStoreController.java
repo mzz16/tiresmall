@@ -63,6 +63,7 @@ public class AdminStoreController {
 	public String storeRegDo(Model m,MultipartFile file,BranchDTO b, HttpServletRequest req) {
 
 		bDAO.regBranch(file,b, req);
+		bDAO.getBranchlist(1, req);
 	//	bDAO.getAllBranch(m);
 		req.setAttribute("contentPage", "store/branch.jsp");
 		return "admin/master";
