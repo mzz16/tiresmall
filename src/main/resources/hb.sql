@@ -16,8 +16,20 @@ b_email varchar2(30 char),
 b_file varchar2(2000 char)
 );
 
-insert into branch values('id','직영점','성남','중원구','현식','평일낮','한국타이어','대충지도','1','2','3','4','5','6','a.jpg');
-insert into branch values('id2','제휴장착점','서울','강남구','민지','일요일','서울타이어','섬세지도','1','2','3','4','5','6','a.jpg');
+insert into branch values('id3','직영점','성남','중원구','현식','평일낮','한국타이어','대충지도','1','2','3','4','5','6','a.jpg');
+insert into branch values('id4','제휴장착점','서울','강남구','민지','일요일','서울타이어','섬세지도','1','2','3','4','5','6','a.jpg');
+insert into branch values('id5','제휴장착점','서울','강남구','민지','일요일','서울타이어','섬세지도','1','2','3','4','5','6','a.jpg');
+insert into branch values('id6','제휴장착점','서울','강남구','민지','일요일','서울타이어','섬세지도','1','2','3','4','5','6','a.jpg');
+insert into branch values('id7','제휴장착점','서울','강남구','민지','일요일','서울타이어','섬세지도','1','2','3','4','5','6','a.jpg');
+insert into branch values('id8','제휴장착점','서울','강남구','민지','일요일','서울타이어','섬세지도','1','2','3','4','5','6','a.jpg');
+insert into branch values('id9','제휴장착점','서울','강남구','민지','일요일','서울타이어','섬세지도','1','2','3','4','5','6','a.jpg');
+insert into branch values('id10','제휴장착점','서울','강남구','민지','일요일','서울타이어','섬세지도','1','2','3','4','5','6','a.jpg');
+insert into branch values('id11','제휴장착점','서울','강남구','민지','일요일','서울타이어','섬세지도','1','2','3','4','5','6','a.jpg');
+insert into branch values('id12','제휴장착점','서울','강남구','민지','일요일','서울타이어','섬세지도','1','2','3','4','5','6','a.jpg');
+insert into branch values('id13','제휴장착점','서울','강남구','민지','일요일','서울타이어','섬세지도','1','2','3','4','5','6','a.jpg');
+insert into branch values('id14','제휴장착점','서울','강남구','민지','일요일','서울타이어','섬세지도','1','2','3','4','5','6','a.jpg');
+insert into branch values('id15','제휴장착점','서울','강남구','민지','일요일','서울타이어','섬세지도','1','2','3','4','5','6','a.jpg');
+insert into branch values('id16','제휴장착점','서울','강남구','민지','일요일','서울타이어','섬세지도','1','2','3','4','5','6','a.jpg');
 
 오재호 가데이터 ----------------------------------
 insert into branch values('1','직영점','대전광역시서구','신갈마로 83 (갈마동)','타이어쇼핑몰','평일 : 08:30 ~ 19:00 / 토요일 08:30 ~ 16:00 (일요일 휴무)','한국타이어,넥센타이어,금호타이어,미쉐린타이어,컨티넨탈타이어,피넬리타이어,휠얼라인먼트,경정비,수입차정비 / 본사직영매장','36.3417632, 127.3663178','1','042-545-8008','3','4','5','6','a.jpg');
@@ -32,4 +44,20 @@ delete branch;
 
 drop table branch;
 
+
+		select count(*)
+		from branch
+		where b_branchname like '%%'
+
 select * from branch;
+
+
+		select *
+		from
+		(select rownum as rn, b_id, b_sortation, b_area, b_addr, b_name , b_time ,
+		b_service , b_mapdata, b_manager , b_managernumber , b_branchname,
+		b_branchnumber ,b_cr ,b_email,b_file
+		from(
+		select * from branch where b_branchname like '%%'
+		)
+		) where rn &gt; #{start} and rn &lt; #{end}

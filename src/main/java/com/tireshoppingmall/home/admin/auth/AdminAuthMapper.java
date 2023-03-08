@@ -4,12 +4,13 @@ import java.util.List;
 
 public interface AdminAuthMapper {
 
-	List<AuthDAO> getAllAuth();
-
-	List<AuthDAO> seachAuth(AuthDTO aDTO);
-
 	int authDelete(AuthDTO aDTO);
 
 	int authUpdate(AuthDTO aDTO);
+
+	int getAuthCount(AuthDTO pasing);
+
+	List<AuthDTO> getAuth(AuthDTO pasing);
+
 
 }

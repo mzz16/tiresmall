@@ -8,6 +8,7 @@
 <link rel="stylesheet" href="resources/css/main/auth/auth.css">
 </head>
 <body>
+	<form action="login.do" method="post" >
 	<div id="login_container">
 		<div id="login_logo">
 		<a href="/home">
@@ -16,8 +17,8 @@
 		</div>
 		<div id="login_box">
 			<div id="login_box_title">ID로그인 </div>
-			<input id="login_id" name="login_id" placeholder="아이디">		
-			<input id="login_pw" name="login_pw" placeholder="비밀번호">		
+			<input id="login_id" name="u_id" placeholder="아이디">		
+			<input id="login_pw" name="pw_password" placeholder="비밀번호">		
 		</div>
 		<div id="login_btn"> 
 			<button>로그인</button>
@@ -28,5 +29,6 @@
 		</div>
 		<div id="login_social"></div>
 	</div>
+	</form>
 </body>
 </html>

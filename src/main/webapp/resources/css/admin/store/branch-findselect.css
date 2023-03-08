@@ -30,21 +30,36 @@ position:relative;
 	width:150px;
 }
 
-.branchsearchButton{
-	
-	display: flex;
-	background: #0080FF;
-	margin-left:5px;
-	  border-radius: 5px;
-    border: 1px solid #000;
-    padding: 8px 10px;
-    font-size: 1em;
-    cursor: pointer;
-    color:white;
-    position:relative;
-   
-	
+
+
+
+
+.branchsearchButton {
+  background-color: #5F5F5F;
+  color: #FFFFFF;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin-left:20px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 50px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  
 }
+
+.branchsearchButton:hover {
+  background-color: #FFFFFF;
+  color: #5F5F5F;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.4);
+}
+
+
+
 
 .branch-text1{
 	float:left;
@@ -63,11 +78,12 @@ position:relative;
 .branch-text2{
 float:left;
 	display: flex;
-	padding-top:9px;
-	padding-bottom:9.5px;
+	padding-top:7px;
+	padding-bottom:10px;
 	border: solid 2.5px;
 	border-radius: 10px 0 0 10px;
 	margin-left:20px;
+	top:0px;
 	 padding-left: 2px;
 	 padding-right: 2px;
 	 background-color: #C0C0C0;
@@ -81,35 +97,66 @@ float:left;
 
 .branch-findareabutton{
 	
-	display: flex;
-	background: #0080FF;
-	margin-left:5px;
-	  border-radius: 5px;
-    border: 1px solid #000;
-    padding: 8px 10px;
-    font-size: 1em;
-    cursor: pointer;
-    color:white;
-    position:relative;
+ background-color: #5F5F5F;
+  color: #FFFFFF;
+  border: none;
+ padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 50px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
 	
+}
+
+.branch-findareabutton:hover {
+  background-color: #FFFFFF;
+  color: #5F5F5F;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.4);
 }
 
 
 .branchRegButton{
 	
-	display: flex;
-	background: yellow;
-	margin-right:20px;
-	  border-radius: 5px;
-    border: 1px solid #000;
-    padding: 2px 5px;
-    font-size: 1em;
+	  width: 200px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #fff;
     cursor: pointer;
-    padding: 5px 10px;
-   
-	position:relative;
+    margin: 20px;
+    height: 55px;
+    text-align:center;
+    border: none;
+    background-size: 300% 100%;
+
+    border-radius: 50px;
+    moz-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+	
+	 background-image: linear-gradient(to right, #25aae1, #4481eb, #04befe, #3f86ed);
+    box-shadow: 0 4px 15px 0 rgba(65, 132, 234, 0.75);
 	
 }
+
+.branchRegButton:hover{
+	
+	   background-position: 100% 0;
+    moz-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+	
+}
+
+
+  
+
 
 
 .branchRegButton1{
@@ -118,6 +165,7 @@ float:left;
         position:relative;
 	
 }
+
 
 
 
@@ -135,29 +183,29 @@ float:left;
 
 .branchdata_div .branchdata_div1{
 	height : 50px;
-	width: 20%;
+	width: 5%;
 }
 
 .branchdata_div .branchdata_div2{
 	height : 50px;
-	width: 20%;
+	width: 45%;
 }
 
 .branchdata_div .branchdata_div3{
 	height : 50px;
-	width: 20%;
+	width: 15%;
 }
 
 .branchdata_div .branchdata_div4{
 	height : 50px;
-	width: 20%;
+	width: 15%;
 }
 
 .branchdata_div .branchdata_div5{
 	height : 50px;
 	width: 20%;
 	position: absolute;
-	left:80.5%;
+	left:80.35%;
 }
 
 .branchdatalist_div{
@@ -171,24 +219,24 @@ float:left;
 }
 
 .branchdatalist_div1{
-	width: 20%;
+	width: 5%;
 	 border: 1px solid #000;
 }
 
 .branchdatalist_div2{
 	 border: 1px solid #000;
-	width: 20%;
+	width: 45%;
 }
 
 .branchdatalist_div3{
 	 border: 1px solid #000;
-	width: 20%;
+	width: 15%;
 	
 }
 
 .branchdatalist_div4{
 	 border: 1px solid #000;
-	width: 20%;
+	width: 15%;
 	
 }
 
@@ -196,12 +244,20 @@ float:left;
 	 border: 1px solid #000;
 	width: 20%;
 	position: absolute;
-	left:80.5%;
+	left:80.35%;
 }
 
 
 .custom-btn {
   
+}
+
+.branch-paging-box{
+	
+	
+	text-align: center;
+	
+	
 }
 
 .regbuttonarea{
@@ -216,6 +272,7 @@ float:left;
   padding: 10px 25px;
   border: 2px solid #000;
   font-family: 'Lato', sans-serif;
+  top:5px;
   font-weight: 500;
   background: transparent;
   cursor: pointer;
@@ -262,7 +319,7 @@ width: 800px;
 height: 600px;
 position: absolute;
 top: 50%;
-left: 50%;
+left: 45%;
 margin: -250px 0 0 -250px;
 background-color: #fff;
 z-index: 2;
@@ -300,8 +357,8 @@ width: 500px;
 height: 500px;
 position: absolute;
 top: 50%;
-left: 50%;
-margin: -250px 0 0 -250px;
+left: 30%;
+margin: -50px 0 0 -250px;
 background-color: #fff;
 z-index: 2;
     }
@@ -343,10 +400,50 @@ z-index: 2;
 	
 }
 
+#inputid{
+	
+	
+	width:100px;
+	
+}
+
+#inputname{
+	
+
+	width:200px;
+}
+
+#inputaddr{
+	
+	
+	width:400px;
+	
+}
+
+#b_addr_i{
+	
+	width:400px;
+	
+}
+
+
+#b_time_i{
+
+width:400px;
+
+}
+
+
+#b_service_i{
+	
+	
+width:400px;
+	
+}
+
 
 #inputmapdata{
 	
-	height:100px;
 	width:300px;
 	
 }
@@ -355,21 +452,113 @@ z-index: 2;
 	
 	
 	width:300px;
-	height:100px;
 }
 
 
+#service{
+	
+width:300px;	
+	
+}
 
 
 .regokbutton{
 	
 	text-align: center;
+
 }
 
 .regokbutton1{
 	
 	display :inline-block;
+	 padding-left: 40px;
+	 padding-right: 40px;
+	 padding-top:15px;
+	  padding-bottom: 15px;
+color: #fff;
+    cursor: pointer;
+    text-align:center;
+    border: none;
+    background-size: 100% 100%;
+
+    border-radius: 5px;
+    moz-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+	
+	 background-image: linear-gradient(to right, #25aae1, #4481eb, #04befe, #3f86ed);
+    box-shadow: 0 4px 15px 0 rgba(65, 132, 234, 0.75);
 }
+
+
+
+
+.regokbutton1.hover{
+	
+	
+background-position: 100% 0;
+    moz-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+}
+
+
+.updateokbutton{
+	
+	
+	
+	text-align: center;
+	
+	
+	
+}
+
+
+.updateokbutton1{
+	
+	
+	display :inline-block;
+	 padding-left: 40px;
+	 padding-right: 40px;
+	 padding-top:15px;
+	  padding-bottom: 15px;
+color: #fff;
+    cursor: pointer;
+    text-align:center;
+    border: none;
+    background-size: 100% 100%;
+
+    border-radius: 5px;
+    moz-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+	
+	 background-image: linear-gradient(to right, #25aae1, #4481eb, #04befe, #3f86ed);
+    box-shadow: 0 4px 15px 0 rgba(65, 132, 234, 0.75);
+   
+    
+}
+
+
+
+.updateokbutton1.hover{
+	
+	
+	display :inline-block;
+ 
+background-position: 100% 0;
+    moz-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+   
+    
+}
+
+
 
 
 
@@ -590,11 +779,11 @@ z-index: 2;
     display: none;
 }
 #popup01{
-width: 500px;
-height: 500px;
+width: 800px;
+height: 600px;
 position: absolute;
 top: 50%;
-left: 50%;
+left: 40%;
 margin: -250px 0 0 -250px;
 background-color: #fff;
 z-index: 2;
@@ -614,6 +803,7 @@ z-index: 2;
   top:-25px;
   right: 0;
   cursor:pointer;
+  -webkit-text-stroke: 1px white;
 }
 
 .openPopup{
@@ -621,6 +811,12 @@ z-index: 2;
   cursor:pointer;
 
 }
+
+
+
+
+
+
 
 
 

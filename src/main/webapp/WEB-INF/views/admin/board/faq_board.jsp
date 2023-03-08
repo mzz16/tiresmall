@@ -37,11 +37,11 @@
 										<option value="반품/교환/취소">반품/교환/취소</option>
 										<option value="회원">회원</option>
 								</select></td>
-								<td class="left_td">제목</td>
+								<td>제목</td>
 								<td><input name="f_title" id="titleInput_M"></td>
 							</tr>
 							<tr>
-								<td>내용</td>
+								<td class="left_td">내용</td>
 								<td align="center" colspan="4"><textarea name="f_txt"
 										id="txtInput_M"></textarea></td>
 							</tr>
@@ -64,7 +64,7 @@
 			<form class="notice_form" action="search.faq.do">
 				<div>
 					<div class="select_box">
-						<div>구분</div>
+						<div class="no-drag">구분</div>
 						<select name="selectOption" id="sortationSelect" class="notice_select">
 							<option value="0">전체</option>
 							<option value="1">주문/배송</option>
@@ -75,12 +75,12 @@
 						</select>
 					</div>
 					<div class="input_box">
-						<div>제목</div>
+						<div class="no-drag">제목</div>
 						<input name="titleInput" id="f_title">
 					</div>
 					<div class="button_box">
-						<button id="searchBtn" class="awesomeBtn color-1">검색</button>
-						<button type="button" class="awesomeBtn color-2"
+						<button id="searchBtn" class="noticeBtn color-1">검색</button>
+						<button type="button" class="noticeBtn color-2"
 							id="faq_reg_modal">신규 등록</button>
 					</div>
 				</div>
@@ -95,12 +95,12 @@
 							<th class="th_head">게시일</th>
 							<th class="th_head"></th>
 						</tr>
-						<c:if test="${empty faq}">
+						<c:if test="${empty faqs}">
 							<tr>
 								<td colspan="5">해당 목록이없습니다</td>
 							</tr>
 						</c:if>
-						<c:forEach var="f" items="${faq }" varStatus="status">
+						<c:forEach var="f" items="${faqs }" varStatus="status">
 							<tr>
 								<td class="td_c1">${status.count }</td>
 								<td class="td_c2">${f.f_sortation }</td>
@@ -120,6 +120,25 @@
 				</div>
 			</form>
 		</div>
+	</div>
+	<div id="paging-box">
+		<c:if test="${curPage != 1 }">
+			<a style="color: black;" href="faq.page.change?p=${curPage - 1 }">이전</a>
+		</c:if>
+
+		<c:forEach var="page" begin="1" end="${pageCount }">
+			<c:choose>
+					<c:when test="${page eq param.p or (curPage == 1 and curPage == page)}">
+						<a style="color:white; background-color: #333;" href="faq.page.change?p=${page }" style="color: black">${page } </a>
+					</c:when>
+					<c:otherwise>
+						<a style="color: black;" href="faq.page.change?p=${page }">${page } </a>
+					</c:otherwise>
+				</c:choose>
+		</c:forEach>
+		<c:if test="${curPage != pageCount }">
+			<a style="color: black;" href="faq.page.change?p=${curPage + 1 }">다음</a>
+		</c:if>
 	</div>
 	<script src="resources/js/admin/board/notice_board.js"></script>
 </body>

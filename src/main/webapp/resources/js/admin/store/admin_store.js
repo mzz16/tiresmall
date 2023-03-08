@@ -41,6 +41,7 @@ $('document').ready(
 			var area16 = [ "서귀포시", "제주시", "남제주군", "북제주군" ];
 
 			// 시/도 선택 박스 초기화
+			
 
 			$("select[name^=b_area1]").each(
 					function() {
@@ -52,6 +53,7 @@ $('document').ready(
 						$selsido.next().append(
 								"<option value=''>구/군 선택</option>");
 					});
+			
 
 			// 시/도 선택시 구/군 설정
 
@@ -96,9 +98,7 @@ function updatebranch(id, sortation, area, addr, name, time, service, mapdata,
 		      });
 	
 		    $('#b_id_i').val(id);
-		    $('#sido1').val('');
-		   $('#gugun1').val('');
-	$('#b_sortation_i').val(sortation);
+		   $('#b_sortation_i').val(sortation).prop('selected', true);
 	$('#b_name_i').val(name);
 	$('#b_addr_i').val(addr);
 	$('#b_time_i').val(time);
@@ -114,3 +114,38 @@ function updatebranch(id, sortation, area, addr, name, time, service, mapdata,
 	
 	
 }
+
+function press(f){
+    if(f.keyCode == 13){ //javascript에서는 13이 enter키를 의미함
+    	branchsearchform.submit(); //formname에 사용자가 지정한 form의 name입력
+    }
+}
+
+
+
+
+function deletebranch(iddd) {
+	let ok = confirm('정말 삭제하시겠습니까?');
+	if (ok) {
+		location.href = 'admin.store.delete.go?b_id=' + iddd;
+	}
+}
+
+$(document).ready(
+		function($) {
+			$(".branchRegButton").on("click", function(event) { //팝업오픈 버튼 누르면
+				$("#regpopup01").show(); //팝업 오픈
+				$("body").append('<div class="backon"></div>'); //뒷배경 생성
+			});
+
+			$("body").on(
+					"click",
+					function(event) {
+						if (event.target.className == 'close'
+								|| event.target.className == 'backon') {
+							$("#regpopup01").hide(); //close버튼 이거나 뒷배경 클릭시 팝업 삭제
+							$(".backon").hide();
+						}
+					});
+
+		});

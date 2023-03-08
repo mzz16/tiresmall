@@ -30,6 +30,8 @@ pageEncoding="UTF-8"%>
               <a href="board.askByKakao">카카오톡상담</a>
             </div>
             <div class="index_hTopRight">
+              <a> ${sessionScope.loginMember.i_name } </a>
+          	  <a>${loginOK }</a>
               <a href="login">로그인</a>
               <a href="non-member">비회원 주문조회</a>
             </div>
@@ -45,7 +47,7 @@ pageEncoding="UTF-8"%>
                 <a href="search.car">타이어 찾기</a>
               </div>
               <div class="index_tnMenu index_tnBrand">
-                <a href="product">브랜드별 타이어</a>
+                <a href="product?p=1">브랜드별 타이어</a>
               </div>
               <div class="index_tnMenu index_tnStore">
                 <a href="store?id=1">매장 안내</a>
@@ -55,7 +57,8 @@ pageEncoding="UTF-8"%>
               </div>
             </div>
             <div class="index_sideNav">
-              <a href="/">장바구니</a>
+              <a href="profile"><i class="fa-regular fa-user"></i></i></a>
+              <a href="cart"><i class="fa-solid fa-basket-shopping"></i></a>
             </div>
           </div>
         </div>
@@ -69,10 +72,10 @@ pageEncoding="UTF-8"%>
           </ul>
           <ul class="index_dropBrand index_dropWrapper">
             <li class="index_dropMenu_menu">
-              <a href="/">넥센타이어</a>
-              <a href="/">한국타이어</a>
-              <a href="/">콘티넨탈타이어</a>
-              <a href="/">피렐리타이어</a>
+              <a href="product.brand?b=넥센&p=1">넥센타이어</a>
+              <a href="product.brand?b=한국&p=1">한국타이어</a>
+              <a href="product.brand?b=콘티넨탈&p=1">콘티넨탈타이어</a>
+              <a href="product.brand?b=피렐리&p=1">피렐리타이어</a>
               <a href="detail.test">미쉐린타이어</a>
             </li>
           </ul>

@@ -1,0 +1,33 @@
+.cart_container {
+  display: grid;
+  grid-template-columns: 1200px;
+  justify-content: center;
+}
+
+.cart_titles {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 50px;
+}
+
+.cart_title_left {
+  font-size: 35px;
+  font-weight: 400;
+}
+
+.cart_title_right {
+  display: flex;
+  gap: 10px;
+}
+
+.cart_content {
+  display: grid;
+  grid-template-columns: 850px 350px;
+}
+
+.cart_product {
+  display: grid;
+  grid-template-columns: 50px 150px 350px 150px 150px;
+  grid-template-rows: 200px;
+}
