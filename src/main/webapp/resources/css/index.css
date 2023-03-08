@@ -4,6 +4,7 @@
 @import "main/home/main_home.css";
 @import "main/board/main_board.css";
 @import "main/product/product_detail.css";
+@import "main/product/product_cart.css";
 
 .index_container {
   min-width: 1200px;
@@ -21,6 +22,14 @@ body {
   background-color: white;
   font-family: "Noto Sans KR", sans-serif;
   font-weight: 300;
+}
+
+button {
+  font-family: "Noto Sans KR", sans-serif;
+  font-weight: 300;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 header {
@@ -46,7 +55,7 @@ header {
 
 .index_hBottom {
   display: grid;
-  grid-template-columns: 200px 800px 200px;
+  grid-template-columns: 250px 800px 150px;
   align-items: center;
 }
 
@@ -54,6 +63,8 @@ header {
   display: grid;
   grid-template-columns: repeat(4, 200px);
   grid-template-rows: 70px;
+  font-size: 20px;
+  font-weight: 400;
 }
 
 .index_tnMenu {
@@ -134,4 +145,26 @@ footer a {
 section {
   width: 1200px;
   padding: 100px 0;
+}
+
+.include_navi {
+  display: flex;
+  justify-content: center;
+  background-color: var(--red);
+  color: white;
+  margin-bottom: 30px;
+  font-weight: 100;
+}
+
+.include_navi_wrapper {
+  padding: 20px 0;
+  width: 1200px;
+  display: flex;
+  gap: 10px;
+}
+
+.index_sideNav {
+  display: flex;
+  gap: 25px;
+  font-size: 25px;
 }

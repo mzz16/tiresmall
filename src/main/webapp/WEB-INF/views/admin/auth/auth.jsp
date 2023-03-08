@@ -8,6 +8,8 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="resources/css/admin/auth/admin_auth.css">
+<link rel="stylesheet" href="resources/css/admin/board/notice_board.css">
+<link rel="stylesheet" href="resources/css/admin/board/notice_modal.css">
 <script src="resources/js/admin/auth/admin_auth.js"></script>
 </head>
 <body>
@@ -33,29 +35,29 @@
 											</select>
 										</div>
 										<div class="auth_modal_input auth_modal_id">
-											아이디 <input type="text" id="auth_id" name="a_id" value=""/>
+											아이디 <input type="text" id="auth_id" name="a_id" value="" />
 										</div>
 										<div class="auth_modal_input">
-											회원명 <input type="text"id="auth_name" name="a_name" />
+											회원명 <input type="text" id="auth_name" name="a_name" />
 										</div>
 										<div class="auth_modal_input">
-											전화번호 <input type="text" id="auth_phone"name="a_phone" />
+											전화번호 <input type="text" id="auth_phone" name="a_phone" />
 										</div>
 									</div>
 									<div class="auth_modal_content">
 										<div class="auth_modal_input auth_modal_addr">
-											주소 <input type="text" id="auth_address"name="a_address" />
+											주소 <input type="text" id="auth_address" name="a_address" />
 										</div>
 									</div>
 									<div class="auth_modal_content">
 										<div class="auth_modal_input  auth_modal_car">
-											차량번호 <input type="text" name="" />
+											차량번호 <input type="text" id="auth_carNUm" name="mc_number" />
 										</div>
 										<div class="auth_modal_input">
-											차량명 <input type="text" name="" />
+											차량명 <input type="text" id="auth_carModel" name="mc_model" />
 										</div>
 										<div class="auth_modal_input">
-											차량년식 <input type="text" name="" />
+											차량년식 <input type="text" id="auth_carYear" name="mc_year" />
 										</div>
 									</div>
 								</div>
@@ -96,8 +98,7 @@
 
 			<!-- 검색  -->
 
-			<form action="admin.searchAuth.do?m=auth" class="auth_form"
-				method="post">
+			<form action="admin.searchAuth.do?m=auth" class="auth_form" method="post">
 				<div id="auth_searchBox">
 					<div class="auth_searchTitle">
 						<div>
@@ -161,21 +162,42 @@
 						<td class="auth_table_td">${a.a_id }</td>
 						<td class="auth_table_td">${a.a_name }</td>
 						<td class="auth_table_td">${a.a_phone }</td>
-						<td class="auth_table_td">차번호</td>
-						<td class="auth_table_td"><fmt:formatDate value="${a.a_date }"
-								pattern="yyyy-MM-dd" /></td>
+						<td class="auth_table_td">${a.mc_number }<c:if
+								test="${empty a.mc_number}">차 번호 없음</c:if></td>
+						<td class="auth_table_td"><fmt:formatDate
+								value="${a.a_date }" pattern="yyyy-MM-dd" /></td>
 						<td id="auth_Btn" class="auth_table_td">
-							<button class="auth_update" 
-							onclick="updateauth('${a.a_id }','${a.a_Sortation }','${a.a_name }','${a.a_phone }','${a.a_address }')">
-							수정</button>
-							<button type="button"
-								onclick="deleteAuth('${a.a_id }')">삭제</button>
+							<button class="auth_update"
+								onclick="updateauth('${a.a_id }','${a.a_Sortation }','${a.a_name }','${a.a_phone }','${a.a_address }'
+												,'${a.mc_number }','${a.mc_model }','${a.mc_year }')">
+								수정</button>
+							<button type="button" onclick="deleteAuth('${a.a_id }')">삭제</button>
 						</td>
 					</tr>
 				</c:forEach>
 			</table>
 
+			<div id="paging-box">
+				<c:if test="${curPage != 1 }">
+					<a href="auth.page.change?p=${curPage - 1 }&m=auth">이전</a>
+				</c:if>
 
+				<c:forEach var="page" begin="1" end="${pageCount }">
+					<c:choose>
+						<c:when
+							test="${page eq param.p or (curPage == 1 and curPage == page)}">
+							<a style="color: black" href="auth.page.change?p=${page }&m=auth">${page }
+							</a>
+						</c:when>
+						<c:otherwise>
+							<a href="auth.page.change?p=${page }&m=auth">${page } </a>
+						</c:otherwise>
+					</c:choose>
+				</c:forEach>
+				<c:if test="${curPage != pageCount }">
+					<a href="auth.page.change?p=${curPage + 1 }&m=auth">다음</a>
+				</c:if>
+			</div>
 
 		</div>
 	</div>

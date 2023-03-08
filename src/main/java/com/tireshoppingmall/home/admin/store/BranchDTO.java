@@ -4,7 +4,6 @@ import org.springframework.web.multipart.MultipartFile;
 
 public class BranchDTO {
 
-	private int b_no;
 	private String b_id;
 	private String b_sortation;
 	private String b_area;
@@ -26,7 +25,7 @@ public class BranchDTO {
 		// TODO Auto-generated constructor stub
 	}
 
-	public BranchDTO(int b_no, String b_id, String b_sortation, String b_area, String b_addr, String b_name,
+	public BranchDTO( String b_id, String b_sortation, String b_area, String b_addr, String b_name,
 			String b_time, String b_service, String b_mapdata, String b_manager, String b_managernumber,
 			String b_branchname, String b_branchnumber, String b_cr, String b_email, MultipartFile file,
 			String b_file) {
@@ -35,7 +34,6 @@ public class BranchDTO {
 
 
 		super();
-		this.b_no = b_no;
 		this.b_id = b_id;
 		this.b_sortation = b_sortation;
 		this.b_area = b_area;
@@ -54,12 +52,7 @@ public class BranchDTO {
 		this.b_file = b_file;
 	}
 
-	public int getB_no() {
-		return b_no;
-	}
-	public void setB_no(int b_no) {
-		this.b_no = b_no;
-	}
+
 	public String getB_id() {
 		return b_id;
 	}
@@ -157,14 +150,17 @@ public class BranchDTO {
 	public void setB_file(String b_file) {
 		this.b_file = b_file;
 	}
+
 	@Override
 	public String toString() {
-		return "BranchDTO [b_no=" + b_no + ", b_id=" + b_id + ", b_sortation=" + b_sortation + ", b_area=" + b_area
-				+ ", b_addr=" + b_addr + ", b_name=" + b_name + ", b_time=" + b_time + ", b_service=" + b_service
-				+ ", b_mapdata=" + b_mapdata + ", b_manager=" + b_manager + ", b_managernumber=" + b_managernumber
-				+ ", b_branchname=" + b_branchname + ", b_branchnumber=" + b_branchnumber + ", b_cr=" + b_cr
-				+ ", b_email=" + b_email + ", file=" + file + ", b_file=" + b_file + "]";
+		return "BranchDTO [b_id=" + b_id + ", b_sortation=" + b_sortation + ", b_area=" + b_area + ", b_addr=" + b_addr
+				+ ", b_name=" + b_name + ", b_time=" + b_time + ", b_service=" + b_service + ", b_mapdata=" + b_mapdata
+				+ ", b_manager=" + b_manager + ", b_managernumber=" + b_managernumber + ", b_branchname=" + b_branchname
+				+ ", b_branchnumber=" + b_branchnumber + ", b_cr=" + b_cr + ", b_email=" + b_email + ", file=" + file
+				+ ", b_file=" + b_file + "]";
 	}
+
+
 
 	
 	
