@@ -1,10 +1,14 @@
+@import "main_board_ask.css";
+@import "main_board_ask_readAll.css";
+@import "main_board_ask_create.css";
+
 .board_mainContainer {
 	display: grid;
 	grid-template-columns: 250px 1fr;
 	grid-template-rows: 103px 1fr 180px;		/*수정필요*/
-	grid-template-areas:	"link title"
-							"menu contents"
-							"info contents";
+	grid-template-areas:	"b_link b_title"
+							"b_menu b_contents"
+							"b_info b_contents";
 							
 	width: 1200px;								/*수정필요*/
 	height: 630px;	/*100vh;*/					/*수정필요*/
@@ -12,7 +16,7 @@
 }
 
 .board_link {
-	grid-area: link;
+	grid-area: b_link;
 	
 	padding: 10px;
 	
@@ -20,7 +24,7 @@
 }
 
 .board_title {
-	grid-area: title;
+	grid-area: b_title;
 	
 	display : flex;
 	justify-content : center;
@@ -35,7 +39,7 @@
 }
 
 .board_sideMenu {
-	grid-area: menu;
+	grid-area: b_menu;
 }
 
 .board_sideMenu > div > a:hover {
@@ -50,13 +54,13 @@
 
 
 .board_sideInfo {
-	grid-area: info;
+	grid-area: b_info;
 }
 
-.board_sideInfo > .tab {
+.tab {
 	white-space: pre;
 }
 
 .board_contentsArea {
-	grid-area: contents;
+	grid-area: b_contents;
 }
