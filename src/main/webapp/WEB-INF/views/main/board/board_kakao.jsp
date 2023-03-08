@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	board_askBySite.jsp
+	<img src="resources/web/main/board/kakaoAsk.png" style="width: 950px;">
 </body>
 </html>

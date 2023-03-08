@@ -43,10 +43,10 @@
 				<a class="board_sideMenuList board_faq" href="board.faq">FAQ</a>
 			</div>
 			<div>
-				<a class="board_sideMenuList board_askBySite" href="board.askBySite">1:1문의게시판</a>
+				<a class="board_sideMenuList board_ask" href="board.ask">1:1문의</a>
 			</div>
 			<div>
-				<a class="board_sideMenuList board_askByKakao" href="board.askByKakao">카카오톡상담</a>
+				<a class="board_sideMenuList board_kakao" href="board.kakao" onclick="board_openKakao()">카카오톡상담<img src="resources/web/main/board/kakaoLogo.png" style="width: 16px; vertical-align: bottom;"/></a>
 			</div>
 		</div>
 		
@@ -61,7 +61,7 @@
 		</div>
 		
 		<div class="board_contentsArea">
-			<input class="board_contentType" value="${board_contents }" type="hidden">
+			<input class="whereAmI" value="${board_whereAmITwo }" type="hidden">
 			<jsp:include page="${board_contents }"></jsp:include>
 		</div>
 	</div>
