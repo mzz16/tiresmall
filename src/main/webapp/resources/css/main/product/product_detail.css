@@ -57,7 +57,7 @@
 .detail_option_content {
   display: grid;
   grid-template-columns: 140px 1fr;
-  grid-template-rows: 35px;
+  grid-template-rows: 30px;
   align-items: center;
 }
 
@@ -69,16 +69,21 @@
 }
 
 .detail_option_txt button {
-  padding: 5px 10px;
+  padding: 2px 10px;
   cursor: pointer;
   background-color: white;
-  border: 1px solid #aaa;
   border-radius: 5px;
+  font-size: 16px;
 }
 
-.detail_option_txt:first-child button:first-child {
+.detail_choose {
   color: var(--red);
-  border-color: var(--red);
+  border: 1px solid var(--red);
+}
+
+.detail_method,
+.detail_standard {
+  border: 1px solid #aaa;
 }
 
 .detail_price {
@@ -99,7 +104,7 @@
   font-size: 18px;
 }
 
-.detail_quantity_input {
+.detail_quantity_box {
   display: flex;
   align-items: center;
   gap: 10px;
@@ -116,7 +121,7 @@
   font-size: 18px;
 }
 
-.detail_quantity input {
+.detail_quantity_input {
   font-size: 18px;
   width: 30px;
   height: 25px;

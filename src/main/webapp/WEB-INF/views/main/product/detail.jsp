@@ -26,8 +26,8 @@ pageEncoding="UTF-8"%>
             <div class="detail_option_content">
               <h5>사이즈 선택</h5>
               <span class="detail_option_txt"
-                ><button>사이즈 선택하기</button
-                ><button>사이즈 확인방법</button></span
+                ><button class="detail_choose">사이즈 선택하기</button
+                ><button class="detail_method">사이즈 확인방법</button></span
               >
             </div>
             <div class="detail_option_content">
@@ -43,7 +43,9 @@ pageEncoding="UTF-8"%>
             <div class="detail_option_content">
               <h5>장착비</h5>
               <span class="detail_option_txt"
-                >장착비 별도 / 표준공임표 참조<button>표준공임표</button></span
+                >장착비 별도 / 표준공임표 참조<button class="detail_standard">
+                  표준공임표
+                </button></span
               >
             </div>
             <div class="detail_option_content">
@@ -56,10 +58,19 @@ pageEncoding="UTF-8"%>
           <div class="detail_price">
             <div class="detail_quantity">
               <h5>수량</h5>
-              <div class="detail_quantity_input">
-                <button><i class="fa-solid fa-minus"></i></button>
-                <input type="text" value="1" readonly />
-                <button><i class="fa-solid fa-plus"></i></button>
+              <div class="detail_quantity_box">
+                <button class="detail_plus">
+                  <i class="fa-solid fa-minus"></i>
+                </button>
+                <input
+                  class="detail_quantity_input"
+                  type="text"
+                  value="1"
+                  readonly
+                />
+                <button class="detail_minus">
+                  <i class="fa-solid fa-plus"></i>
+                </button>
               </div>
             </div>
             <div class="detail_final">
@@ -183,6 +194,19 @@ pageEncoding="UTF-8"%>
         </ul>
       </div>
     </div>
+    <dialog class="detail_size_selector">
+      사이즈선택
+      <form method="dialog">
+        <button>닫기</button>
+      </form>
+    </dialog>
+    <dialog class="detail_size_guide">
+      <form method="dialog">
+        사이즈를 확인해보자기
+        <button>닫기</button>
+      </form>
+    </dialog>
+    <dialog class="detail_standard_table">표준공임표</dialog>
     <script src="https://code.jquery.com/jquery-latest.min.js"></script>
     <script src="resources/js/main/product/product_detail.js"></script>
   </body>
