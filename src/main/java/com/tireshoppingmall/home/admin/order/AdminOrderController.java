@@ -13,12 +13,11 @@ public class AdminOrderController {
 	@Autowired
 	private OrderDAO oDAO;
 	
-	
 	//admin.order.go
 	@RequestMapping(value = "/admin.order.go", method = RequestMethod.GET)
 	public String orderGo(HttpServletRequest req) {
 		
-		
+		oDAO.getOrder(1, req);
 		
 		req.setAttribute("contentPage", "order/order.jsp");
 		return "admin/master";

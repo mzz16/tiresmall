@@ -11,26 +11,72 @@
 <script src="https://code.jquery.com/jquery-3.6.3.js"
 	integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM="
 	crossorigin="anonymous"></script>
-<link rel="stylesheet" href="resources/css/admin/board/admin_order.css">
-<link rel="stylesheet" href="resources/css/admin/board/admin_order_modal.css">
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+<link rel="stylesheet" href="resources/css/admin/order/admin_order.css">
+<link rel="stylesheet" href="resources/css/admin/order/admin_order_modal.css">
 </head>
 <body>
 
-	<div class="container sub">
+	<div id="order_modal" class="order_modal hidden"
+		style="display: none;">
+
+		<form id="update_modal" action="update.order.do">
+			<div class="modal-wrapper">
+				<div class="order_modalcontent">
+					<div class="order_header">주문 관리</div>
+					<div>
+						<input type="hidden" name="o_no" id="noInput_M">
+
+						<table class="modal_table">
+							<tr>
+								<td class="left_td">주문번호</td>
+								<td><input name="o_name" id="ordernumber_M" type="hidden"></td>
+								<td class="left_td">주문일시</td>
+								<td><input name="o_orderdate" id="date_M" type="hidden"></td>
+							</tr>
+							<tr>
+								<td class="left_td">주문자명</td>
+								<td><input name="o_name" id="userName_M" type="hidden"></td>
+								<td class="left_td">연락처</td>
+								<td><input name="o_phone" id="userId_M"></td>
+							</tr>
+							<tr>
+							</tr>
+						</table>
+
+					</div>
+					<div class="modalBtn">
+						<button class="modalBtn1">저장</button>
+						<button class="modalBtn2" id="cancleModal" type="button">닫기</button>
+						<button class="modalBtn3" id="deleteModal" type="button">삭제</button>
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
+
+	<div class="container">
 		<div class="DashBoard">
 			<form class="order_form" action="search.order.do">
 				<div>
-					<div class="input_box3">
+					<div class="input_box1">
+						<div class="no-drag">기간검색</div>
+						<input type="text" id="datepicker" placeholder="시작" name="dateSearch1">
+						<input type="text" id="datepicker1" placeholder="종료" name="dateSearch2">
+					</div>
+					<div class="input_box2">
 						<div class="no-drag">주문자명</div>
-						<input name="nameInput" id="a_name">
+						<input name="nameInput" id="o_name">
+					</div>
+					<div class="input_box3">
+						<div class="no-drag">주문자전화</div>
+						<input name="phoneInput" id="o_phone">
 					</div>
 					<div class="input_box4">
-						<div class="no-drag">주문자전화</div>
-						<input name="idInput" id="a_phone">
-					</div>
-					<div class="input_box5">
 						<div class="no-drag">주문번호</div>
-						<input name="titleInput" id="q_title">
+						<input name="orderNumberInput" id="o_ordernumber">
 					</div>
 					<div class="button_box">
 						<button id="searchBtn" class="orderBtn">검색</button>
@@ -55,7 +101,7 @@
 						</tr>
 						<c:if test="${empty orders}">
 							<tr>
-								<td colspan="5">해당 목록이없습니다</td>
+								<td colspan="11">해당 목록이없습니다</td>
 							</tr>
 						</c:if>
 						<c:forEach var="o" items="${orders }" varStatus="status">
@@ -75,11 +121,17 @@
 									<td class="td_c10">${o.o_deliverymethod }</td>
 									<td class="td_c11">
 											<input type="hidden" value="${o.o_step }">	
-									<%-- <c:choose>
-										<c:when test="${o.o_step ne 결제완료}">결제대기/주문취소
-										</c:when>
-										<c:otherwise>결제완료</c:otherwise>
-									</c:choose> --%>
+											<c:choose>
+												<c:when test="${o.o_step eq '결제완료'}">
+												결제완료
+												</c:when>
+												<c:when test="${o.o_step eq '결제대기'}">
+												결제대기
+												</c:when>
+												<c:when test="${o.o_step eq '주문취소'}">
+												주문취소
+												</c:when>
+											</c:choose>
 									</td>
 								</tr>
 						</c:forEach>
@@ -107,7 +159,7 @@
 			<a style="color: black;" href="order.page.change?p=${curPage + 1 }">다음</a>
 		</c:if>
 	</div>
-	<script src="resources/js/admin/board/admin_order.js"></script>
+	<script src="resources/js/admin/order/admin_order.js"></script>
 
 </body>
 </html>

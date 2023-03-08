@@ -163,7 +163,7 @@ create table product_order (
     o_ordernumber varchar2(30 char) not null,   -- 주문 번호 결제일시date + UUID로 처리
     o_orderdate date not null,                  -- 주문 일시
     o_ordername varchar2(20 char) not null,     -- ex)(2본 / 4본) // (2ea / 4ea)
-    o_product varchar2(100 char) not null,      -- ex) (2본 ! A 타이어 2, 2본 ! B 타이어) 갯수랑 타이어 여러개 구매할때 split으로 자바에서 처리 (장바구니)
+    o_product varchar2(100 char) not null,      -- ex) (pk/2) 타이어 테이블 (pk / 개수)
     o_price number(10) not null,                -- 총 가격
     o_paymethod varchar2(10 char) not null,     -- 지불 방법 무통장/ 현장결제
     o_deliverymethod varchar2(10 char),         -- 추후 삭제하던지 있던지
@@ -171,7 +171,7 @@ create table product_order (
     o_storeshop varchar2(100 char) not null,    -- 장착점 ( 관리자 페이지에선 배송지로 처리)
     o_tireinstalldate date not null,            -- 장착예정일
     o_name varchar2(20 char) not null,          -- 구매자 이름
-    o_phone varchar2(15 char) not null,         -- 구매자 전화번호
+    o_phone number(11) not null,                -- 구매자 전화번호
     o_email varchar2(30 char),                  -- 구매자 이메일
     o_caryear varchar2(5 char),                 -- 연식
     o_carbrand varchar2(15 char),               -- 브랜드
