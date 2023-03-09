@@ -15,13 +15,15 @@ public class ProductGroupDTO {
 	private int tg_suv;
 	private int minInch;
 	private int maxInch;
+	private int minPrice;
+	private int MaxPrice;
 	
 	public ProductGroupDTO() {
 		// TODO Auto-generated constructor stub
 	}
 
 	public ProductGroupDTO(int tg_id, String tg_brand, String tg_name, String tg_img, String tg_text, int tg_dcrate,
-			int tg_print, int tg_sedan, int tg_suv, int minInch, int maxInch) {
+			int tg_print, int tg_sedan, int tg_suv, int minInch, int maxInch, int minPrice, int maxPrice) {
 		super();
 		this.tg_id = tg_id;
 		this.tg_brand = tg_brand;
@@ -34,6 +36,8 @@ public class ProductGroupDTO {
 		this.tg_suv = tg_suv;
 		this.minInch = minInch;
 		this.maxInch = maxInch;
+		this.minPrice = minPrice;
+		MaxPrice = maxPrice;
 	}
 
 	public int getTg_id() {
@@ -123,7 +127,21 @@ public class ProductGroupDTO {
 	public void setMaxInch(int maxInch) {
 		this.maxInch = maxInch;
 	}
-	
-	
+
+	public int getMinPrice() {
+		return minPrice;
+	}
+
+	public void setMinPrice(int minPrice) {
+		this.minPrice = minPrice;
+	}
+
+	public int getMaxPrice() {
+		return MaxPrice;
+	}
+
+	public void setMaxPrice(int maxPrice) {
+		MaxPrice = maxPrice;
+	}
 	
 }
