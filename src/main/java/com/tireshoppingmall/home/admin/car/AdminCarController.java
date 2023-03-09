@@ -23,9 +23,6 @@ public class AdminCarController {
 	public AdminCarController() {
 		firstReq = true;
 	}
-
-	@Autowired
-	CarDAO cDAO;
 	
 	//admin.car.go
 	@RequestMapping(value = "/admin.car.go", method = RequestMethod.GET)
