@@ -33,17 +33,31 @@ public class ProductDAO {
         ProductSelector search = (ProductSelector) request.getSession().getAttribute("search");
         int productGroupCount = 0;
 
-        if (search == null) {
-            search = new ProductSelector("", "", new BigDecimal(start), new BigDecimal(end));
-            productGroupCount = allProductGroupCount;
-        } else {
+//        if (search == null) {
+//            search = new ProductSelector("", "", new BigDecimal(start), new BigDecimal(end));
+//            productGroupCount = allProductGroupCount;
+//        } else {
             search.setStart(new BigDecimal(start));
             search.setEnd(new BigDecimal(end));
             productGroupCount = ss.getMapper(ProductMapper.class).getProductGroupCount(search);
-        }
+//        }
 
         List<ProductGroupDTO> pGroups = ss.getMapper(ProductMapper.class).getProductGroup(search);
-
+        for (ProductGroupDTO pGroup : pGroups) {
+        		if(ss.getMapper(ProductMapper.class).getMinInchOfGroup(pGroup)!=null) {
+				pGroup.setMinInch(Integer.parseInt(ss.getMapper(ProductMapper.class).getMinInchOfGroup(pGroup)));
+        		}
+        		if(ss.getMapper(ProductMapper.class).getMaxInchOfGroup(pGroup)!=null) {
+        			pGroup.setMaxInch(Integer.parseInt(ss.getMapper(ProductMapper.class).getMaxInchOfGroup(pGroup)));
+        		}
+        		if(ss.getMapper(ProductMapper.class).getMinPriceOfGroup(pGroup)!=null) {
+        			pGroup.setMinPrice(Integer.parseInt(ss.getMapper(ProductMapper.class).getMinPriceOfGroup(pGroup)));
+        		}
+        		if(ss.getMapper(ProductMapper.class).getMaxPriceOfGroup(pGroup)!=null) {
+        			pGroup.setMaxPrice(Integer.parseInt(ss.getMapper(ProductMapper.class).getMaxPriceOfGroup(pGroup)));
+        		}
+		}
+        
         int pageCount = (int) Math.ceil(productGroupCount / (double) count);
         request.setAttribute("pageCount", pageCount);
         request.setAttribute("theNumber", productGroupCount);
@@ -66,6 +80,48 @@ public class ProductDAO {
 		request.getSession().setAttribute("search", null);
 	}
 
+	public void searchProductGroup(String b, String t, HttpServletRequest request) {
+		ProductSelector search = new ProductSelector(t, b, new BigDecimal(0), new BigDecimal(0));
+		request.getSession().setAttribute("search", search);
+	}
+
+	public ProductGroups getProductGroupJson(int p, HttpServletRequest request) {
+		int count = pgo.getProductGroupCountPerPage();
+        int start = (p - 1) * count + 1;
+        int end = start + (count - 1);
+        
+        ProductSelector search = (ProductSelector) request.getSession().getAttribute("search");
+        
+        search.setStart(new BigDecimal(start));
+        search.setEnd(new BigDecimal(end));
+        int productGroupCount = ss.getMapper(ProductMapper.class).getProductGroupCount(search);
+		
+		List<ProductGroupDTO> pGroups = ss.getMapper(ProductMapper.class).getProductGroup(search);
+		
+        for (ProductGroupDTO pGroup : pGroups) {
+    		if(ss.getMapper(ProductMapper.class).getMinInchOfGroup(pGroup)!=null) {
+			pGroup.setMinInch(Integer.parseInt(ss.getMapper(ProductMapper.class).getMinInchOfGroup(pGroup)));
+    		}
+    		if(ss.getMapper(ProductMapper.class).getMaxInchOfGroup(pGroup)!=null) {
+    			pGroup.setMaxInch(Integer.parseInt(ss.getMapper(ProductMapper.class).getMaxInchOfGroup(pGroup)));
+    		}
+    		if(ss.getMapper(ProductMapper.class).getMinPriceOfGroup(pGroup)!=null) {
+    			pGroup.setMinPrice(Integer.parseInt(ss.getMapper(ProductMapper.class).getMinPriceOfGroup(pGroup)));
+    		}
+    		if(ss.getMapper(ProductMapper.class).getMaxPriceOfGroup(pGroup)!=null) {
+    			pGroup.setMaxPrice(Integer.parseInt(ss.getMapper(ProductMapper.class).getMaxPriceOfGroup(pGroup)));
+    		}
+        }
+        int pageCount = (int) Math.ceil(productGroupCount / (double) count);
+        
+        request.setAttribute("pageCount", pageCount);
+        request.setAttribute("theNumber", productGroupCount);
+        request.setAttribute("pGroups", pGroups);
+        request.setAttribute("curPage", p);
+        
+		return new ProductGroups(pGroups, pageCount, productGroupCount, p);
+	}
+		
 
 
 }

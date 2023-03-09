@@ -1,5 +1,11 @@
 package com.tireshoppingmall.home.board;
 
-public interface BoardMapper {
+import java.util.List;
 
+public interface BoardMapper {
+	int getAskCount(AskSelector search);
+
+	List<AskDTO> getAsk(AskSelector search);
+
+	List<AskReplyDTO> getAskReply(AskDTO a);
 }

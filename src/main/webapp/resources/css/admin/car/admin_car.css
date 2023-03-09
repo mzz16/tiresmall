@@ -232,60 +232,102 @@ float:left;
 }
 
 .cardatalist_div1{
-	width: 5%;
+
+	width: 8%;
 	 border: 1px solid #000;
 }
 
 .cardatalist_div2{
 	 border: 1px solid #000;
-	width: 45%;
+	width: 8%;
 }
 
 .cardatalist_div3{
 	 border: 1px solid #000;
-	width: 15%;
+
+	width: 8%;
 	
 }
 
 .cardatalist_div4{
 	 border: 1px solid #000;
-	width: 15%;
+	
+	width: 8%;
 	
 }
 
 .cardatalist_div5{
 	 border: 1px solid #000;
-	width: 20%;
+
+	width: 8%;
+}
+
+.cardatalist_div6{
+	 border: 1px solid #000;
+
+	width: 50%;
+}
+
+.cardatalist_div7{
+	width: 10%;
 	position: absolute;
-	left:80.35%;
+	left:90.5%;
 }
 
 
 .ftbttmstyle{
 	
-	 background-color: black;
-	   color:white;
-	width: 
+	display: flex;
 }
 
 
 .ftstyle{
 	
+	width: 20%;
 	
+	 background-color: black;
+	color:white;
+	text-align: center;
 }
 
 .btstyle{
 	
 	
+	width: 20%;
+	
+	 background-color: black;
+	 color:white;
+	 text-align: center;
 }
 
 
 .tmstyle{
 	
+	width: 10%;
 	
+	 background-color: black;
+	 color:white;
+	 text-align: center;
+
 }
 
 
+
+.ftinputstyle{
+	text-align: center;
+	border: 1px solid gray;
+}
+
+
+.btinputstyle{
+	text-align: center;
+	border: 1px solid gray;
+}
+
+.tminputstyle{
+	border: 1px solid gray;
+	text-align: center;
+}
 
 
 
@@ -315,57 +357,15 @@ float:left;
 	background-color: #fff;
 }
 
-.updatecarbutton {
-	width: 130px;
-  height: 40px;
-  padding: 10px 25px;
-  border: 2px solid #000;
-  font-family: 'Lato', sans-serif;
-  top:5px;
-  font-weight: 500;
-  background: transparent;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  position: relative;
-  display: inline-block;
-  z-index: 2;
-  transition: all 0.3s ease;
-  overflow: hidden;
-}
-.updatecarbutton:after {
-  position: absolute;
-  content: " ";
-  z-index: -1;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  transition: all 0.3s ease;
-}
-.updatecarbutton:hover {
-  box-shadow:  4px 4px 6px 0 rgba(255,255,255,.5),
-              -4px -4px 6px 0 rgba(116, 125, 136, .2), 
-    inset -4px -4px 6px 0 rgba(255,255,255,.5),
-    inset 4px 4px 6px 0 rgba(116, 125, 136, .3);
-  color: #fff;
-}
-.updatecarbutton:hover:after {
-  -webkit-transform: scale(2) rotate(180deg);
-  transform: scale(2) rotate(180deg);
-  background: #000;
-  box-shadow:  4px 4px 6px 0 rgba(255,255,255,.5),
-              -4px -4px 6px 0 rgba(116, 125, 136, .2), 
-    inset -4px -4px 6px 0 rgba(255,255,255,.5),
-    inset 4px 4px 6px 0 rgba(116, 125, 136, .3);
-}
 
 
- #regpopup01{
+
+ #carregpopup01{
     display: none;
 }
-#regpopup01{
-width: 800px;
-height: 600px;
+#carregpopup01{
+width: 1600px;
+height: 1200px;
 position: absolute;
 top: 50%;
 left: 45%;
@@ -396,18 +396,16 @@ z-index: 2;
 
 }
 
-
-
-#updatepopup01{
+#updatecarpopup01{
     display: none;
 }
-#updatepopup01{
-width: 500px;
-height: 500px;
+#updatecarpopup01{
+width: 800px;
+height: 400px;
 position: absolute;
 top: 50%;
-left: 30%;
-margin: -50px 0 0 -250px;
+left: 50%;
+margin: -250px 0 0 -250px;
 background-color: #fff;
 z-index: 2;
     }
@@ -426,12 +424,6 @@ z-index: 2;
   top:-25px;
   right: 0;
   cursor:pointer;
-}
-
-.openPopup{
-
-  cursor:pointer;
-
 }
 
 

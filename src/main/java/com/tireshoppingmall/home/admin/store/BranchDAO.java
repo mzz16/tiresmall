@@ -92,6 +92,7 @@ public class BranchDAO {
 			BranchCount = ss.getMapper(AdminStoreMapper.class).getBranchCount(search);
 			
 		}
+		
 		List<BranchDTO> Branch = ss.getMapper(AdminStoreMapper.class).getBranchlist(search);
 		System.out.println(count);
 		System.out.println(allBranchCount);

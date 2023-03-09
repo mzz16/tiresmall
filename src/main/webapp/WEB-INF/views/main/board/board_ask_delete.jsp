@@ -7,6 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<iframe style="width: 1000px; height: 500px;" src="https://open.kakao.com/o/sGofN76e"></iframe>
+	<input placeholder="삭제를 원하시면, '삭제합니다'라고 입력해주세요">
+	<button>삭제하기</button>
 </body>
 </html>

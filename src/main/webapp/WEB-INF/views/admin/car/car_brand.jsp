@@ -35,5 +35,24 @@
 
 
 	</div>
+	
+	
+	<%-- 	<c:forEach var="b" items="${cars }" varStatus="status"> --%>	
+		<div class="branddatalist_div"
+			style="border: 1px solid gray; float: left;">
+			<div class="branddatalist_div1" style="float: left;"> </div>
+			<div class="branddatalist_div2" style="float: left;"> </div>
+			<div class="branddatalist_div3" style="float: left;"> 
+			</div>
+			<div class="branddatalist_div4" style="float: left;"> </div>
+			<div class="branddatalist_div5" style="float: left;">
+
+				
+				<button type="button" onclick="deletecar('')">삭제</button>
+			</div>
+
+		</div>
+	<%-- </c:forEach> --%>
+
 </body>
 </html>
