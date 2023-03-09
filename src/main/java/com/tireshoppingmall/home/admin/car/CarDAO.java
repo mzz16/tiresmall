@@ -18,6 +18,7 @@ import org.springframework.web.multipart.MultipartFile;
 import com.tireshoppingmall.home.admin.car.CarDTO;
 import com.tireshoppingmall.home.admin.car.CarOption;
 import com.tireshoppingmall.home.admin.car.SearchCarDTO;
+import com.tireshoppingmall.home.admin.AdminMenuSession;
 @Service
 public class CarDAO {
 	
@@ -135,6 +136,12 @@ public class CarDAO {
 		}
 		
 	}
+  
+  public void menuSession(AdminMenuSession menuSession, HttpServletRequest req) {/*메인바 작업입니다 삭제 ㄴㄴ*/
+		AdminMenuSession menu = (AdminMenuSession) req.getSession().getAttribute("menuSession");
+		menu.setMenu("car");
+		menu.setSubMenu(menuSession.getSubMenu());	
+	}
 	
 /*
  	public void getCarlist(int pageNo, HttpServletRequest req) {
@@ -193,5 +200,5 @@ public class CarDAO {
 	
 	*/
 
-	
+
 }

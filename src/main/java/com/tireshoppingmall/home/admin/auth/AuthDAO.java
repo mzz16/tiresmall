@@ -9,6 +9,8 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.tireshoppingmall.home.admin.AdminMenuSession;
+
 @Service
 public class AuthDAO {
 	
@@ -35,6 +37,7 @@ public class AuthDAO {
 	
 	public void getAllAuth(int pageNo,HttpServletRequest req) {
 		int count = no.getAuthCountPerPage();
+		
 		int start = (pageNo - 1) * count + 1;
 		int end = start + (count - 1);
 		
@@ -59,8 +62,8 @@ public class AuthDAO {
 		List<AuthDTO> manyAuth = ss.getMapper(AdminAuthMapper.class).getAuth(paging);
 		int pageCount = (int) Math.ceil(authCount / (double) count);
 	
+		req.setAttribute("count", count);
 		req.setAttribute("pageCount", pageCount);
-		System.out.println(pageCount);
 		req.setAttribute("manyAuth", manyAuth);
 		req.setAttribute("curPage", pageNo);
 	}
@@ -82,6 +85,11 @@ public class AuthDAO {
 
 	public void authPasing(AuthDTO aDTO, HttpServletRequest req) {
 		req.getSession().setAttribute("authDTO", aDTO);
+	}
+	
+	public void menuSession(AdminMenuSession menuSession, HttpServletRequest req) {
+		AdminMenuSession menu = (AdminMenuSession) req.getSession().getAttribute("menuSession");
+		menu.setMenu("auth");	
 	}
 
 }

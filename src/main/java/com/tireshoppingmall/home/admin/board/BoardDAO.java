@@ -9,6 +9,8 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.tireshoppingmall.home.admin.AdminMenuSession;
+
 @Service
 public class BoardDAO {
 
@@ -113,6 +115,12 @@ public class BoardDAO {
 
 		req.getSession().setAttribute("searchDTO", sDTO);
 		
+	}
+	
+	public void menuSession(AdminMenuSession menuSession, HttpServletRequest req) {
+		AdminMenuSession menu = (AdminMenuSession) req.getSession().getAttribute("menuSession");
+		menu.setMenu("notice");
+		menu.setSubMenu(menuSession.getSubMenu());	
 	}
 
 	
