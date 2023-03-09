@@ -74,21 +74,74 @@ select * from branch;
 		
 -------------------------------------------------------------------------
 		
-		create table Car
-		c_no number(4) primary key,
+		create table Car(
+		c_id varchar2(20 char) primary key,
+		c_name varchar2(20 char) not null,
 		c_year1 varchar2(9 char) not null,
 		c_year2 varchar2(9 char) not null,
-		c_option varchar2(10 char) not null,
-		c_brand varchar2(10 char) not null,
+		c_option varchar2(20 char) not null,
+		c_brand varchar2(20 char) not null,
 		c_ft varchar2(40 char) not null,
-		c_bt varchar2(40 char) not null
+		c_bt varchar2(40 char) not null,
+		c_file varchar2(2000 char)
+		);
 		
 		
 		
 		
-		create table car_brand
-		cb_name varchar2(10 char)primary key,
-		cb_ea (10 char) not null,
-		cb_order (10 char) not null
-		constraint c_e
-		foreign key(c_ea)
+insert into Car values('123','X101','2014','2016','에어백','대우','12313154','2534533','a.jpg');
+insert into Car values('456','X202','2013','2017','아기유모차','기아','12313154','2534533','b.jpg');
+insert into Car values('789','X203','2012','2018','선루프','BMW','12313154','2534533','c.jpg');
+
+		
+		
+select * from Car;
+
+		
+drop table Car;
+
+
+
+
+	select *
+		from
+		(select rownum as rn,
+		c_id,c_name,c_year1,c_year2,c_option,c_brand,c_ft,c_bt,c_file
+		from(
+		select * from
+		Car where
+		c_name like '%'||#{carnameInput}||'%'
+		)
+		) where rn &gt;= #{start} and rn &lt;= #{end}
+
+
+
+select rownum as rn,
+		c_id,c_name,c_year1,c_year2,c_option,c_brand,c_ft,c_bt,c_file from Car
+
+
+
+
+		create table car_brand(
+		cb_name varchar2(20 char)primary key,
+		cb_ea varchar2(20 char) not null,
+		cb_order varchar2(20 char) not null
+		);
+		
+		
+		
+		
+		
+		
+		
+insert into car_brand values('대우','1','234');
+insert into car_brand values('BMW','1','234');
+insert into car_brand values('기아','1','234');
+
+
+select * from car_brand;
+
+drop table car_brand;
+
+
+
