@@ -226,13 +226,17 @@ pageEncoding="UTF-8"%>
       <form method="dialog">
         <button><i class="fa-solid fa-xmark"></i></button>
       </form>
-      사이즈를 확인해보자기
+      <img src="resources/web/main/product/tireGuideImg.png" />
     </dialog>
     <dialog class="detail_standard_table">
       <form method="dialog">
         <button><i class="fa-solid fa-xmark"></i></button>
       </form>
       <ul class="detail_standard_ul">
+        <li class="detail_standard_li detail_standard_title">
+          <span class="detail_standard_size">사이즈</span>
+          <span class="detail_standard_price">가격</span>
+        </li>
         <li class="detail_standard_li">
           <span class="detail_standard_size">16인치 이하</span>
           <span class="detail_standard_price">8,000원</span>
@@ -259,7 +263,7 @@ pageEncoding="UTF-8"%>
         </li>
       </ul>
       <div class="detail_standard_add">
-        <span>런플렛타이어,공기압센서(TPMS),페타이어처리비용</span>
+        <span>런플렛타이어, 공기압센서(TPMS), 페타이어처리비용</span>
         <span>5,000원</span>
       </div>
     </dialog>
