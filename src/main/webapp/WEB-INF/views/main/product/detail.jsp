@@ -266,6 +266,9 @@ pageEncoding="UTF-8"%>
         <span>런플렛타이어, 공기압센서(TPMS), 페타이어처리비용</span>
         <span>5,000원</span>
       </div>
+      <div class="detail_standard_add">
+        <span>모든 금액은 VAT포함 금액이며 1본당 공임비용 입니다.</span>
+      </div>
     </dialog>
     <dialog class="detail_cart_dialog">
       <div class="detail_cart_dialog_txt">
