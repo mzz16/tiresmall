@@ -71,9 +71,18 @@ pageEncoding="UTF-8"%>
             <div class="cart_nav_title">
               <h2>주문 정보</h2>
             </div>
-            <h3 class="cart_nav_content cart_nav_origianl">소비자 가격</h3>
-            <h3 class="cart_nav_content cart_nav_discount">할인 금액</h3>
-            <h1 class="cart_nav_content cart_nav_price">총 결제 금액</h1>
+            <div class="cart_nav_content cart_nav_origianl">
+              <h2 class="cart_nav_name">소비자 가격</h2>
+              <span class="cart_nav_value"></span>
+            </div>
+            <div class="cart_nav_content cart_nav_discount">
+              <h2 class="cart_nav_name">할인 금액</h2>
+              <span class="cart_nav_value"></span>
+            </div>
+            <div class="cart_nav_content cart_nav_price">
+              <h2 class="cart_nav_name">총 결제 금액</h2>
+              <span class="cart_nav_value"></span>
+            </div>
             <button class="cart_nav_pay">결제하기</button>
           </div>
         </div>
