@@ -353,10 +353,10 @@ z-index: 2;
 
 
 
-#updatepopup01{
+#popup01{
     display: none;
 }
-#updatepopup01{
+#popup01{
 width: 500px;
 height: 500px;
 position: absolute;
@@ -740,10 +740,10 @@ a {
 
 
 
-#updatepopup01{
+#updatecarpopup01{
     display: none;
 }
-#updatepopup01{
+#updatecarpopup01{
 width: 500px;
 height: 500px;
 position: absolute;

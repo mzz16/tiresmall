@@ -9,7 +9,7 @@
 <title>Insert title here</title>
 <link rel="stylesheet"
 	href="resources/css/admin/car/admin_car.css">
-
+<script src="resources/js/admin/car/admin_car.js"></script>
 
 </head>
 <body>
@@ -22,7 +22,12 @@
 
 			<form action="car.search.carname">
 				<div class="car-text1">메이커</div>
-				<select name="b_area1" id="sido1"></select>
+			<%--	<select name="car_brand" id="car_brand">
+				<c:forEach var = "brandlist" items= ${brandcars } varStatus="status">
+				<option value = "${brandlist.cb_name }"></option> 
+				</c:forEach> 
+				
+				</select> --%>
 				<button class="car-findareabutton">메이커 검색</button>
 
 			</form>
@@ -81,33 +86,49 @@
 	</c:if>
 
 
-	<c:forEach var="b" items="${cars }" varStatus="status">
+
+
+	<c:forEach var="c" items="${cars }" varStatus="status">
 		<div class="cardatalist_div"
 			style="border: 1px solid gray; float: left;">
-			<div class="cardatalist_div1" style="float: left;"> </div>
-			<div class="cardatalist_div2" style="float: left;"> </div>
-			<div class="cardatalist_div3" style="float: left;"> 
-			</div>
-			<div class="cardatalist_div4" style="float: left;"> </div>
-			<div class="cardatalist_div5" style="float: left;">
+			<div class="cardatalist_div1" style="float: left;">${status.count } </div>
+			<div class="cardatalist_div2" style="float: left;">${c.c_brand } </div>
+			<div class="cardatalist_div3" style="float: left;">${c.c_year1 } ~ ${c.c_year2 }</div>
+			<div class="cardatalist_div4" style="float: left;">${c.c_name }</div>
 
-				<button class="updatecarbutton"
-					onclick="updatecar('')">수정</button>
+			<div class="cardatalist_div5" style="float: left;">${c.c_option }  </div>
+			<div class="cardatalist_div6" style="float: left;"> 앞 :${c.c_ft } 뒤 :${c.c_bt } </div>
+			<div class="cardatalist_div7" style="float: left;"> <button class="updatecarbutton"
+					onclick="updatecar('${c.c_id}', '${c.c_name }',
+					'${c.c_year1 }','${c.c_year2 } ',
+					'${c.c_option }','${c.c_brand }',
+					'${c.c_ft }','${c.c_bt }')">수정</button>
 				<button type="button" class="updatecarbutton"
-					id="updatecar('${c.c_id}')" onclick="deletecar('${c.c_id}')">삭제</button>
-			</div>
+					id="updatecar('${c.c_id}')" onclick="deletecar('${c.c_id}')">삭제</button> </div>
 
-		</div>
+				
+			</div>
 	</c:forEach>
+
+		
 	
 	
+	
+	<div id="carregpopup01" class="carregbuttonarea">
+		<div class="close">X</div>
 		<div>
-			<form action="reg.branch.do" method="post" name="regform"
+			<form action="reg.car.do" method="post" name="regform"
 				onsubmit="return carregcall();" enctype="multipart/form-data">
 				<table border="1" class="">
+				<tr>
+					<td>임시 ID</td>
+					<td><input name="c_id" id="c_id"></td>
+					</tr>
 					<tr>
 					<td>메이커</td>
-					<td><select name="c_maker" id="c_maker"></select></td>
+					<td><select name="c_brand" id="c_brand">
+					<option value='BMW'>BMW</option>
+					</select></td>
 					</tr>
 					<tr>
 					<td>차종</td>
@@ -123,23 +144,28 @@
 					</tr>
 					<tr>
 					<td>출력</td>
-					<td><select name="c_print" id="c_print"></select></td>
+					<td><select name="c_print" id="c_print">
+					<option value='출력'>출력</option>
+					<option value='숨김'>숨김</option>
+					</select></td>
 					</tr>
 					<tr>
 					<td>타이어사이즈</td>
 					<td>
 					
-					<div class = ftbttmstyle>
-					<div class = "ftstyle" style="float: left; border: 1px solid gray;">앞타이어</div>
-					<div class = "btstyle" style="float: left; border: 1px solid gray;">뒤타이어</div>
-					<div class = "tmstyle" style="border: 1px solid gray;">관리</div>
+					<div class = "ftbttmstyle">
+					<div class = "ftstyle" style=" border: 1px solid gray;">앞타이어</div>
+					<div class = "btstyle" style=" border: 1px solid gray;">뒤타이어</div>
+					<div class = "tmstyle"  style="  border: 1px solid gray;">관리</div>
+					</div>
+					<div style="display: block;">
+					</div>
+					<div style="display: block;">
+					<div class = "ftinputstyle" style="float: left; width: 20%;" ><input name="c_ft" id="c_ft"></div>
+					<div class = "btinputstyle" style="float: left; width: 20%;"><input name="c_bt" id="c_bt"></div>
+					<div class = "tminputstyle" style="float: left; width: 10%;"><button>삭제</button></div>
 					</div>
 					
-					<div style ="display:flex;">
-					<div class = "ftinputstyle" style="float: left;"><input name="c_ft" id="c_ft"></div>
-					<div class = "btinputstyle" style="float: left;"><input name="c_bt" id="c_bt"></div>
-					<div class = "tminputstyle" style="float: left;"><button>삭제</button></div>
-					</div>
 					
 					</td>
 					</tr>
@@ -156,12 +182,95 @@
 					<div style="float: left;"><input type="file" name="file"></div>
 					</div>
 					
-					</td>
+					
+					
 					</tr>
+					
+					<tr>
+					<td colspan=2><div class="carregokbutton">
+								<button class="carregokbutton1" id="regcar">등록</button>
+							</div></td>
+					</tr>
+					
 				</table>
 			</form>
 		</div>
 
+		</div>  
+<div id="updatecarpopup01">
+    <div class="close">close</div>
+    <div>
+    
+    <div>
+			<form action="admin.car.update.do" method="post" name="updateform"
+				onsubmit="return carupdatecall();" enctype="multipart/form-data">
+				<table border="1" class="">
+				
+					<tr>
+					<td>메이커</td>
+					<td><select name="c_brand" id="c_brand_u">
+					<option value='BMW'>BMW</option>
+					</select></td>
+					</tr>
+					<tr>
+					<td>차종</td>
+					<td><input name="c_name" id="c_name_u"><input type="hidden" name="c_id" id="c_id_u"></td>
+					</tr>
+					<tr>
+					<td>차종옵션</td>
+					<td><input name="c_option" id="c_option_u"></td>
+					</tr>
+					<tr>
+					<td>연식</td>
+					<td><input name="c_year1" id="c_year1_u">~<input name="c_year2" id="c_year2_u"></td>
+					</tr>
+					<tr>
+					<td>출력</td>
+					<td><select name="c_print" id="c_print_u">
+					<option value='출력'>출력</option>
+					<option value='숨김'>숨김</option>
+					</select></td>
+					</tr>
+					<tr>
+					<td>타이어사이즈</td>
+					<td>
+					
+					<div class = ftbttmstyle>
+					<div class = "ftstyle" style="float: left; border: 1px solid gray;">앞타이어</div>
+					<div class = "btstyle" style="float: left; border: 1px solid gray;">뒤타이어</div>
+					<div class = "tmstyle" style="border: 1px solid gray;">관리</div>
+					</div>
+					
+					<div style ="display:flex;">
+					<div class = "ftinputstyle" style="float: left; width: 20%;"><input name="c_ft" id="c_ft_u"></div>
+					<div class = "btinputstyle" style="float: left; width: 20%;"><input name="c_bt" id="c_bt_u"></div>
+					<div class = "tminputstyle" style="float: left; width: 10%;" ><button>삭제</button></div>
+					</div>
+					
+					</td>
+					</tr>
+						<tr>
+						<td colspan=2><div class="updatecarokbutton">
+								<button class="updatecarokbutton1" id="updatecar" value=>수정</button>
+							</div></td>
+					</tr>
+					
+				</table>
+			</form>
+		</div>
+    
+    
+    </div>
+</div>
+    
+    	
+    
+    
+	
+	
+
+	
+	
 	
 	
 	
