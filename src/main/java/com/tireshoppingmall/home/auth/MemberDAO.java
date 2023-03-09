@@ -58,10 +58,13 @@ public class MemberDAO {
 	public boolean loginCheck(HttpServletRequest req) {
 		MemberDTO m = (MemberDTO) req.getSession().getAttribute("loginMember");
 		if (m != null) {
-			req.setAttribute("loginOK", m.getI_name());
 			return true;
 		}
 		return false;
+	}
+
+	public void logout(HttpServletRequest req) {
+		req.getSession().setAttribute("loginMember", null);		
 	}
 
 	

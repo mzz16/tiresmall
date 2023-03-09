@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
   <head>
@@ -30,10 +31,18 @@ pageEncoding="UTF-8"%>
               <a href="board.askByKakao">카카오톡상담</a>
             </div>
             <div class="index_hTopRight">
-              <a> ${sessionScope.loginMember.i_name } </a>
-          	  <a>${loginOK }</a>
-              <a href="login">로그인</a>
-              <a href="non-member">비회원 주문조회</a>
+	            <c:choose>
+	            	<c:when test="${not empty sessionScope.loginMember.i_name}">
+	            		<a>${sessionScope.loginMember.i_name }님 안녕하세요!</a>
+						<a>| 내정보 |</a>
+						<a onclick="location.href='logout.do'">로그아웃 </a>
+	            	</c:when>
+	            	<c:otherwise>
+	            		${sessionScope.loginMember.i_name }
+              			<a href="login">로그인</a>
+	            	</c:otherwise>
+	            </c:choose>
+              <a href="non-member">| 비회원 주문조회</a>
             </div>
           </div>
           <div class="index_hBottom">

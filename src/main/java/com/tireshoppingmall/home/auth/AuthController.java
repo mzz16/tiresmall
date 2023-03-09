@@ -49,6 +49,14 @@ public class AuthController {
 		req.setAttribute("content", "main/home/home.jsp");
 		return "index";
 	}
+	@RequestMapping(value = "/logout.do", method = RequestMethod.GET)
+	public String logoutDo(MemberDTO mDTO, HttpServletRequest req) {
+		
+		mDAO.logout(req);
+		mDAO.loginCheck( req);
+		req.setAttribute("content", "main/home/home.jsp");
+		return "index";
+	}
 	@RequestMapping(value = "/authReg.go", method = RequestMethod.GET)
 	public String authRegGo(Model model) {
 		return "main/auth/authReg";
