@@ -1,11 +1,22 @@
 package com.tireshoppingmall.home.auth;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.util.HashMap;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 import com.tireshoppingmall.home.auth.MemberDTO;
 import com.tireshoppingmall.home.auth.MemberMapper;
 
@@ -53,4 +64,17 @@ public class MemberDAO {
 		return false;
 	}
 
+	
+	 
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }
