@@ -1,14 +1,32 @@
-$(function() {
-	//카카오 소셜 로그인전 초기화
-	Kakao.init('c3f4cc657cabdccefb3382de579626a3');
-	Kakao.isInitialized();
+$(document).ready(function() {
 	
-	
-	
-})
+	console.log('1');
+	 var kakaoInfo = '${kakaoInfo}';
 
-function loginWithKakao() {
-  Kakao.Auth.authorize({
-	  redirectUri: 'http://localhost/home/login.type_kakao'
-	});
+     if(kakaoInfo != ""){
+         var data = JSON.parse(kakaoInfo);
+
+         alert("카카오로그인 성공 \n accessToken : " + data['accessToken']);
+         alert(
+         "user : \n" + "email : "
+         + data['email']  
+         + "\n nickname : " 
+         + data['nickname']);
+     }
+	
+});
+
+
+function kakaoLogin() {
+
+    $.ajax({
+        url: 'login/getKakaoAuthUrl',
+        type: 'get',
+        async: false,
+        dataType: 'text',
+        success: function (res) {
+            location.href = res;
+        }
+    });
+
   }
