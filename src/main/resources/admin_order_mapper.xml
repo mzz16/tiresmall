@@ -2,6 +2,28 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.tireshoppingmall.home.admin.order.AdminOrderMapper">
 
-	
+	<select id="getOrderCount" resultType="int">
+		select count(*)
+		from product_order
+		where 
+		<if test="dateSearch1 == '' and dateSearch2 == ''">
+			and o_orderdate BETWEEN TO_DATE(#{dateSearch1}) 
+        	AND TO_DATE(#{dateSearch2})
+		</if>
+		<if test="nameInput == ''">
+			and o_name like '%'||#{nameInput}||'%'
+		</if>
+		<if test="phoneInput == ''">
+			and o_phone like '%'||#{phoneInput}||'%'
+		</if>
+		<if test="orderNumberInput == ''">
+			and o_ordernumber like '%'||#{orderNumberInput}||'%'
+		</if>
+			and o_no = #{o_no}
+	</select>
+
+	<select id="getOrder" resultType="com.tireshoppingmall.home.admin.order.OrderDTO">
+		
+	</select>
 
 </mapper>

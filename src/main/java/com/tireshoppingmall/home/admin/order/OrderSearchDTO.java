@@ -2,7 +2,9 @@ package com.tireshoppingmall.home.admin.order;
 
 import java.math.BigDecimal;
 
-public class SearchDTO {
+import javax.servlet.http.HttpServletRequest;
+
+public class OrderSearchDTO {
 
 	private BigDecimal start;
 	private BigDecimal end;
@@ -12,7 +14,7 @@ public class SearchDTO {
 	private String phoneInput;
 	private String orderNumberInput;
 	
-	public SearchDTO() {
+	public OrderSearchDTO() {
 		// TODO Auto-generated constructor stub
 	}
 
@@ -72,7 +74,7 @@ public class SearchDTO {
 		this.orderNumberInput = orderNumberInput;
 	}
 
-	public SearchDTO(BigDecimal start, BigDecimal end, String dateSearch1, String dateSearch2, String nameInput,
+	public OrderSearchDTO(BigDecimal start, BigDecimal end, String dateSearch1, String dateSearch2, String nameInput,
 			String phoneInput, String orderNumberInput) {
 		super();
 		this.start = start;
@@ -91,5 +93,8 @@ public class SearchDTO {
 				+ orderNumberInput + "]";
 	}
 	
+	public void clearSearch(OrderSearchDTO osDTO, HttpServletRequest req) {
+		req.getSession().setAttribute("orderSearchDTO", null); 
+	}
 	
 }

@@ -28,25 +28,41 @@ public class OrderDAO {
 		this.allOrderCount = allOrderCount;
 	}
 
+	public void searchOrder(OrderSearchDTO osDTO, HttpServletRequest req) {
+		req.getSession().setAttribute("orderSearchDTO", osDTO);
+	}
+	
+	public void calcAllOrderCount() {
+		OrderSearchDTO ost = new OrderSearchDTO(null, null, "", "", "", "", "");
+		allOrderCount = ss.getMapper(AdminOrderMapper.class).getOrderCount(ost);
+		System.out.println(allOrderCount);
+	}
+	
 	public void getOrder(int pageNo, HttpServletRequest req) {
 		int count = oo.getOrderCountPerPage();
 		int start = (pageNo - 1) * count + 1;
 		int end = start + (count - 1);
 		
-		SearchDTO search = (SearchDTO) req.getSession().getAttribute("searchDTO");
+		OrderSearchDTO orderSearch = (OrderSearchDTO) req.getSession().getAttribute("searchDTO");
 		int orderCount = 0;
-		if(search == null) {
-			search = new SearchDTO(new BigDecimal(start), new BigDecimal(end), "", "", "", "", "");
+		if(orderSearch == null) {
+			orderSearch = new OrderSearchDTO(new BigDecimal(start), new BigDecimal(end), "", "", "", "", "");
 			orderCount = allOrderCount;
 			System.out.println("null이면---" + allOrderCount);
 		}else {
-			search.setStart(new BigDecimal(start));
-			search.setEnd(new BigDecimal(end));
-			orderCount = ss.getMapper(AdminOrderMapper.class).getOrderCount(search);
+			orderSearch.setStart(new BigDecimal(start));
+			orderSearch.setEnd(new BigDecimal(end));
+			orderCount = ss.getMapper(AdminOrderMapper.class).getOrderCount(orderSearch);
 		}
 	
-		List<OrderDTO>
+		List<OrderSearchDTO> orders = ss.getMapper(AdminOrderMapper.class).getOrder(orderSearch);
 	
+		int pageCount = (int) Math.ceil(orderCount / (double) count);
+		
+		req.setAttribute("orders", orders);
+		req.setAttribute("pageCount", pageCount);
+		req.setAttribute("curPage", pageNo);
+		
 	}
 	
 }

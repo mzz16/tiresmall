@@ -182,8 +182,17 @@ create table product_order (
 
 drop table product_order;
 
+select count(*)
+		from product_order
+		where o_orderdate BETWEEN TO_DATE('2023-03-7', 'YYYY-MM-DD') 
+        AND TO_DATE('2023-03-14', 'YYYY-MM-DD') + 1
+        and o_name like '%%'
+        and o_phone like '%%'
+        and o_ordernumber like'%%';
 
-insert into product_order values(o_no_seq.nextval, '회원', sysdate, '20230307120000ED484C',     
+
+insert into product_order values(o_no_seq.nextval, '회원', '20230320121215VB224D', sysdate, '4EA', '1/2,2/2', 431000,'현장결제', '직영점', '결제완료', '직영점', '2023/03/20', '박영웅', 01089689002, 'dgyo1209@naver.com', '2022', '현대', '그랜저ig', '12가3456', null);
+insert into product_order values(o_no_seq.nextval, '비회원', '20230308191215OC554E', sysdate, '2EA', '4/2', 215000, '현장결제', '직영점', '결제완료', '직영점', '2023/03/8', '박재준', 01037509002, 'wownsgk12@naver.com', null, null, null, '12무1112', '15년식 기아 k5하이브리드입니다');
     create sequence o_no_seq;
 ----------(tire)-----------------------    
 create table tire(
