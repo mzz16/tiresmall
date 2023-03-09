@@ -11,10 +11,10 @@ margin-right:5px;
 .branch-findselect{
 	
 	display: flex;
-	margin-left:5px;
-	margin-top:65px;
-	  align-items: center;
-position:relative;
+	background-image: linear-gradient(to top, #fff1eb 0%, #ace0f9 100%);
+	margin-top:60px;
+	align-items: center;
+	position:relative;
 
 }
 

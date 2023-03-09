@@ -157,7 +157,7 @@
 
 				<c:forEach items="${manyAuth }" var="a" varStatus="status">
 					<tr id="manyAuth_content">
-						<td class="auth_table_td">${status.count }</td>
+						<td class="auth_table_td">${status.count + (curPage-1)*count}</td>
 						<td class="auth_table_td">${a.a_Sortation }</td>
 						<td class="auth_table_td">${a.a_id }</td>
 						<td class="auth_table_td">${a.a_name }</td>
