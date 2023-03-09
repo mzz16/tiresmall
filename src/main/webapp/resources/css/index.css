@@ -32,6 +32,11 @@ button {
   align-items: center;
 }
 
+dialog {
+  border: 0;
+  padding: 0;
+}
+
 header {
   background-color: white;
   display: flex;
