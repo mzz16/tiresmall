@@ -27,30 +27,29 @@
 				<div class="order_modalcontent">
 					<div class="order_header">주문 관리</div>
 					<div>
-						<input type="hidden" name="o_no" id="orderInput_M">
+
 
 						<table class="modal_table">
 							<tr>
 								<td class="left_td">주문번호</td>
 								<td class="modal_content_td">
-								<input name="o_name" id="ordernumber_M" type="hidden"></td>
+								</td>
 								<td class="left_td">주문일시</td>
 								<td class="modal_content_td">
-								<input name="o_orderdate" id="date_M" type="hidden"></td>
+								</td>
 							</tr>
 							<tr>
 								<td class="left_td">주문자명</td>
 								<td class="modal_content_td">
-								<input name="o_name" id="orderName_M" type="hidden"></td>
+								</td>
 								<td class="left_td">연락처</td>
 								<td class="modal_content_td">
-								<input name="o_phone" id="orderPhoneNum_M" type="hidden"></td>
+								</td>
 							</tr>
 							<tr>
 								<td class="left_td">회원아이디</td>
 								<td class="modal_content_td">
-								<input name="o_sortation" id="userSortation_M" type="hidden">
-								<input name="a_id" id="userID_M" type="hidden"></td>
+								</td>
 								<td class="left_td">광고동의</td>
 								<td class="modal_content_td">
 								</td>
@@ -58,34 +57,28 @@
 							<tr>
 								<td class="left_td">차량번호</td>
 								<td class="modal_content_td">
-								<input name="o_carnubmer" id="carNumber_M" type="hidden">
 								</td>
 								<td class="left_td">차종</td>
 								<td class="modal_content_td">
-								<input name="o_caryear" id="ocy_M" type="hidden">
-								<input name="o_carbrand" id="ocb_M" type="hidden">
-								<input name="o_carname" id="ocn_M" type="hidden"></td>
+								</td>
 							</tr>
 							<tr>
 								<td class="left_td">주문명</td>
 								<td class="modal_content_td">
-								<input name="o_ordername" id="orderName_M" type="hidden">
 								</td>
 								<td class="left_td">배송방법</td>
 								<td class="modal_content_td">
-								<input name="o_deliverymethod" id="deliveryMethod_M" type="hidden">
-								<input name="o_storeshop" id="orderStoreShop_M" type="hidden"></td>
+								</td>
 							</tr>
 							<tr>
 								<td class="left_td_long">주문자메모</td>
-								<td class="modal_content_td_long">
-								<input name="o_request" id="orederReq_M" type="hidden">
+								<td colspan="3" class="modal_content_td_long">
 								</td>
 							</tr>
 							<tr>
 								<td class="left_td_tire">주문상품 1종</td>
-								<td class="modal_content_td_tire">
-									<table>
+								<td colspan="3" class="modal_content_td_tire">
+									<table style="width: 100%">
 										<tr>
 											<th>종류</th>
 											<th>브랜드명</th>
@@ -101,57 +94,48 @@
 											<td></td>
 										</tr>
 									</table>
-								<input name="ti_id" id="tireNo_M" type="hidden">
-								<input name="ti_name" id="tireName_M" type="hidden">
-								<input name="ti_hg" id="tireHg_M" type="hidden">
-								<input name="ti_speed" id="tireSpeed_M" type="hidden">
-								<input name="ti_width" id="tireWidth_M" type="hidden">
-								<input name="ti_ratio" id="tireRatio_M" type="hidden">
-								<input name="ti_inch" id="tireInch_M" type="hidden">
+								
 								</td>
 							</tr>
 							<tr>
 								<td class="left_td_long">배송지</td>
-								<td class="modal_content_td_long">
-								<input name="o_deliverymethod" id="deliveryMethod_M" type="hidden">
+								<td colspan="3" class="modal_content_td_long">
 								</td>
 							</tr>
 							<tr>
 								<td class="left_td">결제방법</td>
 								<td class="modal_content_td">
-								<input name="o_paymethod" id="orderPayMethod_M" type="hidden">
 								</td>
 								<td class="left_td">주문금액</td>
-								<td class="modal_content_td">
-								<input name="o_price" id="storeShop_M" type="hidden"></td>
+								<td class="modal_content_td"></td>
 							</tr>
 							<tr>
 								<td class="left_td_long">방문예약일</td>
 								<td class="modal_content_td_long">
-								<input name="o_tireinstalldate" id="tireInstallDate_M" type="hidden">
+								
 								</td>
-								<td>직영점 방문 예약일입니다. 상품을 준비하고 주문자에게 해피콜해주세요.</td>
+								<td colspan="2">직영점 방문 예약일입니다. 상품을 준비하고 주문자에게 해피콜해주세요.</td>
 							</tr>
 							<tr>
 								<td class="left_td_long">주문진행</td>
-								<td class="modal_content_td_long">
-								<input name="o_step" id="orderStep_M" type="hidden">
-								<label><input type="radio" name="o_step" value="결제대기">결제대기</label>
-								<label><input type="radio" name="o_step" value="결제완료">결제완료</label>
-								<label><input type="radio" name="o_step" value="배송준비중">배송준비중</label>
-								<label><input type="radio" name="o_step" value="배송중">배송중</label>
-								<label><input type="radio" name="o_step" value="배송완료">배송완료</label>
-								<label><input type="radio" name="o_step" value="주문취소">주문취소</label>
+								<td colspan="3" class="modal_content_td_long">
+								
+								<label class="modal-label"><input type="radio" name="o_step" value="결제대기">결제대기</label>
+								<label class="modal-label"><input type="radio" name="o_step" value="결제완료">결제완료</label>
+								<label class="modal-label"><input type="radio" name="o_step" value="배송준비중">배송준비중</label>
+								<label class="modal-label"><input type="radio" name="o_step" value="배송중">배송중</label>
+								<label class="modal-label"><input type="radio" name="o_step" value="배송완료">배송완료</label>
+								<label class="modal-label"><input type="radio" name="o_step" value="주문취소">주문취소</label>
 								</td>
 							</tr>
 							<tr>
 								<td class="left_td">배송사명</td>
 								<td class="modal_content_td">
-								<input>
+								<input class="d-input">
 								</td>
 								<td class="left_td">송장번호</td>
 								<td class="modal_content_td">
-								<input>
+								<input class="d-input">
 								</td>
 							</tr>
 						</table>
@@ -159,8 +143,8 @@
 					</div>
 					<div class="modalBtn">
 						<button class="modalBtn1">저장</button>
+						<button class="modalBtn2 modal-del" id="deleteModal" type="button">삭제</button>
 						<button class="modalBtn2" id="cancleModal" type="button">닫기</button>
-						<button class="modalBtn3" id="deleteModal" type="button">삭제</button>
 					</div>
 				</div>
 			</div>
@@ -217,7 +201,32 @@
 						<c:forEach var="o" items="${orders }" varStatus="status">
 								<tr class="order_modal_go">
 									<td class="td_c1">${status.count }
-										<input type="hidden" value="${o.o_no }">
+										<%-- <input name="o_no" value="${o.o_no }" id="orderInput_M" type="hidden">
+										<input name="o_step" value="${o.o_step }" id="orderStep_M" type="hidden">
+										<input name="o_tireinstalldate" value="${o.o_tireinstalldate }" id="tireInstallDate_M" type="hidden">
+										<input name="ti_id" id="tireNo_M" type="hidden">
+										<input name="ti_name" id="tireName_M" type="hidden">
+										<input name="ti_hg" id="tireHg_M" type="hidden">
+										<input name="ti_speed" id="tireSpeed_M" type="hidden">
+										<input name="ti_width" id="tireWidth_M" type="hidden">
+										<input name="ti_ratio" id="tireRatio_M" type="hidden">
+										<input name="ti_inch" id="tireInch_M" type="hidden">
+										<input name="o_deliverymethod" value="${o.o_deliverymethod }" id="deliveryMethod_M" type="hidden">
+										<input name="o_paymethod" value="${o.o_paymethod }" id="orderPayMethod_M" type="hidden">
+										<input name="o_price" value="${o.o_price }" id="storeShop_M" type="hidden">
+										<input name="o_ordernumber" value="${o.o_ordernumber }" id="ordernumber_M" type="hidden">
+										<input name="o_orderdate" value="${o.o_orderdate }" id="orderDate_M" type="hidden">
+										<input name="o_name" value="${o.o_name }" id="userName_M" type="hidden">
+										<input name="o_phone" value="${o.o_phone }" id="userPhoneNum_M" type="hidden">
+										<input name="o_sortation" value="${o.o_sortation }" id="userSortation_M" type="hidden">
+										<input name="o_carnubmer" value="${o.o_carnubmer }" id="carNumber_M" type="hidden">
+										<input name="o_caryear" value="${o.o_caryear }" id="ocy_M" type="hidden">
+										<input name="o_carbrand" value="${o.o_carbrand }" id="ocb_M" type="hidden">
+										<input name="o_carname" value="${o.o_carname }" id="ocn_M" type="hidden">
+										<input name="o_ordername" value="${o.o_ordername }" id="orderName_M" type="hidden">
+										<input name="o_deliverymethod" value="${o.o_deliverymethod }" id="deliveryMethod_M" type="hidden">
+										<input name="o_storeshop" value="${o.o_storeshop }" id="orderStoreShop_M" type="hidden">
+										<input name="o_request" value="${o.o_request }" id="orederReq_M" type="hidden"> --%>
 									</td>
 									<td class="td_c2">${o.o_sortation }</td>
 									<td class="td_c3">${o.o_ordernumber }</td>

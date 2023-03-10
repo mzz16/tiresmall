@@ -13,6 +13,10 @@ a {
 	text-decoration: none
 }
 
+a:visited {
+	color: white;
+}
+
 .no-drag{
   -webkit-user-select:none;
   -moz-user-select:none;
@@ -23,6 +27,12 @@ a {
 
 .DashBoard {
 	width: 100%;
+}
+
+#order_modal {
+	position: absolute;
+    width: -webkit-fill-available;
+    height: 100vh;
 }
 
 .order_content {
@@ -175,4 +185,46 @@ a {
 	font-weight: bold;
 	font-size: 15px;
 	border: none;
+}
+
+.tdBtn>button {
+	width: 80px;
+	height: 30px;
+	border: 1px solid black;
+}
+
+#updBtn{
+	color: white;
+	background-color: black;
+}
+
+#delBtn{
+	color: black;
+}
+
+
+#qna_modal {
+	position: absolute;
+    width: -webkit-fill-available;
+    height: 100vh;
+}
+
+#paging-box{
+	display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 40px;
+    position: relative;
+    top: 550px;
+    background-color: white;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+#paging-box a{
+	padding: 7px 7px;
+    margin: 5px;
+    background-color: #E4EAEC;
+    border-radius: 3px;
 }

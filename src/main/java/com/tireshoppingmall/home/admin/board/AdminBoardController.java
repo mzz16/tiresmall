@@ -231,8 +231,7 @@ public class AdminBoardController {
 	}
 
 	@RequestMapping(value = "/qna.page.change", method = RequestMethod.GET)
-	public String PagingQna(HttpServletRequest req, @RequestParam int p) {
-		System.out.println(req.getParameter("p"));
+	public String pagingQna(HttpServletRequest req, @RequestParam int p) {
 		qnaDAO.getQna(p, req);
 		
 		req.setAttribute("subMenuPage", "board/board_subMenu.jsp");

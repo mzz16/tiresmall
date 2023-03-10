@@ -11,12 +11,29 @@
 }
 .left_td{
 	background-color: black;
+	color: white;
+	min-width: 80px;
+}
+
+.left_td_long{
+	background-color: black;
+	color: white;
+}
+.left_td_long > label{
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+.left_td_tire{
+	background-color: black;
+	color: white;
 }
 
 .modal_table td {
 	text-align: center;
 	border: 1px solid black;
 	height: 45px;
+	width: 100px;
 }
 
 .order_header {
@@ -25,6 +42,7 @@
 	align-items: center;
 	justify-content: center;
 	height: 70px;
+	min-width: 800px;
 	font-size: 15pt;
 	font-weight: 600;
 }
@@ -43,7 +61,6 @@
 }
 .modalBtn2{
 	color: black;
-	
 }
 
 .modal-wrapper {
@@ -67,4 +84,28 @@
 	margin: 10px;
 	font-size:large;
 	background-color: white;
+}
+
+.modalBtn2{
+	width: 90px;
+	height: 35px;
+	margin: 10px;
+	font-size:large;
+	background-color: white;
+}
+
+.modal-del{
+	color: white;
+    border: 2px solid red;
+    background-color: red;
+}
+.d-input{
+	width: 350px;
+	height: 30px;
+}
+.d-input:focus{
+	outline: none;
+}
+th{
+	border: 1px solid black;
 }

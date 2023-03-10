@@ -68,15 +68,29 @@ public class OrderDAO {
 		req.setAttribute("curPage", pageNo);
 		
 	}
+
+	public void updateOrder(OrderSearchDTO osDTO, HttpServletRequest req) {
+		if(ss.getMapper(AdminOrderMapper.class).updateOrder(osDTO) >= 1){
+			req.setAttribute("orderUpdate", "업데이트 성공");
+		}else {
+			req.setAttribute("orderUpdate", "업데이트 실패");
+		}
+	}
+
+	public void deleteOrder(OrderSearchDTO osDTO, HttpServletRequest req) {
+		if(ss.getMapper(AdminOrderMapper.class).deleteOrder(osDTO)) {
+			req.setAttribute("orderDelete", "삭제 성공");
+			allOrderCount--;
+			/* reg 할때 allOrderCount++; 해주세용*/
+			}else {
+			req.setAttribute("orderDelete", "삭제 실패");
+		}
+	}
 	
-	
-	
-	
+
 	
 	public void menuSession(AdminMenuSession menuSession, HttpServletRequest req) {
 		req.getSession().setAttribute("menuSession", menuSession);
-	
-		
 		
 		//세션 무한대라서 나중에 삭제 해줘야함
 		req.getSession().setMaxInactiveInterval(-1);
