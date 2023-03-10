@@ -226,6 +226,11 @@ public class CarDAO {
 		
 		
 	}
+
+	public void getAllCar(Model m) {
+		// TODO Auto-generated method stub
+		
+	}
 	
 	
 

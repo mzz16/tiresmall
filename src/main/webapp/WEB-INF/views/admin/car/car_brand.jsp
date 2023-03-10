@@ -99,7 +99,5 @@
 	 
 	
 
-	</c:forEach> 
-
 </body>
 </html>
