@@ -19,11 +19,6 @@ standardBtn.addEventListener("click", () => {
   standardTable.showModal();
 });
 
-cartBtn.addEventListener("click", () => {
-  const cartDialog = document.querySelector(".detail_cart_dialog");
-  cartDialog.showModal();
-});
-
 // 수량별 가격 변동
 const plusBtn = document.querySelector(".detail_plus");
 const minusBtn = document.querySelector(".detail_minus");
@@ -71,45 +66,85 @@ const guidePage = document.querySelector(".detail_include_guide");
 const infoPage = document.querySelector(".detail_include_info");
 
 detail.addEventListener("click", () => {
+  resetDetailInclude();
+  detail.classList.add("detail_nav_li_active");
   detailPage.style.display = "block";
-  confirmPage.style.display = "none";
-  guidePage.style.display = "none";
-  infoPage.style.display = "none";
-  detail.style.cssText = "color: var(--red); border-bottom-color: var(--red);";
-  confirm.style.cssText = "color: black; border-bottom-color: white;";
-  guide.style.cssText = "color: black; border-bottom-color: white;";
-  info.style.cssText = "color: black; border-bottom-color: white;";
 });
 
 confirm.addEventListener("click", () => {
+  resetDetailInclude();
+  confirm.classList.add("detail_nav_li_active");
   confirmPage.style.display = "block";
-  detailPage.style.display = "none";
-  guidePage.style.display = "none";
-  infoPage.style.display = "none";
-  confirm.style.cssText = "color: var(--red); border-bottom-color: var(--red);";
-  detail.style.cssText = "color: black; border-bottom-color: white;";
-  guide.style.cssText = "color: black; border-bottom-color: white;";
-  info.style.cssText = "color: black; border-bottom-color: white;";
 });
 
 guide.addEventListener("click", () => {
+  resetDetailInclude();
+  guide.classList.add("detail_nav_li_active");
   guidePage.style.display = "block";
-  confirmPage.style.display = "none";
-  detailPage.style.display = "none";
-  infoPage.style.display = "none";
-  guide.style.cssText = "color: var(--red); border-bottom-color: var(--red);";
-  detail.style.cssText = "color: black; border-bottom-color: white;";
-  confirm.style.cssText = "color: black; border-bottom-color: white;";
-  info.style.cssText = "color: black; border-bottom-color: white;";
 });
 
 info.addEventListener("click", () => {
+  resetDetailInclude();
+  info.classList.add("detail_nav_li_active");
   infoPage.style.display = "block";
+});
+
+function resetDetailInclude() {
+  detailPage.style.display = "none";
   confirmPage.style.display = "none";
   guidePage.style.display = "none";
-  detailPage.style.display = "none";
-  info.style.cssText = "color: var(--red); border-bottom-color: var(--red);";
-  detail.style.cssText = "color: black; border-bottom-color: white;";
-  confirm.style.cssText = "color: black; border-bottom-color: white;";
-  guide.style.cssText = "color: black; border-bottom-color: white;";
+  infoPage.style.display = "none";
+  detail.classList.remove("detail_nav_li_active");
+  confirm.classList.remove("detail_nav_li_active");
+  guide.classList.remove("detail_nav_li_active");
+  info.classList.remove("detail_nav_li_active");
+}
+
+// 장바구니 ajax
+const tg_id = document.querySelector(".tg_id").value;
+const tg_brand = document.querySelector(".tg_brand").value;
+const tg_name = document.querySelector(".tg_name").value;
+const tg_img = document.querySelector(".tg_img").value;
+const tg_dcrate = document.querySelector(".tg_dcrate").value;
+const ti_width = document.querySelector(".ti_width").value;
+const ti_ratio = document.querySelector(".ti_ratio").value;
+const ti_inch = document.querySelector(".ti_inch").value;
+
+cartBtn.addEventListener("click", () => {
+  const ti_stock = document.querySelector(".detail_quantity_input").value;
+  const ti_pricegp = document
+    .querySelector(".detail_not_price")
+    .innerText.replace("원", "")
+    .replace(",", "");
+  const ti_pricefac = document
+    .querySelector(".detail_final_price")
+    .innerText.replace("원", "")
+    .replace(",", "");
+
+  const cartDTO = {
+    tg_id,
+    tg_brand,
+    tg_name,
+    tg_img,
+    tg_dcrate,
+    ti_width,
+    ti_ratio,
+    ti_inch,
+    ti_stock,
+    ti_pricegp,
+    ti_pricefac,
+  };
+
+  // 장바구니 추가
+  $.ajax({
+    url: "cart.add",
+    type: "POST",
+    data: cartDTO,
+    success: function (result) {
+      if (result === 1) {
+        const cartDialog = document.querySelector(".detail_cart_dialog");
+        cartDialog.showModal();
+      }
+    },
+  });
 });

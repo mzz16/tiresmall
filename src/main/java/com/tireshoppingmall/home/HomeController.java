@@ -1,5 +1,7 @@
 package com.tireshoppingmall.home;
 
+import java.util.ArrayList;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.tireshoppingmall.home.order.CartDTO;
 import com.tireshoppingmall.home.store.StoreDAO;
 
 @Controller
@@ -20,8 +23,8 @@ public class HomeController {
 	private StoreDAO sDAO;
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String home(HttpServletRequest req) {
-		hDAO.createCartSession(req);
+	public String home(HttpServletRequest req, ArrayList<CartDTO> cList) {
+		req.getSession().setAttribute("cartSession", cList);
 		req.setAttribute("content", "main/home/home.jsp");
 		return "index";
 	}
@@ -71,12 +74,6 @@ public class HomeController {
 	public String goStore(HttpServletRequest req, @RequestParam int id) {
 		sDAO.getAStore(req, id);
 		req.setAttribute("content", "main/store/store.jsp");
-		return "index";
-	}
-	
-	@RequestMapping(value = "/cart", method = RequestMethod.GET)
-	public String goCart(HttpServletRequest req) {
-		req.setAttribute("content", "main/product/cart.jsp");
 		return "index";
 	}
 	

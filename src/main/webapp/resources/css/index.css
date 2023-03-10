@@ -10,6 +10,14 @@
   box-sizing: border-box;
 }
 
+.display_none {
+  display: none;
+}
+
+.display_block {
+  display: block;
+}
+
 .index_container {
   display: grid;
   grid-template-rows: 100px 1fr 180px;

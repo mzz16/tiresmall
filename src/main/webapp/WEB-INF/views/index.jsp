@@ -5,7 +5,10 @@ pageEncoding="UTF-8"%>
   <head>
     <meta charset="UTF-8" />
     <title>대전 타이어쇼핑몰</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"/>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+    />
     <link
       rel="shortcut icon"
       href="resources/web/favicon.png"
@@ -23,11 +26,15 @@ pageEncoding="UTF-8"%>
             <div class="index_hTopLeft">
               <a href="admin.order.go?m=order">관리자</a>
               <a href="board.shoppingGuide">구매가이드</a>
-              <a onclick="board_openKakao()" style="cursor: pointer">카카오톡상담<img src="resources/web/main/board/kakaoLogo.png" style="width: 16px; vertical-align: bottom;"/></a>
+              <a onclick="board_openKakao()" style="cursor: pointer"
+                >카카오톡상담<img
+                  src="resources/web/main/board/kakaoLogo.png"
+                  style="width: 16px; vertical-align: bottom"
+              /></a>
             </div>
             <div class="index_hTopRight">
               <a> ${sessionScope.loginMember.i_name } </a>
-          	  <a>${loginOK }</a>
+              <a>${loginOK }</a>
               <a href="login">로그인</a>
               <a href="non-member">비회원 주문조회</a>
             </div>
@@ -58,7 +65,7 @@ pageEncoding="UTF-8"%>
               />
             </div>
             <div class="index_sideNav">
-              <a href="profile"><i class="fa-regular fa-user"></i></i></a>
+              <a href="profile"><i class="fa-regular fa-user"></i></a>
               <a href="cart"><i class="fa-solid fa-basket-shopping"></i></a>
             </div>
           </div>
@@ -131,7 +138,10 @@ pageEncoding="UTF-8"%>
         </div>
       </footer>
     </div>
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
     <script src="resources/js/index.js"></script>
+    <script src="resources/js/main/product/product_detail.js"></script>
+    <script src="resources/js/main/order/cart.js"></script>
     <script src="resources/js/main/search/main_search.js"></script>
     <script src="resources/js/main/board/main_board.js"></script>
     <script src="resources/js/main/board/main_board_whereAmI.js"></script>
