@@ -60,7 +60,7 @@ drop table branch;
 
 select * from branch;
 
-
+select * from branch where b_branchname like '%%'
 		select *
 		from
 		(select rownum as rn, b_id, b_sortation, b_area, b_addr, b_name , b_time ,
@@ -117,7 +117,7 @@ drop table Car;
 
 
 		
-SELECT c_brand, COUNT(c_brand) AS cnt
+SELECT  COUNT(c_brand) AS cnt
 FROM car
 GROUP BY c_brand
 		
@@ -130,6 +130,7 @@ select rownum as rn,
 
 		create table car_brand(
 		cb_name varchar2(20 char)primary key,
+		
 		cb_order varchar2(20 char)
 		
 		);

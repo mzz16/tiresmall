@@ -232,6 +232,19 @@ public class CarDAO {
 		
 		
 	}
+
+	public void getCarbrandselectlist(Model m) {
+		
+		m.addAttribute("carbrand", ss.getMapper(AdminCarMapper.class).getCarbrandselectlist());
+	}
+
+
+	
+	public void getallCarBrands(Model m) {
+		
+		m.addAttribute("carbrands", ss.getMapper(AdminCarMapper.class).getAllCarBrands());
+		
+	}
 	
 	
 

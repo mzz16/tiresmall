@@ -33,7 +33,7 @@
 
 				<select name="b_area1" id="sido1">
 				</select> <select name="b_area2" id="gugun1"></select>
-
+	<input name="branchnameInput" value=""  type="hidden">
 				<button class="branch-findareabutton">주소 검색</button>
 
 			</form>
@@ -45,6 +45,7 @@
 			<input name="branchnameInput"
 				style="text-align: center; height: 38px;"
 				onkeypress="JavaScript:press(this.form)">
+				<input name="branchareaInput" value=""  type="hidden">
 			<button class="branchsearchButton" style="float: right;">장착점명
 				검색</button>
 
@@ -239,8 +240,8 @@
 	<div id="popup01">
 		<div class="close">X</div>
 		<div>
-			<form action="admin.store.update.do" name="updateform"
-				onsubmit="return branchupdatecall();">
+			<form action="admin.store.update.do" name="updateform" method="post"
+				onsubmit="return branchupdatecall();" enctype="multipart/form-data">
 				<table border="1">
 					<tr>
 						<td style="background-color: #0ec492">구분</td>
@@ -321,7 +322,16 @@
 									<input name="b_email" id='b_email_i' style="height: 30px;">
 								</div>
 
-							</div></td>
+							</div>
+							
+
+							
+							</td>
+							
+							<tr>
+						<td style="background-color: #0ec492">취급서비스</td>
+						<td><input type="file" name="file"></td>
+					</tr>
 					<tr>
 						<td colspan=2><div class="updateokbutton">
 								<button class="updateokbutton1" id="updateb_id">수정</button>

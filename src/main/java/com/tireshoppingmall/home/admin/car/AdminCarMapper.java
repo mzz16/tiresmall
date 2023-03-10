@@ -34,6 +34,9 @@ public interface AdminCarMapper {
 
 
 	int regbrand(CarBrandDTO c);
+
+
+	List<CarBrandDTO> getCarbrandselectlist();
 	
 	
 

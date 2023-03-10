@@ -49,7 +49,7 @@
 			style="border: 1px solid gray; float: left;">
 			<div class="branddatalist_div1" style="float: left;">${cb.cb_name } </div>
 			<div class="branddatalist_div2" style="float: left;">1 </div>
-			<div class="branddatalist_div3" style="float: left;">2 
+			<div class="branddatalist_div3" style="float: left;">"X" 
 			</div>
 			<div class="branddatalist_div4" style="float: left;">
 				
@@ -96,8 +96,6 @@
 	 
 	 
 	
-
-	</c:forEach> 
 
 </body>
 </html>

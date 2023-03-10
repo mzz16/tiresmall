@@ -123,7 +123,11 @@ delete car_brand where cb_name = #{cb_name}
 
 	</insert>
 	
+<select id="getCarbrandselectlist" resultType="com.tireshoppingmall.home.admin.car.CarBrandDTO">
 
+select cb_name from car_brand
+
+</select>
 
 
 </mapper>

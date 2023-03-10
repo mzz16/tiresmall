@@ -28,7 +28,7 @@ from(
 select * from
 branch where
 b_branchname like '%'||#{branchnameInput}||'%'
-<if test="branchareaInput != null"> and b_area = #{branchareaInput} </if>
+<if test="branchareaInput != ''"> and b_area = #{branchareaInput} </if>
 )
 )  where rn &gt;= #{start} and rn &lt;= #{end}
 
@@ -54,9 +54,9 @@ b_branchname like '%'||#{branchnameInput}||'%'
 	<select id="branchSearchbranchname" resultType="com.tireshoppingmall.home.admin.store.BranchDTO"
 		parameterType="com.tireshoppingmall.home.admin.store.SearchBranchDTO">
 
-		select * from branch where b_branchname like
-		'%'||#{branchnameInput}||'%'
-		<if test="branchareaInput != ''">and b_area = #{branchareaInput}  </if>
+		select * from branch where 
+		b_branchname like '%'||#{branchnameInput}||'%'
+		<if test="branchareaInput != ''"> and b_area = #{branchareaInput}  </if>
 
 	</select>
 
@@ -98,7 +98,8 @@ b_branchname like '%'||#{branchnameInput}||'%'
 		b_branchnumber =
 		#{b_branchnumber},
 		b_cr = #{b_cr},
-		b_email = #{b_email}
+		b_email = #{b_email},
+		b_file = #{b_file}
 
 
 		where b_id = #{b_id}

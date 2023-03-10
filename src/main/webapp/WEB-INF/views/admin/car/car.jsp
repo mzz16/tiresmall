@@ -14,7 +14,6 @@
 
 </head>
 <body>
-	<div class="container sub">
 
 
 
@@ -25,21 +24,26 @@
 			<form action="car.search.do">
 				<div class="car-text1">메이커</div>
 				<select name="carbrandInput" style="float: left;">
-				<option value = "BMW">BMW</option> 
+				<c:forEach var="cblist" items="${carbrand}">
+				<option value="${cblist.cb_name}">${cblist.cb_name}</option>
+				</c:forEach>
 			
 				</select> 
-				
+				<input name="carnameInput" value=""  type="hidden">
+				<button class="car-findareabutton" style="float: left;">메이커 검색</button>
+
 				</form>
 			</div>
 			<div class="car-text2" style="float: left;">차종</div>
 
-			<form name="carsearchform" action="car.search.carname">
+			<form name="carsearchform" action="car.search.do">
 
 				<input name="carnameInput" style="text-align: center; height: 38px;"
 					onkeypress="JavaScript:press(this.form)">
 				<button class="carsearchButton">차종 검색</button>
-
+			<input name="carbrandInput" value=""  type="hidden">
 			</form>
+
 
 
 			<div class="carRegButton1" style="float: right;">
@@ -71,7 +75,8 @@
 				<div class="cardata_div7"
 					style="border: 1px solid gray; float: left;">관리</div>
 
-
+</div>
+</div>
 
 	<c:if test="${empty cars}">
 		<table>
