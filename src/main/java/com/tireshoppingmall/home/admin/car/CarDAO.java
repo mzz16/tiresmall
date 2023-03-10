@@ -138,7 +138,6 @@ public class CarDAO {
 		menu.setMenu("car");
 		menu.setSubMenu(menuSession.getSubMenu());	
 	}
->>>>>>> 4a166a2b8dc062eefa8cb4f95b99098ae2d3101f
 	
 
 	public void calcAllCarCount() {
