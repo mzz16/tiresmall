@@ -21,21 +21,22 @@
                 <img src="resources/web/logo.png" style="height: 50px" />
               </a>
             </div>
-			<div id="menuTitle1" onclick="location.href='admin.order.go?m=order'">주문 관리</div>
-			<div id="menuTitle2" onclick="location.href='admin.tire.go?m=tire&sm=1'">타이어상품 관리</div>
-			<div id="menuTitle3" onclick="location.href='admin.car.go?m=car&sm=1'">차종 관리</div>
-			<div id="menuTitle4" onclick="location.href='admin.auth.go?m=auth'">회원 관리</div>
-			<div id="menuTitle5" onclick="location.href='admin.rental.go?m=rental'">렌탈 관리</div>
-			<div id="menuTitle6" onclick="location.href='admin.store.go?m=store'">장착점 관리</div>
-			<div id="menuTitle7" onclick="location.href='admin.notice.go?m=notice&sm=1'">게시판 관리</div>
+			<div id="menuTitle1" onclick="location.href='admin.order.go'">주문 관리</div>
+			<div id="menuTitle2" onclick="location.href='admin.tire.go?subMenu=1'">타이어상품 관리</div>
+			<div id="menuTitle3" onclick="location.href='admin.car.go?subMenu=1'">차종 관리</div>
+			<div id="menuTitle4" onclick="location.href='admin.auth.go'">회원 관리</div>
+			<div id="menuTitle5" onclick="location.href='admin.rental.go'">렌탈 관리</div>
+			<div id="menuTitle6" onclick="location.href='admin.store.go'">장착점 관리</div>
+			<div id="menuTitle7" onclick="location.href='admin.notice.go?subMenu=1'">게시판 관리</div>
 		</nav>
-		<input id="whatMenu" type="hidden" value="${param.m}">
+		<input id="whatMenu" type="hidden" value="${menuSession.menu}">
 	</div>
 	<div>
 		<jsp:include page="${subMenuPage }"></jsp:include>
 	</div>
 	</div>
 	<!--위 내용이 나올때는 top 120px  -->
+	
 	<div id="adminContent">
 		<jsp:include page="${contentPage }"></jsp:include>
 	</div>

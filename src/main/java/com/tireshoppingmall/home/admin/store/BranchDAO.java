@@ -15,6 +15,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.tireshoppingmall.home.admin.AdminMenuSession;
 import com.tireshoppingmall.home.admin.board.AdminBoardMapper;
 
 
@@ -91,6 +92,7 @@ public class BranchDAO {
 			BranchCount = ss.getMapper(AdminStoreMapper.class).getBranchCount(search);
 			
 		}
+		
 		List<BranchDTO> Branch = ss.getMapper(AdminStoreMapper.class).getBranchlist(search);
 		System.out.println(count);
 		System.out.println(allBranchCount);
@@ -320,7 +322,11 @@ public class BranchDAO {
 
 	}
 
-	
+	public void menuSession(AdminMenuSession menuSession, HttpServletRequest req) {
+		AdminMenuSession menu = (AdminMenuSession) req.getSession().getAttribute("menuSession");
+		menu.setMenu("store");
+
+	}
 
 	
 
