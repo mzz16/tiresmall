@@ -15,6 +15,7 @@
 <link rel="stylesheet" href="resources/css/admin/board/admin_order_modal.css">
 </head>
 <body>
+	<input id="whatMenu" value="order" type="hidden">
 
 	<div class="container sub">
 		<div class="DashBoard">

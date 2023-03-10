@@ -4,8 +4,10 @@ import java.util.List;
 
 public interface AdminTireMapper {
 
-	int getTireCount(TireDTO startEnd);
+	int getTireCountByMz(int i);
+	
+	List<TireDTO> getAllTireGroup(TireDTO paging);
 
-	List<TireDTO> getAllTireGroup();
+	int getTireCount(TireDTO paging);
 
 }

@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.tireshoppingmall.home.admin.AdminMenuSession;
 import com.tireshoppingmall.home.admin.board.BoardDAO;
 import com.tireshoppingmall.home.admin.board.NoticeDTO;
 import com.tireshoppingmall.home.admin.board.SearchDTO;
@@ -40,7 +39,7 @@ public class AdminBoardController {
 	/* notice DAO */
 
 	@RequestMapping(value = "/admin.notice.go", method = RequestMethod.GET)
-	public String notice(AdminMenuSession menuSession,HttpServletRequest req) {
+	public String notice(HttpServletRequest req) {
 
 		if (noticeFirstReq) {
 			bDAO.calcAllNoticeCount();
@@ -49,8 +48,7 @@ public class AdminBoardController {
 		SearchDTO.clearSearch(req);
 		bDAO.getNotice(1, req);
 		/* bDAO.getAllNotice(req); */
-		
-		bDAO.menuSession(menuSession, req);
+
 		req.setAttribute("subMenuPage", "board/board_subMenu.jsp");
 		req.setAttribute("contentPage", "board/notice_board.jsp");
 		return "admin/master";
@@ -119,7 +117,7 @@ public class AdminBoardController {
 
 	
 	@RequestMapping(value = "/admin.faq.go", method = RequestMethod.GET)
-	public String faq(AdminMenuSession menuSession,HttpServletRequest req) {
+	public String faq(HttpServletRequest req) {
 
 		if (faqFirstReq) {
 			faqDAO.calcAllFaqCount();
@@ -128,8 +126,7 @@ public class AdminBoardController {
 		SearchDTO.clearSearch(req);
 		faqDAO.getFaq(1, req);
 		/* bDAO.getAllNotice(req); */
-		
-		bDAO.menuSession(menuSession, req);
+
 		req.setAttribute("subMenuPage", "board/board_subMenu.jsp");
 		req.setAttribute("contentPage", "board/faq_board.jsp");
 		return "admin/master";
@@ -190,7 +187,7 @@ public class AdminBoardController {
 	/* QNA DAO */
 
 	@RequestMapping(value = "/admin.qna.go", method = RequestMethod.GET)
-	public String qna(AdminMenuSession menuSession,HttpServletRequest req) {
+	public String qna(HttpServletRequest req) {
 
 		if (qnaFirstReq) {
 			qnaDAO.calcAllQnaCount();
@@ -198,7 +195,7 @@ public class AdminBoardController {
 		}
 		SearchDTO.clearSearch(req);
 		qnaDAO.getQna(1 ,req);
-		bDAO.menuSession(menuSession, req);
+		
 		req.setAttribute("subMenuPage", "board/board_subMenu.jsp");
 		req.setAttribute("contentPage", "board/qna_board.jsp");
 		return "admin/master";

@@ -132,7 +132,6 @@ create table tire_item (
 	ti_pricegp number(8) not null,		/* 기표가격 */	
 	ti_pricefac number(8) not null,		/* 공장가격 */
 	ti_vat number(7) not null			/* 부가세 */
-  
 );
 alter table tire_item
 add CONSTRAINT FK_tire_item
@@ -153,13 +152,17 @@ drop table tire_item;
 select * from tire_group;
 
 
-select count(*) from tire_group tg left OUTER JOIN tire_item ti
+select * from tire_group tg left OUTER JOIN tire_item ti
 	on tg.tg_id = ti.ti_tg_id 
-    where t_i.ti_tg_id= '1';
-    
-    select count(*) from tire_item 
-    where ti_tg_id='2'
-    
    
+    
+select count(*) from tire_item 
+where ti_tg_id = (select tg_id from tire_group where tg_id='1');
+    
+   select count(*)
+		from tire_group 
+		where 	
+        tg_brand like '%%' and
+		tg_name like '%%' 
         
 
