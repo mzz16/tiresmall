@@ -38,7 +38,7 @@
 	align-items: center;	
 }
 .store_info_row_index{
-	width: 70px;
+	width: 90px;
 	border-left: solid 10px #AB1E21;
 	padding-left: 10px;
 	border-right: solid 1px #c0c0c0;
@@ -53,7 +53,6 @@
     font-weight: 600;
     font-size: 18pt;
 }
-
 #store_wrap_map{
 	width: 95%;
 	margin: auto;
@@ -67,7 +66,8 @@
 	width: 100%;
 }
 #store_wrap_banner img{
-	width: inherit;
+    width: 95%;
+    margin: 20px 0px 60px 0px;
 }
 
 /* .store_likeNotice_content{
