@@ -4,7 +4,13 @@ public interface MemberMapper {
 
 	int regMember(MemberDTO mDTO);
 
-	MemberDTO getMember(MemberDTO mDTO);
+	int checkMember(MemberDTO mDTO);
+
+	int checkIDkko(String kakaoID);
+
+	AuthUserDTO getMember(MemberDTO mDTO);
+
+	AuthUserDTO getSocialMember(String socialID);
 
 
 }

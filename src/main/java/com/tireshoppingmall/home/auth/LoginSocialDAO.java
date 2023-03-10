@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.ui.Model;
 
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
@@ -116,8 +117,11 @@ public class LoginSocialDAO {
 	            while ((line = br.readLine()) != null) {
 	                result += line;
 	            }
-	            System.out.println("response body : " + result);
-
+	            System.out.println("유저정보response body : " + result);
+	            String[]resultSplit = result.split(",|:");
+	            String kakaoID =  resultSplit[1];
+	            System.out.println(kakaoID);
+	            		
 	            JsonParser parser = new JsonParser();
 	            JsonElement element = parser.parse(result);
 
@@ -130,6 +134,7 @@ public class LoginSocialDAO {
 	            userInfo.put("accessToken", access_Token);
 	            userInfo.put("nickname", nickname);
 	            userInfo.put("email", email);
+	            userInfo.put("kakaoID", kakaoID);
 
 	        } catch (Exception e) {
 	            // TODO Auto-generated catch block
@@ -138,7 +143,26 @@ public class LoginSocialDAO {
 
 	        return userInfo;
 	    }
-	
+
+
+		public int checkIdkko(String kakaoID) {
+			
+			return ss.getMapper(MemberMapper.class).checkIDkko(kakaoID);
+			
+		}
+
+
+		public void login(String socialID, HttpServletRequest req) {
+		
+			AuthUserDTO member = ss.getMapper(MemberMapper.class).getSocialMember(socialID);
+			req.getSession().setAttribute("loginMember", member);
+			req.getSession().setMaxInactiveInterval(60 * 10);
+				
+				
+		}
+
+
+		
 	
 	
 	

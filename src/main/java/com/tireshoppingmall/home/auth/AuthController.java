@@ -88,7 +88,7 @@ public class AuthController {
 	@RequestMapping(value = "/login/oauth_kakao")
 	public String oauthKakao(
 			@RequestParam(value = "code", required = false) String code
-			, Model model) throws Exception {
+			, Model model,HttpServletRequest req) throws Exception {
 
 		System.out.println("#########" + code);
         String access_Token = lsDAO.getAccessToken(code);
@@ -96,17 +96,30 @@ public class AuthController {
         
         
         HashMap<String, Object> userInfo = lsDAO.getUserInfo(access_Token);
-        System.out.println("###access_Token#### : " + access_Token);
-        System.out.println("###userInfo#### : " + userInfo.get("email"));
-        System.out.println("###nickname#### : " + userInfo.get("nickname"));
+       //System.out.println("###access_Token#### : " + access_Token);
+       // System.out.println("###userInfo#### : " + userInfo.get("email"));
+       // System.out.println("###nickname#### : " + userInfo.get("nickname"));
+       System.out.println("###KAKAOID#### : " + userInfo.get("kakaoID"));
        
         JsonObject kakaoInfo =  new JsonObject();
         model.addAttribute("kakaoInfo", kakaoInfo);
+        //model.addAttribute("kakaoID", userInfo.get("kakaoID"));
         
+        String socialID = (String) userInfo.get("kakaoID");
+        System.out.println("반환값 : "+ lsDAO.checkIdkko(socialID));
         
+        //반환값이 1이면 기존 가입한 회원, 0이면 가입하지 않은 회원
+        if (lsDAO.checkIdkko(socialID)==1) {
+        	lsDAO.login(socialID,req);
+        	mDAO.loginCheck(req);   
+        	model.addAttribute("content", "main/home/home.jsp");
+               return "redirect:/"; //본인 원하는 경로 설정
+		}else {
+			//필요한 추가 정보를 얻기 위한 회원가입 페이지로 이동
+			return "main/auth/authReg";
+		}
         
-        model.addAttribute("content", "main/home/home.jsp");
-        return "redirect:/"; //본인 원하는 경로 설정
+       
 	}
 	
    
