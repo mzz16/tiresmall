@@ -21,7 +21,7 @@
 		<div id="login_box">
 			<div id="login_box_title">ID로그인 </div>
 			<input id="login_id" name="u_id" placeholder="아이디">		
-			<input id="login_pw" name="pw_password" placeholder="비밀번호">		
+			<input type="password" id="login_pw" name="pw_password" placeholder="비밀번호">		
 		</div>
 		<div id="login_btn"> 
 			<button>로그인</button>

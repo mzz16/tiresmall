@@ -7,14 +7,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-
-<table>
-	<tr>
-		<td>${sessionScope.loginMember.m_name }님 안녕하세요</td>
-		<td><button onclick="goMemberInfo()">내 정보</button>
-			<button onclick="logout()">로그아웃</button>
-		</td>
-	</tr>
-</table>
+<a>${sessionScope.loginMember.i_name }님 안녕하세요</a>
+<a>내정보</a>
+<a>로그아웃</a>
 </body>
 </html>

@@ -19,12 +19,6 @@ a:visited {
 	width: 100%;
 }
 
-.notice_board {
-	display: flex;
-	width: 99vw;
-	height: 99vh;
-}
-
 .notice_form {
 	width: 100%;
 	background-image: linear-gradient(to top, #fff1eb 0%, #ace0f9 100%);
@@ -45,22 +39,6 @@ a:visited {
 	width: 100%;
 	min-width: 1200px;
 	padding-top: 10px;
-}
-
-.notice {
-	margin-left: 20px;
-}
-
-.notice1 {
-	width: 100%;
-	height: 100px;
-	background-color: #F0FFFF;
-	align-items: center;
-	display: flex;
-	justify-content: center;
-	font-weight: bold;
-	font-size: 15pt;
-	position: relative;
 }
 
 .input_box>div {
@@ -175,7 +153,7 @@ textarea:focus{
 	padding: 20px;
 	background-color: black;
     color: white;
-     -webkit-user-select:none;
+    -webkit-user-select:none;
     -moz-user-select:none;
     -ms-user-select:none;
     user-select:none;

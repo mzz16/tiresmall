@@ -47,48 +47,78 @@ $(function(){
 		}
 		location.href=url
 	})
-	$('input[name="carTypeA"]').click(function getProductJSON(ppppp){
-		ppppp=1;
-		$.getJSON("product.brand.type.ajax?b="+getParameter('b')+"&p="+ppppp+"&t="+$('input[name="carTypeA"]:checked').val(),function(j){
+	$('input[name="carTypeA"]').click(function getProductJSON(){
+		$.getJSON("product.brand.type.ajax?b="+getParameter('b')+"&p=1&t="+$('input[name="carTypeA"]:checked').val(),function(j){
 			console.log(JSON.stringify(j));
 			
-			const pageCount = j.pageCount;
-			const theNumber = j.theNumber;
-			const curPage = j.curPage;
+			$('#product_search span').eq(0).html('총 '+j.pGroups.length+'개 상품이 검색되었습니다.');
 			
-			$('#product_search span').empty();
-			$('#product_search span').text('총 '+theNumber+'개 상품이 검색되었습니다.');
-			
-			$('#product_container a').remove();
-			$.each(j.pGroups, function(i, s){
-				$('#product_container').append('<a href="detail.test?item='+ s.tg_id + '"><div class="product_item"><div class="product_item_hidden"></div>'+
-						'<div class="product_item_img"><img src="resources/web/main/product/no-tire-image.jpg"></div>'+
-						'<div class="product_item_title"><p>'+ s.tg_brand +'</p><p>'+ s.tg_name +'</p></div>'+
-						'<div class="product_item_text">'+ s.tg_text +'</div><div class="product_item_size">'+ s.minInch +'인치  ~ '+ s.maxInch +'인치</div>'+
-						'<div class="product_item_price"><fmt:formatNumber type="currency">'+s.minPrice+'</fmt:formatNumber> ~ '+
-						'<fmt:formatNumber type="currency">'+s.maxPrice+'</fmt:formatNumber></div><div class="product_item_detail"><i class="fa-solid fa-magnifying-glass"></i>상세보기</div></div></a>')
-				
-			
-			})
+			$('#product_container').empty();
+			$('#pagination').remove();
+			$('#product_container').after('<div id="pagination" style="margin-top:50px; display:flex; justify-content:center"></div>')
 			$('#product_wrap_paging').empty();
 			
-			if(curPage!=1){
-				$('#product_wrap_paging').append('<div class="product_paging_firstLast"><a href="javascript:movePage(1)">1</a> . . .</div>')
-			}
-			if(curPage==1){
-				$('#product_wrap_paging').append('<div class="product_paging_prevNext" style="color:lightgray">이전</div>')
-			} else{
-				$('#product_wrap_paging').append('<div class="product_paging_prevNext"><a href="javascript:movePage('+ (curPage-1) +')">이전</a></div>')
-			}
-			$('#product_wrap_paging').append('<div id="product_paging_num></div>');
-			$('#product_paging_num').text('111111');
-			if(curPage == pageCount){
-				$('#product_wrap_paging').append('<div class="product_paging_prevNext" style="color:lightgray">다음</div>')
-			}
+			$('#pagination').pagination({
+			    dataSource: j.pGroups,
+			    pageSize: 16,
+			    className: 'paginationjs-theme-red paginationjs-big',
+			    hideFirstOnEllipsisShow: false,
+			    hideLastOnEllipsisShow: false,
+			    callback: function(data, pagination) {
+			        var html = ''
+		        	$.each(data, function(index, item){
+		        		item.minPrice=AddComma(item.minPrice)
+		        		item.maxPrice=AddComma(item.maxPrice)
+			        	html+='<a href="detail.test?item='+ item.tg_id + '"><div class="product_item"><div class="product_item_hidden"></div>'+
+						'<div class="product_item_img"><img src="resources/web/main/product/no-tire-image.jpg"></div>'+
+						'<div class="product_item_title"><p>'+ item.tg_brand +'</p><p>'+ item.tg_name +'</p></div>'+
+						'<div class="product_item_text">'+ item.tg_text +'</div><div class="product_item_size">'+ item.minInch +'인치  ~ '+ item.maxInch +'인치</div>'+
+						'<div class="product_item_price">￦'+item.minPrice+' ~ ￦'+ item.maxPrice+'</div><div class="product_item_detail"><i class="fa-solid fa-magnifying-glass"></i>상세보기</div></div></a>';
+		        	})
+		        	$('#product_container').html(html);
+			    }
+			})
 			
-			if(curPage!=pageCount){
-				$('#product_wrap_paging').append('<div class="product_paging_firstLast">. . . <a href="javascript:getProductJSON('+ pageCount +')">'+ pageCount +'</a></div>')
-			}
+			
+			
+			
+//			const pageCount = j.pageCount;
+//			const theNumber = j.theNumber;
+//			const curPage = j.curPage;
+//			
+//			$('#product_search span').empty();
+//			$('#product_search span').text('총 '+theNumber+'개 상품이 검색되었습니다.');
+//			
+//			$('#product_container a').remove();
+//			$.each(j.pGroups, function(i, s){
+//				$('#product_container').append('<a href="detail.test?item='+ s.tg_id + '"><div class="product_item"><div class="product_item_hidden"></div>'+
+//						'<div class="product_item_img"><img src="resources/web/main/product/no-tire-image.jpg"></div>'+
+//						'<div class="product_item_title"><p>'+ s.tg_brand +'</p><p>'+ s.tg_name +'</p></div>'+
+//						'<div class="product_item_text">'+ s.tg_text +'</div><div class="product_item_size">'+ s.minInch +'인치  ~ '+ s.maxInch +'인치</div>'+
+//						'<div class="product_item_price"><fmt:formatNumber type="currency">'+s.minPrice+'</fmt:formatNumber> ~ '+
+//						'<fmt:formatNumber type="currency">'+s.maxPrice+'</fmt:formatNumber></div><div class="product_item_detail"><i class="fa-solid fa-magnifying-glass"></i>상세보기</div></div></a>')
+//				
+//			
+//			})
+//			$('#product_wrap_paging').empty();
+//			
+//			if(curPage!=1){
+//				$('#product_wrap_paging').append('<div class="product_paging_firstLast"><a href="javascript:movePage(1)">1</a> . . .</div>')
+//			}
+//			if(curPage==1){
+//				$('#product_wrap_paging').append('<div class="product_paging_prevNext" style="color:lightgray">이전</div>')
+//			} else{
+//				$('#product_wrap_paging').append('<div class="product_paging_prevNext"><a href="javascript:movePage('+ (curPage-1) +')">이전</a></div>')
+//			}
+//			$('#product_wrap_paging').append('<div id="product_paging_num></div>');
+//			$('#product_paging_num').text('111111');
+//			if(curPage == pageCount){
+//				$('#product_wrap_paging').append('<div class="product_paging_prevNext" style="color:lightgray">다음</div>')
+//			}
+//			
+//			if(curPage!=pageCount){
+//				$('#product_wrap_paging').append('<div class="product_paging_firstLast">. . . <a href="javascript:getProductJSON('+ pageCount +')">'+ pageCount +'</a></div>')
+//			}
 			
 			
 			
@@ -107,6 +137,8 @@ $(function(){
 function movePage(pageNumber){
 	location.href=location.href.substring(0,location.href.lastIndexOf('p')+2) + pageNumber + location.href.substring(location.href.lastIndexOf('p')+3)
 }
+
+// url에서 파라미터 이름으로 파라미터 값 가져오는 함수
 function getParameter(param) {
     param = param.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
     let regex = new RegExp("[\\?&]" + param + "=([^&#]*)"),
@@ -114,55 +146,13 @@ function getParameter(param) {
     return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
 }
 
-function getProductJSON(ppppp){
-	ppppp=1;
-	$.getJSON("product.brand.type.ajax?b="+getParameter('b')+"&p="+ppppp+"&t="+$('input[name="carTypeA"]:checked').val(),function(j){
-		console.log(JSON.stringify(j));
-		
-		const pageCount = j.pageCount;
-		const theNumber = j.theNumber;
-		const curPage = j.curPage;
-		
-		$('#product_search span').empty();
-		$('#product_search span').text('총 '+theNumber+'개 상품이 검색되었습니다.');
-		
-		$('#product_container a').remove();
-		$.each(j.pGroups, function(i, s){
-			$('#product_container').append('<a href="detail.test?item='+ s.tg_id + '"><div class="product_item"><div class="product_item_hidden"></div>'+
-					'<div class="product_item_img"><img src="resources/web/main/product/no-tire-image.jpg"></div>'+
-					'<div class="product_item_title"><p>'+ s.tg_brand +'</p><p>'+ s.tg_name +'</p></div>'+
-					'<div class="product_item_text">'+ s.tg_text +'</div><div class="product_item_size">'+ s.minInch +'인치  ~ '+ s.maxInch +'인치</div>'+
-					'<div class="product_item_price"><fmt:formatNumber type="currency">'+s.minPrice+'</fmt:formatNumber> ~ '+
-					'<fmt:formatNumber type="currency">'+s.maxPrice+'</fmt:formatNumber></div><div class="product_item_detail"><i class="fa-solid fa-magnifying-glass"></i>상세보기</div></div></a>')
-			
-		
-		})
-		$('#product_wrap_paging').empty();
-		
-		if(curPage!=1){
-			$('#product_wrap_paging').append('<div class="product_paging_firstLast"><a href="javascript:movePage(1)">1</a> . . .</div>')
-		}
-		if(curPage==1){
-			$('#product_wrap_paging').append('<div class="product_paging_prevNext" style="color:lightgray">이전</div>')
-		} else{
-			$('#product_wrap_paging').append('<div class="product_paging_prevNext"><a href="javascript:movePage('+ (curPage-1) +')">이전</a></div>')
-		}
-		$('#product_wrap_paging').append('<div id="product_paging_num></div>');
-		$('#product_paging_num').text('111111');
-		if(curPage == pageCount){
-			$('#product_wrap_paging').append('<div class="product_paging_prevNext" style="color:lightgray">다음</div>')
-		}
-		
-		if(curPage!=pageCount){
-			$('#product_wrap_paging').append('<div class="product_paging_firstLast">. . . <a href="javascript:getProductJSON('+ pageCount +')">'+ pageCount +'</a></div>')
-		}
-		
-		
-		
-		
-		
-		
-		
-		
-	})
+// 숫자에 콤마 찍어주는 함수
+function AddComma(num) {
+    var regexp = /\B(?=(\d{3})+(?!\d))/g;
+    return num.toString().replace(regexp, ',');
+}
+
+function selectPrice(){
+	alert(document.getElementById('product_priceRangeInput').value)
+	
 }
