@@ -43,7 +43,7 @@ public class OrderDAO {
 		int start = (pageNo - 1) * count + 1;
 		int end = start + (count - 1);
 		
-		OrderSearchDTO orderSearch = (OrderSearchDTO) req.getSession().getAttribute("searchDTO");
+		OrderSearchDTO orderSearch = (OrderSearchDTO) req.getSession().getAttribute("orderSearchDTO");
 		int orderCount = 0;
 		if(orderSearch == null) {
 			orderSearch = new OrderSearchDTO(new BigDecimal(start), new BigDecimal(end), "", "", "", "", "");
@@ -55,7 +55,7 @@ public class OrderDAO {
 			orderCount = ss.getMapper(AdminOrderMapper.class).getOrderCount(orderSearch);
 		}
 	
-		List<OrderSearchDTO> orders = ss.getMapper(AdminOrderMapper.class).getOrder(orderSearch);
+		List<OrderDTO> orders = ss.getMapper(AdminOrderMapper.class).getOrder(orderSearch);
 	
 		int pageCount = (int) Math.ceil(orderCount / (double) count);
 		

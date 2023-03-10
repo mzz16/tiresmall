@@ -92,9 +92,9 @@ public class OrderSearchDTO {
 				+ dateSearch2 + ", nameInput=" + nameInput + ", phoneInput=" + phoneInput + ", orderNumberInput="
 				+ orderNumberInput + "]";
 	}
-	
-	public void clearSearch(OrderSearchDTO osDTO, HttpServletRequest req) {
-		req.getSession().setAttribute("orderSearchDTO", null); 
+
+	public static void clearsearch(HttpServletRequest req) {
+		req.getSession().setAttribute("orderSearchDTO", null);		
 	}
 	
 }

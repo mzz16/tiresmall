@@ -4,8 +4,8 @@ import java.util.List;
 
 public interface AdminOrderMapper {
 
-	int getOrderCount(OrderSearchDTO search);
+	int getOrderCount(OrderSearchDTO orderSearch);
 
-	List<OrderSearchDTO> getOrder(OrderSearchDTO orderSearch);
+	List<OrderDTO> getOrder(OrderSearchDTO orderSearch);
 
 }

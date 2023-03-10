@@ -173,8 +173,8 @@
 				<div>
 					<div class="input_box1">
 						<div class="no-drag">기간검색</div>
-						<input type="text" id="datepicker" placeholder="시작" name="dateSearch1">
-						<input type="text" id="datepicker1" placeholder="종료" name="dateSearch2">
+						<input type="text" id="datepicker" placeholder="시작" autocomplete="off" name="dateSearch1">
+						<input type="text" id="datepicker1" placeholder="종료" autocomplete="off" name="dateSearch2">
 					</div>
 					<div class="input_box2">
 						<div class="no-drag">주문자명</div>
@@ -182,7 +182,7 @@
 					</div>
 					<div class="input_box3">
 						<div class="no-drag">주문자전화</div>
-						<input name="phoneInput" id="o_phone">
+						<input name="phoneInput" placeholder="010 제외" id="o_phone">
 					</div>
 					<div class="input_box4">
 						<div class="no-drag">주문번호</div>
@@ -224,7 +224,7 @@
 									<td class="td_c4"><fmt:formatDate
 											pattern="yyyy-MM-dd HH:mm:ss" value="${o.o_orderdate }" /></td>
 									<td class="td_c5">${o.o_name }</td>
-									<td class="td_c6">${o.o_phone }</td>
+									<td class="td_c6">0${o.o_phone }</td>
 									<td class="td_c7">${o.o_ordername }</td>
 									<td class="td_c8">${o.o_price }</td>
 									<td class="td_c9">${o.o_paymethod }</td>
