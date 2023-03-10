@@ -1,12 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page session="false"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+
 <link rel="stylesheet"
 	href="resources/css/admin/car/admin_car.css">
 <script src="resources/js/admin/car/admin_car.js"></script>
@@ -14,11 +15,12 @@
 </head>
 <body>
 	<div class="container sub">
-		<h1>차종관리페이지</h1>
-	</div>
-	
+
+
+
 		<div class="car-findselect">
-		<div class="car-findarea">
+			<div class="car-findarea">
+
 
 			<form action="car.search.do">
 				<div class="car-text1">메이커</div>
@@ -28,52 +30,51 @@
 				</select> 
 				<button class="car-findareabutton" style="float: left;">메이커 검색</button>
 
+				</form>
+			</div>
+			<div class="car-text2" style="float: left;">차종</div>
+
+			<form name="carsearchform" action="car.search.carname">
+
+				<input name="carnameInput" style="text-align: center; height: 38px;"
+					onkeypress="JavaScript:press(this.form)">
+				<button class="carsearchButton">차종 검색</button>
+
 			</form>
-		</div>
-		<div class="car-text2" style="float: left;">차종</div>
+
 
 		<form name="carsearchform" action="car.search.do">
 
-			<input name="carnameInput"
-				style="text-align: center; height: 38px;"
-				onkeypress="JavaScript:press(this.form)">
-			<button class="carsearchButton">차종 검색</button>
+			<div class="carRegButton1" style="float: right;">
+				<button class="carRegButton">신규등록</button>
+			</div>
 
-		</form>
 
-		<div class="carRegButton1" style="float: right;">
-			<button class="carRegButton">신규등록</button>
+
 		</div>
 
 
-	</div>
 
 
+		<div class="cardata_div_outter">
+			<div class="cardata_div" style="float: left; margin-top: 5px;">
+
+				<div class="cardata_div1"
+					style="border: 1px solid gray; float: left;">No.</div>
+				<div class="cardata_div2"
+					style="border: 1px solid gray; float: left;">메이커</div>
+				<div class="cardata_div3"
+					style="border: 1px solid gray; float: left;">연식</div>
+				<div class="cardata_div4"
+					style="border: 1px solid gray; float: left;">차종</div>
+				<div class="cardata_div5"
+					style="border: 1px solid gray; float: left;">옵션</div>
+				<div class="cardata_div6"
+					style="border: 1px solid gray; float: left;">타이어사이즈</div>
+				<div class="cardata_div7"
+					style="border: 1px solid gray; float: left;">관리</div>
 
 
-	<div class="cardata_div_outter">
-		<div class="cardata_div" style="float: left; margin-top: 5px;">
-
-			<div class="cardata_div1"
-				style="border: 1px solid gray; float: left;">No.</div>
-			<div class="cardata_div2"
-				style="border: 1px solid gray; float: left;">메이커</div>
-			<div class="cardata_div3"
-				style="border: 1px solid gray; float: left;">연식</div>
-			<div class="cardata_div4"
-				style="border: 1px solid gray; float: left;">차종</div>
-			<div class="cardata_div5"
-				style="border: 1px solid gray; float: left;">옵션</div>
-			<div class="cardata_div6"
-				style="border: 1px solid gray; float: left;">타이어사이즈</div>
-			<div class="cardata_div7"
-				style="border: 1px solid gray; float: left;">관리</div>
-			
-		
-		
-		
-		</div>
-	</div>
 
 	<c:if test="${empty cars}">
 		<table>
@@ -135,6 +136,7 @@
 	
 	<div id="carregpopup01" class="carregbuttonarea">
 		<div class="close">X</div>
+
 		<div>
 			<form action="reg.car.do" method="post" name="regform"
 				onsubmit="return carregcall();" enctype="multipart/form-data">
@@ -148,20 +150,23 @@
 					<td><select name="c_brand" id="c_brand">
 					<option value='BMW'>BMW</option>
 					</select></td>
+
 					</tr>
 					<tr>
-					<td>차종</td>
-					<td><input name="c_name" id="c_name"></td>
+						<td>차종</td>
+						<td><input name="c_name" id="c_name"></td>
 					</tr>
 					<tr>
-					<td>차종옵션</td>
-					<td><input name="c_option" id="c_option"></td>
+						<td>차종옵션</td>
+						<td><input name="c_option" id="c_option"></td>
 					</tr>
 					<tr>
-					<td>연식</td>
-					<td><input name="c_year1" id="c_year1">~<input name="c_year2" id="c_year2"></td>
+						<td>연식</td>
+						<td><input name="c_year1" id="c_year1">~<input
+							name="c_year2" id="c_year2"></td>
 					</tr>
 					<tr>
+
 					<td>출력</td>
 					<td><select name="c_print" id="c_print">
 					<option value='출력'>출력</option>
@@ -288,10 +293,5 @@
 	
 	
 
-	
-	
-	
-	
-	
 </body>
 </html>

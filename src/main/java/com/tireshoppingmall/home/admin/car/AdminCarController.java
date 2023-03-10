@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 
+import com.tireshoppingmall.home.admin.AdminMenuSession;
+
 @Controller
 public class AdminCarController {
 	
@@ -25,11 +27,11 @@ public class AdminCarController {
 	public AdminCarController() {
 		firstReq = true;
 	}
-
 	
 	//admin.car.go
 	@RequestMapping(value = "/admin.car.go", method = RequestMethod.GET)
-	public String carGo(HttpServletRequest req,Model m) {
+
+	public String carGo(AdminMenuSession menuSession,HttpServletRequest req,Model m) {
 	
 		if (firstReq) {
 			cDAO.calcAllCarCount();
@@ -38,10 +40,16 @@ public class AdminCarController {
 		
 		// cDAO.getAllCar(m); 
 		
+
 		SearchCarDTO.clearSearch(req);
 		cDAO.getCarlist(1, req);
+
+		//SearchCarDTO.clearSearch(req);
+	//	cDAO.getCarlist(1, req);
+
 		
 		
+		cDAO.menuSession(menuSession, req);
 		req.setAttribute("subMenuPage", "car/car_subMenu.jsp");
 		req.setAttribute("contentPage", "car/car.jsp");
 		return "admin/master";
@@ -49,11 +57,17 @@ public class AdminCarController {
 	
 	//admin.car.brand.go
 	@RequestMapping(value = "/admin.car.brand.go", method = RequestMethod.GET)
+
 	public String carBrandGo(HttpServletRequest req,Model m) {
 		
 		
 		cbDAO.getallCarBrands(m);
+
+	public String carBrandGo(AdminMenuSession menuSession,HttpServletRequest req) {
+
 		
+		
+		cDAO.menuSession(menuSession, req);
 		req.setAttribute("subMenuPage", "car/car_subMenu.jsp");
 		req.setAttribute("contentPage", "car/car_brand.jsp");
 		return "admin/master";

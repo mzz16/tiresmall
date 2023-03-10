@@ -43,7 +43,7 @@ pageEncoding="UTF-8"%>
                 <a href="search.car">타이어 찾기</a>
               </div>
               <div class="index_tnMenu index_tnBrand">
-                <a href="product?p=1">브랜드별 타이어</a>
+                <a href="product.brand?b=&p=1">브랜드별 타이어</a>
               </div>
               <div class="index_tnMenu index_tnStore">
                 <a href="store?id=1">매장 안내</a>
@@ -132,6 +132,7 @@ pageEncoding="UTF-8"%>
       </footer>
     </div>
     <script src="resources/js/index.js"></script>
+    <script src="resources/js/main/search/main_search.js"></script>
     <script src="resources/js/main/board/main_board.js"></script>
     <script src="resources/js/main/board/main_board_whereAmI.js"></script>
   </body>

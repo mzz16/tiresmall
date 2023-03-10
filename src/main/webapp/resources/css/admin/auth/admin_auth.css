@@ -4,11 +4,11 @@
 	position: relative;
 }
 
-
-
 #auth_searchBox{
 	display: flex;
-	
+	min-width:900px;
+	padding-top: 20px;
+	padding-left: 30px;
 }
 
 #auth_content{
@@ -16,7 +16,6 @@
     width: 100%;
     text-align: center;
     font-size: 20pt;
-
 }
 
 .auth_form{
@@ -26,10 +25,7 @@
 }
 
 
-#auth_searchBox{
-	padding-top: 20px;
-	padding-left: 30px;
-}
+
 
 .auth_searchTitle{
 	display: flex;
