@@ -84,14 +84,15 @@ select * from branch;
 		c_ft varchar2(40 char) not null,
 		c_bt varchar2(40 char) not null,
 		c_file varchar2(2000 char)
+		FOREIGN KEY (c_brand) REFERENCES car_brand(cb_name)
 		);
 		
 		
 		
 		
-insert into Car values('123','X101','2014','2016','에어백','대우','12313154','2534533','a.jpg');
-insert into Car values('456','X202','2013','2017','아기유모차','기아','12313154','2534533','b.jpg');
-insert into Car values('789','X203','2012','2018','선루프','BMW','12313154','2534533','c.jpg');
+insert into Car values('123455','X101','2014','2016','에어백','대우','12313154','2534533','a.jpg');
+insert into Car values('456555','X202','2013','2017','아기유모차','기아','12313154','2534533','b.jpg');
+insert into Car values('789655','X203','2012','2018','선루프','BMW','12313154','2534533','c.jpg');
 
 		
 		
@@ -115,6 +116,11 @@ drop table Car;
 		) where rn &gt;= #{start} and rn &lt;= #{end}
 
 
+		
+SELECT c_brand, COUNT(c_brand) AS cnt
+FROM car
+GROUP BY c_brand
+		
 
 select rownum as rn,
 		c_id,c_name,c_year1,c_year2,c_option,c_brand,c_ft,c_bt,c_file from Car
@@ -124,24 +130,29 @@ select rownum as rn,
 
 		create table car_brand(
 		cb_name varchar2(20 char)primary key,
-		cb_ea varchar2(20 char) not null,
-		cb_order varchar2(20 char) not null
+		cb_order varchar2(20 char)
+		
 		);
 		
 		
 		
+		select count(*)
+		from Car
+		where c_name
+		like
+		'%%'
 		
 		
 		
-		
-insert into car_brand values('대우','1','234');
-insert into car_brand values('BMW','1','234');
-insert into car_brand values('기아','1','234');
+insert into car_brand values('대우','234');
+insert into car_brand values('BMW','234');
+insert into car_brand values('기아','234');
 
 
 select * from car_brand;
 
 drop table car_brand;
+
 
 
 

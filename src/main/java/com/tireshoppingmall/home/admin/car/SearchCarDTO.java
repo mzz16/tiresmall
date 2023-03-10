@@ -10,11 +10,12 @@ public class SearchCarDTO {
 	private String carnameInput;
 	private BigDecimal start;
 	private BigDecimal end;
+	
 	public SearchCarDTO() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public SearchCarDTO(String carbrandInput, String carnameInput, BigDecimal start, BigDecimal end) {
+	public SearchCarDTO(String carnameInput,String carbrandInput,  BigDecimal start, BigDecimal end) {
 		super();
 		this.carbrandInput = carbrandInput;
 		this.carnameInput = carnameInput;

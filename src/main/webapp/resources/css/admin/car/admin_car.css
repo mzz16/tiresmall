@@ -98,6 +98,7 @@ float:left;
 
 .car-findareabutton{
 	
+	display: flex;
  background-color: #5F5F5F;
   color: #FFFFFF;
   border: none;
@@ -111,6 +112,7 @@ float:left;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
   cursor: pointer;
   transition: all 0.3s ease-in-out;
+  
 	
 }
 
