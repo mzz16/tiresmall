@@ -58,10 +58,7 @@ public class AdminCarController {
 	//admin.car.brand.go
 	@RequestMapping(value = "/admin.car.brand.go", method = RequestMethod.GET)
 
-	public String carBrandGo(HttpServletRequest req,Model m) {
-		
-		
-		cbDAO.getallCarBrands(m);
+	
 
 	public String carBrandGo(AdminMenuSession menuSession,HttpServletRequest req) {
 

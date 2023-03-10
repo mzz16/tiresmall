@@ -28,8 +28,7 @@
 				<option value = "BMW">BMW</option> 
 			
 				</select> 
-				<button class="car-findareabutton" style="float: left;">메이커 검색</button>
-
+				
 				</form>
 			</div>
 			<div class="car-text2" style="float: left;">차종</div>
@@ -42,8 +41,6 @@
 
 			</form>
 
-
-		<form name="carsearchform" action="car.search.do">
 
 			<div class="carRegButton1" style="float: right;">
 				<button class="carRegButton">신규등록</button>
