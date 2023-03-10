@@ -22,16 +22,13 @@
 			<div class="car-findarea">
 
 
-			<form action="car.search.carname">
+			<form action="car.search.do">
 				<div class="car-text1">메이커</div>
-			<%--	<select name="car_brand" id="car_brand">
-				<c:forEach var = "brandlist" items= ${brandcars } varStatus="status">
-				<option value = "${brandlist.cb_name }"></option> 
-				</c:forEach> 
+				<select name="carbrandInput" style="float: left;">
+				<option value = "BMW">BMW</option> 
+			
+				</select> 
 				
-				</select> --%>
-				<button class="car-findareabutton">메이커 검색</button>
-
 				</form>
 			</div>
 			<div class="car-text2" style="float: left;">차종</div>
@@ -44,9 +41,11 @@
 
 			</form>
 
+
 			<div class="carRegButton1" style="float: right;">
 				<button class="carRegButton">신규등록</button>
 			</div>
+
 
 
 		</div>
@@ -96,7 +95,7 @@
 			<div class="cardatalist_div5" style="float: left;">${c.c_option }  </div>
 			<div class="cardatalist_div6" style="float: left;"> 앞 :${c.c_ft } 뒤 :${c.c_bt } </div>
 			<div class="cardatalist_div7" style="float: left;"> <button class="updatecarbutton"
-					onclick="updatecar('${c.c_id}', '${c.c_name }',
+					onclick="updatecar('${c.c_id}','${c.c_name }',
 					'${c.c_year1 }','${c.c_year2 } ',
 					'${c.c_option }','${c.c_brand }',
 					'${c.c_ft }','${c.c_bt }')">수정</button>
@@ -107,7 +106,28 @@
 			</div>
 	</c:forEach>
 
-		
+	<div id="paging-box" class="car-paging-box">
+		<c:if test="${curPage != 1 }">
+			<a href="car.page.change?p=${curPage - 1 }">이전</a>
+		</c:if>
+
+		<c:forEach var="page" begin="1" end="${pageCount }">
+			<c:choose>
+				<c:when
+					test="${page eq param.p or (curPage == 1 and curPage == page)}">
+					<a style="color: black" href="car.page.change?p=${page }">${page }
+					</a>
+				</c:when>
+				<c:otherwise>
+					<a href="car.page.change?p=${page }">${page } </a>
+				</c:otherwise>
+			</c:choose>
+		</c:forEach>
+		<c:if test="${curPage != pageCount }">
+			<a href="car.page.change?p=${curPage + 1 }">다음</a>
+		</c:if>
+	</div>
+
 	
 	
 	
