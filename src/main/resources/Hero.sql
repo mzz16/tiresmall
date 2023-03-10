@@ -163,7 +163,7 @@ create table product_order (
     o_ordernumber varchar2(30 char) not null,   -- 주문 번호 결제일시date + UUID로 처리
     o_orderdate date not null,                  -- 주문 일시
     o_ordername varchar2(20 char) not null,     -- ex)(2본 / 4본) // (2ea / 4ea)
-    o_product varchar2(100 char) not null,      -- ex) (2본 ! A 타이어 2, 2본 ! B 타이어) 갯수랑 타이어 여러개 구매할때 split으로 자바에서 처리 (장바구니)
+    o_product varchar2(100 char) not null,      -- ex) (pk/2) 타이어 테이블 (pk / 개수)
     o_price number(10) not null,                -- 총 가격
     o_paymethod varchar2(10 char) not null,     -- 지불 방법 무통장/ 현장결제
     o_deliverymethod varchar2(10 char),         -- 추후 삭제하던지 있던지
@@ -171,7 +171,7 @@ create table product_order (
     o_storeshop varchar2(100 char) not null,    -- 장착점 ( 관리자 페이지에선 배송지로 처리)
     o_tireinstalldate date not null,            -- 장착예정일
     o_name varchar2(20 char) not null,          -- 구매자 이름
-    o_phone varchar2(15 char) not null,         -- 구매자 전화번호
+    o_phone number(11) not null,                -- 구매자 전화번호
     o_email varchar2(30 char),                  -- 구매자 이메일
     o_caryear varchar2(5 char),                 -- 연식
     o_carbrand varchar2(15 char),               -- 브랜드
@@ -182,8 +182,17 @@ create table product_order (
 
 drop table product_order;
 
+select count(*)
+		from product_order
+		where o_orderdate BETWEEN TO_DATE('2023-03-7', 'YYYY-MM-DD') 
+        AND TO_DATE('2023-03-14', 'YYYY-MM-DD') + 1
+        and o_name like '%%'
+        and o_phone like '%%'
+        and o_ordernumber like'%%';
 
-insert into product_order values(o_no_seq.nextval, '회원', sysdate, '20230307120000ED484C',     
+
+insert into product_order values(o_no_seq.nextval, '회원', '20230320121215VB224D', sysdate, '4EA', '1/2,2/2', 431000,'현장결제', '직영점', '결제완료', '직영점', '2023/03/20', '박영웅', 01089689002, 'dgyo1209@naver.com', '2022', '현대', '그랜저ig', '12가3456', null);
+insert into product_order values(o_no_seq.nextval, '비회원', '20230308191215OC554E', sysdate, '2EA', '4/2', 215000, '현장결제', '직영점', '결제완료', '직영점', '2023/03/8', '박재준', 01037509002, 'wownsgk12@naver.com', null, null, null, '12무1112', '15년식 기아 k5하이브리드입니다');
     create sequence o_no_seq;
 ----------(tire)-----------------------    
 create table tire(
