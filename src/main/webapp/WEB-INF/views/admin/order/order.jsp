@@ -18,6 +18,7 @@
 <link rel="stylesheet" href="resources/css/admin/order/admin_order_modal.css">
 </head>
 <body>
+	<input id="whatMenu" value="order" type="hidden">
 
 	<div id="order_modal" class="order_modal hidden"
 		style="display: none;">

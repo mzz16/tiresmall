@@ -15,7 +15,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.tireshoppingmall.home.admin.AdminMenuSession;
 import com.tireshoppingmall.home.admin.board.AdminBoardMapper;
 
 
@@ -340,11 +339,7 @@ public class BranchDAO {
 
 	}
 
-	public void menuSession(AdminMenuSession menuSession, HttpServletRequest req) {
-		AdminMenuSession menu = (AdminMenuSession) req.getSession().getAttribute("menuSession");
-		menu.setMenu("store");
 
-	}
 
 	
 
