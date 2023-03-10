@@ -86,17 +86,10 @@ public class ProductDAO {
 	}
 
 	public ProductGroups getProductGroupJson(int p, HttpServletRequest request) {
-		int count = pgo.getProductGroupCountPerPage();
-        int start = (p - 1) * count + 1;
-        int end = start + (count - 1);
         
         ProductSelector search = (ProductSelector) request.getSession().getAttribute("search");
         
-        search.setStart(new BigDecimal(start));
-        search.setEnd(new BigDecimal(end));
-        int productGroupCount = ss.getMapper(ProductMapper.class).getProductGroupCount(search);
-		
-		List<ProductGroupDTO> pGroups = ss.getMapper(ProductMapper.class).getProductGroup(search);
+		List<ProductGroupDTO> pGroups = ss.getMapper(ProductMapper.class).getProductGroupJson(search);
 		
         for (ProductGroupDTO pGroup : pGroups) {
     		if(ss.getMapper(ProductMapper.class).getMinInchOfGroup(pGroup)!=null) {
@@ -112,14 +105,9 @@ public class ProductDAO {
     			pGroup.setMaxPrice(Integer.parseInt(ss.getMapper(ProductMapper.class).getMaxPriceOfGroup(pGroup)));
     		}
         }
-        int pageCount = (int) Math.ceil(productGroupCount / (double) count);
         
-        request.setAttribute("pageCount", pageCount);
-        request.setAttribute("theNumber", productGroupCount);
-        request.setAttribute("pGroups", pGroups);
-        request.setAttribute("curPage", p);
         
-		return new ProductGroups(pGroups, pageCount, productGroupCount, p);
+		return new ProductGroups(pGroups, 0, 0, p);
 	}
 		
 

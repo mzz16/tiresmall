@@ -20,4 +20,5 @@ public interface ProductMapper {
 
 	String getMaxPriceOfGroup(ProductGroupDTO pGroup);
 
+	List<ProductGroupDTO> getProductGroupJson(ProductSelector search);
 }
