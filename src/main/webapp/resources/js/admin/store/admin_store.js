@@ -42,7 +42,6 @@ $('document').ready(
 
 			// 시/도 선택 박스 초기화
 			
-
 			$("select[name^=b_area1]").each(
 					function() {
 						$selsido = $(this);
@@ -75,8 +74,8 @@ $('document').ready(
 										+ this + "</option>");
 							});
 						}
+						
 					});
-
 		});
 
 

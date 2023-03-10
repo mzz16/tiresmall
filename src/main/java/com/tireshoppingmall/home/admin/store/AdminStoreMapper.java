@@ -37,5 +37,7 @@ public interface AdminStoreMapper {
 	List<BranchDTO> getBranch(SearchBranchDTO search);
 
 
+
+
 	
 }

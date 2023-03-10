@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.tireshoppingmall.home.admin.AdminMenuSession;
+
 @Controller
 public class AdminAuthController {
 
@@ -22,7 +24,7 @@ public class AdminAuthController {
 
 	//admin.auth.go
 	@RequestMapping(value = "/admin.auth.go", method = RequestMethod.GET)
-	public String authGo(HttpServletRequest req) {
+	public String authGo(AdminMenuSession menuSession, HttpServletRequest req) {
 		
 		if (firstReq) {
 			aDAO.calcAllAuthCount();
@@ -31,6 +33,9 @@ public class AdminAuthController {
 		AuthDTO.AuthPagsing(req);
 		aDAO.getAllAuth(1,req);
 		
+		
+		
+		aDAO.menuSession(menuSession,req);
 		req.setAttribute("contentPage", "auth/auth.jsp");
 		return "admin/master";
 	}

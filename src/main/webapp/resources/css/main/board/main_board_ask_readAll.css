@@ -1,0 +1,41 @@
+.board_ask_readAll_container {
+}
+
+.board_ask_readAll_columnAndList {
+	display: grid;
+	grid-template-columns: 80px 120px 1fr 120px 120px;
+	grid-template-rows: 51px 1fr;		/*수정필요*/
+	grid-template-areas:	"ra_num ra_sort ra_title ra_date ra_status"
+							"ra_list ra_list ra_list ra_list ra_list";
+							
+	width: 950px;								/*수정필요*/
+	height: 400px;	/*100vh;*/					/*수정필요*/
+}
+
+.board_ask_readAll_columnAndList div:nth-child(1) {
+	grid-area: ra_num;
+}
+.board_ask_readAll_columnAndList div:nth-child(2) {
+	grid-area: ra_sort;
+}
+.board_ask_readAll_columnAndList div:nth-child(3) {
+	grid-area: ra_title;
+}
+.board_ask_readAll_columnAndList div:nth-child(4) {
+	grid-area: ra_date;
+}
+.board_ask_readAll_columnAndList div:nth-child(5) {
+	grid-area: ra_status;
+}
+.board_ask_readAll_columnAndList div:nth-child(6) {
+	grid-area: ra_list;
+}
+
+.board_ask_readAll_columnAndList div {
+	padding: 11px;
+	border: 1px solid #ddd;
+	
+	background-color: #f5f5f5;
+	
+	text-align: center;
+}

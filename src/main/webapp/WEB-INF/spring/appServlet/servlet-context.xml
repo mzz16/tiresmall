@@ -81,6 +81,11 @@
 		<beans:property name="defaultEncoding" value="utf-8" />
 	</beans:bean>
 
+	<beans:bean id="aco"
+		class="com.tireshoppingmall.home.board.AskCountOption">
+		<beans:constructor-arg value="5"></beans:constructor-arg>
+	</beans:bean>
+
 	<!-- Notice 몇개씩 보여줄지 -->
 	<beans:bean id="no"
 		class="com.tireshoppingmall.home.admin.board.NoticeOption">
@@ -99,7 +104,12 @@
 		<beans:constructor-arg value="7"></beans:constructor-arg>
 	</beans:bean>
 
-	<!-- auth 몇개씩 보여줄지 -->
+	<beans:bean id="oo"
+		class="com.tireshoppingmall.home.admin.order.OrderOption">
+		<beans:constructor-arg value="7"></beans:constructor-arg>
+	</beans:bean>
+
+	<!-- admin.auth 몇개씩 보여줄지 -->
 	<beans:bean id="ao"
 		class="com.tireshoppingmall.home.admin.auth.AuthOption">
 		<beans:constructor-arg value="10"></beans:constructor-arg>
@@ -110,6 +120,13 @@
 		<beans:constructor-arg value="16"></beans:constructor-arg>
 	</beans:bean>
 
+	<!-- admin.tireGroup 몇개씩 보여줄지 -->
+	<beans:bean id="admin_po"
+		class="com.tireshoppingmall.home.admin.tire.TireOption">
+		<beans:constructor-arg value="16"></beans:constructor-arg>
+	</beans:bean>
+
+
 	<!-- Branch 몇개씩 보여줄지 -->
 
 	<beans:bean id="bo"
@@ -117,9 +134,12 @@
 		<beans:constructor-arg value="7"></beans:constructor-arg>
 	</beans:bean>
 
-	<beans:bean id="oo" class="com.tireshoppingmall.home.admin.order.OrderOption">
+
+	<!-- Car 몇개씩 보여줄지 -->
+
+	<beans:bean id="co"
+		class="com.tireshoppingmall.home.admin.car.CarOption">
 		<beans:constructor-arg value="7"></beans:constructor-arg>
 	</beans:bean>
-
 
 </beans:beans>

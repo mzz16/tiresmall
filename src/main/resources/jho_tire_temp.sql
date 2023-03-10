@@ -5,7 +5,7 @@ create table tire_group (
 	tg_img varchar2(200 char) default 'noimg',
 	tg_text varchar2(100 char) not null,		
 	tg_dcrate number(3) default 0,		/* dc rate 할인율 */
-	tg_print number(1) not null,
+	tg_print number(1) not null,	/* 출력 여부 */
 	tg_sedan number(1) not null,	/* 승용차 추천 1(t)/0(f) */
 	tg_suv number(1) not null		/* suv 추천 1(t)/0(f)		tg_recommend로 해서 0(sedan) or 1(suv)로 해도 될지도?? */
 )
