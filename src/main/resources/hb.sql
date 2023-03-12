@@ -143,11 +143,18 @@ select rownum as rn,
 		like
 		'%%'
 		
+SELECT  COUNT(*) AS cb_ea
+FROM car
+GROUP BY c_brand
+		
+		
+		SELECT DISTINCT c_brand FROM car;
 		
 		
 insert into car_brand values('대우','234');
 insert into car_brand values('BMW','234');
 insert into car_brand values('기아','234');
+insert into car_brand values('람보르기니','234');
 
 
 select * from car_brand;

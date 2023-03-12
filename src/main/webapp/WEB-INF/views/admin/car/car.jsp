@@ -144,11 +144,11 @@
 				onsubmit="return carregcall();" enctype="multipart/form-data">
 				<table border="1" class="">
 				<tr>
-					<td>임시 ID</td>
+					<td style="background-color: #3399ff">임시 ID</td>
 					<td><input name="c_id" id="c_id"></td>
 					</tr>
 					<tr>
-					<td>메이커</td>
+					<td style="background-color: #3399ff">메이커</td>
 					<td>	<select name="c_brand" id ="c_brand" style="float: left;">
 				<c:forEach var="cblist" items="${carbrand}">
 				<option value="${cblist.cb_name}">${cblist.cb_name}</option>
@@ -157,58 +157,66 @@
 
 					</tr>
 					<tr>
-						<td>차종</td>
+						<td style="background-color: #3399ff">차종</td>
 						<td><input name="c_name" id="c_name"></td>
 					</tr>
 					<tr>
-						<td>차종옵션</td>
+						<td style="background-color: #3399ff">차종옵션</td>
 						<td><input name="c_option" id="c_option"></td>
 					</tr>
 					<tr>
-						<td>연식</td>
+						<td style="background-color: #3399ff">연식</td>
 						<td><input name="c_year1" id="c_year1">~<input
 							name="c_year2" id="c_year2"></td>
 					</tr>
 					<tr>
 
-					<td>출력</td>
+					<td style="background-color: #3399ff">출력</td>
 					<td><select name="c_print" id="c_print">
 					<option value='출력'>출력</option>
 					<option value='숨김'>숨김</option>
 					</select></td>
 					</tr>
 					<tr>
-					<td>타이어사이즈</td>
+					<td style="background-color: #3399ff">타이어사이즈</td>
 					<td>
 					
+			
 					<div class = "ftbttmstyle">
-					<div class = "ftstyle" style=" border: 1px solid gray;">앞타이어</div>
-					<div class = "btstyle" style=" border: 1px solid gray;">뒤타이어</div>
-					<div class = "tmstyle"  style="  border: 1px solid gray;">관리</div>
+					<div class = "ftstyle" style=" height: 30px; width:200px;  border: 1px solid white;">앞타이어</div>
+					<div class = "btstyle" style="height: 30px; width:200px;  border: 1px solid white;">뒤타이어</div>
+					<div class = "tmstyle"  style=" height: 30px; width:200px;  border: 1px solid white;">관리</div>
 					</div>
 					<div style="display: block;">
 					</div>
 					<div style="display: block;">
-					<div class = "ftinputstyle" style="float: left; width: 20%;" ><input name="c_ft" id="c_ft"></div>
-					<div class = "btinputstyle" style="float: left; width: 20%;"><input name="c_bt" id="c_bt"></div>
-					<div class = "tminputstyle" style="float: left; width: 10%;"><button>삭제</button></div>
+					<div class = "ftinputstyle" style="float: left;" ><input style="height: 30px; width:193px;" name="c_ft" id="c_ft" class="c_ftinput"></div>
+					<div class = "btinputstyle" style= "float: left;"><input style="height: 30px; width:193px;" name="c_bt" id="c_bt" class="c_btinput" ></div>
+					<div class = "tminputstyle" style="float: left;"><button class="c_tminput">삭제</button></div>
 					</div>
 					
 					
 					</td>
 					</tr>
 					<tr>
-					<td>차종이미지</td>
+					<td style="background-color: #3399ff">차종이미지</td>
 					<td>
 					
-					<div>
-					<div style="float: left;">현재 이미지</div>
-					<div>이미지 등록</div>
+					
+					<div class = "ftbttmstyle">
+					<div class = "ftstyle" style=" height: 30px; width:200px;  border: 1px solid white;">현재 이미지</div>
+					<div class = "btstyle" style="height: 30px; width:200px;  border: 1px solid white;">이미지 등록</div>
+					
 					</div>
-					<div style="float: left;">
-					<div style="float: left;">없음</div>
-					<div style="float: left;"><input type="file" name="file"></div>
+					<div style="display: block;">
 					</div>
+					<div style="display: block;">
+					<div class = "ftinputstyle" style="float: left; height: 30px; width:199px;" >없음</div>
+					<div class = "btinputstyle" style= "float: left; height: 30px; width:199px;"><input type="file" name="file"></div>
+					
+					</div>
+					
+					
 					
 					
 					
@@ -235,7 +243,7 @@
 				<table border="1" class="">
 				
 					<tr>
-					<td>메이커</td>
+					<td style="background-color: #3399ff" >메이커</td>
 					<td><select name="c_brand" id="c_brand_u">
 					<c:forEach var="cblist" items="${carbrand}">
 				<option value="${cblist.cb_name}">${cblist.cb_name}</option>
@@ -243,39 +251,43 @@
 					</select></td>
 					</tr>
 					<tr>
-					<td>차종</td>
+					<td style="background-color: #3399ff">차종</td>
 					<td><input name="c_name" id="c_name_u"><input type="hidden" name="c_id" id="c_id_u"></td>
 					</tr>
 					<tr>
-					<td>차종옵션</td>
+					<td style="background-color: #3399ff">차종옵션</td>
 					<td><input name="c_option" id="c_option_u"></td>
 					</tr>
 					<tr>
-					<td>연식</td>
+					<td style="background-color: #3399ff">연식</td>
 					<td><input name="c_year1" id="c_year1_u">~<input name="c_year2" id="c_year2_u"></td>
 					</tr>
 					<tr>
-					<td>출력</td>
+					<td style="background-color: #3399ff">출력</td>
 					<td><select name="c_print" id="c_print_u">
 					<option value='출력'>출력</option>
 					<option value='숨김'>숨김</option>
 					</select></td>
 					</tr>
 					<tr>
-					<td>타이어사이즈</td>
+					<td style="background-color: #3399ff">타이어사이즈</td>
 					<td>
 					
-					<div class = ftbttmstyle>
-					<div class = "ftstyle" style="float: left; border: 1px solid gray;">앞타이어</div>
-					<div class = "btstyle" style="float: left; border: 1px solid gray;">뒤타이어</div>
-					<div class = "tmstyle" style="border: 1px solid gray;">관리</div>
+					<div class = "ftbttmstyle">
+					<div class = "ftstyle" style="height: 30px; width:200px;  border: 1px solid white;">앞타이어</div>
+					<div class = "btstyle" style="height: 30px; width:200px;  border: 1px solid white;">뒤타이어</div>
+					<div class = "tmstyle"  style=" height: 30px; width:200px;  border: 1px solid white;">관리</div>
+					</div>
+					<div style="display: block;">
+					</div>
+					<div style="display: block;">
+					<div class = "ftinputstyle" style="float: left;" ><input style="height: 30px; width:193px;" name="c_ft" id="c_ft_u" class="c_ftinput"></div>
+					<div class = "btinputstyle" style= "float: left;"><input style="height: 30px; width:193px;"  name="c_bt" id="c_bt_u" class="c_btinput" ></div>
+					<div class = "tminputstyle" style="float: left;"><button class="c_tminput">삭제</button></div>
 					</div>
 					
-					<div style ="display:flex;">
-					<div class = "ftinputstyle" style="float: left; width: 20%;"><input name="c_ft" id="c_ft_u"></div>
-					<div class = "btinputstyle" style="float: left; width: 20%;"><input name="c_bt" id="c_bt_u"></div>
-					<div class = "tminputstyle" style="float: left; width: 10%;" ><button>삭제</button></div>
-					</div>
+					
+					
 					
 					</td>
 					</tr>

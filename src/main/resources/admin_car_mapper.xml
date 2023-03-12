@@ -131,11 +131,9 @@ select cb_name from car_brand
 
 <select id= "getallBrandCount" resultType="com.tireshoppingmall.home.admin.car.CarBrandDTO">
 
-
-SELECT  COUNT(*) AS cb_ea
+ SELECT COALESCE(COUNT(*), 0) AS cb_ea
 FROM car
 GROUP BY c_brand
-		
 
 </select>
 

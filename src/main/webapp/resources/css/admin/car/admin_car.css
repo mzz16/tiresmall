@@ -285,53 +285,96 @@ float:left;
 
 .ftstyle{
 	
-	width: 20%;
-	
-	 background-color: black;
+	width: 22%;
+	position:relative;
+	 background-color: gray;
 	color:white;
 	text-align: center;
+	 line-height: 30px;
 }
 
 .btstyle{
 	
 	
 	width: 20%;
-	
-	 background-color: black;
+	position:relative;
+	 background-color: gray;
 	 color:white;
 	 text-align: center;
+	 display: inline-block;
+	 line-height: 30px;
 }
 
 
 .tmstyle{
 	
-	width: 10%;
-	
-	 background-color: black;
+	width: 20%;
+	position:relative;
+	background-color: gray;
 	 color:white;
 	 text-align: center;
+	 display: inline-block;
+	 line-height: 30px;
+
+}
+
+.carregokbutton{
+	
+	text-align: center;
+	
+}
+
+.carregokbutton1{
+	
+	
+	display :inline-block;
+	
+}
+
+.updatecarokbutton{
+
+	text-align: center;
+}
+
+
+.updatecarokbutton1{
+
+	display :inline-block;
 
 }
 
 
 
 .ftinputstyle{
+
 	text-align: center;
 	border: 1px solid gray;
+	line-height: 30px;
 }
 
 
 .btinputstyle{
+
 	text-align: center;
 	border: 1px solid gray;
+	line-height: 30px;
+
 }
 
 .tminputstyle{
+
 	border: 1px solid gray;
-	text-align: center;
+		text-align: center;
+	height: 36px;
+	width:197px;
+	line-height: 36px;
+	
 }
 
 
+.c_tminput{
+display: inline-block;
+}
 
 
 
@@ -366,8 +409,8 @@ float:left;
     display: none;
 }
 #carregpopup01{
-width: 1600px;
-height: 1200px;
+width: 1000px;
+height: 500px;
 position: absolute;
 top: 50%;
 left: 45%;
