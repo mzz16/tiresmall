@@ -92,7 +92,7 @@ function updatecar(id,name,year1,year2,option,brand,ft,bt) {
 	 $('#c_brand_u').val(brand);
 	 $('#c_ft_u').val(ft);
 	 $('#c_bt_u').val(bt);
-
+	 
 	
 
 }

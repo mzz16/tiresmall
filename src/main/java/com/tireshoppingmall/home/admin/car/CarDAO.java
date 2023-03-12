@@ -241,12 +241,23 @@ public class CarDAO {
 
 	
 	public void getallCarBrands(Model m) {
-		
+		System.out.println("!!!!!!!!!!!");
 		m.addAttribute("carbrands", ss.getMapper(AdminCarMapper.class).getAllCarBrands());
+		System.out.println("!!!!!!!!!!!");
+		
+	}
+
+	public void getallBrandCount(CarBrandDTO c,Model m) {
+		m.addAttribute("carcount", ss.getMapper(AdminCarMapper.class).getallBrandCount(c));
+		System.out.println("@@@@@@@@@@");
+		System.out.println(m);
+		System.out.println("@@@@@@@@@@");
 		
 	}
 	
 	
 
-
+	
 }
+
+

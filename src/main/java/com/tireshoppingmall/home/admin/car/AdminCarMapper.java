@@ -37,6 +37,9 @@ public interface AdminCarMapper {
 
 
 	List<CarBrandDTO> getCarbrandselectlist();
+
+
+	List<CarBrandDTO> getallBrandCount(CarBrandDTO c);
 	
 	
 

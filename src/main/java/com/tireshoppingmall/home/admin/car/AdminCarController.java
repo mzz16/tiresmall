@@ -62,10 +62,10 @@ public class AdminCarController {
 
 	
 
-	public String carBrandGo(AdminMenuSession menuSession,HttpServletRequest req,Model m) {
+	public String carBrandGo(CarBrandDTO c,AdminMenuSession menuSession,HttpServletRequest req,Model m) {
 
 		cDAO.getallCarBrands(m);
-
+		cDAO.getallBrandCount(c,m);
 		req.setAttribute("subMenuPage", "car/car_subMenu.jsp");
 		req.setAttribute("contentPage", "car/car_brand.jsp");
 		return "admin/master";
@@ -149,6 +149,8 @@ public class AdminCarController {
 		req.setAttribute("contentPage", "car/car_brand.jsp");
 		return "admin/master";
 	}
+	
+	
 	
 	
 	

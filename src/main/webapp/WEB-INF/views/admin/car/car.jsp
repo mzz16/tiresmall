@@ -149,8 +149,10 @@
 					</tr>
 					<tr>
 					<td>메이커</td>
-					<td><select name="c_brand" id="c_brand">
-					<option value='BMW'>BMW</option>
+					<td>	<select name="c_brand" id ="c_brand" style="float: left;">
+				<c:forEach var="cblist" items="${carbrand}">
+				<option value="${cblist.cb_name}">${cblist.cb_name}</option>
+				</c:forEach>
 					</select></td>
 
 					</tr>
@@ -235,7 +237,9 @@
 					<tr>
 					<td>메이커</td>
 					<td><select name="c_brand" id="c_brand_u">
-					<option value='BMW'>BMW</option>
+					<c:forEach var="cblist" items="${carbrand}">
+				<option value="${cblist.cb_name}">${cblist.cb_name}</option>
+				</c:forEach>
 					</select></td>
 					</tr>
 					<tr>

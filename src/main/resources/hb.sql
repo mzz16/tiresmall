@@ -117,7 +117,7 @@ drop table Car;
 
 
 		
-SELECT  COUNT(c_brand) AS cnt
+SELECT  COUNT(c_brand) AS cb_ea
 FROM car
 GROUP BY c_brand
 		
