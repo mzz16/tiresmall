@@ -8,13 +8,15 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/paginationjs/2.1.4/pagination.css"/>
 <link rel="stylesheet" href="resources/css/main/product/main_product.css">
 <script src="https://code.jquery.com/jquery-3.6.3.js"
 	integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM="
 	crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/paginationjs/2.1.4/pagination.min.js"></script>
+<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
 <script type="text/javascript" src="resources/js/main/product/main_product.js"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/paginationjs/2.1.4/pagination.css"/>
 </head>
 <body>
 <h1>${test }</h1>
@@ -32,8 +34,11 @@
 		<div id="product_search">
 			<span>총 ${theNumber }개 상품이 검색 되었습니다. </span>
 			<div id="product_search_priceRange">
-				<div><input id="product_priceRangeInput" type="range" value="0" min="0" max="2000000" step="1000" onchange="selectPrice()"></div>
-				<div style="display:flex; justify-content:space-between"><span>0만원</span><span>200만원</span></div>
+				<p>
+  					<label for="amount">가격대:</label>
+ 						<input type="text" id="amount" readonly style="border:0; color:#E6CD32; font-weight:bold;">
+				</p>
+				<div id="slider-range"></div><button id="product_priceRange_button">검색</button>
 			</div>
 			<div id="product_search_type">
 				<input name="carTypeA" type="radio" value=""> 전체 타입
@@ -66,8 +71,7 @@
 							￦<fmt:formatNumber type="currency" currencySymbol="">
 								${pGroup.minPrice }
 							</fmt:formatNumber>
-								~ ￦
-							<fmt:formatNumber type="currency" currencySymbol="">
+								~ ￦<fmt:formatNumber type="currency" currencySymbol="">
 								${pGroup.maxPrice }
 							</fmt:formatNumber>
 						</div>
