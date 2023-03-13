@@ -10,6 +10,12 @@ public interface AdminTireMapper {
 
 	int getTireCount(TireDTO paging);
 
-	TireDTO getTireGroupforDetail(int tirePK);
+	List<TireDTO> getTireBrand();
+
+	int getTireBrandCount(String tb_name);
+
+	int deleteTireBrand(TireDTO tb);
+
+	int deleteTireGroup(TireDTO tg);
 
 }

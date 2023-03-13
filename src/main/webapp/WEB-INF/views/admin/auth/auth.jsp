@@ -8,6 +8,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="resources/css/admin/auth/admin_auth.css">
+<link rel="stylesheet" href="resources/css/admin/tire/admin_tire.css">
 <link rel="stylesheet" href="resources/css/admin/board/notice_board.css">
 <link rel="stylesheet" href="resources/css/admin/board/notice_modal.css">
 <script src="resources/js/admin/auth/admin_auth.js"></script>
@@ -90,7 +91,7 @@
 						</div>
 						<div id="auth_modal_btn">
 							<button id="auth_modal_update">수정</button>
-							<div id="auth_modal_cancel">취소</div>
+							<div id="auth_modal_cancel ">취소</div>
 						</div>
 					</div>
 				</form>
@@ -168,11 +169,11 @@
 						<td class="auth_table_td"><fmt:formatDate
 								value="${a.a_date }" pattern="yyyy-MM-dd" /></td>
 						<td id="auth_Btn" class="auth_table_td">
-							<button class="auth_update"
+							<button class="admin_notPrintBTN auth_update"
 								onclick="updateauth('${a.a_id }','${a.a_Sortation }','${a.a_name }','${a.a_phone }','${a.a_address }'
 												,'${a.mc_number }','${a.mc_model }','${a.mc_year }')">
 								수정</button>
-							<button type="button" onclick="deleteAuth('${a.a_id }')">삭제</button>
+							<button type="button" onclick="deleteAuth('${a.a_id }')" class="admin_deleteBTN">삭제</button>
 						</td>
 					</tr>
 				</c:forEach>

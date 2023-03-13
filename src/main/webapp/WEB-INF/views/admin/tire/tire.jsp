@@ -9,12 +9,21 @@
 <title>Insert title here</title>
 <link rel="stylesheet" href="resources/css/admin/tire/admin_tire.css">
 <link rel="stylesheet" href="resources/css/admin/board/notice_board.css">
+<script src="resources/js/admin/tire/admin_tire.js"></script>
 </head>
 <body>
 	<input id="whatMenu" value="tire" type="hidden">
 	<input id="sm" value="1" type="hidden"> 
 	<div class="container sub">
 		<div id="tire_container">
+		
+			
+		
+		
+		
+		
+		
+		
 
 			<form action="admin.tire.search.do" class="tire_form">
 				<div id="tire_searchBox">
@@ -53,13 +62,13 @@
 
 			<table id="admin_tire_content">
 				<tr>
-					<td class="admin_tire_content_title admin_tire_no">No.</td>
-					<td class="admin_tire_content_title admin_tire_brand">브랜드</td>
-					<td class="admin_tire_content_title admin_tire_name">모델명</td>
-					<td class="admin_tire_content_title admin_tire_print">출력</td>
-					<td class="admin_tire_content_title admin_tire_sedanPrint">승용추천</td>
-					<td class="admin_tire_content_title admin_tire_SUVPrint">SUV추천</td>
-					<td class="admin_tire_content_title authadmin_tire_sizeNum_date">사이즈</td>
+					<td class="admin_tire_content_title admin_tire_no" style="border-right: 1px solid white;">No.</td>
+					<td class="admin_tire_content_title admin_tire_brand" style="border-right: 1px solid white;">브랜드</td>
+					<td class="admin_tire_content_title admin_tire_name" style="border-right: 1px solid white;">모델명</td>
+					<td class="admin_tire_content_title admin_tire_print" style="border-right: 1px solid white;">출력</td>
+					<td class="admin_tire_content_title admin_tire_sedanPrint" style="border-right: 1px solid white;">승용추천</td>
+					<td class="admin_tire_content_title admin_tire_SUVPrint" style="border-right: 1px solid white;">SUV추천</td>
+					<td class="admin_tire_content_title authadmin_tire_sizeNum_date" style="border-right: 1px solid white;">사이즈</td>
 					<td class="admin_tire_content_title admin_tire_management">관리</td>
 				</tr>
 				<c:if test="${empty tires}">
@@ -74,13 +83,27 @@
 						<td class="admin_tire_table_td">${status.count + (curPage-1)*count}</td>
 						<td class="admin_tire_table_td">${t.tg_brand }</td>
 						<td class="admin_tire_table_td">${t.tg_name }</td>
-						<td class="admin_tire_table_td">출력${t.tg_print }</td>
-						<td class="admin_tire_table_td">세단${t.tg_sedan }</td>
-						<td class="admin_tire_table_td">suv${t.tg_suv }
+						<td class="admin_tire_table_td">
+							<c:choose>
+								<c:when test="${t.tg_print ==1 }"><button class="admin_printBTN">출력</button></c:when>
+								<c:otherwise><button class="admin_notPrintBTN">미출력</button></c:otherwise>
+							</c:choose> </td>
+						<td class="admin_tire_table_td">
+							<c:choose>
+								<c:when test="${t.tg_sedan ==1 }"><button class="admin_printBTN">추천</button></c:when>
+								<c:otherwise><button class="admin_notPrintBTN">일반</button></c:otherwise>
+							</c:choose>
+						</td>	
+						<td class="admin_tire_table_td">
+							<c:choose>
+								<c:when test="${t.tg_suv ==1 }"><button class="admin_printBTN">추천</button></c:when>
+								<c:otherwise><button class="admin_notPrintBTN">일반</button></c:otherwise>
+							</c:choose>
+						</td>
 						<td class="admin_tire_table_td">${t.tg_num }개</td>
-						<td id="auth_Btn" class="admin_tire_table_td">
-							<button class="tire_update">수정</button>
-							<button type="button">삭제</button>
+						<td id="tire_Btn" class="admin_tire_table_td">
+							<button class="admin_notPrintBTN">수정</button>
+							<button type="button" class="admin_deleteBTN" onclick="tireDelete('${t.tg_id}')">삭제</button>
 						</td>
 					</tr>
 				</c:forEach>
@@ -111,8 +134,11 @@
 				</c:if>
 			</div>
 
-
-
+	
+			<div id="tireBrandModal">
+			
+			
+			</div>
 
 
 

@@ -94,6 +94,36 @@
 	select count(ti_tg_id) from tire_item where ti_tg_id= #{val}
 </select>
 
+<delete id="deleteTireGroup">
+	delete from tire_group where tg_id=#{tg_id}
+</delete>
+
+
+
+
+<!--타이어 브랜드  -->
+<select id="getTireBrand" resultType="com.tireshoppingmall.home.admin.tire.TireDTO">
+	select * from tire_brand order by tb_order
+</select>
+
+<select id="getTireBrandCount" resultType="int">
+	select count(*) from tire_group left OUTER JOIN tire_item
+	on  tg_id = ti_tg_id where tg_brand = #{val}
+</select>
+
+<delete id="deleteTireBrand">
+	delete from tire_brand where tb_name= #{tb_name}
+</delete>
+
+
+
+
+
+
+
+
+
+
 
 <select id="getTireGroupforDetail" resultType="com.tireshoppingmall.home.admin.tire.TireDTO">
 	select * from tire_group, tire_item

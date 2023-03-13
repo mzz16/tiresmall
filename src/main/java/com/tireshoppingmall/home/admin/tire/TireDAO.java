@@ -44,24 +44,21 @@ public class TireDAO {
 		TireDTO paging = (TireDTO)req.getSession().getAttribute("tireDTO");
 		int tireCount = 0;
 		if (paging == null) {
-			System.out.println("왜  null일까???");
 			paging = new TireDTO();
 			paging.setTg_brand("");
 			paging.setTg_name("");
 			paging.setStart(new BigDecimal(start));
 			paging.setEnd(new BigDecimal(end));
-			tireCount = allTireCount;
-			
+			tireCount = allTireCount;		
 		}else {
 			paging.setStart(new BigDecimal(start));
 			paging.setEnd(new BigDecimal(end));
 			tireCount = ss.getMapper(AdminTireMapper.class).getTireCount(paging);
-			System.out.println("검색이 왜 안될까?");
 		}
 		
 		List<TireDTO> tires = ss.getMapper(AdminTireMapper.class).getAllTireGroup(paging);
 		
-		for (TireDTO t : tires) {
+		for (TireDTO t : tires) {		/*몇개인지 갯수   */
 			t.setTg_num(ss.getMapper(AdminTireMapper.class).getTireCountByMz(t.getTg_id()));
 		}
 		
@@ -75,5 +72,46 @@ public class TireDAO {
 	public void tirePasing(TireDTO tDTO, HttpServletRequest req) {
 		req.getSession().setAttribute("tireDTO", tDTO);
 	}
+	
+	
+	
+	
+	
+	//타이어 브랜드 작업~~~~~~!!!
+
+	public void getTireBrand(HttpServletRequest req) {
+		List<TireDTO> brands =ss.getMapper(AdminTireMapper.class).getTireBrand();
+		
+		for (TireDTO t : brands) {
+			t.setTb_num(ss.getMapper(AdminTireMapper.class).getTireBrandCount(t.getTb_name()));
+			System.out.println(t.getTb_name());
+			System.out.println(t.getTb_num()+"개");
+		}
+		req.setAttribute("brands",brands);
+		
+	}
+	public void deleteTireBrand(HttpServletRequest req, TireDTO tb) {
+		
+		if(ss.getMapper(AdminTireMapper.class).deleteTireBrand(tb)==1) {
+			req.setAttribute("r", "삭제성공");
+		}else {
+			req.setAttribute("r", "삭제실패");
+		}
+		
+	}
+	public void deleteTireGroup(HttpServletRequest req, TireDTO tg) {
+		if(ss.getMapper(AdminTireMapper.class).deleteTireGroup(tg)==1) {
+			req.setAttribute("r", "삭제성공");
+		}else {
+			req.setAttribute("r", "삭제실패");
+		}
+		
+		
+	}
+	public void tireRegDo(TireDTO tDTO, HttpServletRequest req) {
+		// TODO Auto-generated method stub
+		
+	}
+	
 	
 }
