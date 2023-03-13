@@ -18,4 +18,6 @@ public interface AdminTireMapper {
 
 	int deleteTireGroup(TireDTO tg);
 
+	TireDTO getTireGroupforDetail(int tirePK);
+
 }
