@@ -10,7 +10,6 @@ public interface AdminCarMapper {
 
 	int getCarCount(SearchCarDTO search);
 
-	List<CarDTO> getCarlist(SearchCarDTO search);
 
 	CarDTO getCar(CarDTO c);
 
@@ -21,6 +20,22 @@ public interface AdminCarMapper {
 	int updatecar(CarDTO c);
 
 	int deletecar(CarDTO c);
+
+	List<CarDTO> getCarlists(SearchCarDTO search);
+
+
+	List<CarDTO> getAllCar(SearchCarDTO search);
+
+
+	List<CarBrandDTO> getAllCarBrands();
+
+
+	int deletebrand(CarBrandDTO c);
+
+
+	int regbrand(CarBrandDTO c);
+	
+	
 
 	
 }

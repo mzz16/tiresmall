@@ -18,7 +18,6 @@ import org.springframework.web.multipart.MultipartFile;
 import com.tireshoppingmall.home.admin.car.CarDTO;
 import com.tireshoppingmall.home.admin.car.CarOption;
 import com.tireshoppingmall.home.admin.car.SearchCarDTO;
-import com.tireshoppingmall.home.admin.AdminMenuSession;
 @Service
 public class CarDAO {
 	
@@ -52,18 +51,11 @@ public class CarDAO {
 	
 	
 
-	public void calcAllCarCount() {
-		SearchCarDTO sSel = new SearchCarDTO("","", null, null);
-		allCarCount = ss.getMapper(AdminCarMapper.class).getCarCount(sSel);
-		System.out.println(allCarCount);
-		
-	}
 	
-	
-	public void getAllCar(Model m) {
-	mapper = ss.getMapper(AdminCarMapper.class);
-	m.addAttribute("cars", ss.getMapper(AdminCarMapper.class).getAllCar());
-}
+//	public void getAllCar(Model m) {
+//	mapper = ss.getMapper(AdminCarMapper.class);
+//	m.addAttribute("cars", ss.getMapper(AdminCarMapper.class).getAllCar());
+//}
 
 	public void regCar(MultipartFile file, CarDTO c, HttpServletRequest req) {
 		
@@ -103,6 +95,7 @@ public class CarDAO {
 		
 			if (mm.regCar(c) == 1) {
 	            System.out.println("등록성공");
+	            allCarCount++;
 	            req.setAttribute("r", "등록성공");
 	        } else {
 	            req.setAttribute("r", "등록 실패");
@@ -133,17 +126,22 @@ public class CarDAO {
 	public void deletecar(CarDTO c, HttpServletRequest req) {
 		if (ss.getMapper(AdminCarMapper.class).deletecar(c) == 1) {
 			System.out.println("삭제완료");
+			allCarCount--;
 		}
 		
 	}
+
   
-  public void menuSession(AdminMenuSession menuSession, HttpServletRequest req) {/*메인바 작업입니다 삭제 ㄴㄴ*/
-		AdminMenuSession menu = (AdminMenuSession) req.getSession().getAttribute("menuSession");
-		menu.setMenu("car");
-		menu.setSubMenu(menuSession.getSubMenu());	
+	
+
+	public void calcAllCarCount() {
+		SearchCarDTO sSel = new SearchCarDTO("","", null, null);
+		allCarCount = ss.getMapper(AdminCarMapper.class).getCarCount(sSel);
+		System.out.println(allCarCount);
+		
 	}
 	
-/*
+
  	public void getCarlist(int pageNo, HttpServletRequest req) {
 		mapper = ss.getMapper(AdminCarMapper.class);
 		int count = co.getCarCountPerPage();
@@ -161,19 +159,21 @@ public class CarDAO {
 			System.out.println("null입니다");
 			search = new SearchCarDTO();
 			search.setCarnameInput("");
+			search.setCarbrandInput("");
 			search.setStart(new BigDecimal(start));
 			search.setEnd(new BigDecimal(end));
 			CarCount = allCarCount;
 			System.out.println("1-------" + allCarCount);
 		}else {
 			System.out.println("null아님");
+			System.out.println(search.toString());
 			search.setStart(new BigDecimal(start));
 			search.setEnd(new BigDecimal(end));
 			CarCount = ss.getMapper(AdminCarMapper.class).getCarCount(search);
 			
 		}
-		
-		List<CarDTO> Car = ss.getMapper(AdminCarMapper.class).getCarlist(search);
+		List<CarDTO> Car = ss.getMapper(AdminCarMapper.class).getCarlists(search);
+		System.out.println("@@@@@@@@@@@@@");
 		System.out.println(Car);
 		System.out.println("@@@@@@@@@@@@@");
 		System.out.println(count);
@@ -183,7 +183,7 @@ public class CarDAO {
 		System.out.println(pageCount);
 	
 		req.setAttribute("pageCount", pageCount);
-		req.setAttribute("Cars", Car);
+		req.setAttribute("cars", Car);
 		req.setAttribute("curPage", pageNo);
 		
 		System.out.println(Car);
@@ -191,14 +191,48 @@ public class CarDAO {
 		
 	}
 	
+ 	public void searchcar(SearchCarDTO c, HttpServletRequest req) {
+ 		
+
+		req.getSession().setAttribute("cars", c);
+		
+		System.out.println(req);
+	}
+
 
 	public void getCar(CarDTO c, HttpServletRequest req) {
 		CarDTO Car = mapper.getCar(c);
 		req.setAttribute("car1", Car);
+		
 
 	}
+
+	public void deletebrand(CarBrandDTO c, HttpServletRequest req) {
+		if (ss.getMapper(AdminCarMapper.class).deletebrand(c) == 1) {
+			System.out.println("삭제완료");
+			allCarCount--;
+		}
+		
+	}
+
+	public void regbrand(CarBrandDTO c, HttpServletRequest req) {
+		
+		AdminCarMapper mm = ss.getMapper(AdminCarMapper.class);
+		
+		if (mm.regbrand(c) == 1) {
+			System.out.println("등록완료");
+			
+		}
+		
+		
+	}
+
+	public void getAllCar(Model m) {
+		// TODO Auto-generated method stub
+		
+	}
 	
-	*/
+	
 
 
 }

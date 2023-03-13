@@ -31,8 +31,8 @@ pageEncoding="UTF-8"%>
               >
             </div>
             <div class="detail_option_content">
-              <h5>마킹</h5>
-              <span class="detail_option_txt"></span>
+              <h5>사이즈(마킹)</h5>
+              <span class="detail_option_txt">205/55R16(94W)</span>
             </div>
             <div class="detail_option_content">
               <h5>배송비</h5>
@@ -80,6 +80,18 @@ pageEncoding="UTF-8"%>
             </div>
           </div>
           <div class="detail_buy">
+            <input class="tg_id" type="hidden" value="1" />
+            <input class="tg_brand" type="hidden" value="넥센타이어" />
+            <input
+              class="tg_name"
+              type="hidden"
+              value="엔페라 프리머스 AS T1"
+            />
+            <input class="tg_img" type="hidden" value="example.jpg" />
+            <input class="tg_dcrate" type="hidden" value="35" />
+            <input class="ti_width" type="hidden" value="205" />
+            <input class="ti_ratio" type="hidden" value="55" />
+            <input class="ti_inch" type="hidden" value="16" />
             <button class="detail_cart">장바구니</button>
             <button class="detail_go_buy">구매예약</button>
           </div>
@@ -88,7 +100,9 @@ pageEncoding="UTF-8"%>
     </div>
     <div class="detail_nav">
       <ul class="detail_nav_ul">
-        <li class="detail_nav_li detail_nav_detail">상품정보</li>
+        <li class="detail_nav_li detail_nav_detail detail_nav_li_active">
+          상품정보
+        </li>
         <li class="detail_nav_li detail_nav_confirm">구매 전 확인사항</li>
         <li class="detail_nav_li detail_nav_guide">타이어 장착 안내</li>
         <li class="detail_nav_li detail_nav_info">
@@ -280,7 +294,5 @@ pageEncoding="UTF-8"%>
         <button>취소</button>
       </form>
     </dialog>
-    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
-    <script src="resources/js/main/product/product_detail.js"></script>
   </body>
 </html>

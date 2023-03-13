@@ -42,4 +42,10 @@
 		where ti_tg_id = #{tg_id}
 	</select>
 	
+	<select id="getProductGroupJson" resultType="com.tireshoppingmall.home.product.ProductGroupDTO">
+		select *
+        from tire_group
+        where tg_sedan like '%'||#{search}||'%' and tg_brand like '%'||#{searchBrand}||'%'
+	</select>
+
 </mapper>

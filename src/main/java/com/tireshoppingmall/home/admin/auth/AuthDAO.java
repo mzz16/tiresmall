@@ -8,9 +8,6 @@ import javax.servlet.http.HttpServletRequest;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import com.tireshoppingmall.home.admin.AdminMenuSession;
-
 @Service
 public class AuthDAO {
 	
@@ -56,7 +53,6 @@ public class AuthDAO {
 			paging.setStart(new BigDecimal(start));
 			paging.setEnd(new BigDecimal(end));
 			authCount = ss.getMapper(AdminAuthMapper.class).getAuthCount(paging);
-			System.out.println("ㅁㄴㅇㅁㄴ"+authCount);
 		}
 		
 		List<AuthDTO> manyAuth = ss.getMapper(AdminAuthMapper.class).getAuth(paging);
@@ -85,11 +81,6 @@ public class AuthDAO {
 
 	public void authPasing(AuthDTO aDTO, HttpServletRequest req) {
 		req.getSession().setAttribute("authDTO", aDTO);
-	}
-	
-	public void menuSession(AdminMenuSession menuSession, HttpServletRequest req) {
-		AdminMenuSession menu = (AdminMenuSession) req.getSession().getAttribute("menuSession");
-		menu.setMenu("auth");	
 	}
 
 }

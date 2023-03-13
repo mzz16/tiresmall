@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-pageEncoding="UTF-8"%>
+pageEncoding="UTF-8"%> <%@ taglib prefix="c"
+uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
   <head>
@@ -22,49 +23,58 @@ pageEncoding="UTF-8"%>
       </div>
       <div class="cart_content">
         <div class="cart_list">
-          <div class="cart_product">
-            <button class="cart_product_delete">
-              <i class="fa-solid fa-xmark"></i>
-            </button>
-            <div class="cart_product_left">
-              <div class="cart_product_img">
-                <img
-                  src="resources/web/main/product/example.jpg"
-                  style="width: 150px"
-                />
-              </div>
-              <div class="cart_product_info">
-                <h3 class="cart_product_brand">넥센타이어</h3>
-                <h1 class="cart_product_name">엔페라 슈프림</h1>
-                <div class="cart_size_box">
-                  <h2 class="cart_product_size">205/55 R16</h2>
-                  <h4 class="cart_product_mark">91V</h4>
-                </div>
-              </div>
-            </div>
-            <div class="cart_product_right">
-              <div class="cart_product_quantity">
-                <h4>수량</h4>
-                <div class="cart_quantity_box">
-                  <button class="cart_minus_button">
-                    <i class="fa-solid fa-minus"></i>
+          <c:choose>
+            <c:when test="${empty sessionScope.cartSession}">
+              <div>장바구니가 비었소</div>
+            </c:when>
+            <c:otherwise>
+              <c:forEach var="tire" items="${sessionScope.cartSession}">
+                <div class="cart_product">
+                  <button class="cart_product_delete">
+                    <i class="fa-solid fa-xmark"></i>
                   </button>
-                  <input
-                    type="text"
-                    class="cart_quantity_input"
-                    value="1"
-                    readonly
-                  />
-                  <button class="cart_plus_button">
-                    <i class="fa-solid fa-plus"></i>
-                  </button>
+                  <div class="cart_product_left">
+                    <div class="cart_product_img">
+                      <img
+                        src="resources/web/main/product/example.jpg"
+                        style="width: 150px"
+                      />
+                    </div>
+                    <div class="cart_product_info">
+                      <h3 class="cart_product_brand">${tire.tg_brand}</h3>
+                      <h1 class="cart_product_name">${tire.tg_name}</h1>
+                      <div class="cart_size_box">
+                        <h2 class="cart_product_size">205/55R16</h2>
+                        <h4 class="cart_product_mark">91V</h4>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="cart_product_right">
+                    <div class="cart_product_quantity">
+                      <h4>수량</h4>
+                      <div class="cart_quantity_box">
+                        <button class="cart_minus_button">
+                          <i class="fa-solid fa-minus"></i>
+                        </button>
+                        <input
+                          type="text"
+                          class="cart_quantity_input"
+                          value="${tire.ti_stock}"
+                          readonly
+                        />
+                        <button class="cart_plus_button">
+                          <i class="fa-solid fa-plus"></i>
+                        </button>
+                      </div>
+                    </div>
+                    <div class="cart_product_price">
+                      <span>${tire.ti_pricefac}원</span>
+                    </div>
+                  </div>
                 </div>
-              </div>
-              <div class="cart_product_price">
-                <span>121,000원</span>
-              </div>
-            </div>
-          </div>
+              </c:forEach>
+            </c:otherwise>
+          </c:choose>
         </div>
         <div class="cart_confirm">
           <div class="cart_nav">
