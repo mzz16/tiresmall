@@ -12,10 +12,13 @@
 }
 
 #auth_content{
-	/* margin-top:20px;  */
-    width: 100%;
+  	margin-left:10px;
+	margin-right:10px;
+    border-spacing:0px;
+    width: 99%;
     text-align: center;
     font-size: 20pt;
+     margin-bottom: 60px;
 }
 
 .auth_form{
@@ -90,16 +93,18 @@
     cursor: pointer;
     color: white;
     font-family: GmarketSansMedium;
+	user-select: none;	
 }
 
 
 .auth_content_title{
     font-size: 15pt;
     padding: 15px;
-    background-color: black;
+    background-color: #343a40;
     color: white;
     text-align: center;
 	border: 1px solid white;
+	user-select: none;	
 }
 .auth_no{
 	width: 5%;
@@ -131,6 +136,7 @@
 	text-align: center;
 	font-size: 15pt;	
 	border-bottom: 5px solid black;
+	height: 60px;
 }
 
 .auth_table_td{
@@ -139,24 +145,15 @@
 	padding-top: 3px;
 }
 
-
-#auth_Btn button{
-    background: #181C32;
-    margin-left: 20px;
-    border-radius: 5px;
-    border: 1px solid #000;
-    padding: 8px 10px;
-    font-size: 10pt;
-    cursor: pointer;
-    color: white;
-    font-family: GmarketSansMedium;
+#auth_Btn{
+	user-select: none;	
 }
 
 /* 모달 창  */
 
 #auth_modal {
   top: -20px;	
-  position: absolute;
+  position: fixed;
   display: none;
   justify-content: center;
   align-items: center;
@@ -285,6 +282,8 @@
   justify-content: center;
   align-items: center;
   height: 60px;
+  cursor: pointer; 
+  user-select: none;	
 }
 
 #auth_modal_btn button {
@@ -299,7 +298,9 @@
   cursor: pointer;
   color: white;
   font-family: GmarketSansMedium; 
+  background: #212529;
 }
+
 #auth_modal_cancel{
   display: flex;
   height: 20px;

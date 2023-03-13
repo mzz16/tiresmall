@@ -18,13 +18,11 @@ public class AdminTireController {
 	TireDAO tDAO;
 	
 	private boolean tireFirstReq;
-	private boolean tireBrandFirstReq;
 	private boolean tireDiscountRateFirstReq;
 	private boolean tireCharacteristicsFirstReq;
 
 	public AdminTireController() {
 		tireFirstReq=true;
-		tireBrandFirstReq=true;
 		tireDiscountRateFirstReq=true;
 		tireCharacteristicsFirstReq=true;
 	}
@@ -81,31 +79,68 @@ public class AdminTireController {
 	}
 	//admin.tire.reg.do
 	@RequestMapping(value = "/admin.tire.reg.do", method = RequestMethod.GET)
-	public String tireRegDo(HttpServletRequest req) {
-			
-			
+	public String tireRegDo(HttpServletRequest req,TireDTO tDTO) {
+		
+		tDAO.tireRegDo(tDTO,req);
+		
+		
+		TireDTO.TirePagsing(req);
+		tDAO.getAllTireGroup(1,req);
 			
 		req.setAttribute("subMenuPage", "tire/tire_subMenu.jsp");
-		req.setAttribute("contentPage", "tire/tire_reg.jsp");
+		req.setAttribute("contentPage", "tire/tire.jsp");
 		return "admin/master";
 	}
+	
+	
+	
+	
+	//admin.tire.delete.go
+	@RequestMapping(value = "/admin.tireGroup.delete.go", method = RequestMethod.GET)
+	public String tireGroupDeleteGo(HttpServletRequest req,TireDTO tg) {	
+		
+		tDAO.deleteTireGroup(req,tg);
+		TireDTO.TirePagsing(req);
+		tDAO.getAllTireGroup(1,req);
+			
+		req.setAttribute("subMenuPage", "tire/tire_subMenu.jsp");
+		req.setAttribute("contentPage", "tire/tire.jsp");
+		return "admin/master";
+	}
+	
+	
+	
+	
+	
 	
 	//admin.tire.brand.go
 	@RequestMapping(value = "/admin.tire.brand.go", method = RequestMethod.GET)
 	public String tireBrandGo(HttpServletRequest req) {
 		
 
-		if (tireBrandFirstReq) {
-			tDAO.calcAllTireCount();
-			tireBrandFirstReq = false;
-		}	
-		
-		
+		tDAO.getTireBrand(req);
 
 		req.setAttribute("subMenuPage", "tire/tire_subMenu.jsp");
 		req.setAttribute("contentPage", "tire/tire_brand.jsp");
 		return "admin/master";
 	}
+	//admin.tire.brand.delete.go
+	@RequestMapping(value = "/admin.tire.brand.delete.go", method = RequestMethod.GET)
+	public String tireBrandDeleteGo(HttpServletRequest req,TireDTO tb) {
+		
+
+		tDAO.deleteTireBrand(req,tb);
+		tDAO.getTireBrand(req);
+		req.setAttribute("subMenuPage", "tire/tire_subMenu.jsp");
+		req.setAttribute("contentPage", "tire/tire_brand.jsp");
+		return "admin/master";
+	}
+	
+	
+	
+	
+	
+	
 	
 	//admin.tire.discount.go
 	@RequestMapping(value = "/admin.tire.discount.go", method = RequestMethod.GET)

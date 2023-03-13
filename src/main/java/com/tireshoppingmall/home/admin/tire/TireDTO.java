@@ -6,6 +6,13 @@ import javax.servlet.http.HttpServletRequest;
 
 public class TireDTO {
 	
+	//타이어 브랜드
+	private String tb_name;		//브랜드 이름
+	private int tb_ea;			// 1은 출력 0은 미출력
+	private int tb_num;			// 몇개가 등록되어있는지
+	private int tb_order;		// 순서 출력
+	
+	
 	//타이어 그룹
 	private int tg_id;
 	private String tg_brand;
@@ -39,7 +46,15 @@ public class TireDTO {
 		// TODO Auto-generated constructor stub
 	}
 
-	
+	//브랜드 페이지
+	public TireDTO(String tb_name, int tb_ea, int tb_num, int tb_order) {
+		super();
+		this.tb_name = tb_name;
+		this.tb_ea = tb_ea;
+		this.tb_num = tb_num;
+		this.tb_order = tb_order;
+	}
+
 	//전체
 	public TireDTO(int tg_id, String tg_brand, String tg_name, String tg_img, String tg_text, int tg_num, int tg_dcrate,
 			int tg_print, int tg_sedan, int tg_suv, int ti_id, int ti_tg_id, int ti_hg, String ti_speed,
@@ -71,6 +86,8 @@ public class TireDTO {
 		this.end = end;
 	}
 	
+
+
 	//검색 페이징 작업 객체호출
 	public TireDTO(String tg_brand, String tg_name, BigDecimal start, BigDecimal end) {
 		super();
@@ -78,6 +95,38 @@ public class TireDTO {
 		this.tg_name = tg_name;
 		this.start = start;
 		this.end = end;
+	}
+
+	public int getTb_num() {
+		return tb_num;
+	}
+
+	public void setTb_num(int tb_num) {
+		this.tb_num = tb_num;
+	}
+
+	public String getTb_name() {
+		return tb_name;
+	}
+
+	public void setTb_name(String tb_name) {
+		this.tb_name = tb_name;
+	}
+
+	public int getTb_ea() {
+		return tb_ea;
+	}
+
+	public void setTb_ea(int tb_ea) {
+		this.tb_ea = tb_ea;
+	}
+
+	public int getTb_order() {
+		return tb_order;
+	}
+
+	public void setTb_order(int tb_order) {
+		this.tb_order = tb_order;
 	}
 
 	public String getTg_brand() {
