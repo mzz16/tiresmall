@@ -16,6 +16,11 @@
 <body>
 
 
+	<input id="whatMenu" value="car" type="hidden">
+	<input id="sm" value="1" type="hidden"> 
+	<div class="container sub">
+
+
 
 		<div class="car-findselect">
 			<div class="car-findarea">

@@ -1,3 +1,7 @@
+.ui-widget-header{
+	background-color: #Ab1e21;
+}
+
 #product_wrap{
 	width: 1200px;
 	margin: auto;
@@ -101,7 +105,7 @@
 .product_item:hover .product_item_img{
 	border: 1px solid #AB1E21;
 }
-.product_item:hover .product_item_title{
+.product_item:hover .product_item_title p{
 	text-decoration: underline;
 }
 .product_item:hover .product_item_detail{

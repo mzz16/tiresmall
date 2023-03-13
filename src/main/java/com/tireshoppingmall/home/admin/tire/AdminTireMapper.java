@@ -4,8 +4,20 @@ import java.util.List;
 
 public interface AdminTireMapper {
 
-	int getTireCount(TireDTO startEnd);
+	int getTireCountByMz(int i);
+	
+	List<TireDTO> getAllTireGroup(TireDTO paging);
 
-	List<TireDTO> getAllTireGroup();
+	int getTireCount(TireDTO paging);
+
+	List<TireDTO> getTireBrand();
+
+	int getTireBrandCount(String tb_name);
+
+	int deleteTireBrand(TireDTO tb);
+
+	int deleteTireGroup(TireDTO tg);
+
+	TireDTO getTireGroupforDetail(int tirePK);
 
 }

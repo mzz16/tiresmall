@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.tireshoppingmall.home.admin.AdminMenuSession;
 import com.tireshoppingmall.home.admin.board.SearchDTO;
 
 @Controller
@@ -29,7 +28,7 @@ public class AdminStoreController {
 	
 	//admin.store.go
 	@RequestMapping(value = "/admin.store.go", method = RequestMethod.GET)
-	public String companyGo(SearchBranchDTO b,Model m,AdminMenuSession menuSession, HttpServletRequest req) {
+	public String companyGo(SearchBranchDTO b,Model m, HttpServletRequest req) {
 		if (firstReq) {
 			bDAO.calcAllBranchCount();
 			firstReq = false;
@@ -39,7 +38,7 @@ public class AdminStoreController {
 		bDAO.getBranchlist(1, req);
 		/* bDAO.getAllBranch(m); */
 		
-		bDAO.menuSession(menuSession, req);
+	
 		req.setAttribute("contentPage", "store/branch.jsp");
 		return "admin/master";
 	}

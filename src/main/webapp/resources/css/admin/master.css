@@ -13,6 +13,8 @@ body {
 	margin: 0;
 	padding: 0;
 	font-family: GmarketSansMedium;
+	
+	
 }
 
 #mainMenuba {
@@ -57,6 +59,7 @@ body {
 	font-size: 13pt;
 	font-weight: 600;
 	color: #c8e3ff;
+	cursor: pointer;
 }
 
 #menuTitle1:hover, #menuTitle2:hover, #menuTitle3:hover, #menuTitle4:hover,
@@ -79,6 +82,8 @@ body {
 	position: fixed;
 	top: 0px;
 	width: 100%;
+	user-select: none;
+	z-index: 1;
 }
 .subMenu {
 	display: flex;
@@ -88,11 +93,15 @@ body {
 	width: 100%;
 	height: 50px;
 	background-color: white;
+	cursor: pointer;
+	
 }
+
 
 .subMenuContent1, .subMenuContent2, .subMenuContent3, .subMenuContent4 {
 	padding: 10px;
 	margin-right: 80px;
+	cursor: pointer;
 }
 
 .subMenuContent1:hover, .subMenuContent2:hover, .subMenuContent3:hover,

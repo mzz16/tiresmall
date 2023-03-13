@@ -82,6 +82,8 @@
     cursor: pointer;
     color: white;
     font-family: GmarketSansMedium;
+    cursor: pointer; 
+  user-select: none;	
 }
 
 #admin_tire_reg{
@@ -100,6 +102,7 @@
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
   cursor: pointer;
   transition: all 0.3s ease-in-out;
+  user-select: none;	
 }
 
 #admin_tire_reg:hover {
@@ -109,9 +112,15 @@
 }
 
 #admin_tire_content{
-    width: 100%;
+	margin-left:10px;
+	margin-right:10px;
+    border-spacing:0px;
+    width: 99%;
     text-align: center;
     font-size: 20pt;
+    margin-bottom: 60px;
+    margin-top: 5px;
+    
 }
 
 
@@ -119,10 +128,11 @@
 .admin_tire_content_title{
     font-size: 15pt;
     padding: 15px;
-    background-color: black;
+    background-color: #343a40;
     color: white;
     text-align: center;
-	border: 1px solid white;
+	border: 1px solid #343a40;
+	user-select: none;	
 }
 
 .admin_tire_no{
@@ -152,23 +162,82 @@
 
 
 
-
-
-
-
-
-
 #admin_tires_content{
 	text-align: center;
 	font-size: 15pt;	
-	border-bottom: 5px solid black;
+	border: 1px solid #343a40;
+	height: 60px;
 }
 
-#admin_tire_table_td{
-	border: 1px solid black;
+.admin_tire_table_td{
 	padding-bottom: 3px;
-	padding-top: 3px;	
+	padding-top: 3px;
+	border: 1px solid #343a40;	
 }
+
+.admin_printBTN{
+	border-radius:7px;
+	padding:6px;
+	color: #0d6efd;
+    background-color: #fff;
+    border-color: #0d6efd;
+    font-size: 12pt;
+    font-weight: 900;
+    cursor: pointer; 
+    user-select: none;
+    font-family: GmarketSansMedium;	
+}
+.admin_printBTN:hover{
+	color: #fff;
+    background-color: #0d6efd;
+    border-color: #0d6efd;
+}
+
+    
+
+.admin_notPrintBTN{
+	margin-left:5px;
+	margin-right:5px;
+	border-radius:7px;
+	font-weight: 900;
+	font-size: 12pt;
+	padding:6px;
+	color: #212529;
+    background-color: #fff;
+    border-color: #212529;
+    cursor: pointer; 
+    user-select: none;
+    font-family: GmarketSansMedium;	
+}
+.admin_notPrintBTN:hover{
+	color: #fff;
+    background-color: #212529;
+    border-color: #212529;
+}
+
+.admin_deleteBTN{
+	margin-left:5px;
+	margin-right:5px;
+	border-radius:7px;
+	font-weight: 900;
+	font-size: 12pt;
+	padding:6px;
+	color: #dc3545;
+    background-color: #fff;
+    border-color: #dc3545;
+      cursor: pointer; 
+    user-select: none;	
+    font-family: GmarketSansMedium;
+}
+
+.admin_deleteBTN:hover{
+	color: #fff;
+    background-color: #dc3545;
+    border-color: #dc3545;
+}
+
+
+
 
 
 
