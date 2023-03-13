@@ -1,5 +1,7 @@
 package com.tireshoppingmall.home.order;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,15 +17,18 @@ public class CartController {
 	CartDAO cDAO;
 	
 	@RequestMapping(value = "/cart", method = RequestMethod.GET)
-	public String goCart(HttpServletRequest req) {
+	public String goCart(HttpServletRequest req, List<CartDTO> cList) {
+		if (req.getSession().getAttribute("cartSession") == null) {
+			req.getSession().setAttribute("cartSession", cList);
+		}
 		req.setAttribute("content", "main/product/cart.jsp");
 		return "index";
 	}
 	
 	@ResponseBody
 	@RequestMapping(value = "/cart.add", method = RequestMethod.POST)
-	public int addCart(CartDTO cDTO, HttpServletRequest req) {
-		return cDAO.addCart(cDTO, req);
+	public int addCart(List<CartDTO> cList, CartDTO cDTO, HttpServletRequest req) {
+		return cDAO.addCart(cList, cDTO, req);
 	}
 	
 	@ResponseBody

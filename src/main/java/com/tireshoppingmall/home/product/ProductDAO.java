@@ -33,14 +33,14 @@ public class ProductDAO {
         ProductSelector search = (ProductSelector) request.getSession().getAttribute("search");
         int productGroupCount = 0;
 
-//        if (search == null) {
-//            search = new ProductSelector("", "", new BigDecimal(start), new BigDecimal(end));
-//            productGroupCount = allProductGroupCount;
-//        } else {
+        if (search == null) {
+            search = new ProductSelector("", "", new BigDecimal(start), new BigDecimal(end));
+            productGroupCount = allProductGroupCount;
+        } else {
             search.setStart(new BigDecimal(start));
             search.setEnd(new BigDecimal(end));
             productGroupCount = ss.getMapper(ProductMapper.class).getProductGroupCount(search);
-//        }
+        }
 
         List<ProductGroupDTO> pGroups = ss.getMapper(ProductMapper.class).getProductGroup(search);
         for (ProductGroupDTO pGroup : pGroups) {
@@ -85,11 +85,19 @@ public class ProductDAO {
 		request.getSession().setAttribute("search", search);
 	}
 
-	public ProductGroups getProductGroupJson(int p, HttpServletRequest request) {
-        
+	public ProductGroups getProductGroupJson(int pageNo, HttpServletRequest request) {
+		int count = pgo.getProductGroupCountPerPage();
+        int start = (pageNo - 1) * count + 1;
+        int end = start + (count - 1);
+		
         ProductSelector search = (ProductSelector) request.getSession().getAttribute("search");
+        int productGroupCount = 0;
         
-		List<ProductGroupDTO> pGroups = ss.getMapper(ProductMapper.class).getProductGroupJson(search);
+        search.setStart(new BigDecimal(start));
+        search.setEnd(new BigDecimal(end));
+        productGroupCount = ss.getMapper(ProductMapper.class).getProductGroupCount(search);
+        
+		List<ProductGroupDTO> pGroups = ss.getMapper(ProductMapper.class).getProductGroup(search);
 		
         for (ProductGroupDTO pGroup : pGroups) {
     		if(ss.getMapper(ProductMapper.class).getMinInchOfGroup(pGroup)!=null) {
@@ -106,8 +114,8 @@ public class ProductDAO {
     		}
         }
         
-        
-		return new ProductGroups(pGroups, 0, 0, p);
+        int pageCount = (int) Math.ceil(productGroupCount / (double) count);
+		return new ProductGroups(pGroups, pageCount, productGroupCount, pageNo);
 	}
 		
 
