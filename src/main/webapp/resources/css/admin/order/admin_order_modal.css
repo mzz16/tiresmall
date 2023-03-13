@@ -12,7 +12,7 @@
 .left_td{
 	background-color: black;
 	color: white;
-	min-width: 80px;
+	width: 15%;
 }
 
 .left_td_long{
@@ -29,11 +29,34 @@
 	color: white;
 }
 
+.modal_content_td{
+	width: 35%;
+}
+
 .modal_table td {
 	text-align: center;
 	border: 1px solid black;
 	height: 45px;
-	width: 100px;
+}
+
+.modal_table tr {
+	width: 100%;
+}
+
+.tire_th:nth-child(1) {
+	width: 10%
+}
+.tire_th:nth-child(2) {
+	width: 20%
+}
+.tire_th:nth-child(3) {
+	width: 40%
+}
+.tire_th:nth-child(4) {
+	width: 20%
+}
+.tire_th:nth-child(5) {
+	width: 10%
 }
 
 .order_header {

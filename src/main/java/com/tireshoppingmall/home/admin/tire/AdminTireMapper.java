@@ -10,4 +10,6 @@ public interface AdminTireMapper {
 
 	int getTireCount(TireDTO paging);
 
+	TireDTO getTireGroupforDetail(int tirePK);
+
 }

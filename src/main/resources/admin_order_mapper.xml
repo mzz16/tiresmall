@@ -20,8 +20,10 @@
 	<select id="getOrder" resultType="com.tireshoppingmall.home.admin.order.OrderDTO">
 		select * from(
 			select rownum as rn, o_no, o_sortation, o_ordernumber,
-			o_orderdate, o_name, o_phone, o_ordername, o_price,
-			o_paymethod, o_deliverymethod, o_step from(
+			o_orderdate, o_name,O_PRODUCT, o_phone, o_ordername, o_price,
+			o_paymethod, o_deliverymethod, o_step,O_STORESHOP,O_TIREINSTALLDATE,O_EMAIL,
+			O_CARYEAR,O_CARBRAND,O_CARNAME,O_CARNUMBER,O_REQUEST
+			 from(
 				select * from product_order
 				 where
 		       		 o_name like '%'||#{nameInput}||'%'
