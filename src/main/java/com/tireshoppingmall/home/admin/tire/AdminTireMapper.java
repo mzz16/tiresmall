@@ -8,4 +8,6 @@ public interface AdminTireMapper {
 
 	List<TireDTO> getAllTireGroup();
 
+	TireDTO getTireGroupforDetail(int tirePK);
+
 }

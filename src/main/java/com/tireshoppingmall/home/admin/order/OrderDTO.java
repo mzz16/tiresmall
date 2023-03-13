@@ -1,7 +1,10 @@
 package com.tireshoppingmall.home.admin.order;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+
+import com.tireshoppingmall.home.admin.tire.TireDTO;
 
 public class OrderDTO {
 
@@ -11,6 +14,13 @@ public class OrderDTO {
 	private Date o_orderdate;
 	private String o_ordername;
 	private String o_product;
+	private List<TireDTO> o_products;
+	public List<TireDTO> getO_products() {
+		return o_products;
+	}
+	public void setO_products(ArrayList<TireDTO> order_tires) {
+		this.o_products = order_tires;
+	}
 	private String o_price;
 	private String o_paymethod;
 	private String o_deliverymethod;
@@ -151,11 +161,11 @@ public class OrderDTO {
 	public String toString() {
 		return "OrderDTO [o_no=" + o_no + ", o_sortation=" + o_sortation + ", o_ordernumber=" + o_ordernumber
 				+ ", o_orderdate=" + o_orderdate + ", o_ordername=" + o_ordername + ", o_product=" + o_product
-				+ ", o_price=" + o_price + ", o_paymethod=" + o_paymethod + ", o_deliverymethod=" + o_deliverymethod
-				+ ", o_step=" + o_step + ", o_storeshop=" + o_storeshop + ", o_tireinstalldate=" + o_tireinstalldate
-				+ ", o_name=" + o_name + ", o_phone=" + o_phone + ", o_email=" + o_email + ", o_caryear=" + o_caryear
-				+ ", o_carbrand=" + o_carbrand + ", o_carname=" + o_carname + ", o_carnumber=" + o_carnumber
-				+ ", o_request=" + o_request + "]";
+				+ ", o_products=" + o_products + ", o_price=" + o_price + ", o_paymethod=" + o_paymethod
+				+ ", o_deliverymethod=" + o_deliverymethod + ", o_step=" + o_step + ", o_storeshop=" + o_storeshop
+				+ ", o_tireinstalldate=" + o_tireinstalldate + ", o_name=" + o_name + ", o_phone=" + o_phone
+				+ ", o_email=" + o_email + ", o_caryear=" + o_caryear + ", o_carbrand=" + o_carbrand + ", o_carname="
+				+ o_carname + ", o_carnumber=" + o_carnumber + ", o_request=" + o_request + "]";
 	}
 	
 	

@@ -260,6 +260,17 @@ public class TireDTO {
 	public static void TirePagsing(HttpServletRequest req) {
 		req.getSession().setAttribute("authDTO", null);
 	}
+
+
+	@Override
+	public String toString() {
+		return "TireDTO [tg_id=" + tg_id + ", tg_brand=" + tg_brand + ", tg_name=" + tg_name + ", tg_img=" + tg_img
+				+ ", tg_text=" + tg_text + ", tg_dcrate=" + tg_dcrate + ", tg_print=" + tg_print + ", tg_sedan="
+				+ tg_sedan + ", tg_suv=" + tg_suv + ", ti_id=" + ti_id + ", ti_tg_id=" + ti_tg_id + ", ti_hg=" + ti_hg
+				+ ", ti_speed=" + ti_speed + ", ti_width=" + ti_width + ", ti_ratio=" + ti_ratio + ", ti_inch="
+				+ ti_inch + ", ti_stock=" + ti_stock + ", ti_pricegp=" + ti_pricegp + ", ti_pricefac=" + ti_pricefac
+				+ ", ti_vat=" + ti_vat + ", start=" + start + ", end=" + end + "]";
+	}
 	
 	
 	

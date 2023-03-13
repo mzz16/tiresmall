@@ -26,6 +26,26 @@ $('.order_modal_go').click(function() {
 	$("#update_modal").attr("action", "")
 	$("body").css("overflow", 'hidden');
 
+	
+	let inputs = $(this).find('input');
+	$(inputs).each(function (i, input) {
+		let val = $(input).val();
+		console.log(val);
+	});
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 })
 
 $("#cancleModal").click(function() {
