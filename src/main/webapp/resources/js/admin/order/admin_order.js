@@ -9,6 +9,7 @@ $("#datepicker" ).datepicker({
 
 
 $('.order_modal_go').click(function() {
+	$("#product-table").empty();
 	const modal_content_td = document.querySelectorAll(".modal_content_td");
 	const tire_content_td = $(this).find('.tire_content_td');
 	$('#order_modal').show();
@@ -29,7 +30,6 @@ $('.order_modal_go').click(function() {
 	});
 	
 	$.each(arr, function(i,str) {
-		console.log(i + '번째 ---> ' +  str);
 	});
 	
 	modal_content_td[0].innerText = arr[0];
@@ -49,6 +49,19 @@ $('.order_modal_go').click(function() {
 	modal_content_td[15].innerText = arr[5];
 	
 	
+	let tire_tr = $(this).find('.tire_content_tr');
+	console.log(tire_tr);
+	
+	let content = `	<tr>
+						<th class="tire_th">종류</th>
+						<th class="tire_th">브랜드명</th>
+						<th class="tire_th">제품명</th>
+						<th class="tire_th">스펙</th>
+						<th class="tire_th">주문수량</th>
+					</tr>`
+	
+		$("#product-table").append(content);
+	$("#product-table").append(tire_tr);
 	
 	
 $('.modal-label').each(function(i, rInput) {

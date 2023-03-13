@@ -68,21 +68,9 @@
 							<tr>
 								<td class="left_td_tire">주문상품 1종</td>
 								<td colspan="3" class="modal_content_td tire">
-									<table style="width: 100%">
-										<tr>
-											<th class="tire_th">종류</th>
-											<th class="tire_th">브랜드명</th>
-											<th class="tire_th">제품명</th>
-											<th class="tire_th">스펙</th>
-											<th class="tire_th">주문수량</th>
-										</tr>
-										<tr>
-											<td class="tire_content_td"></td>
-											<td class="tire_content_td"></td>
-											<td class="tire_content_td"></td>
-											<td class="tire_content_td"></td>
-											<td class="tire_content_td"></td>
-										</tr>
+									<table style="width: 100%" id="product-table">
+									
+									
 									</table>
 
 								</td>
@@ -213,15 +201,13 @@
 									<input name="o_request" value="${o.o_request }" id="orederReq_M">
 									<table>
 									<c:forEach var="ordered_tire" items="${o.o_products }">
-										<tr>
-											<td>${ordered_tire.ti_id }</td>
-											<td>${ordered_tire.tg_name }</td>
-											<td>${ordered_tire.ti_hg }</td>
-											<td>${ordered_tire.ti_speed }</td>
-											<td>${ordered_tire.ti_width }</td>
-											<td>${ordered_tire.ti_ratio }</td>
-											<td>${ordered_tire.ti_inch }</td>
-										</tr>
+									<tr class="tire_content_tr">
+											<td class="tire_content_td">타이어<input type="hidden" value="${ordered_tire.ti_id }"> </td>
+											<td class="tire_content_td">${ordered_tire.tg_name }</td>
+											<td class="tire_content_td">${ordered_tire.ti_hg }</td>
+											<td class="tire_content_td">${ordered_tire.ti_speed } / ${ordered_tire.ti_width } / ${ordered_tire.ti_ratio } </td>
+											<td class="tire_content_td">${ordered_tire.ti_inch }</td>
+									</tr>
 									</c:forEach>
 									</table>
 								</td>

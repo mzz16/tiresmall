@@ -61,12 +61,11 @@ public class OrderDAO {
 		}
 
 		List<OrderDTO> orders = ss.getMapper(AdminOrderMapper.class).getOrder(orderSearch);
-		ArrayList<TireDTO> order_tires = new ArrayList<TireDTO>();
 		for (OrderDTO order : orders) {
+			ArrayList<TireDTO> order_tires = new ArrayList<TireDTO>();
 //			order.getO_product(); 4/2, 6/2
 			String splitProduct[] = order.getO_product().split(","); // 1/2,2/2
 			for (String product : splitProduct) {
-				System.out.println(product);
 				int tirePK = Integer.parseInt(product.charAt(0) + ""); // 4 , 6
 				System.out.println(ss.getMapper(AdminTireMapper.class).getTireGroupforDetail(tirePK));
 				order_tires.add(ss.getMapper(AdminTireMapper.class).getTireGroupforDetail(tirePK));
