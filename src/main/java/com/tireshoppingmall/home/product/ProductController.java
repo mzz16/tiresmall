@@ -37,8 +37,11 @@ public class ProductController {
 			pDAO.calcAllMsgCount();
 			firstReq = false;
 		}
-		
-		pDAO.searchProductGroup(b, request);
+		if(b=="") {
+			pDAO.clearSearch(request);
+		} else {
+			pDAO.searchProductGroup(b, request);
+		}
 		pDAO.getProductGroup(p, request);
 		request.setAttribute("content", "main/product/product.jsp");
 		return "index";
@@ -58,6 +61,13 @@ public class ProductController {
 		return pDAO.getProductGroupJson(p, request);
 	}
 	
+	@RequestMapping(value = "/product.brand.price", method = RequestMethod.GET)
+	public String goProductPrice(HttpServletRequest request, @RequestParam String b, @RequestParam int p, @RequestParam String t) {
+		pDAO.searchProductGroup(b, t, request);
+		pDAO.getProductGroup(p, request);
+		request.setAttribute("content", "main/product/product.jsp");
+		return "index";
+	}
 	
 	
 }
