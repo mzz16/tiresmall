@@ -8,6 +8,7 @@
 <link rel="stylesheet" href="resources/css/main/auth/auth.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script type="text/javascript" src="https://developers.kakao.com/sdk/js/kakao.min.js" charset="utf-8"></script>
+<script type="text/javascript" src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.2.js" charset="utf-8"></script>
 <script type="text/javascript" src="resources/js/main/auth/login_social.js"></script>
 </head>
 <body>
@@ -35,7 +36,7 @@
 				<button type="button" onclick="kakaoLogin()" ><img alt="" src="resources/img/auth/kakao_login_medium_wide.png"></button>
 			</div>
 			<div id="login_btn_naver">
-				<a><img src="resources/img/auth/naver_login_btn.png"> </a>
+				<a href="${url }"><img src="https://developers.naver.com/doc/review_201802/CK_bEFnWMeEBjXpQ5o8N_20180202_7aot50.png"> </a>
 			</div>
 		</div>
 	</div>
