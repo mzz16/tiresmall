@@ -227,7 +227,6 @@ public class CarDAO {
 		
 	}
 
-<<<<<<< HEAD
 	public void getCarbrandselectlist(Model m) {
 		
 		m.addAttribute("carbrand", ss.getMapper(AdminCarMapper.class).getCarbrandselectlist());
@@ -248,23 +247,24 @@ public class CarDAO {
 		System.out.println(m);
 		System.out.println("@@@@@@@@@@");
 
-	public void getAllCar(Model m) {
+	
+	
+	
+
+}
+	
+
+//	public void menuSession(AdminMenuSession menuSession, HttpServletRequest req) {
+	//	AdminMenuSession menu = (AdminMenuSession) req.getSession().getAttribute("menuSession");
+	//	menu.setMenu("store");
+
+
+	
+public void getAllCar(Model m) {
 		
 		
 	}
 	
-	
-
-	
-	public void menuSession(AdminMenuSession menuSession, HttpServletRequest req) {
-		AdminMenuSession menu = (AdminMenuSession) req.getSession().getAttribute("menuSession");
-		menu.setMenu("store");
-
-
-
-	
-
-}
 	
 }
 

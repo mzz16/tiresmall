@@ -63,8 +63,17 @@ function deletecar(carrr) {
 
 }
 
-function updatecar(id,name,year1,year2,option,brand,ft,bt) {
+function updatecar(id,name,year1,year2,option,brand,ft,bt,print,fta,bta) {
 
+	
+
+	  // c_bta_u나 c_fta_u에 값이 들어있는 경우
+	  if (fta || bta) {
+	    // ftbttmstyle3outdiv을 보이도록 설정
+	    const ftbttmstyle3outdiv = document.querySelector('.ftbttmstyle3outdiv');
+	    ftbttmstyle3outdiv.style.display = 'block';
+	  }
+	
 	
 	 $(document).ready(function( $ ){     
 		    $(".updatecarbutton").on("click", function(event) {  //팝업오픈 버튼 누르면
@@ -88,11 +97,13 @@ function updatecar(id,name,year1,year2,option,brand,ft,bt) {
 	 $('#c_name_u').val(name);
 	 $('#c_year1_u').val(year1);
 	 $('#c_year2_u').val(year2);
+	 $('#c_print_u').val(print);
 	 $('#c_option_u').val(option);
 	 $('#c_brand_u').val(brand);
 	 $('#c_ft_u').val(ft);
 	 $('#c_bt_u').val(bt);
-	 
+	 $('#c_fta_u').val(fta);
+	 $('#c_bta_u').val(bta);
 	
 
 }

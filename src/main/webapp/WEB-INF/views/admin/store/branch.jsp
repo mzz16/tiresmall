@@ -22,6 +22,11 @@
 
 <script src="resources/js/admin/store/admin_store.js"></script>
 
+<script type="text/javascript">
+
+
+</script>
+
 </head>
 <body>
 	<input id="whatMenu" value="store" type="hidden">

@@ -1,7 +1,7 @@
 package com.tireshoppingmall.home.admin.car;
 
 import javax.servlet.http.HttpServletRequest;
-
+// import com.tireshoppingmall.home.admin.AdminMenuSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -57,10 +57,10 @@ public class AdminCarController {
 
 	
 
-	public String carBrandGo(CarBrandDTO c,AdminMenuSession menuSession,HttpServletRequest req,Model m) {
+	public String carBrandGo(CarBrandDTO c,HttpServletRequest req,Model m) {
 
 		
-
+		//AdminMenuSession menuSession
 
 		cDAO.getallCarBrands(m);
 		cDAO.getallBrandCount(c,m);
@@ -74,7 +74,7 @@ public class AdminCarController {
 	public String carRegdo(Model m,MultipartFile file,CarDTO c, HttpServletRequest req) {
 		
 		cDAO.regCar(file,c, req);
-
+		cDAO.getCarlist(1, req);
 		cDAO.getCarbrandselectlist(m);
 		req.setAttribute("subMenuPage", "car/car_subMenu.jsp");
 		req.setAttribute("contentPage", "car/car.jsp");
@@ -85,7 +85,7 @@ public class AdminCarController {
 	public String carupdatedo(Model m,MultipartFile file,CarDTO c, HttpServletRequest req) {
 		
 		cDAO.updateCar(file,c, req);
-
+		cDAO.getCarlist(1, req);
 		cDAO.getCarbrandselectlist(m);
 		req.setAttribute("subMenuPage", "car/car_subMenu.jsp");
 		req.setAttribute("contentPage", "car/car.jsp");
@@ -142,7 +142,8 @@ public class AdminCarController {
 	public String brandregdo(Model m,CarBrandDTO c, HttpServletRequest req) {
 		
 		cDAO.regbrand(c, req);
-		cDAO.getCarbrandselectlist(m);
+		cDAO.getallCarBrands(m);
+		cDAO.getallBrandCount(c,m);
 		req.setAttribute("subMenuPage", "car/car_subMenu.jsp");
 		req.setAttribute("contentPage", "car/car_brand.jsp");
 		return "admin/master";

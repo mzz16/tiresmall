@@ -12,6 +12,41 @@
 	href="resources/css/admin/car/admin_car.css">
 <script src="resources/js/admin/car/admin_car.js"></script>
 
+<script type="text/javascript">
+function addSize() {
+  const ftbttmstyle2outdiv = document.querySelector('.ftbttmstyle2outdiv');
+  ftbttmstyle2outdiv.style.display = 'block';
+}
+
+function deleteSize2() {
+	  const ftbttmstyle2outdiv = event.target.closest('.ftbttmstyle2outdiv');
+
+	  if (ftbttmstyle2outdiv) {
+	    ftbttmstyle2outdiv.querySelector('.c_ftinput').value = '';
+	    ftbttmstyle2outdiv.querySelector('.c_btinput').value = '';
+
+	    ftbttmstyle2outdiv.style.display = 'none';
+	  }
+	}
+
+
+function addSize2() {
+	  const ftbttmstyle3outdiv = document.querySelector('.ftbttmstyle3outdiv');
+	  ftbttmstyle3outdiv.style.display = 'block';
+	}
+
+	function deleteSize() {
+	  
+	  const ftbttmstyle3outdiv = event.target.closest('.ftbttmstyle3outdiv');
+
+	  ftbttmstyle3outdiv.querySelector('.c_ftainput2').value = '';
+	  ftbttmstyle3outdiv.querySelector('.c_btainput2').value = '';
+
+	  ftbttmstyle3outdiv.style.display = 'none';
+	}
+
+</script>
+
 </head>
 <body>
 
@@ -95,6 +130,7 @@
 
 
 	<c:forEach var="c" items="${cars }" varStatus="status">
+	<c:if test="${c.c_print == '출력'}">
 		<div class="cardatalist_div"
 			style="border: 1px solid gray; float: left;">
 			<div class="cardatalist_div1" style="float: left;">${status.count } </div>
@@ -103,17 +139,18 @@
 			<div class="cardatalist_div4" style="float: left;">${c.c_name }</div>
 
 			<div class="cardatalist_div5" style="float: left;">${c.c_option }  </div>
-			<div class="cardatalist_div6" style="float: left;"> 앞 :${c.c_ft } 뒤 :${c.c_bt } </div>
+			<div class="cardatalist_div6" style="float: left;"> 앞 :${c.c_ft } 뒤 :${c.c_bt }  <c:if test="${not empty c.c_fta}">/ 앞:${c.c_fta }</c:if>  <c:if test="${not empty c.c_bta}">/ 뒤 :${c.c_bta } </c:if></div>
 			<div class="cardatalist_div7" style="float: left;"> <button class="updatecarbutton"
 					onclick="updatecar('${c.c_id}','${c.c_name }',
 					'${c.c_year1 }','${c.c_year2 } ',
 					'${c.c_option }','${c.c_brand }',
-					'${c.c_ft }','${c.c_bt }')">수정</button>
+					'${c.c_ft }','${c.c_bt }','${c.c_print}','${c.c_fta }','${c.c_bta }')">수정</button>
 				<button type="button" class="updatecarbutton"
 					id="updatecar('${c.c_id}')" onclick="deletecar('${c.c_id}')">삭제</button> </div>
 
 				
 			</div>
+			</c:if>
 	</c:forEach>
 
 	<div id="paging-box" class="car-paging-box">
@@ -186,7 +223,8 @@
 					<td style="background-color: #3399ff">타이어사이즈</td>
 					<td>
 					
-			
+					<button  type="button" onclick="addSize()">사이즈 추가</button>
+					<br>
 					<div class = "ftbttmstyle">
 					<div class = "ftstyle" style=" height: 30px; width:200px;  border: 1px solid white;">앞타이어</div>
 					<div class = "btstyle" style="height: 30px; width:200px;  border: 1px solid white;">뒤타이어</div>
@@ -197,8 +235,28 @@
 					<div style="display: block;">
 					<div class = "ftinputstyle" style="float: left;" ><input style="height: 30px; width:193px;" name="c_ft" id="c_ft" class="c_ftinput"></div>
 					<div class = "btinputstyle" style= "float: left;"><input style="height: 30px; width:193px;" name="c_bt" id="c_bt" class="c_btinput" ></div>
-					<div class = "tminputstyle" style="float: left;"><button class="c_tminput">삭제</button></div>
+					<div class = "tminputstyle" style="float: left;">기본 타이어입니다.</div>
 					</div>
+					<br>
+					<br>
+					<br>
+					<br>
+					<div class = "ftbttmstyle2outdiv">
+						<div class = "ftbttmstyle2">
+					<div class = "ftstyle" style=" height: 30px; width:200px; position:absolute; top:460px;  border: 1px solid white;">앞타이어</div>
+					<div class = "btstyle" style="height: 30px; width:200px;  position:absolute;  top:460px; left: 348px;border: 1px solid white;">뒤타이어</div>
+					<div class = "tmstyle"  style=" height: 30px; width:200px;  position:absolute; top:460px;  left: 550px; border: 1px solid white;">관리</div>
+					</div>
+					<div style="display: block;">
+					</div>
+					<div style="display: block;">
+					<div class = "ftinputstyle" style="float: left;" ><input style="height: 30px; width:193px;" name="c_fta" id="c_fta" class="c_ftinput"></div>
+					<div class = "btinputstyle" style= "float: left;"><input style="height: 30px; width:193px;" name="c_bta" id="c_bta" class="c_btinput" ></div>
+					<div class = "tminputstyle" style="float: left;"><button class="c_tminput"  type="button" onclick="deleteSize2()">삭제</button></div>
+					</div>
+					</div>
+					
+					
 					
 					
 					</td>
@@ -229,7 +287,7 @@
 					
 					<tr>
 					<td colspan=2><div class="carregokbutton">
-								<button class="carregokbutton1" id="regcar">등록</button>
+								<button class="carregokbutton1" onsubmit="return carregcall();" id="regcar">등록</button>
 							</div></td>
 					</tr>
 					
@@ -278,6 +336,7 @@
 					<td style="background-color: #3399ff">타이어사이즈</td>
 					<td>
 					
+					<button  type="button" onclick="addSize2()">사이즈 추가</button>
 					<div class = "ftbttmstyle">
 					<div class = "ftstyle" style="height: 30px; width:200px;  border: 1px solid white;">앞타이어</div>
 					<div class = "btstyle" style="height: 30px; width:200px;  border: 1px solid white;">뒤타이어</div>
@@ -288,17 +347,58 @@
 					<div style="display: block;">
 					<div class = "ftinputstyle" style="float: left;" ><input style="height: 30px; width:193px;" name="c_ft" id="c_ft_u" class="c_ftinput"></div>
 					<div class = "btinputstyle" style= "float: left;"><input style="height: 30px; width:193px;"  name="c_bt" id="c_bt_u" class="c_btinput" ></div>
-					<div class = "tminputstyle" style="float: left;"><button class="c_tminput">삭제</button></div>
+					<div class = "tminputstyle" style="float: left;">기본 타이어입니다.</div>
+					</div>
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+					<div class = "ftbttmstyle3outdiv">
+						<div class = "ftbttmstyle3">
+					<div class = "ftstyle" style=" height: 30px; width:200px; position:absolute; top:428px;  border: 1px solid white;">앞타이어</div>
+					<div class = "btstyle" style="height: 30px; width:200px;  position:absolute;  top:428px; left: 320px;border: 1px solid white;">뒤타이어</div>
+					<div class = "tmstyle"  style=" height: 30px; width:200px;  position:absolute; top:428px;  left: 522px; border: 1px solid white;">관리</div>
+					</div>
+					<div style="display: block;">
+					</div>
+					<div style="display: block;">
+					<div class = "ftinputstyle" style="float: left;" ><input style="height: 30px; width:193px;" name="c_fta" id="c_fta_u" class="c_ftainput2"></div>
+					<div class = "btinputstyle" style= "float: left;"><input style="height: 30px; width:193px;" name="c_bta" id="c_bta_u" class="c_btainput2" ></div>
+					<div class = "tminputstyle" style="float: left;"><button class="c_tminput"  type="button" onclick="deleteSize()">삭제</button></div>
+					</div>
+					</div>
+					
+					
+					<tr>
+					<td style="background-color: #3399ff">차종이미지</td>
+					<td>
+					
+					
+					<div class = "ftbttmstyle">
+					<div class = "ftstyle" style=" height: 30px; width:200px;  border: 1px solid white;">현재 이미지</div>
+					<div class = "btstyle" style="height: 30px; width:200px;  border: 1px solid white;">이미지 등록</div>
+					
+					</div>
+					<div style="display: block;">
+					</div>
+					<div style="display: block;">
+					<div class = "ftinputstyle" style="float: left; height: 30px; width:199px;" >없음</div>
+					<div class = "btinputstyle" style= "float: left; height: 30px; width:199px;"><input type="file" name="file"></div>
+					
 					</div>
 					
 					
 					
 					
+					
+					</tr>
+					
 					</td>
 					</tr>
 						<tr>
 						<td colspan=2><div class="updatecarokbutton">
-								<button class="updatecarokbutton1" id="updatecar" value=>수정</button>
+								<button   class="updatecarokbutton1" id="updatecar" value=>수정</button>
 							</div></td>
 					</tr>
 					

@@ -371,9 +371,9 @@ public class BranchDAO {
 
 	
 	
-	public void menuSession(AdminMenuSession menuSession, HttpServletRequest req) {
-		AdminMenuSession menu = (AdminMenuSession) req.getSession().getAttribute("menuSession");
-		menu.setMenu("store");
+	//public void menuSession(AdminMenuSession menuSession, HttpServletRequest req) {
+	//	AdminMenuSession menu = (AdminMenuSession) req.getSession().getAttribute("menuSession");
+		//menu.setMenu("store");
 
 
 

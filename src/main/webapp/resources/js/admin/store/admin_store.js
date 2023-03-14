@@ -83,14 +83,14 @@ $('document').ready(
 function updatebranch(id, sortation, area, addr, name, time, service, mapdata,
 	    manager, managernumber, branchname, branchnumber, cr, email) {
 
-	   
 
-	    $("#popup01").show(); //팝업 오픈
-	    $("body").append('<div class="backon"></div>'); //뒷배경 생성
+
+	    $("#popup01").show(); 
+	    $("body").append('<div class="backon"></div>'); 
 
 	    $("body").on("click", function(event) {
 	        if (event.target.className == 'close' || event.target.className == 'backon') {
-	            $("#popup01").hide(); //close버튼 이거나 뒷배경 클릭시 팝업 삭제
+	            $("#popup01").hide(); 
 	            $(".backon").hide();
 	        }
 	    });
@@ -108,16 +108,28 @@ function updatebranch(id, sortation, area, addr, name, time, service, mapdata,
 	    $('#b_branchnumber_i').val(branchnumber);
 	    $('#b_cr_i').val(cr);
 	    $('#b_email_i').val(email);
-	    
-	    
 	   
 	    
+		var areaArray = area.split("\t");
+		var sido = areaArray[0];
+		var gugun = areaArray[1];
+
+	    
+		$('#sido1 option').filter(function() {
+		    return $(this).text() == sido;
+		}).prop('selected', true);
+
+		$('#gugun1 option').filter(function() {
+		    return $(this).text() == gugun;
+		}).prop('selected', true);
+	    
+		console.log($("#gugun1").length)
 	}
 
 
 function press(f){
-    if(f.keyCode == 13){ //javascript에서는 13이 enter키를 의미함
-    	branchsearchform.submit(); //formname에 사용자가 지정한 form의 name입력
+    if(f.keyCode == 13){ 
+    	branchsearchform.submit(); 
     }
 }
 

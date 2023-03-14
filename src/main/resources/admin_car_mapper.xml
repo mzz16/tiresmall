@@ -19,30 +19,30 @@
 		resultType="com.tireshoppingmall.home.admin.car.CarDTO" 
 		parameterType="com.tireshoppingmall.home.admin.car.SearchCarDTO">
 
-
-
-		select *
-		from (
-		select rownum as rn,
-		c_id,c_name,c_year1,c_year2,c_option,
-		c_brand,c_ft,c_bt,c_file
-		from(
-		select * from 
-		Car 
-        where
-		c_name like '%'||#{carnameInput}||'%'
-		<if test="carbrandInput != ''">
-                and c_brand = #{carbrandInput}
-            </if>
-		)
-		) where rn &gt;= #{start} and rn &lt;= #{end}
-
+SELECT *
+FROM (
+    SELECT rownum as rn,
+           c.c_id, c.c_name, c.c_year1, c.c_year2, c.c_option,
+           cb.cb_name as c_brand, c.c_ft, c.c_bt,c.c_fta,c.c_bta, c.c_print, c.c_file, cb.cb_order
+    FROM Car c
+    INNER JOIN car_brand cb ON c.c_brand = cb.cb_name
+    WHERE c.c_name LIKE '%' || #{carnameInput} || '%'
+        <if test="carbrandInput != ''">
+            AND c.c_brand = #{carbrandInput}
+        </if>
+    ORDER BY cb.cb_order ASC
+) 
+WHERE rn &gt;= #{start} and rn &lt;= #{end}
 	</select>
 
 	<select id="getAllCar"
 		resultType="com.tireshoppingmall.home.admin.car.CarDTO">
 
-		select * from Car
+	SELECT *
+FROM Car c
+INNER JOIN car_brand cb ON c.c_brand = cb.cb_name
+ORDER BY cb.cb_order ASC;
+		
 
 	</select>
 
@@ -51,7 +51,7 @@
 		parameterType="com.tireshoppingmall.home.admin.car.CarDTO">
 
 		insert into Car
-		values(#{c_id},#{c_name},#{c_year1},#{c_year2},#{c_option},#{c_brand},#{c_ft},#{c_bt},#{c_file})
+		values(#{c_id},#{c_name},#{c_year1},#{c_year2},#{c_option},#{c_brand},#{c_ft},#{c_bt},#{c_fta},#{c_bta},#{c_print},#{c_file})
 
 	</insert>
 	
@@ -74,7 +74,13 @@
 	
 	c_ft = #{c_ft},
 	
-	c_bt = #{c_bt}
+	c_fta = #{c_fta},
+	
+	c_bt = #{c_bt},
+	
+	c_bta = #{c_bta},
+	
+	c_print = #{c_print}
 	
 	
 	where c_id = #{c_id}
@@ -104,7 +110,7 @@
 
 <select id="getAllCarBrands" resultType="com.tireshoppingmall.home.admin.car.CarBrandDTO">
 
-select * from car_brand
+select * from car_brand ORDER BY CB_ORDER ASC
 
 </select>
 
@@ -125,15 +131,17 @@ delete car_brand where cb_name = #{cb_name}
 	
 <select id="getCarbrandselectlist" resultType="com.tireshoppingmall.home.admin.car.CarBrandDTO">
 
-select cb_name from car_brand
+select cb_name from car_brand ORDER BY CB_ORDER ASC
 
 </select>
 
 <select id= "getallBrandCount" resultType="com.tireshoppingmall.home.admin.car.CarBrandDTO">
 
- SELECT COALESCE(COUNT(*), 0) AS cb_ea
+SELECT COALESCE(COUNT(*), 0) AS cb_ea
 FROM car
-GROUP BY c_brand
+INNER JOIN car_brand ON car.c_brand = car_brand.cb_name
+GROUP BY car.c_brand, car_brand.cb_order
+ORDER BY car_brand.cb_order ASC
 
 </select>
 

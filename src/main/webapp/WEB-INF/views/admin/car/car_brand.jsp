@@ -56,7 +56,7 @@
     <div class="branddatalist_div" style="border: 1px solid gray; float: left;">
         <div class="branddatalist_div1" style="float: left;">${cb.cb_name}</div>
         <div class="branddatalist_div2" style="float: left;">${empty carcount[status.index].cb_ea ? 0 : carcount[status.index].cb_ea}</div>
-        <div class="branddatalist_div3" style="float: left;">2</div>
+        <div class="branddatalist_div3" style="float: left;">${cb.cb_order }</div>
         <div class="branddatalist_div4" style="float: left;">
             <button type="button" onclick="deletecb1('${cb.cb_name}')">삭제</button>
         </div>
