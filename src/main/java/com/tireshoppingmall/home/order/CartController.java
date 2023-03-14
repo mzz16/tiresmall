@@ -1,6 +1,6 @@
 package com.tireshoppingmall.home.order;
 
-import java.util.List;
+import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -17,7 +17,7 @@ public class CartController {
 	CartDAO cDAO;
 	
 	@RequestMapping(value = "/cart", method = RequestMethod.GET)
-	public String goCart(HttpServletRequest req, List<CartDTO> cList) {
+	public String goCart(ArrayList<CartDTO> cList, HttpServletRequest req) {
 		if (req.getSession().getAttribute("cartSession") == null) {
 			req.getSession().setAttribute("cartSession", cList);
 		}
@@ -27,8 +27,11 @@ public class CartController {
 	
 	@ResponseBody
 	@RequestMapping(value = "/cart.add", method = RequestMethod.POST)
-	public int addCart(List<CartDTO> cList, CartDTO cDTO, HttpServletRequest req) {
-		return cDAO.addCart(cList, cDTO, req);
+	public int addCart(ArrayList<CartDTO> cList, CartDTO cDTO, HttpServletRequest req) {
+		if (req.getSession().getAttribute("cartSession") == null) {
+			req.getSession().setAttribute("cartSession", cList);
+		}
+		return cDAO.addCart(cDTO, req);
 	}
 	
 	@ResponseBody
