@@ -29,7 +29,19 @@ public class TireDTO {
 	private int ti_pricegp;		/* 기표가격 */	
 	private int ti_pricefac;		/* 공장가격 */
 	private int ti_vat;		/* 부가세 */
+	private int ti_count; 	/*개수*/
 	
+	
+	public int getTi_count() {
+		return ti_count;
+	}
+
+
+	public void setTi_count(int ti_count) {
+		this.ti_count = ti_count;
+	}
+
+
 	//페이지 작업
 	private BigDecimal start;
 	private BigDecimal end;
@@ -269,8 +281,10 @@ public class TireDTO {
 				+ tg_sedan + ", tg_suv=" + tg_suv + ", ti_id=" + ti_id + ", ti_tg_id=" + ti_tg_id + ", ti_hg=" + ti_hg
 				+ ", ti_speed=" + ti_speed + ", ti_width=" + ti_width + ", ti_ratio=" + ti_ratio + ", ti_inch="
 				+ ti_inch + ", ti_stock=" + ti_stock + ", ti_pricegp=" + ti_pricegp + ", ti_pricefac=" + ti_pricefac
-				+ ", ti_vat=" + ti_vat + ", start=" + start + ", end=" + end + "]";
+				+ ", ti_vat=" + ti_vat + ", ti_count=" + ti_count + ", start=" + start + ", end=" + end + "]";
 	}
+
+
 	
 	
 	

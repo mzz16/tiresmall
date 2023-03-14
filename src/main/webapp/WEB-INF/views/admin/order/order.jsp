@@ -67,9 +67,9 @@
 							</tr>
 							<tr>
 								<td class="left_td_tire">주문상품 1종</td>
-								<td colspan="3" class="modal_content_td tire">
+								<td colspan="3" class="modal_content_td tire ">
 									<table style="width: 100%" id="product-table">
-									
+										
 									
 									</table>
 
@@ -88,7 +88,11 @@
 							<tr>
 								<td class="left_td_long">방문예약일</td>
 								<td class="modal_content_td long"></td>
-								<td colspan="2">직영점 방문 예약일입니다. 상품을 준비하고 주문자에게 해피콜해주세요.</td>
+								<td colspan="2">
+								<c:if test="">
+								직영점 방문 예약일입니다. 상품을 준비하고 주문자에게 해피콜해주세요.
+								</c:if>
+								</td>
 							</tr>
 							<tr>
 								<td class="left_td_long">주문진행</td>
@@ -203,10 +207,10 @@
 									<c:forEach var="ordered_tire" items="${o.o_products }">
 									<tr class="tire_content_tr">
 											<td class="tire_content_td">타이어<input type="hidden" value="${ordered_tire.ti_id }"> </td>
+											<td class="tire_content_td">${ordered_tire.tg_brand }</td>
 											<td class="tire_content_td">${ordered_tire.tg_name }</td>
-											<td class="tire_content_td">${ordered_tire.ti_hg }</td>
-											<td class="tire_content_td">${ordered_tire.ti_speed } / ${ordered_tire.ti_width } / ${ordered_tire.ti_ratio } </td>
-											<td class="tire_content_td">${ordered_tire.ti_inch }</td>
+											<td class="tire_content_td">${ordered_tire.ti_width }/${ordered_tire.ti_ratio }${ordered_tire.ti_inch }${ordered_tire.ti_hg }${ordered_tire.ti_speed } </td>
+											<td class="tire_content_td">${ordered_tire.ti_count }</td>
 									</tr>
 									</c:forEach>
 									</table>

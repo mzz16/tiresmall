@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 import com.tireshoppingmall.home.admin.AdminMenuSession;
 import com.tireshoppingmall.home.admin.tire.AdminTireMapper;
 import com.tireshoppingmall.home.admin.tire.TireDTO;
+import com.tireshoppingmall.home.product.ProductSelector;
 
 @Service
 public class OrderDAO {
@@ -67,10 +68,15 @@ public class OrderDAO {
 			String splitProduct[] = order.getO_product().split(","); // 1/2,2/2
 			for (String product : splitProduct) {
 				int tirePK = Integer.parseInt(product.charAt(0) + ""); // 4 , 6
-				System.out.println(ss.getMapper(AdminTireMapper.class).getTireGroupforDetail(tirePK));
-				order_tires.add(ss.getMapper(AdminTireMapper.class).getTireGroupforDetail(tirePK));
+				int tireCount = product.charAt(2);
+				TireDTO tireDto = ss.getMapper(AdminTireMapper.class).getTireGroupforDetail(tirePK);
+				tireDto.setTi_count(Integer.parseInt(product.charAt(2) + ""));
+				order_tires.add(tireDto);
+				
+				System.out.println(tireCount);
 			}
 			order.setO_products(order_tires);
+			
 		}
 
 		int pageCount = (int) Math.ceil(orderCount / (double) count);
