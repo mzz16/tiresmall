@@ -1,41 +1,134 @@
-.board_ask_readAll_container {
-}
-
-.board_ask_readAll_columnAndList {
+.board_ask_readAll_column {
 	display: grid;
 	grid-template-columns: 80px 120px 1fr 120px 120px;
-	grid-template-rows: 51px 1fr;		/*수정필요*/
-	grid-template-areas:	"ra_num ra_sort ra_title ra_date ra_status"
-							"ra_list ra_list ra_list ra_list ra_list";
-							
-	width: 950px;								/*수정필요*/
-	height: 400px;	/*100vh;*/					/*수정필요*/
-}
-
-.board_ask_readAll_columnAndList div:nth-child(1) {
-	grid-area: ra_num;
-}
-.board_ask_readAll_columnAndList div:nth-child(2) {
-	grid-area: ra_sort;
-}
-.board_ask_readAll_columnAndList div:nth-child(3) {
-	grid-area: ra_title;
-}
-.board_ask_readAll_columnAndList div:nth-child(4) {
-	grid-area: ra_date;
-}
-.board_ask_readAll_columnAndList div:nth-child(5) {
-	grid-area: ra_status;
-}
-.board_ask_readAll_columnAndList div:nth-child(6) {
-	grid-area: ra_list;
-}
-
-.board_ask_readAll_columnAndList div {
-	padding: 11px;
-	border: 1px solid #ddd;
+	grid-template-rows: 51px;
+	grid-template-areas: "rac_num rac_sort rac_title rac_date rac_status";
 	
 	background-color: #f5f5f5;
 	
 	text-align: center;
+	font-weight: 500;
+	
+	border-top: 1px solid #000;
+}
+.board_ask_readAll_column > div {
+	border-bottom: 1px solid #ddd;
+	border-left: 1px solid #ddd;
+	
+	padding: 15px;
+}
+.board_ask_readAll_column > div:nth-child(1) {
+	grid-area: rac_num;
+}
+.board_ask_readAll_column > div:nth-child(2) {
+	grid-area: rac_sort;
+}
+.board_ask_readAll_column > div:nth-child(3) {
+	grid-area: rac_title;
+}
+.board_ask_readAll_column > div:nth-child(4) {
+	grid-area: rac_date;
+}
+.board_ask_readAll_column > div:nth-child(5) {
+	grid-area: rac_status;
+	border-right:1px solid #ddd;
+}
+
+
+
+.board_ask_readAll_none {
+	width: 950px;
+	height: 255px;
+	
+	background-color: #fff;
+	
+	text-align: center;
+	
+	border-right:1px solid #ddd;
+	border-bottom: 1px solid #ddd;
+	border-left: 1px solid #ddd;
+}
+.board_ask_readAll_none > div {
+	padding: 120px;
+}
+
+
+
+.board_ask_readAll_list {
+	display: grid;
+	grid-template-columns: 80px 120px 1fr 120px 120px;
+	grid-template-rows: 51px;
+	grid-template-areas: "ral_num ral_sort ral_title ral_date ral_status";
+	
+	background-color: #fff;
+	
+	text-align: center;
+}
+.board_ask_readAll_list div {
+	border-bottom: 1px solid #ddd;
+	border-left: 1px solid #ddd;
+	
+	padding: 15px;
+}
+.board_ask_readAll_list div:nth-child(1) {
+	grid-area: ral_num;
+}
+.board_ask_readAll_list div:nth-child(2) {
+	grid-area: ral_sort;
+}
+.board_ask_readAll_list div:nth-child(3) {
+	grid-area: ral_title;
+	
+	text-align: left;
+	font-weight: 400;
+}
+.board_ask_readAll_list div:nth-child(3) > a {
+	width: 100%;
+}
+.board_ask_readAll_list div:nth-child(3) > a:hover {
+	width: 100%;
+	text-decoration : underline;
+}
+.board_ask_readAll_list div:nth-child(4) {
+	grid-area: ral_date;
+}
+.board_ask_readAll_list div:nth-child(5) {
+	grid-area: ral_status;
+	border-right:1px solid #ddd;
+}
+
+
+
+.board_ask_readAll_buttons {
+	display: flex;
+	
+	width: 950px;
+	height: 51px;
+	
+	margin-top: 20px;
+	margin-bottom: 120px;
+	
+	justify-content: space-between
+}
+
+
+
+.board_ask_readAll_pagingButtons {
+	display: flex;
+}
+.board_ask_readAll_pagingButtons > div {
+	width: 28px;
+	height: 28px;
+	
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	
+	border-radius: 2px;
+}
+.board_ask_readAll_pagingButtons_selected {
+	background-color: #ab1e21;
+	color: #fff;
+	font-weight: 500;
+	padding-bottom: 1px;
 }

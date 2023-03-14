@@ -5,33 +5,59 @@
 		select count(*)
         from ask, ask_account
         where a_owner_fk = aa_id
-        and a_text like '%'||#{search}||'%'
 	</select>
-	<select id="getAsk" resultType="com.tireshoppingmall.home.board.AskDTO">
+	<select id="getAskAll" resultType="com.tireshoppingmall.home.board.AskDTO">
 		select *
         from (
-			select	rownum as rn,
+			select	rownum as rownumber,
 					a_number,
-					a_owner_fk,
 					a_sortation,
 					a_title,
-					a_text,
-					a_photo,
 					a_date,
 					a_status
 			from (
 				select *
 				from ask, ask_account
-				where a_owner = aa_id
-				and a_txt like '%'||#{search}||'%'
-				order by s_date desc
+				where a_owner_fk = aa_id
+				order by a_date desc
 			)
         )
-        where rn &gt;= #{start} and rn &lt;= #{end}
+        where rownumber &gt;= #{begin} and rownumber &lt;= #{last}
 	</select>
-	<select id="getAskReply" parameterType="com.tireshoppingmall.home.board.AskDTO" resultType="com.tireshoppingmall.home.board.AskReplyDTO">
+	<select id="getAskOne" resultType="com.tireshoppingmall.home.board.AskDTO">
+		select *
+		from ask
+		where a_number = #{a_number}
+	</select>
+	<select id="getAskReply" resultType="com.tireshoppingmall.home.board.AskReplyDTO">
 	 	select *
 	 	from ask_reply
 	 	where ar_number_fk = #{a_number}
 	</select>
+	<insert id="createAsk">
+		insert
+		into ask
+		values(
+			ask_seq.nextval,
+			'id',
+			#{a_sortation},
+			#{a_title},
+			#{a_text},
+			sysdate,
+			'답변대기'
+		)
+	</insert>
+	<update id="updateAsk">
+		update
+		ask
+		set	a_sortation = #{a_sortation},
+			a_title = #{a_title},
+			a_text = #{a_text}
+		where a_number = #{a_number}
+	</update>
+	<delete id="deleteAsk">
+		delete
+		ask
+		where a_number = #{a_number}
+	</delete>
 </mapper>

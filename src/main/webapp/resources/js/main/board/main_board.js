@@ -1,4 +1,11 @@
-function board_openKakao() {
-  window.open("https://open.kakao.com/o/sGofN76e");
-  win.document.title = "카카오톡상담"
+function deleteAsk(an) {
+	var ok = confirm("해당내용을 삭제하시겠습니까?");
+	if (ok) {
+		location.href = "board.ask.delete?a_number=" + an;
+	}
+}
+
+function updateAskSelected() {
+	s
+	s
 }

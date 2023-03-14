@@ -1,9 +1,9 @@
 package com.tireshoppingmall.home.board;
 
 import java.util.Date;
-import java.util.List;
 
 public class AskDTO {
+	private int rownumber;
 	private int a_number;
 	private String a_owner_fk;
 	private String a_sortation;
@@ -12,14 +12,15 @@ public class AskDTO {
 	private String a_photo;
 	private Date a_date;
 	private String a_status;
-	private List<AskReplyDTO> a_replys;
+	private AskReplyDTO a_reply;
 	public AskDTO() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public AskDTO(int a_number, String a_owner_fk, String a_sortation, String a_title, String a_text, String a_photo,
-			Date a_date, String a_status, List<AskReplyDTO> a_replys) {
+	public AskDTO(int rownumber, int a_number, String a_owner_fk, String a_sortation, String a_title, String a_text,
+			String a_photo, Date a_date, String a_status, AskReplyDTO a_reply) {
 		super();
+		this.rownumber = rownumber;
 		this.a_number = a_number;
 		this.a_owner_fk = a_owner_fk;
 		this.a_sortation = a_sortation;
@@ -28,7 +29,13 @@ public class AskDTO {
 		this.a_photo = a_photo;
 		this.a_date = a_date;
 		this.a_status = a_status;
-		this.a_replys = a_replys;
+		this.a_reply = a_reply;
+	}
+	public int getRownumber() {
+		return rownumber;
+	}
+	public void setRownumber(int rownumber) {
+		this.rownumber = rownumber;
 	}
 	public int getA_number() {
 		return a_number;
@@ -78,10 +85,10 @@ public class AskDTO {
 	public void setA_status(String a_status) {
 		this.a_status = a_status;
 	}
-	public List<AskReplyDTO> getA_replys() {
-		return a_replys;
+	public AskReplyDTO getA_reply() {
+		return a_reply;
 	}
-	public void setA_replys(List<AskReplyDTO> a_replys) {
-		this.a_replys = a_replys;
+	public void setA_reply(AskReplyDTO a_reply) {
+		this.a_reply = a_reply;
 	}
 }
