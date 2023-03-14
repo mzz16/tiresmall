@@ -75,11 +75,11 @@
 				onsubmit="return carbrandregcall();" >
 				<table border="1" class="">
 				<tr>
-					<td>브랜드 명</td>
+					<td style="background-color: #3399ff">브랜드 명</td>
 					<td><input name="cb_name" id="cb_name"></td>
 					</tr>
 					<tr>
-					<td>표시순서</td>
+					<td style="background-color: #3399ff">표시순서</td>
 					<td><input name="cb_order" id="cb_order"></td>
 					
 		

@@ -63,7 +63,7 @@ function deletecar(carrr) {
 
 }
 
-function updatecar(id,name,year1,year2,option,brand,ft,bt,print,fta,bta) {
+function updatecar(id,name,year1,year2,option,brand,ft,bt,print,fta,bta,c_file) {
 
 	
 
@@ -104,7 +104,8 @@ function updatecar(id,name,year1,year2,option,brand,ft,bt,print,fta,bta) {
 	 $('#c_bt_u').val(bt);
 	 $('#c_fta_u').val(fta);
 	 $('#c_bta_u').val(bta);
-	
+	 $('#c_file_u').val(c_file);
+	 $('#c_file_u').attr('readonly', true);
 
 }
 

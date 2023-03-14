@@ -139,12 +139,12 @@ function addSize2() {
 			<div class="cardatalist_div4" style="float: left;">${c.c_name }</div>
 
 			<div class="cardatalist_div5" style="float: left;">${c.c_option }  </div>
-			<div class="cardatalist_div6" style="float: left;"> 앞 :${c.c_ft } 뒤 :${c.c_bt }  <c:if test="${not empty c.c_fta}">/ 앞:${c.c_fta }</c:if>  <c:if test="${not empty c.c_bta}">/ 뒤 :${c.c_bta } </c:if></div>
+			<div class="cardatalist_div6" style="float: left;"> 앞 :${c.c_ft } / 뒤 :${c.c_bt }  <c:if test="${not empty c.c_fta}">/ 앞:${c.c_fta }</c:if>  <c:if test="${not empty c.c_bta}">/ 뒤 :${c.c_bta } </c:if></div>
 			<div class="cardatalist_div7" style="float: left;"> <button class="updatecarbutton"
 					onclick="updatecar('${c.c_id}','${c.c_name }',
 					'${c.c_year1 }','${c.c_year2 } ',
 					'${c.c_option }','${c.c_brand }',
-					'${c.c_ft }','${c.c_bt }','${c.c_print}','${c.c_fta }','${c.c_bta }')">수정</button>
+					'${c.c_ft }','${c.c_bt }','${c.c_print}','${c.c_fta }','${c.c_bta }','${c.c_file }')">수정</button>
 				<button type="button" class="updatecarbutton"
 					id="updatecar('${c.c_id}')" onclick="deletecar('${c.c_id}')">삭제</button> </div>
 
@@ -287,8 +287,10 @@ function addSize2() {
 					
 					<tr>
 					<td colspan=2><div class="carregokbutton">
+		
 								<button class="carregokbutton1" onsubmit="return carregcall();" id="regcar">등록</button>
 							</div></td>
+							
 					</tr>
 					
 				</table>
@@ -383,7 +385,7 @@ function addSize2() {
 					<div style="display: block;">
 					</div>
 					<div style="display: block;">
-					<div class = "ftinputstyle" style="float: left; height: 30px; width:199px;" >없음</div>
+					<div class = "ftinputstyle" style="float: left; height: 30px; width:199px;" ><input name="c_file" id="c_file_u"></div>
 					<div class = "btinputstyle" style= "float: left; height: 30px; width:199px;"><input type="file" name="file"></div>
 					
 					</div>

@@ -23,8 +23,7 @@
 <script src="resources/js/admin/store/admin_store.js"></script>
 
 <script type="text/javascript">
-
-
+	
 </script>
 
 </head>
@@ -38,8 +37,8 @@
 				<div class="branch-text1">주소 선택</div>
 
 				<select name="b_area1" id="sido1">
-				</select> <select name="b_area2" id="gugun1"></select>
-	<input name="branchnameInput" value=""  type="hidden">
+				</select> <select name="b_area2" id="gugun1"></select> <input
+					name="branchnameInput" value="" type="hidden">
 				<button class="branch-findareabutton">주소 검색</button>
 
 			</form>
@@ -50,8 +49,8 @@
 
 			<input name="branchnameInput"
 				style="text-align: center; height: 38px;"
-				onkeypress="JavaScript:press(this.form)">
-				<input name="branchareaInput" value=""  type="hidden">
+				onkeypress="JavaScript:press(this.form)"> <input
+				name="branchareaInput" value="" type="hidden">
 			<button class="branchsearchButton" style="float: right;">장착점명
 				검색</button>
 
@@ -328,13 +327,8 @@
 									<input name="b_email" id='b_email_i' style="height: 30px;">
 								</div>
 
-							</div>
-							
-
-							
-							</td>
-							
-							<tr>
+							</div></td>
+					<tr>
 						<td style="background-color: #0ec492">취급서비스</td>
 						<td><input type="file" name="file"></td>
 					</tr>
