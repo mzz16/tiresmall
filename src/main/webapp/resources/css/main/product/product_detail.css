@@ -111,13 +111,13 @@
 }
 
 .detail_quantity button {
-  border: none;
-  background-color: #ddd;
+  border: 1px solid #aaa;
+  background-color: white;
   cursor: pointer;
   padding: 0;
   width: 25px;
   height: 25px;
-  border-radius: 5px;
+  border-radius: 50%;
   font-size: 18px;
 }
 
@@ -167,12 +167,12 @@
   border: 1px solid var(--red);
 }
 
-.detail_buy button:first-child {
+.detail_cart {
   background-color: white;
   color: var(--red);
 }
 
-.detail_buy button:last-child {
+.detail_go_buy {
   background-color: var(--red);
   color: white;
 }
@@ -206,7 +206,7 @@
   border-bottom: 3px solid white;
 }
 
-.detail_nav_li:first-child {
+.detail_nav_li_active {
   border-bottom-color: var(--red);
   color: var(--red);
 }
@@ -277,7 +277,7 @@
 
 .detail_standard_table {
   width: 550px;
-  height: 300px;
+  height: 400px;
 }
 
 .detail_standard_table form {
@@ -286,11 +286,15 @@
 }
 
 .detail_standard_table button {
-  padding: 20px;
+  padding: 15px 30px;
   border: none;
   background-color: white;
   color: var(--red);
   font-size: 30px;
+}
+
+.detail_standard_title {
+  font-weight: 500;
 }
 
 .detail_standard_ul {
@@ -298,10 +302,42 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 10px;
 }
 
 .detail_standard_li {
   display: grid;
   grid-template-columns: repeat(2, 225px);
+  border-bottom: 1px solid #aaa;
+  padding: 10px 0;
+}
+
+.detail_standard_size,
+.detail_standard_price {
+  display: flex;
+  justify-content: center;
+}
+
+.detail_standard_add {
+  display: flex;
+  justify-content: center;
+  font-size: 14px;
+  padding: 10px 0;
+  gap: 20px;
+}
+
+.detail_size_guide {
+  padding: 0 10px;
+}
+
+.detail_size_guide form {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.detail_size_guide button {
+  padding: 15px 20px;
+  border: none;
+  background-color: white;
+  color: var(--red);
+  font-size: 30px;
 }

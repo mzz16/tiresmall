@@ -1,3 +1,129 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.tireshoppingmall.home.admin.car.AdminCarMapper"></mapper>
+<mapper
+	namespace="com.tireshoppingmall.home.admin.car.AdminCarMapper">
+	<select id="getCarCount" resultType="int" 
+	parameterType="com.tireshoppingmall.home.admin.car.SearchCarDTO">
+
+		select count(*)
+		from Car
+		where c_name
+		like
+		'%'||#{carnameInput}||'%'
+	<if test="carbrandInput != ''">and c_brand = #{carbrandInput} </if>
+	
+
+	</select>
+
+	<select id="getCarlists"
+		resultType="com.tireshoppingmall.home.admin.car.CarDTO" 
+		parameterType="com.tireshoppingmall.home.admin.car.SearchCarDTO">
+
+
+
+		select *
+		from (
+		select rownum as rn,
+		c_id,c_name,c_year1,c_year2,c_option,
+		c_brand,c_ft,c_bt,c_file
+		from(
+		select * from 
+		Car 
+        where
+		c_name like '%'||#{carnameInput}||'%'
+		<if test="carbrandInput != ''">
+                and c_brand = #{carbrandInput}
+            </if>
+		)
+		) where rn &gt;= #{start} and rn &lt;= #{end}
+
+	</select>
+
+	<select id="getAllCar"
+		resultType="com.tireshoppingmall.home.admin.car.CarDTO">
+
+		select * from Car
+
+	</select>
+
+
+	<insert id="regCar"
+		parameterType="com.tireshoppingmall.home.admin.car.CarDTO">
+
+		insert into Car
+		values(#{c_id},#{c_name},#{c_year1},#{c_year2},#{c_option},#{c_brand},#{c_ft},#{c_bt},#{c_file})
+
+	</insert>
+	
+	<update id ="updatecar" parameterType="com.tireshoppingmall.home.admin.car.CarDTO">
+	
+	update Car
+	
+	set
+	
+	
+	c_name = #{c_name},
+	
+	c_year1 = #{c_year1},
+	
+	c_year2 = #{c_year2},
+	
+	c_option = #{c_option},
+	
+	c_brand = #{c_brand},
+	
+	c_ft = #{c_ft},
+	
+	c_bt = #{c_bt}
+	
+	
+	where c_id = #{c_id}
+	
+	
+	</update>
+
+
+<delete id="deletecar">
+
+		delete Car where c_id = #{c_id}
+
+
+	</delete>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<select id="getAllCarBrands" resultType="com.tireshoppingmall.home.admin.car.CarBrandDTO">
+
+select * from car_brand
+
+</select>
+
+<delete id = "deletebrand">
+
+delete car_brand where cb_name = #{cb_name}
+
+</delete>
+
+
+<insert id="regbrand"
+		parameterType="com.tireshoppingmall.home.admin.car.CarBrandDTO">
+
+		insert into car_brand
+		values(#{cb_name},#{cb_order})
+
+	</insert>
+	
+
+
+
+</mapper>

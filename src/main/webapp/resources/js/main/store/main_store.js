@@ -7,8 +7,8 @@ $(function(){
 //	$('.store_info_row_content').eq(3).text($('option:selected').attr('locmemo'))
 	$('#location_lng').val($('#location').val().substr($('#location').val().indexOf(' ')+1));
 	$('#location_lat').val($('#location').val().substr(0,$('#location').val().indexOf(',')));
-	$('#store_wrap_banner img').attr("src", "resources/web/main/store/store_banner_"+ location.href.substring(location.href.length-1) +".png");
-	$('#store_wrap_banner img').attr("src", $('#store_banner_img').val());
+	$('#store_wrap_banner img').attr("src", "resources/web/"+$('#store_banner_img').val());
+	
 	
 	initMap();
 	

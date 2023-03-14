@@ -13,9 +13,8 @@ margin-right:5px;
 	display: flex;
 	margin-left:5px;
 	margin-top:65px;
-	  align-items: center;
-position:relative;
-
+	align-items: center;
+	position:relative;
 }
 
 .brand-findarea{
@@ -216,33 +215,30 @@ float:left;
 }
 
 .branddatalist_div1{
-	width: 5%;
+	width: 50%;
 	 border: 1px solid #000;
 }
 
 .branddatalist_div2{
 	 border: 1px solid #000;
-	width: 45%;
+	width: 20%;
 }
 
 .branddatalist_div3{
 	 border: 1px solid #000;
-	width: 15%;
+	width: 20%;
 	
 }
 
 .branddatalist_div4{
 	 border: 1px solid #000;
-	width: 15%;
+	width: 10%;
+	position: absolute;
+	left:90.2%;
 	
 }
 
-.branddatalist_div5{
-	 border: 1px solid #000;
-	width: 20%;
-	position: absolute;
-	left:80.35%;
-}
+
 
 
 
@@ -352,11 +348,48 @@ z-index: 2;
 }
 
 
-
-#updatepopup01{
+#brandregpopup01{
     display: none;
 }
-#updatepopup01{
+#brandregpopup01{
+width: 800px;
+height: 200px;
+position: absolute;
+top: 50%;
+left: 45%;
+margin: -250px 0 0 -250px;
+background-color: #fff;
+z-index: 2;
+    }
+.backon{
+    content: "";
+    width: 100%;
+    height: 100%;
+    background: #00000054;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+.close{
+  position:absolute;
+  top:-25px;
+  right: 0;
+  cursor:pointer;
+}
+
+.openPopup{
+
+  cursor:pointer;
+
+}
+
+
+
+#popup01{
+    display: none;
+}
+#popup01{
 width: 500px;
 height: 500px;
 position: absolute;
@@ -740,10 +773,10 @@ a {
 
 
 
-#updatepopup01{
+#updatecarpopup01{
     display: none;
 }
-#updatepopup01{
+#updatecarpopup01{
 width: 500px;
 height: 500px;
 position: absolute;

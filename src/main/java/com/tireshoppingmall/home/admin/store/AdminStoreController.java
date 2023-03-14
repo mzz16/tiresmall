@@ -28,7 +28,7 @@ public class AdminStoreController {
 	
 	//admin.store.go
 	@RequestMapping(value = "/admin.store.go", method = RequestMethod.GET)
-	public String companyGo(SearchBranchDTO b,Model m,HttpServletRequest req) {
+	public String companyGo(SearchBranchDTO b,Model m, HttpServletRequest req) {
 		if (firstReq) {
 			bDAO.calcAllBranchCount();
 			firstReq = false;
@@ -37,6 +37,8 @@ public class AdminStoreController {
 		SearchBranchDTO.clearSearch(req);
 		bDAO.getBranchlist(1, req);
 		/* bDAO.getAllBranch(m); */
+		
+	
 		req.setAttribute("contentPage", "store/branch.jsp");
 		return "admin/master";
 	}
