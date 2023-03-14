@@ -7,6 +7,8 @@
 <title>Insert title here</title>
 </head>
 <body>
+<input id="whatMenu" value="tire" type="hidden">
+	<input id="sm" value="4" type="hidden"> 
 	<div class="container sub">
 		<h1>타이어특징관리페이지</h1>
 	</div>

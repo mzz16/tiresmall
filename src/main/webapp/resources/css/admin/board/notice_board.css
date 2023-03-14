@@ -215,6 +215,8 @@ textarea:focus{
     background-color: white;
     padding-top: 10px;
     padding-bottom: 10px;
+    position: fixed;
+    bottom: 0px;
 }
 
 #paging-box a{

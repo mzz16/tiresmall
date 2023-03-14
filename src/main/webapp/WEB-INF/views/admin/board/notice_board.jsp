@@ -15,6 +15,8 @@
 <link rel="stylesheet" href="resources/css/admin/board/notice_modal.css">
 </head>
 <body>
+	<input id="whatMenu" value="notice" type="hidden">
+	<input id="sm" value="1" type="hidden"> 
 	<div id="notice_modal" class="notice_modal hidden"
 		style="display: none;">
 

@@ -21,7 +21,6 @@ public class HomeController {
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(HttpServletRequest req) {
-		hDAO.createCartSession(req);
 		req.setAttribute("content", "main/home/home.jsp");
 		return "index";
 	}
@@ -71,12 +70,6 @@ public class HomeController {
 	public String goStore(HttpServletRequest req, @RequestParam int id) {
 		sDAO.getAStore(req, id);
 		req.setAttribute("content", "main/store/store.jsp");
-		return "index";
-	}
-	
-	@RequestMapping(value = "/cart", method = RequestMethod.GET)
-	public String goCart(HttpServletRequest req) {
-		req.setAttribute("content", "main/product/cart.jsp");
 		return "index";
 	}
 	

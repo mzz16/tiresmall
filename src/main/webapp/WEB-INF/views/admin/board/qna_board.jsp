@@ -15,6 +15,8 @@
 <link rel="stylesheet" href="resources/css/admin/board/qna_modal.css">
 </head>
 <body>
+	<input id="whatMenu" value="notice" type="hidden">
+	<input id="sm" value="2" type="hidden"> 
 	<div id="qna_modal" class="qna_modal hidden"
 		style="display: none;">
 

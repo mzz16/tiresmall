@@ -13,7 +13,7 @@ import com.tireshoppingmall.home.admin.store.BranchDTO;
 public class StoreDAO {
 	
 	@Autowired
-	private static SqlSession ss;
+	private SqlSession ss;
 	
 	
 	public void getAStore(HttpServletRequest req, int id) {

@@ -15,7 +15,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.tireshoppingmall.home.admin.AdminMenuSession;
 import com.tireshoppingmall.home.admin.board.AdminBoardMapper;
 
 
@@ -71,6 +70,7 @@ public class BranchDAO {
 		int end = start + (count - 1);
 		
 		SearchBranchDTO search = (SearchBranchDTO) req.getSession().getAttribute("branchs");
+		
 		int BranchCount = 0;
 		
 		System.out.println("WWWWWWWWWWWWWWWW");
@@ -94,7 +94,10 @@ public class BranchDAO {
 		}
 		
 		List<BranchDTO> Branch = ss.getMapper(AdminStoreMapper.class).getBranchlist(search);
+		System.out.println(Branch);
+		System.out.println("@@@@@@@@@@@@@");
 		System.out.println(count);
+		System.out.println("@@@@@@@@@@@@@");
 		System.out.println(allBranchCount);
 		int pageCount = (int) Math.ceil(BranchCount / (double) count);
 		System.out.println(BranchCount);
@@ -111,7 +114,40 @@ public class BranchDAO {
 
 
 
+
+	 public void branchSearchbranchname(HttpServletRequest req, SearchBranchDTO b) {
 		
+	 if(req.getParameter("b_area1") != null) {
+		 
+		 
+		 String b_area1 = req.getParameter("b_area1");
+			String b_area2 = req.getParameter("b_area2");
+				String BranchareaInput = b_area1 + "\t" + b_area2;
+				b.setBranchnameInput("");
+				b.setBranchareaInput(BranchareaInput);
+				
+				req.getSession(). setAttribute("branchs", b);
+	 
+	 
+	 
+	 
+	 }else if(req.getParameter("branchnameInput") != null) {
+		
+		String b_name = req.getParameter("branchnameInput");
+		System.out.println("yyyyyyyyyyyyyyyyyyy");
+		System.out.println(b_name); 
+		System.out.println("yyyyyyyyyyyyyyyyyyy");
+		 b.setBranchareaInput("");
+		 String BranchnameInput = b_name;
+		 b.setBranchnameInput(BranchnameInput);
+		 req.getSession(). setAttribute("branchs", b);
+		 
+	}
+				
+	 
+
+		 
+	}
 	
 	
 	
@@ -212,26 +248,7 @@ public class BranchDAO {
 
 	
 
- public void branchSearchbranchname(HttpServletRequest req, SearchBranchDTO b) {
-	
- if(req.getParameter("b_area1") != null) {
-	 
-	 
-	 String b_area1 = req.getParameter("b_area1");
-		String b_area2 = req.getParameter("b_area2");
-			String BranchareaInput = b_area1 + "\t" + b_area2;
-			b.setBranchnameInput("");
-			b.setBranchareaInput(BranchareaInput);
-			
-			req.getSession(). setAttribute("branchs", b);
- }
-			
-	 
- req.getSession(). setAttribute("branchs", b);
-	 
 		
-		
-}
 
 /*
 
@@ -322,11 +339,7 @@ public class BranchDAO {
 
 	}
 
-	public void menuSession(AdminMenuSession menuSession, HttpServletRequest req) {
-		AdminMenuSession menu = (AdminMenuSession) req.getSession().getAttribute("menuSession");
-		menu.setMenu("store");
 
-	}
 
 	
 

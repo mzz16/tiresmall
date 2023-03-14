@@ -96,7 +96,8 @@ public class TireDTO {
 
 	public void setTg_id(int tg_id) {
 		this.tg_id = tg_id;
-	}
+	}
+
 
 
 
