@@ -58,65 +58,60 @@ function addSize2() {
 
 
 		<div class="car-findselect">
-			<div class="car-findarea">
-
-
-			<form action="car.search.do">
-				<div class="car-text1">메이커</div>
-				<select name="carbrandInput" style="float: left;">
-				<c:forEach var="cblist" items="${carbrand}">
-				<option value="${cblist.cb_name}">${cblist.cb_name}</option>
-				</c:forEach>
-			
-				</select> 
-				<input name="carnameInput" value=""  type="hidden">
-				<button class="car-findareabutton" style="float: left;">메이커 검색</button>
-
-				</form>
-			</div>
-			<div class="car-text2" style="float: left;">차종</div>
-
-			<form name="carsearchform" action="car.search.do">
-
-				<input name="carnameInput" style="text-align: center; height: 38px;"
-					onkeypress="JavaScript:press(this.form)">
-				<button class="carsearchButton">차종 검색</button>
-			<input name="carbrandInput" value=""  type="hidden">
-			</form>
-
-
-
-			<div class="carRegButton1" style="float: right;">
+  <div class="car-findarea">
+    <div id="car_searchBox">
+      <form action="car.search.do">
+        <div class="car_searchTitle">
+          <div>
+           
+            메이커 <select  id = "" name="carbrandInput" style="float: left;">
+              <c:forEach var="cblist" items="${carbrand}">
+                <option value="${cblist.cb_name}">${cblist.cb_name}</option>
+              </c:forEach>
+            </select> 
+          </div>
+        </div>
+        <input name="carnameInput" value=""  type="hidden">
+        <button class="car-findareabutton" style="float: left;">메이커 검색</button>
+      </form>
+      <form name="carsearchform" action="car.search.do">
+        <div class="car_searchTitle">
+          <div class="car_searchID">
+            <label for="car_searchid">차종</label> 
+            <input id="carnameInput" name="carnameInput" style="text-align: center;" onkeypress="JavaScript:press(this.form)">
+          </div>
+        </div>
+        <button class="carsearchButton">차종 검색</button>
+        <input name="carbrandInput" value=""  type="hidden">
+      </form>
+    </div>
+  </div>
+  	 <div class="carRegButton1" style="float: right;">
 				<button class="carRegButton">신규등록</button>
 			</div>
-
-
-
-		</div>
-
-
-
-
-		<div class="cardata_div_outter">
-			<div class="cardata_div" style="float: left; margin-top: 5px;">
-
-				<div class="cardata_div1"
-					style="border: 1px solid gray; float: left;">No.</div>
-				<div class="cardata_div2"
-					style="border: 1px solid gray; float: left;">메이커</div>
-				<div class="cardata_div3"
-					style="border: 1px solid gray; float: left;">연식</div>
-				<div class="cardata_div4"
-					style="border: 1px solid gray; float: left;">차종</div>
-				<div class="cardata_div5"
-					style="border: 1px solid gray; float: left;">옵션</div>
-				<div class="cardata_div6"
-					style="border: 1px solid gray; float: left;">타이어사이즈</div>
-				<div class="cardata_div7"
-					style="border: 1px solid gray; float: left;">관리</div>
-
+  
 </div>
-</div>
+				
+		
+				
+				</div>
+			
+		
+			
+			
+		
+
+			
+			
+				
+
+
+
+
+
+
+
+
 
 	<c:if test="${empty cars}">
 		<table>
@@ -129,29 +124,63 @@ function addSize2() {
 
 
 
-	<c:forEach var="c" items="${cars }" varStatus="status">
-	<c:if test="${c.c_print == '출력'}">
-		<div class="cardatalist_div"
-			style="border: 1px solid gray; float: left;">
-			<div class="cardatalist_div1" style="float: left;">${status.count } </div>
-			<div class="cardatalist_div2" style="float: left;">${c.c_brand } </div>
-			<div class="cardatalist_div3" style="float: left;">${c.c_year1 } ~ ${c.c_year2 }</div>
-			<div class="cardatalist_div4" style="float: left;">${c.c_name }</div>
+			<table id="admin_car_content">
+				<tr>
+					<td class="admin_car_content_title admin_car_no" style="border-right: 1px solid white;">No.</td>
+					<td class="admin_car_content_title admin_car_brand" style="border-right: 1px solid white;">메이커</td>
+					<td class="admin_car_content_title admin_year" style="border-right: 1px solid white;">연식</td>
+					<td class="admin_car_content_title admin_car_name" style="border-right: 1px solid white;">차종</td>
+					<td class="admin_car_content_title admin_car_option" style="border-right: 1px solid white;">옵션</td>
+					<td class="admin_car_content_title admin_car_tiresize" style="border-right: 1px solid white;">타이어사이즈</td>
+					<td class="admin_car_content_title authadmin_manage" style="border-right: 1px solid white;">관리</td>
+				</tr>
+			
+	<c:if test="${empty cars}">
+		<table>
+			<tr>
+				<td colspan="5" style="text-align: center;">데이터가 존재하지않습니다.</td>
+			</tr>
+		</table>
+	</c:if>
 
-			<div class="cardatalist_div5" style="float: left;">${c.c_option }  </div>
-			<div class="cardatalist_div6" style="float: left;"> 앞 :${c.c_ft } / 뒤 :${c.c_bt }  <c:if test="${not empty c.c_fta}">/ 앞:${c.c_fta }</c:if>  <c:if test="${not empty c.c_bta}">/ 뒤 :${c.c_bta } </c:if></div>
-			<div class="cardatalist_div7" style="float: left;"> <button class="updatecarbutton"
+
+	
+		<c:forEach items="${cars }" var="c" varStatus="status">
+					<tr id="admin_cars_content">
+						<td class="admin_car_table_td">${status.count + (curPage-1)*count}</td>
+						<td class="admin_car_table_td">${c.c_brand }</td>
+						<td class="admin_car_table_td"> ${c.c_year1 } ~ ${c.c_year2 }</td>
+						<td class="admin_car_table_td">
+							${c.c_name }
+							</td>
+						<td class="admin_car_table_td">
+						${c.c_option }
+						</td>	
+						<td class="admin_car_table_td">
+						앞 :${c.c_ft } / 뒤 :${c.c_bt }
+						</td>
+						<td class="admin_car_table_td">
+						<button class="updatecarbutton"
 					onclick="updatecar('${c.c_id}','${c.c_name }',
 					'${c.c_year1 }','${c.c_year2 } ',
 					'${c.c_option }','${c.c_brand }',
 					'${c.c_ft }','${c.c_bt }','${c.c_print}','${c.c_fta }','${c.c_bta }','${c.c_file }')">수정</button>
-				<button type="button" class="updatecarbutton"
-					id="updatecar('${c.c_id}')" onclick="deletecar('${c.c_id}')">삭제</button> </div>
+					<button type="button" class="updatecarbutton"
+					id="updatecar('${c.c_id}')" onclick="deletecar('${c.c_id}')">삭제</button>
+						</td>
+						
+					</tr>
+				</c:forEach>
+			</table>
+	
 
-				
-			</div>
-			</c:if>
-	</c:forEach>
+
+	
+	
+	
+	
+	
+	
 
 	<div id="paging-box" class="car-paging-box">
 		<c:if test="${curPage != 1 }">
