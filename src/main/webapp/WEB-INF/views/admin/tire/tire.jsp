@@ -16,15 +16,6 @@
 	<input id="sm" value="1" type="hidden"> 
 	<div class="container sub">
 		<div id="tire_container">
-		
-			
-		
-		
-		
-		
-		
-		
-
 			<form action="admin.tire.search.do" class="tire_form">
 				<div id="tire_searchBox">
 					<div class="tire_searchTitle">
