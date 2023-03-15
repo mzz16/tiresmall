@@ -1,10 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
   <head>
     <meta charset="UTF-8" />
     <title>대전 타이어쇼핑몰</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"/>
     <link
       rel="shortcut icon"
       href="resources/web/favicon.png"
@@ -21,19 +23,22 @@ pageEncoding="UTF-8"%>
           <div class="index_hTop">
             <div class="index_hTopLeft">
               <a href="admin.order.go?m=order">관리자</a>
-              <input
-                class="board_contentType"
-                value="${board_contents}"
-                type="hidden"
-              />
               <a href="board.shoppingGuide">구매가이드</a>
-              <a href="board.askByKakao">카카오톡상담</a>
+              <a onclick="board_openKakao()" style="cursor: pointer">카카오톡상담<img src="resources/web/main/board/kakaoLogo.png" style="width: 16px; vertical-align: bottom;"/></a>
             </div>
             <div class="index_hTopRight">
-              <a> ${sessionScope.loginMember.i_name } </a>
-          	  <a>${loginOK }</a>
-              <a href="login">로그인</a>
-              <a href="non-member">비회원 주문조회</a>
+	            <c:choose>
+	            	<c:when test="${not empty sessionScope.loginMember.i_name}">
+	            		<a>${sessionScope.loginMember.i_name }님 안녕하세요!</a>
+						<a>| 내정보 |</a>
+						<a onclick="location.href='logout.do'">로그아웃 </a>
+	            	</c:when>
+	            	<c:otherwise>
+	            		${sessionScope.loginMember.i_name }
+              			<a href="login">로그인</a>
+	            	</c:otherwise>
+	            </c:choose>
+              <a href="non-member">| 비회원 주문조회</a>
             </div>
           </div>
           <div class="index_hBottom">
@@ -47,7 +52,7 @@ pageEncoding="UTF-8"%>
                 <a href="search.car">타이어 찾기</a>
               </div>
               <div class="index_tnMenu index_tnBrand">
-                <a href="product?p=1">브랜드별 타이어</a>
+                <a href="product.brand?b=&p=1">브랜드별 타이어</a>
               </div>
               <div class="index_tnMenu index_tnStore">
                 <a href="store?id=1">매장 안내</a>
@@ -55,9 +60,14 @@ pageEncoding="UTF-8"%>
               <div class="index_tnMenu index_tnBoard">
                 <a href="board.home">고객센터</a>
               </div>
+              <input
+                class="whereAmI"
+                value="${board_whereAmITwo }"
+                type="hidden"
+              />
             </div>
             <div class="index_sideNav">
-              <a href="profile"><i class="fa-regular fa-user"></i></i></a>
+              <a href="profile"><i class="fa-regular fa-user"></i></a>
               <a href="cart"><i class="fa-solid fa-basket-shopping"></i></a>
             </div>
           </div>
@@ -93,7 +103,7 @@ pageEncoding="UTF-8"%>
               <a href="board.notice">공지사항</a>
               <a href="board.event">이벤트</a>
               <a href="board.faq">FAQ</a>
-              <a href="board.askBySite">1:1 문의</a>
+              <a href="board.ask">1:1 문의</a>
             </li>
           </ul>
         </div>
@@ -130,12 +140,10 @@ pageEncoding="UTF-8"%>
         </div>
       </footer>
     </div>
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
     <script src="resources/js/index.js"></script>
+    <script src="resources/js/main/search/main_search.js"></script>
     <script src="resources/js/main/board/main_board.js"></script>
-    <script
-      src="https://kit.fontawesome.com/e41d253229.js"
-      crossorigin="anonymous"
-    ></script>
-    <script type="text/javascript" src="resources/js/main/search/main_search.js"></script>
+    <script src="resources/js/main/board/main_board_whereAmI.js"></script>
   </body>
 </html>

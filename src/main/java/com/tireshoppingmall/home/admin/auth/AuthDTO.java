@@ -14,6 +14,7 @@ public class AuthDTO {
 	private String a_address;
 	private Date a_date;
 
+
 	// my_car
 
 	private String mc_number;
@@ -60,6 +61,7 @@ public class AuthDTO {
 		this.start = start;
 		this.end = end;
 	}
+
 
 	public String getA_id() {
 		return a_id;

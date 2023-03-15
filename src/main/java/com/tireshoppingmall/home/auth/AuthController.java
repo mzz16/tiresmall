@@ -1,19 +1,41 @@
 package com.tireshoppingmall.home.auth;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.util.UrlPathHelper;
+
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
+
+
 
 @Controller
 public class AuthController {
 	
 	@Autowired
 	private MemberDAO mDAO;
-	
+	@Autowired
+	private LoginSocialDAO lsDAO;
 	
 	@RequestMapping(value = "/authTermsOfUse.go", method = RequestMethod.GET)
 	public String authTermsOfUseGo(Model model) {
@@ -23,6 +45,14 @@ public class AuthController {
 	public String loginDo(MemberDTO mDTO, HttpServletRequest req) {
 		
 		mDAO.login(mDTO,req);
+		mDAO.loginCheck( req);
+		req.setAttribute("content", "main/home/home.jsp");
+		return "index";
+	}
+	@RequestMapping(value = "/logout.do", method = RequestMethod.GET)
+	public String logoutDo(MemberDTO mDTO, HttpServletRequest req) {
+		
+		mDAO.logout(req);
 		mDAO.loginCheck( req);
 		req.setAttribute("content", "main/home/home.jsp");
 		return "index";
@@ -43,6 +73,72 @@ public class AuthController {
 	}
 	
 	
+	@RequestMapping(value = "/login/getKakaoAuthUrl" , method = RequestMethod.GET)
+	public @ResponseBody String getKakaoAuthUrl(
+			HttpServletRequest request) throws Exception {
+		String reqUrl = 
+				"https://kauth.kakao.com/oauth/authorize"
+				+ "?client_id=9ac97206ae6044bf6edfb9749a0e5e62"
+				+ "&redirect_uri=http://localhost/home/login/oauth_kakao"
+				+ "&response_type=code";
+		return reqUrl;
+	}
 	
+	// 카카오 연동정보 조회
+	@RequestMapping(value = "/login/oauth_kakao")
+	public String oauthKakao(
+			@RequestParam(value = "code", required = false) String code
+			, Model model,HttpServletRequest req) throws Exception {
+
+		System.out.println("#########" + code);
+        String access_Token = lsDAO.getAccessToken(code);
+        System.out.println("###access_Token#### : " + access_Token);
+        
+        
+        HashMap<String, Object> userInfo = lsDAO.getUserInfo(access_Token);
+       //System.out.println("###access_Token#### : " + access_Token);
+       // System.out.println("###userInfo#### : " + userInfo.get("email"));
+       // System.out.println("###nickname#### : " + userInfo.get("nickname"));
+       System.out.println("###KAKAOID#### : " + userInfo.get("kakaoID"));
+       
+        JsonObject kakaoInfo =  new JsonObject();
+        model.addAttribute("kakaoInfo", kakaoInfo);
+        //model.addAttribute("kakaoID", userInfo.get("kakaoID"));
+        
+        String socialID = (String) userInfo.get("kakaoID");
+        System.out.println("반환값 : "+ lsDAO.checkIdkko(socialID));
+        
+        //반환값이 1이면 기존 가입한 회원, 0이면 가입하지 않은 회원
+        if (lsDAO.checkIdkko(socialID)==1) {
+        	lsDAO.login(socialID,req);
+        	mDAO.loginCheck(req);   
+        	model.addAttribute("content", "main/home/home.jsp");
+               return "redirect:/"; //본인 원하는 경로 설정
+		}else {
+			//필요한 추가 정보를 얻기 위한 회원가입 페이지로 이동
+			return "main/auth/authReg";
+		}
+        
+       
+	}
 	
+   
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
+	
+	
+	
+

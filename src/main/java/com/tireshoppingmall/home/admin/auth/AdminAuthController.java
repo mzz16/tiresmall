@@ -31,6 +31,7 @@ public class AdminAuthController {
 		AuthDTO.AuthPagsing(req);
 		aDAO.getAllAuth(1,req);
 		
+
 		req.setAttribute("contentPage", "auth/auth.jsp");
 		return "admin/master";
 	}

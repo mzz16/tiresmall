@@ -114,7 +114,6 @@ public class BoardDAO {
 		req.getSession().setAttribute("searchDTO", sDTO);
 		
 	}
-
 	
 	
 }

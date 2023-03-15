@@ -4,6 +4,7 @@ function branchupdatecall(){
 	let b_name = document.updateform.b_name;
 	let b_addr = document.updateform.b_addr;
 	let b_time = document.updateform.b_time;
+	let b_area = document.updateform.b_area1;
 	let b_service = document.updateform.b_service;
 	let b_mapdata = document.updateform.b_mapdata;
 	let b_manager = document.updateform.b_manager;
@@ -15,6 +16,7 @@ function branchupdatecall(){
 	
 	
 
+	
 
 if(isEmpty(b_id)){
 	
@@ -71,4 +73,11 @@ if(isEmpty(b_mapdata)){
 }
 
 
+
+
+
+
 }
+
+
+	 

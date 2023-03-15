@@ -1,30 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.tireshoppingmall.home.admin.store.AdminStoreMapper">
+<mapper
+	namespace="com.tireshoppingmall.home.admin.store.AdminStoreMapper">
 	<select id="getBranchCount" resultType="int">
 
 		select count(*)
-		from
-		branch
-		where b_branchname like '%'||#{branchnameInput}||'%' 
+		from branch
+		where b_branchname
+		like
+		'%'||#{branchnameInput}||'%'
+		<if test="branchareaInput != ''">and b_area = #{branchareaInput} </if>
 	</select>
 
 
 	<select id="getBranchlist"
-		resultType="com.tireshoppingmall.home.admin.store.BranchDTO">
+		resultType="com.tireshoppingmall.home.admin.store.BranchDTO"
+		parameterType="com.tireshoppingmall.home.admin.store.SearchBranchDTO">
 
-		select *
-		from
-		(select rownum as rn, b_id, b_sortation, b_area, b_addr, b_name , b_time ,
-		b_service , b_mapdata, b_manager , b_managernumber , b_branchname,
-		b_branchnumber ,b_cr ,b_email,b_file
-		from(
-		select * from branch where
-		 b_branchname like	'%'||#{branchnameInput}||'%'
-	 	<if test="branchareaInput != null">and b_area = #{branchareaInput} </if>
-		  
-		)
-		) where rn &gt;= #{start} and rn &lt;= #{end}
+	select *
+from
+(select rownum as rn, b_id, b_sortation, b_area, b_addr,
+b_name , b_time ,
+b_service , b_mapdata, b_manager , b_managernumber ,
+b_branchname,
+b_branchnumber ,b_cr ,b_email,b_file
+from(
+select * from
+branch where
+b_branchname like '%'||#{branchnameInput}||'%'
+<if test="branchareaInput != null"> and b_area = #{branchareaInput} </if>
+)
+)  where rn &gt;= #{start} and rn &lt;= #{end}
 
 	</select>
 
@@ -45,26 +51,18 @@
 
 	</insert>
 
-  	<select id="branchSearchbranchname"
-		resultType="com.tireshoppingmall.home.admin.store.BranchDTO"
+	<select id="branchSearchbranchname" resultType="com.tireshoppingmall.home.admin.store.BranchDTO"
 		parameterType="com.tireshoppingmall.home.admin.store.SearchBranchDTO">
 
 		select * from branch where b_branchname like
-		'%'||#{branchnameInput}||'%' 
+		'%'||#{branchnameInput}||'%'
 		<if test="branchareaInput != ''">and b_area = #{branchareaInput}  </if>
 
 	</select>
-	
-<!--
-	<select id="branchSearcharea"
-		resultType="com.tireshoppingmall.home.admin.store.BranchDTO"
-		parameterType="com.tireshoppingmall.home.admin.store.SearchBranchDTO">
- 
-		select * from branch where b_area like
-		'%'||#{branchareaInput}||'%'
 
-	</select>
--->
+	<!-- <select id="branchSearcharea" resultType="com.tireshoppingmall.home.admin.store.BranchDTO" 
+		parameterType="com.tireshoppingmall.home.admin.store.SearchBranchDTO"> select 
+		* from branch where b_area like '%'||#{branchareaInput}||'%' </select> -->
 
 	<select id="getbranch"
 		resultType="com.tireshoppingmall.home.admin.store.BranchDTO">
@@ -113,6 +111,8 @@
 
 
 	</delete>
+
+
 
 
 </mapper>

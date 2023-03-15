@@ -83,7 +83,7 @@
 			<input id="location_lat" type="hidden"></input>
 				
 		<div id="store_wrap_banner">
-			<%-- <input id="store_banner_img" value="${store.b_img }"></input> --%>
+			<input id="store_banner_img" value="${store.b_file }" type="hidden"></input>
 			<img src="">
 		</div>
 		
