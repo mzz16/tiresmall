@@ -128,7 +128,7 @@
 
 	<beans:bean id="co"
 		class="com.tireshoppingmall.home.admin.car.CarOption">
-		<beans:constructor-arg value="7"></beans:constructor-arg>
+		<beans:constructor-arg value="12"></beans:constructor-arg>
 	</beans:bean>
 
 </beans:beans>

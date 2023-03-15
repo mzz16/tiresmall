@@ -30,7 +30,7 @@ FROM (
         <if test="carbrandInput != ''">
             AND c.c_brand = #{carbrandInput}
         </if>
-    ORDER BY cb.cb_order ASC
+    ORDER BY TO_NUMBER(cb.cb_order) ASC
 ) 
 WHERE rn &gt;= #{start} and rn &lt;= #{end}
 	</select>
@@ -110,7 +110,9 @@ ORDER BY cb.cb_order ASC;
 
 <select id="getAllCarBrands" resultType="com.tireshoppingmall.home.admin.car.CarBrandDTO">
 
-select * from car_brand ORDER BY CB_ORDER ASC
+SELECT *
+FROM car_brand
+ORDER BY LENGTH(CB_ORDER), TO_NUMBER(CB_ORDER)
 
 </select>
 
@@ -130,18 +132,19 @@ delete car_brand where cb_name = #{cb_name}
 	</insert>
 	
 <select id="getCarbrandselectlist" resultType="com.tireshoppingmall.home.admin.car.CarBrandDTO">
-
-select cb_name from car_brand ORDER BY CB_ORDER ASC
+ select cb_name
+  from car_brand
+  ORDER BY CAST(CB_ORDER AS NUMBER) ASC
 
 </select>
 
 <select id= "getallBrandCount" resultType="com.tireshoppingmall.home.admin.car.CarBrandDTO">
 
-SELECT COALESCE(COUNT(*), 0) AS cb_ea
-FROM car
-INNER JOIN car_brand ON car.c_brand = car_brand.cb_name
-GROUP BY car.c_brand, car_brand.cb_order
-ORDER BY car_brand.cb_order ASC
+  SELECT COALESCE(COUNT(*), 0) AS cb_ea
+  FROM car
+  INNER JOIN car_brand ON car.c_brand = car_brand.cb_name
+  GROUP BY car.c_brand, car_brand.cb_order
+  ORDER BY TO_NUMBER(car_brand.cb_order) ASC
 
 </select>
 
