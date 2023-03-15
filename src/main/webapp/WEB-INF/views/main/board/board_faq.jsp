@@ -7,6 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	board_faq.jsp
+	전체 상품 주문/배송 장착 반품/교환/취소<br>
+	<input placeholder="검색어를 입력해주세요.">
 </body>
 </html>

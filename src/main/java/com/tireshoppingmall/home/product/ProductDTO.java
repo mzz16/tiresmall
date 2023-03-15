@@ -15,9 +15,7 @@ public class ProductDTO {
 	private int ti_ratio;
 	private int ti_inch;
 	private int ti_stock;
-	private int ti_pricegp;
 	private int ti_pricefac;
-	private int ti_vat;
 	
 	public ProductDTO() {
 		super();
@@ -26,7 +24,7 @@ public class ProductDTO {
 
 	public ProductDTO(int tg_id, String tg_brand, String tg_name, String tg_img, String tg_text, String tg_dcrate,
 			int ti_id, int ti_tg_id, int ti_hg, String ti_speed, int ti_width, int ti_ratio, int ti_inch, int ti_stock,
-			int ti_pricegp, int ti_pricefac, int ti_vat) {
+			int ti_pricefac) {
 		super();
 		this.tg_id = tg_id;
 		this.tg_brand = tg_brand;
@@ -42,9 +40,7 @@ public class ProductDTO {
 		this.ti_ratio = ti_ratio;
 		this.ti_inch = ti_inch;
 		this.ti_stock = ti_stock;
-		this.ti_pricegp = ti_pricegp;
 		this.ti_pricefac = ti_pricefac;
-		this.ti_vat = ti_vat;
 	}
 
 	public int getTg_id() {
@@ -159,36 +155,11 @@ public class ProductDTO {
 		this.ti_stock = ti_stock;
 	}
 
-	public int getTi_pricegp() {
-		return ti_pricegp;
-	}
-
-	public void setTi_pricegp(int ti_pricegp) {
-		this.ti_pricegp = ti_pricegp;
-	}
-
 	public int getTi_pricefac() {
 		return ti_pricefac;
 	}
 
 	public void setTi_pricefac(int ti_pricefac) {
 		this.ti_pricefac = ti_pricefac;
-	}
-
-	public int getTi_vat() {
-		return ti_vat;
-	}
-
-	public void setTi_vat(int ti_vat) {
-		this.ti_vat = ti_vat;
-	}
-
-	@Override
-	public String toString() {
-		return "ProductDTO [tg_id=" + tg_id + ", tg_brand=" + tg_brand + ", tg_name=" + tg_name + ", tg_img=" + tg_img
-				+ ", tg_text=" + tg_text + ", tg_dcrate=" + tg_dcrate + ", ti_id=" + ti_id + ", ti_tg_id=" + ti_tg_id
-				+ ", ti_hg=" + ti_hg + ", ti_speed=" + ti_speed + ", ti_width=" + ti_width + ", ti_ratio=" + ti_ratio
-				+ ", ti_inch=" + ti_inch + ", ti_stock=" + ti_stock + ", ti_pricegp=" + ti_pricegp + ", ti_pricefac="
-				+ ti_pricefac + ", ti_vat=" + ti_vat + "]";
 	}
 }
