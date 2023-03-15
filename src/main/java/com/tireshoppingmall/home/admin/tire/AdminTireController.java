@@ -78,8 +78,12 @@ public class AdminTireController {
 		return "admin/master";
 	}
 	//admin.tire.reg.do
-	@RequestMapping(value = "/admin.tire.reg.do", method = RequestMethod.GET)
+	@RequestMapping(value = "/admin.tire.reg.do", method = RequestMethod.POST)
 	public String tireRegDo(HttpServletRequest req,TireDTO tDTO) {
+		
+		/*
+		 * 배열로 받아오기
+		 * String[] asd = req.getParameterValues("");*/
 		
 		tDAO.tireRegDo(tDTO,req);
 		
