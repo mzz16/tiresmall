@@ -67,7 +67,7 @@ pageEncoding="UTF-8"%>
               />
             </div>
             <div class="index_sideNav">
-              <a href="profile"><i class="fa-regular fa-user"></i></i></a>
+              <a href="profile"><i class="fa-regular fa-user"></i></a>
               <a href="cart"><i class="fa-solid fa-basket-shopping"></i></a>
             </div>
           </div>
@@ -140,6 +140,7 @@ pageEncoding="UTF-8"%>
         </div>
       </footer>
     </div>
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
     <script src="resources/js/index.js"></script>
     <script src="resources/js/main/search/main_search.js"></script>
     <script src="resources/js/main/board/main_board.js"></script>
