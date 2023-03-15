@@ -9,30 +9,6 @@
 <script src="https://code.jquery.com/jquery-3.6.3.js"
 	integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM="
 	crossorigin="anonymous"></script>
-	
-
-<style>
-.tire-items {
-	width: 100%;
-}
-
-.tire-item {
-	display: flex;
-	width: 80%;
-	border: 2px solid blue;
-	height: 100px;
-	margin: auto;
-	display: none;
-}
-
-.tire-img {
-	width: 40%;
-}
-
-.tire-info {
-	
-}
-</style>
 </head>
 <body>
 	<div class="searchTopImgWrapper"></div>
@@ -102,24 +78,21 @@
 				</div>
 			</div>
 		</div>
-		<button type="button" onclick="searchTire()">타이어 찾기</button>
-		<button type="button" id="ttt">복제테스트</button>
+		<button class="searchTireBtn" type="button" onclick="searchTire()">타이어 찾기</button>
 	</div>
-
-
-	<div class="tire-items">
-		<div class="tire-item">
-			<div class="tire-img">타이어이미지</div>
-			<div class="tire-info">
-				타이어이름
-				<div class="tire-info-width">width123</div>
-				<div class="tire-info-ratio">ratio123</div>
-				<div class="tire-info-inch">inch123</div>
-			</div>
+	
+	<div class="tire-item">
+		<div class="tire-img">타이어이미지</div>
+		<div class="tire-info">
+			타이어이름
+			<div class="tire-info-width">width123</div>
+			<div class="tire-info-ratio">ratio123</div>
+			<div class="tire-info-inch">inch123</div>
 		</div>
 	</div>
 
-
-
+	<div class="tire-items">
+		
+	</div>
 </body>
 </html>
