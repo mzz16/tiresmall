@@ -150,6 +150,17 @@ public class AdminCarController {
 	}
 	
 	
+	@RequestMapping(value = "/update.brand.do", method = RequestMethod.GET)
+	public String brandupdatedo(Model m,CarBrandDTO c, HttpServletRequest req) {
+		
+		cDAO.updatebrand(c, req);
+		cDAO.getallCarBrands(m);
+		cDAO.getallBrandCount(c,m);
+		req.setAttribute("subMenuPage", "car/car_subMenu.jsp");
+		req.setAttribute("contentPage", "car/car_brand.jsp");
+		return "admin/master";
+	}
+	
 	
 	
 	

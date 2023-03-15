@@ -123,7 +123,11 @@ function updatebranch(id, sortation, area, addr, name, time, service, mapdata,
 		    return $(this).text() == gugun;
 		}).prop('selected', true);
 	    
-		console.log($("#gugun1").length)
+		
+		console.log(sido)
+		console.log("@@@@@@WWWWW@@@@@@@@@")
+		console.log(gugun)
+		console.log("@@@@@@WWWWW@@@@@@@@@")
 	}
 
 

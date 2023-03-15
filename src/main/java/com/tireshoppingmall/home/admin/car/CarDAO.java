@@ -208,6 +208,8 @@ public class CarDAO {
 	}
 
 	public void deletebrand(CarBrandDTO c, HttpServletRequest req) {
+		ss.getMapper(AdminCarMapper.class).deletebrandcar(c);
+		
 		if (ss.getMapper(AdminCarMapper.class).deletebrand(c) == 1) {
 			System.out.println("삭제완료");
 			allCarCount--;
@@ -260,10 +262,23 @@ public class CarDAO {
 
 
 	
-public void getAllCar(Model m) {
+// public void getAllCar(Model m) {
 		
 		
+//	}
+
+public void updatebrand(CarBrandDTO c, HttpServletRequest req) {
+	AdminCarMapper mm = ss.getMapper(AdminCarMapper.class);
+	
+	
+	if (mm.updatebrand(c) == 1) {
+		System.out.println("수정완료");
+		mm.updatebrandcar(c);
+	}else {
+		System.out.println("수정실패");
 	}
+	
+}
 	
 	
 }

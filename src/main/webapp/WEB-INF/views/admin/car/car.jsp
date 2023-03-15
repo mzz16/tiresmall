@@ -396,8 +396,6 @@ function addSize2() {
 					
 					</tr>
 					
-					</td>
-					</tr>
 						<tr>
 						<td colspan=2><div class="updatecarokbutton">
 								<button   class="updatecarokbutton1" id="updatecar" value=>수정</button>

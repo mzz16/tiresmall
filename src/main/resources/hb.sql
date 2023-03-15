@@ -85,14 +85,13 @@ select * from branch where b_branchname like '%%'
 		c_fta varchar2(40 char),
 		c_bta varchar2(40 char),
 		c_print varchar2(40 char) not null,
-		c_file varchar2(2000 char),
-		FOREIGN KEY (c_brand) REFERENCES car_brand(cb_name)
+		c_file varchar2(2000 char)
 );
 		
 		
-insert into Car values('123455','X101','2014','2016','에어백','대우','12313154','2534533',null,null,'출력','a.jpg');
-insert into Car values('45545','X202','2013','2017','아기유모차','기아','12313154','2534533','123414',null,'출력','b.jpg');
-insert into Car values('78965','X203','2012','2018','선루프','BMW','12313154','2534533','1341233','123141515','출력','c.jpg');
+insert into Car values('2345','X101','2014','2016','에어백','대우','12313154','2534533',null,null,'출력','a.jpg');
+insert into Car values('434','X202','2013','2017','아기유모차','기아','12313154','2534533','123414',null,'출력','b.jpg');
+insert into Car values('8346','X203','2012','2018','선루프','BMW','12313154','2534533','1341233','123141515','출력','c.jpg');
 
 		
 		
@@ -180,5 +179,16 @@ drop table car_brand;
     ORDER BY cb.cb_order ASC
 
 
+SELECT NVL(COUNT(*), 0) AS cb_ea
+FROM car
+INNER JOIN car_brand ON car.c_brand = car_brand.cb_name
+GROUP BY car.c_brand, car_brand.cb_order
+ORDER BY TO_NUMBER(car_brand.cb_order) ASC
 
 
+
+SELECT COALESCE(COUNT(car.c_id), 0) AS cb_ea
+FROM car_brand
+LEFT JOIN car ON car_brand.cb_name = car.c_brand
+GROUP BY car_brand.cb_name, car_brand.cb_order
+ORDER BY TO_NUMBER(car_brand.cb_order) ASC;

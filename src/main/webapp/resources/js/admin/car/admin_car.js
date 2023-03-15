@@ -112,8 +112,31 @@ function updatecar(id,name,year1,year2,option,brand,ft,bt,print,fta,bta,c_file) 
 
 
 
-
-
-
+function updatecb1(name,order){
 	
+	$(document).ready(function( $ ){     
+	    $(".updatecarbrandbutton").on("click", function(event) {  //팝업오픈 버튼 누르면
+	    $("#updatebrandpopup01").show();   //팝업 오픈
+	    $("body").append('<div class="backon"></div>'); //뒷배경 생성
+	    });
+	    
+	    $("body").on("click", function(event) { 
+	        if(event.target.className == 'close' || event.target.className == 'backon'){
+	            $("#updatebrandpopup01").hide(); //close버튼 이거나 뒷배경 클릭시 팝업 삭제
+	              $(".backon").hide();
+	        }
+	      });
+	 
+	  });
+	 
+	 $('#cb_name_u').val(name);
+	 $('#cb_name_u').attr('readonly', true);
+	 $('#cb_order_u').val(order);
+	 
+	 
+		  
+}
+	 
+
+ 
 	
