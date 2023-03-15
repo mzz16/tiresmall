@@ -48,7 +48,7 @@
 		</div>
 		<div id="product_container">
 			<c:forEach items="${pGroups }" var="pGroup">
-				<a href="detail.test?item=${pGroup.tg_id }">
+				<a href="product.detail?tg_id=${pGroup.tg_id }">
 					<div class="product_item">
 						<div class="product_item_hidden"></div>
 						<div class="product_item_img">

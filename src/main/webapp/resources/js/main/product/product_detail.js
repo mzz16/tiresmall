@@ -4,11 +4,6 @@ const methodBtn = document.querySelector(".detail_method");
 const standardBtn = document.querySelector(".detail_standard");
 const cartBtn = document.querySelector(".detail_cart");
 
-sizeBtn.addEventListener("click", () => {
-  const sizeSelector = document.querySelector(".detail_size_selector");
-  sizeSelector.showModal();
-});
-
 methodBtn.addEventListener("click", () => {
   const sizeGuide = document.querySelector(".detail_size_guide");
   sizeGuide.showModal();
@@ -147,4 +142,28 @@ cartBtn.addEventListener("click", () => {
       }
     },
   });
+});
+
+// 사이즈 선택 ajax
+sizeBtn.addEventListener("click", () => {
+  console.log(tg_id);
+  $.ajax({
+    url: "product.size.get",
+    type: "POST",
+    data: { tg_id },
+    success: function (data) {
+      const tireSizes = data["sizes"];
+      $(".size_wrapper").empty();
+      $.each(tireSizes, function (i) {
+        $(".size_wrapper").append(
+          `<div><button class="size${i}"></button></div>`
+        );
+        $(`.size${i}`).text(
+          `${tireSizes[i]["ti_width"]}/${tireSizes[i]["ti_ratio"]}R${tireSizes[i]["ti_inch"]}`
+        );
+      });
+    },
+  });
+  const sizeSelector = document.querySelector(".detail_size_selector");
+  sizeSelector.showModal();
 });

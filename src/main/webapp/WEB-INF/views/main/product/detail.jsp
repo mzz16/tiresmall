@@ -7,9 +7,14 @@ pageEncoding="UTF-8"%>
     <title>Insert title here</title>
   </head>
   <body>
-    <div class="detail_brand">
+    <div
+      class="detail_brand"
+      style="background-color: var(--${product.tg_brand})"
+    >
       <div class="detail_brand_wrapper">
-        <img src="resources/web/main/product/nexen.png" style="height: 25px" />
+        <img
+          src="resources/web/main/product/${product.tg_brand}.png"
+        />
       </div>
     </div>
     <div class="detail_container">
@@ -19,8 +24,8 @@ pageEncoding="UTF-8"%>
         </div>
         <div class="detail_info">
           <div class="detail_titles">
-            <h1>엔페라 프리머스 AS T1</h1>
-            <h3>4계절 고급 세단 용 프리미엄 타이어</h3>
+            <h1>${product.tg_name}</h1>
+            <h3>${product.tg_text}</h3>
           </div>
           <div class="detail_option">
             <div class="detail_option_content">
@@ -32,7 +37,7 @@ pageEncoding="UTF-8"%>
             </div>
             <div class="detail_option_content">
               <h5>사이즈(마킹)</h5>
-              <span class="detail_option_txt">205/55R16(94W)</span>
+              <span class="detail_option_txt detail_option_size"></span>
             </div>
             <div class="detail_option_content">
               <h5>배송비</h5>
@@ -74,21 +79,21 @@ pageEncoding="UTF-8"%>
               </div>
             </div>
             <div class="detail_final">
-              <span class="detail_discount">35%</span>
+              <span class="detail_discount">${product.tg_dcrate}%</span>
               <span class="detail_final_price">95,600원</span>
               <span class="detail_not_price">147,000원</span>
             </div>
           </div>
           <div class="detail_buy">
-            <input class="tg_id" type="hidden" value="1" />
-            <input class="tg_brand" type="hidden" value="넥센타이어" />
+            <input class="tg_id" type="hidden" value="${product.tg_id}" />
+            <input class="tg_brand" type="hidden" value="${product.tg_brand}" />
+            <input class="tg_name" type="hidden" value="${product.tg_name}" />
+            <input class="tg_img" type="hidden" value="${product.tg_img}" />
             <input
-              class="tg_name"
+              class="tg_dcrate"
               type="hidden"
-              value="엔페라 프리머스 AS T1"
+              value="${product.tg_dcrate}"
             />
-            <input class="tg_img" type="hidden" value="example.jpg" />
-            <input class="tg_dcrate" type="hidden" value="35" />
             <input class="ti_width" type="hidden" value="205" />
             <input class="ti_ratio" type="hidden" value="55" />
             <input class="ti_inch" type="hidden" value="16" />
@@ -234,7 +239,8 @@ pageEncoding="UTF-8"%>
       <form method="dialog">
         <button><i class="fa-solid fa-xmark"></i></button>
       </form>
-      사이즈선택
+      <div>사이즈선택</div>
+      <div class="size_wrapper"></div>
     </dialog>
     <dialog class="detail_size_guide">
       <form method="dialog">
