@@ -1,7 +1,5 @@
 package com.tireshoppingmall.home.product;
 
-import java.util.List;
-
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,31 +11,31 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class ProductController {
-	
+
 	@Autowired
 	private ProductDAO pDAO;
-	
+
 	private boolean firstReq;
-	
+
 	public ProductController() {
 		firstReq = true;
 	}
-	
-//	@RequestMapping(value = "/product", method = RequestMethod.GET)
-//	public String goProduct(HttpServletRequest request, @RequestParam int p) {
-//		pDAO.clearSearch(request);
-//		pDAO.getProductGroup(p, request);
-//		request.setAttribute("content", "main/product/product.jsp");
-//		return "index";
-//	}
-	
+
+	// @RequestMapping(value = "/product", method = RequestMethod.GET)
+	// public String goProduct(HttpServletRequest request, @RequestParam int p) {
+	// pDAO.clearSearch(request);
+	// pDAO.getProductGroup(p, request);
+	// request.setAttribute("content", "main/product/product.jsp");
+	// return "index";
+	// }
+
 	@RequestMapping(value = "/product.brand", method = RequestMethod.GET)
 	public String goProductBrand(HttpServletRequest request, @RequestParam String b, @RequestParam int p) {
-		if(firstReq) {
+		if (firstReq) {
 			pDAO.calcAllMsgCount();
 			firstReq = false;
 		}
-		if(b=="") {
+		if (b == "") {
 			pDAO.clearSearch(request);
 		} else {
 			pDAO.searchProductGroup(b, request);
@@ -46,28 +44,30 @@ public class ProductController {
 		request.setAttribute("content", "main/product/product.jsp");
 		return "index";
 	}
-	
+
 	@RequestMapping(value = "/product.brand.type", method = RequestMethod.GET)
-	public String goProductType(HttpServletRequest request, @RequestParam String b, @RequestParam int p, @RequestParam String t) {
+	public String goProductType(HttpServletRequest request, @RequestParam String b, @RequestParam int p,
+			@RequestParam String t) {
 		pDAO.searchProductGroup(b, t, request);
 		pDAO.getProductGroup(p, request);
 		request.setAttribute("content", "main/product/product.jsp");
 		return "index";
 	}
-	
-	@RequestMapping(value = "/product.brand.type.ajax", method = RequestMethod.GET, produces="application/json; charset=utf-8")
-	public @ResponseBody ProductGroups goProductTypeAjax(HttpServletRequest request, @RequestParam String b, @RequestParam int p, @RequestParam String t) {
+
+	@RequestMapping(value = "/product.brand.type.ajax", method = RequestMethod.GET, produces = "application/json; charset=utf-8")
+	public @ResponseBody ProductGroups goProductTypeAjax(HttpServletRequest request, @RequestParam String b,
+			@RequestParam int p, @RequestParam String t) {
 		pDAO.searchProductGroup(b, t, request);
 		return pDAO.getProductGroupJson(p, request);
 	}
-	
+
 	@RequestMapping(value = "/product.brand.price", method = RequestMethod.GET)
-	public String goProductPrice(HttpServletRequest request, @RequestParam String b, @RequestParam int p, @RequestParam String t) {
+	public String goProductPrice(HttpServletRequest request, @RequestParam String b, @RequestParam int p,
+			@RequestParam String t) {
 		pDAO.searchProductGroup(b, t, request);
 		pDAO.getProductGroup(p, request);
 		request.setAttribute("content", "main/product/product.jsp");
 		return "index";
 	}
-	
-	
+
 }

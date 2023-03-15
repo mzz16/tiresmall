@@ -294,5 +294,6 @@ pageEncoding="UTF-8"%>
         <button>취소</button>
       </form>
     </dialog>
+    <script src="resources/js/main/product/product_detail.js"></script>
   </body>
 </html>
