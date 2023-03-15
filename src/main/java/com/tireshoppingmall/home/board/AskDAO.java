@@ -77,8 +77,8 @@ public class AskDAO {
 	}
 	
 	public void createAsk(AskDTO a, HttpServletRequest req) {
-		String a_text = a.getA_text();
-		a.setA_text(a_text.replace("\r\n", "<br>"));
+		String q_txt = a.getQ_txt();
+		a.setQ_txt(q_txt.replace("\r\n", "<br>"));
 		
 		if (ss.getMapper(BoardMapper.class).createAsk(a) == 1) {
 			req.setAttribute("result", "create성공");

@@ -40,6 +40,7 @@
 
 .board_sideMenu {
 	grid-area: b_menu;
+	
 }
 
 .board_sideMenu > div {
@@ -73,8 +74,11 @@
 .board_sideInfo {
 	grid-area: b_info;
 	
-	margin-top: 80px;
-	margin-bottom: 20px;
+	/*
+	margin-top: 50px 0 50px;
+	*/
+	margin-top: auto;
+	margin-bottom: 50px;
 }
 
 .board_sideInfo_20px {

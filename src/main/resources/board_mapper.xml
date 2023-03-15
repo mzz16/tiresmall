@@ -3,61 +3,61 @@
 <mapper namespace="com.tireshoppingmall.home.board.BoardMapper">
 	<select id="getAskCount" resultType="java.lang.Integer">
 		select count(*)
-        from ask, ask_account
-        where a_owner_fk = aa_id
+        from qna, auth_user
+        where q_id = u_id
 	</select>
 	<select id="getAskAll" resultType="com.tireshoppingmall.home.board.AskDTO">
 		select *
         from (
 			select	rownum as rownumber,
-					a_number,
-					a_sortation,
-					a_title,
-					a_date,
-					a_status
+					q_no,
+					q_title,
+					q_date
 			from (
 				select *
-				from ask, ask_account
-				where a_owner_fk = aa_id
-				order by a_date desc
+				from qna, auth_user
+				where q_id = u_id
+				order by q_date desc
 			)
         )
         where rownumber &gt;= #{begin} and rownumber &lt;= #{last}
 	</select>
+	
 	<select id="getAskOne" resultType="com.tireshoppingmall.home.board.AskDTO">
 		select *
-		from ask
-		where a_number = #{a_number}
+		from qna
+		where q_no = #{q_no}
 	</select>
 	<select id="getAskReply" resultType="com.tireshoppingmall.home.board.AskReplyDTO">
 	 	select *
-	 	from ask_reply
-	 	where ar_number_fk = #{a_number}
+	 	from qna_reply
+	 	where q_reply_board_no = #{q_no}
 	</select>
+	
 	<insert id="createAsk">
 		insert
-		into ask
+		into qna
 		values(
-			ask_seq.nextval,
-			'id',
-			#{a_sortation},
-			#{a_title},
-			#{a_text},
+			qna_seq.nextval,
+			#{q_title},
+			#{q_txt},
 			sysdate,
-			'답변대기'
+			'id1',
+			default
 		)
 	</insert>
+	
 	<update id="updateAsk">
 		update
-		ask
-		set	a_sortation = #{a_sortation},
-			a_title = #{a_title},
-			a_text = #{a_text}
-		where a_number = #{a_number}
+		qna
+		set	q_title = #{q_title},
+			q_txt = #{q_txt}
+		where q_no = #{q_no}
 	</update>
+	
 	<delete id="deleteAsk">
 		delete
-		ask
-		where a_number = #{a_number}
+		qna
+		where q_no = #{q_no}
 	</delete>
 </mapper>

@@ -12,7 +12,6 @@
 	<div>
 		<div class="board_ask_readAll_column">
 			<div>번호</div>
-			<div>분류</div>
 			<div>제목</div>
 			<div>등록일</div>
 			<div>처리현황</div>
@@ -35,13 +34,10 @@
 								${num }
 							</div>
 							<div>
-								${a.a_sortation }
+								<a href="board.ask.readone?q_no=${a.q_no}">${a.q_title }</a>
 							</div>
 							<div>
-								<a href="board.ask.readone?a_number=${a.a_number}">${a.a_title }</a>
-							</div>
-							<div>
-								<fmt:formatDate value="${a.a_date }" pattern="yyyy-MM-dd"/>
+								<fmt:formatDate value="${a.q_date }" pattern="yyyy-MM-dd"/>
 							</div>
 							<!-- 
 							<div>

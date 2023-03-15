@@ -3,51 +3,49 @@ package com.tireshoppingmall.home.board;
 import java.util.Date;
 
 public class AskReplyDTO {
+	private int q_reply_no;
+	private String q_reply_txt;
+	private Date q_reply_date;
+	private int q_reply_board_no;
+	/*
 	private int ar_number;
 	private int ar_number_fk;
 	private String ar_text;
-	private String ar_photo;
 	private Date ar_date;
+	*/
 	public AskReplyDTO() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public AskReplyDTO(int ar_number, int ar_number_fk, String ar_text, String ar_photo, Date ar_date) {
+	public AskReplyDTO(int q_reply_no, String q_reply_txt, Date q_reply_date, int q_reply_board_no) {
 		super();
-		this.ar_number = ar_number;
-		this.ar_number_fk = ar_number_fk;
-		this.ar_text = ar_text;
-		this.ar_photo = ar_photo;
-		this.ar_date = ar_date;
+		this.q_reply_no = q_reply_no;
+		this.q_reply_txt = q_reply_txt;
+		this.q_reply_date = q_reply_date;
+		this.q_reply_board_no = q_reply_board_no;
 	}
-	public int getAr_number() {
-		return ar_number;
+	public int getQ_reply_no() {
+		return q_reply_no;
 	}
-	public void setAr_number(int ar_number) {
-		this.ar_number = ar_number;
+	public void setQ_reply_no(int q_reply_no) {
+		this.q_reply_no = q_reply_no;
 	}
-	public int getAr_number_fk() {
-		return ar_number_fk;
+	public String getQ_reply_txt() {
+		return q_reply_txt;
 	}
-	public void setAr_number_fk(int ar_number_fk) {
-		this.ar_number_fk = ar_number_fk;
+	public void setQ_reply_txt(String q_reply_txt) {
+		this.q_reply_txt = q_reply_txt;
 	}
-	public String getAr_text() {
-		return ar_text;
+	public Date getQ_reply_date() {
+		return q_reply_date;
 	}
-	public void setAr_text(String ar_text) {
-		this.ar_text = ar_text;
+	public void setQ_reply_date(Date q_reply_date) {
+		this.q_reply_date = q_reply_date;
 	}
-	public String getAr_photo() {
-		return ar_photo;
+	public int getQ_reply_board_no() {
+		return q_reply_board_no;
 	}
-	public void setAr_photo(String ar_photo) {
-		this.ar_photo = ar_photo;
-	}
-	public Date getAr_date() {
-		return ar_date;
-	}
-	public void setAr_date(Date ar_date) {
-		this.ar_date = ar_date;
+	public void setQ_reply_board_no(int q_reply_board_no) {
+		this.q_reply_board_no = q_reply_board_no;
 	}
 }

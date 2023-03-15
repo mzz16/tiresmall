@@ -1,9 +1,8 @@
 .board_ask_readOne_rowAndValue {
 	display: grid;
 	grid-template-columns: 110px 1fr;
-	grid-template-rows: 51px 51px 51px;
-	grid-template-areas:	"ro_sort ro_sortValue"
-							"ro_status ro_statusValue"
+	grid-template-rows: 51px 51px;
+	grid-template-areas:	"ro_status ro_statusValue"
 							"ro_title ro_titleValue"
 							"ro_text ro_textValue"
 							"ro_reply ro_replyValue";
@@ -14,36 +13,30 @@
 }
 
 .board_ask_readOne_rowAndValue div:nth-child(1) {
-	grid-area: ro_sort;
-}
-.board_ask_readOne_rowAndValue div:nth-child(2) {
-	grid-area: ro_sortValue;
-}
-.board_ask_readOne_rowAndValue div:nth-child(3) {
 	grid-area: ro_status;
 }
-.board_ask_readOne_rowAndValue div:nth-child(4) {
+.board_ask_readOne_rowAndValue div:nth-child(2) {
 	grid-area: ro_statusValue;
 }
-.board_ask_readOne_rowAndValue div:nth-child(5) {
+.board_ask_readOne_rowAndValue div:nth-child(3) {
 	grid-area: ro_title;
 }
-.board_ask_readOne_rowAndValue div:nth-child(6) {
+.board_ask_readOne_rowAndValue div:nth-child(4) {
 	grid-area: ro_titleValue;
 }
-.board_ask_readOne_rowAndValue div:nth-child(7) {
+.board_ask_readOne_rowAndValue div:nth-child(5) {
 	grid-area: ro_text;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 }
-.board_ask_readOne_rowAndValue div:nth-child(8) {
+.board_ask_readOne_rowAndValue div:nth-child(6) {
 	grid-area: ro_textValue;
 }
-.board_ask_readOne_rowAndValue div:nth-child(9) {
+.board_ask_readOne_rowAndValue div:nth-child(7) {
 	grid-area: ro_reply;
 }
-.board_ask_readOne_rowAndValue div:nth-child(10) {
+.board_ask_readOne_rowAndValue div:nth-child(8) {
 	grid-area: ro_replyValue;
 }
 
