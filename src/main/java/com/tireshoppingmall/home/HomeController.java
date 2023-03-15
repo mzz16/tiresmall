@@ -73,9 +73,4 @@ public class HomeController {
 		return "index";
 	}
 	
-	@RequestMapping(value = "/detail.test", method = RequestMethod.GET)
-	public String goDetailTest(HttpServletRequest req) {
-		req.setAttribute("content", "main/product/detail.jsp");
-		return "index";
-	}
 }
