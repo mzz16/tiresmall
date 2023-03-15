@@ -69,5 +69,21 @@ public class ProductController {
 		request.setAttribute("content", "main/product/product.jsp");
 		return "index";
 	}
-
+	
+	@RequestMapping(value = "/product.detail", method = RequestMethod.GET)
+	public String goProductDetail(HttpServletRequest request, ProductDTO pDTO) {
+		pDAO.getProduct(request, pDTO);
+		request.setAttribute("content", "main/product/detail.jsp");
+		return "index";
+	}
+	
+	@ResponseBody
+	@RequestMapping(
+		value = "/product.size.get", 
+		method = RequestMethod.POST,
+		produces = "application/json;charset=utf-8"
+	)
+	public Sizes getProductSizes(HttpServletRequest request, ProductDTO pDTO) {
+		return pDAO.getProductSizes(request, pDTO);
+	}
 }
