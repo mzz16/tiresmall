@@ -110,7 +110,7 @@ function updatebranch(id, sortation, area, addr, name, time, service, mapdata,
 	    $('#b_email_i').val(email);
 	   
 	    
-	    var areaArray = area.split(" ");
+	    var areaArray = area.split("\t");
 	    var sido = areaArray[0];
 	    var gugun = areaArray[1];
 
@@ -128,7 +128,6 @@ function updatebranch(id, sortation, area, addr, name, time, service, mapdata,
 	    console.log("@@@@@@WWWWW@@@@@@@@@");
 	    console.log("gugun : " + gugun);
 	    console.log("@@@@@@WWWWW@@@@@@@@@");
-	    
 	  }
 	
 
