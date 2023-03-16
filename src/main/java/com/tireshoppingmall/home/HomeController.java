@@ -1,7 +1,9 @@
 package com.tireshoppingmall.home;
 
+import javax.servlet.http.HttpServletRequest;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -11,10 +13,15 @@ import com.tireshoppingmall.home.store.StoreDAO;
 @Controller
 public class HomeController {
 	
+	@Autowired
+	private HomeDAO hDAO;
+	
+	@Autowired
+	private StoreDAO sDAO;
+	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String home(Model model) {
-		
-		model.addAttribute("content", "main/home/home.jsp");
+	public String home(HttpServletRequest req) {
+		req.setAttribute("content", "main/home/home.jsp");
 		return "index";
 	}
 	
@@ -28,48 +35,37 @@ public class HomeController {
 	}
 	
 	@RequestMapping(value = "/board.home", method = RequestMethod.GET)
-	public String boardHome(Model model) {
-		model.addAttribute("content", "main/board/board.jsp");
-		model.addAttribute("board_contents", "board_home.jsp");
-		model.addAttribute("board_whereAmIOne", "");
-		model.addAttribute("board_whereAmITwo", "고객센터");
+	public String boardHome(HttpServletRequest req) {
+		req.setAttribute("content", "main/board/board.jsp");
+		req.setAttribute("board_contents", "board_home.jsp");
+		req.setAttribute("board_whereAmIOne", "");
+		req.setAttribute("board_whereAmITwo", "고객센터");
 		return "index";
 	}
 	
 	@RequestMapping(value = "/search.size", method = RequestMethod.GET)
-	public String goSearchSize(Model model) {
-		model.addAttribute("content", "main/search/search_size.jsp");
+	public String goSearchSize(HttpServletRequest req) {
+		req.setAttribute("content", "main/search/search_size.jsp");
 		return "index";
 	}
 	
 	@RequestMapping(value = "/search.car", method = RequestMethod.GET)
-	public String goSearchCar(Model model) {
-		model.addAttribute("content", "main/search/search_car.jsp");
+	public String goSearchCar(HttpServletRequest req) {
+		req.setAttribute("content", "main/search/search_car.jsp");
 		return "index";
 	}
 	
 	@RequestMapping(value = "/search.product", method = RequestMethod.GET)
-	public String goSearchProduct(Model model) {
-		model.addAttribute("content", "main/search/search_product.jsp");
+	public String goSearchProduct(HttpServletRequest req) {
+		req.setAttribute("content", "main/search/search_product.jsp");
 		return "index";
 	}
 	
 	@RequestMapping(value = "/store", method = RequestMethod.GET)
-	public String goStore(Model model, @RequestParam int id) {
-		StoreDAO.getAStore(model, id);
-		model.addAttribute("content", "main/store/store.jsp");
+	public String goStore(HttpServletRequest req, @RequestParam int id) {
+		sDAO.getAStore(req, id);
+		req.setAttribute("content", "main/store/store.jsp");
 		return "index";
 	}
 	
-	@RequestMapping(value = "/cart", method = RequestMethod.GET)
-	public String goCart(Model model) {
-		model.addAttribute("content", "main/product/cart.jsp");
-		return "index";
-	}
-	
-	@RequestMapping(value = "/detail.test", method = RequestMethod.GET)
-	public String goDetailTest(Model model) {
-		model.addAttribute("content", "main/product/detail.jsp");
-		return "index";
-	}
 }

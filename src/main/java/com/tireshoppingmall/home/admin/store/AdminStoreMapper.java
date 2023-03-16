@@ -13,7 +13,7 @@ public interface AdminStoreMapper {
 
 	int regBranch(BranchDTO b);
 
-	List<BranchDTO> branchSearchbranchname(SearchBranchDTO b);
+	 List<BranchDTO> branchSearchbranchname(SearchBranchDTO b);
 
 
 	BranchDTO getbranch(BranchDTO b);
@@ -35,6 +35,8 @@ public interface AdminStoreMapper {
 
 
 	List<BranchDTO> getBranch(SearchBranchDTO search);
+
+
 
 
 	

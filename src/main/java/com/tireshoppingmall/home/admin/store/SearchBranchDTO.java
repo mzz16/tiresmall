@@ -7,11 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 
 public class SearchBranchDTO {
 
-	@Override
-	public String toString() {
-		return "SearchBranchDTO [branchareaInput=" + branchareaInput + ", branchnameInput=" + branchnameInput
-				+ ", start=" + start + ", end=" + end + "]";
-	}
+	
 	private String branchareaInput;
 	private String branchnameInput;
 	private BigDecimal start;
@@ -56,6 +52,11 @@ public class SearchBranchDTO {
 		
 	}
 	
+	@Override
+	public String toString() {
+		return "SearchBranchDTO [branchareaInput=" + branchareaInput + ", branchnameInput=" + branchnameInput
+				+ ", start=" + start + ", end=" + end + "]";
+	}
 	
 	
 }

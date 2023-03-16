@@ -1,4 +1,5 @@
 $(function() {
+	
 	let sub = $('#whatMenu').val();
 	let menuNum=1;
 	if(sub == 'order'){
@@ -32,6 +33,7 @@ $(function() {
 	
 	
 	let sm = $("#sm").val();
+
 	/*alert(11)*/
 	if(sm == 1){
 		$(".subMenuContent1").css("background-color","black")

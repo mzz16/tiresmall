@@ -48,6 +48,7 @@ public class AdminBoardController {
 		SearchDTO.clearSearch(req);
 		bDAO.getNotice(1, req);
 		/* bDAO.getAllNotice(req); */
+
 		req.setAttribute("subMenuPage", "board/board_subMenu.jsp");
 		req.setAttribute("contentPage", "board/notice_board.jsp");
 		return "admin/master";
@@ -125,6 +126,7 @@ public class AdminBoardController {
 		SearchDTO.clearSearch(req);
 		faqDAO.getFaq(1, req);
 		/* bDAO.getAllNotice(req); */
+
 		req.setAttribute("subMenuPage", "board/board_subMenu.jsp");
 		req.setAttribute("contentPage", "board/faq_board.jsp");
 		return "admin/master";
@@ -193,6 +195,7 @@ public class AdminBoardController {
 		}
 		SearchDTO.clearSearch(req);
 		qnaDAO.getQna(1 ,req);
+		
 		req.setAttribute("subMenuPage", "board/board_subMenu.jsp");
 		req.setAttribute("contentPage", "board/qna_board.jsp");
 		return "admin/master";
@@ -225,8 +228,7 @@ public class AdminBoardController {
 	}
 
 	@RequestMapping(value = "/qna.page.change", method = RequestMethod.GET)
-	public String PagingQna(HttpServletRequest req, @RequestParam int p) {
-		System.out.println(req.getParameter("p"));
+	public String pagingQna(HttpServletRequest req, @RequestParam int p) {
 		qnaDAO.getQna(p, req);
 		
 		req.setAttribute("subMenuPage", "board/board_subMenu.jsp");

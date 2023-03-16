@@ -8,17 +8,19 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="resources/css/admin/auth/admin_auth.css">
+<link rel="stylesheet" href="resources/css/admin/tire/admin_tire.css">
 <link rel="stylesheet" href="resources/css/admin/board/notice_board.css">
 <link rel="stylesheet" href="resources/css/admin/board/notice_modal.css">
 <script src="resources/js/admin/auth/admin_auth.js"></script>
 </head>
 <body>
+	<input id="whatMenu" value="auth" type="hidden">
 	<div class="container">
 		<div id="auth_container">
 
 			<!-- 모달 창  -->
 			<div id="auth_modal">
-				<form action="admin.update.go?m=auth" method="post">
+				<form action="admin.update.go" method="post">
 					<div id="auth_modal_container">
 						<div id="auth_modalInfo">회원정보</div>
 						<div id="auth_modal_page">
@@ -89,7 +91,7 @@
 						</div>
 						<div id="auth_modal_btn">
 							<button id="auth_modal_update">수정</button>
-							<div id="auth_modal_cancel">취소</div>
+							<div id="auth_modal_cancel ">취소</div>
 						</div>
 					</div>
 				</form>
@@ -98,7 +100,7 @@
 
 			<!-- 검색  -->
 
-			<form action="admin.searchAuth.do?m=auth" class="auth_form" method="post">
+			<form action="admin.searchAuth.do" class="auth_form" method="post">
 				<div id="auth_searchBox">
 					<div class="auth_searchTitle">
 						<div>
@@ -157,7 +159,7 @@
 
 				<c:forEach items="${manyAuth }" var="a" varStatus="status">
 					<tr id="manyAuth_content">
-						<td class="auth_table_td">${status.count }</td>
+						<td class="auth_table_td">${status.count + (curPage-1)*count}</td>
 						<td class="auth_table_td">${a.a_Sortation }</td>
 						<td class="auth_table_td">${a.a_id }</td>
 						<td class="auth_table_td">${a.a_name }</td>
@@ -167,35 +169,37 @@
 						<td class="auth_table_td"><fmt:formatDate
 								value="${a.a_date }" pattern="yyyy-MM-dd" /></td>
 						<td id="auth_Btn" class="auth_table_td">
-							<button class="auth_update"
+							<button class="admin_notPrintBTN auth_update"
 								onclick="updateauth('${a.a_id }','${a.a_Sortation }','${a.a_name }','${a.a_phone }','${a.a_address }'
 												,'${a.mc_number }','${a.mc_model }','${a.mc_year }')">
 								수정</button>
-							<button type="button" onclick="deleteAuth('${a.a_id }')">삭제</button>
+							<button type="button" onclick="deleteAuth('${a.a_id }')" class="admin_deleteBTN">삭제</button>
 						</td>
 					</tr>
 				</c:forEach>
 			</table>
 
-			<div id="paging-box">
+		<div id="paging-box">
 				<c:if test="${curPage != 1 }">
-					<a href="auth.page.change?p=${curPage - 1 }&m=auth">이전</a>
+					<a style="color: black;" href="auth.page.change?p=${curPage - 1 }">이전</a>
 				</c:if>
 
 				<c:forEach var="page" begin="1" end="${pageCount }">
 					<c:choose>
 						<c:when
 							test="${page eq param.p or (curPage == 1 and curPage == page)}">
-							<a style="color: black" href="auth.page.change?p=${page }&m=auth">${page }
+							<a style="color: white; background-color: #333;"
+								href="auth.page.change?p=${page }" style="color: black">${page }
 							</a>
 						</c:when>
 						<c:otherwise>
-							<a href="auth.page.change?p=${page }&m=auth">${page } </a>
+							<a style="color: black;" href="auth.page.change?p=${page }">${page }
+							</a>
 						</c:otherwise>
 					</c:choose>
 				</c:forEach>
 				<c:if test="${curPage != pageCount }">
-					<a href="auth.page.change?p=${curPage + 1 }&m=auth">다음</a>
+					<a style="color: black;" href="auth.page.change?p=${curPage + 1 }">다음</a>
 				</c:if>
 			</div>
 

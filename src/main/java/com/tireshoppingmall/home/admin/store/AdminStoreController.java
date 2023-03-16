@@ -28,7 +28,7 @@ public class AdminStoreController {
 	
 	//admin.store.go
 	@RequestMapping(value = "/admin.store.go", method = RequestMethod.GET)
-	public String companyGo(SearchBranchDTO b,Model m,HttpServletRequest req) {
+	public String companyGo(SearchBranchDTO b,Model m, HttpServletRequest req) {
 		if (firstReq) {
 			bDAO.calcAllBranchCount();
 			firstReq = false;
@@ -37,6 +37,8 @@ public class AdminStoreController {
 		SearchBranchDTO.clearSearch(req);
 		bDAO.getBranchlist(1, req);
 		/* bDAO.getAllBranch(m); */
+		
+	
 		req.setAttribute("contentPage", "store/branch.jsp");
 		return "admin/master";
 	}
@@ -63,6 +65,7 @@ public class AdminStoreController {
 	public String storeRegDo(Model m,MultipartFile file,BranchDTO b, HttpServletRequest req) {
 
 		bDAO.regBranch(file,b, req);
+		bDAO.getBranchlist(1, req);
 	//	bDAO.getAllBranch(m);
 		req.setAttribute("contentPage", "store/branch.jsp");
 		return "admin/master";
@@ -92,10 +95,10 @@ public class AdminStoreController {
 
 
 
-	@RequestMapping(value = "/admin.store.update.do", method = RequestMethod.GET)
-	public String branchupdateDo(BranchDTO b, Model m, HttpServletRequest req) {
+	@RequestMapping(value = "/admin.store.update.do", method = RequestMethod.POST)
+	public String branchupdateDo(BranchDTO b, MultipartFile file,Model m, HttpServletRequest req) {
 
-		bDAO.updatebranch(b, req);
+		bDAO.updatebranch(file, b, req);
 		bDAO.getBranchlist(1, req);
 	//	bDAO.getAllBranch(m);
 

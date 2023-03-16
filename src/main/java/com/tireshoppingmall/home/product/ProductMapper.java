@@ -12,4 +12,17 @@ public interface ProductMapper {
 
 	List<ProductGroupDTO> getProductBrandGroup(ProductSelector search);
 
+	String getMinInchOfGroup(ProductGroupDTO pGroup);
+
+	String getMaxInchOfGroup(ProductGroupDTO pGroup);
+
+	String getMinPriceOfGroup(ProductGroupDTO pGroup);
+
+	String getMaxPriceOfGroup(ProductGroupDTO pGroup);
+
+	List<ProductGroupDTO> getProductGroupJson(ProductSelector search);
+
+	ProductDTO getProduct(ProductDTO pDTO);
+
+	List<ProductDTO> getProductSizes(ProductDTO pDTO);
 }

@@ -8,6 +8,7 @@
 <meta charset="UTF-8">
 <title>장착점 관리</title>
 
+
 <script src="https://code.jquery.com/jquery-3.6.3.min.js"
 	integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU="
 	crossorigin="anonymous"></script>
@@ -19,11 +20,15 @@
 <link rel="stylesheet"
 	href="resources/css/admin/store/branch-findselect.css">
 
-	<script src="resources/js/admin/store/admin_store.js"></script>
+<script src="resources/js/admin/store/admin_store.js"></script>
+
+<script type="text/javascript">
+	
+</script>
 
 </head>
 <body>
-
+	<input id="whatMenu" value="store" type="hidden">
 
 	<div class="branch-findselect">
 		<div class="branch-findarea">
@@ -32,8 +37,8 @@
 				<div class="branch-text1">주소 선택</div>
 
 				<select name="b_area1" id="sido1">
-				</select> <select name="b_area2" id="gugun1"></select>
-
+				</select> <select name="b_area2" id="gugun1"></select> <input
+					name="branchnameInput" value="" type="hidden">
 				<button class="branch-findareabutton">주소 검색</button>
 
 			</form>
@@ -42,8 +47,10 @@
 
 		<form name="branchsearchform" action="branch.search.branchname">
 
-			<input name="branchnameInput" style="text-align: center; height: 38px;"
-				onkeypress="JavaScript:press(this.form)">
+			<input name="branchnameInput"
+				style="text-align: center; height: 38px;"
+				onkeypress="JavaScript:press(this.form)"> <input
+				name="branchareaInput" value="" type="hidden">
 			<button class="branchsearchButton" style="float: right;">장착점명
 				검색</button>
 
@@ -75,12 +82,14 @@
 				style="border: 1px solid gray; float: left;">관리</div>
 		</div>
 	</div>
-	
-<c:if test="${empty branchs}">
-							<tr>
-								<td colspan="5" style="text-align: center;">데이터가 존재하지않습니다.</td>
-							</tr>
-						</c:if>
+
+	<c:if test="${empty branchs}">
+		<table>
+			<tr>
+				<td colspan="5" style="text-align: center;">데이터가 존재하지않습니다.</td>
+			</tr>
+		</table>
+	</c:if>
 
 
 	<c:forEach var="b" items="${branchs }" varStatus="status">
@@ -107,20 +116,22 @@
 
 		</div>
 	</c:forEach>
-	<div id="paging-box" class = "branch-paging-box">
+	<div id="paging-box" class="branch-paging-box">
 		<c:if test="${curPage != 1 }">
 			<a href="branch.page.change?p=${curPage - 1 }">이전</a>
 		</c:if>
 
 		<c:forEach var="page" begin="1" end="${pageCount }">
 			<c:choose>
-					<c:when test="${page eq param.p or (curPage == 1 and curPage == page)}">
-						<a style="color:black" href="branch.page.change?p=${page }">${page } </a>
-					</c:when>
-					<c:otherwise>
-						<a href="branch.page.change?p=${page }">${page } </a>
-					</c:otherwise>
-				</c:choose>
+				<c:when
+					test="${page eq param.p or (curPage == 1 and curPage == page)}">
+					<a style="color: black" href="branch.page.change?p=${page }">${page }
+					</a>
+				</c:when>
+				<c:otherwise>
+					<a href="branch.page.change?p=${page }">${page } </a>
+				</c:otherwise>
+			</c:choose>
 		</c:forEach>
 		<c:if test="${curPage != pageCount }">
 			<a href="branch.page.change?p=${curPage + 1 }">다음</a>
@@ -234,7 +245,8 @@
 	<div id="popup01">
 		<div class="close">X</div>
 		<div>
-			<form action="admin.store.update.do" name="updateform" onsubmit="return branchupdatecall();">
+			<form action="admin.store.update.do" name="updateform" method="post"
+				onsubmit="return branchupdatecall();" enctype="multipart/form-data">
 				<table border="1">
 					<tr>
 						<td style="background-color: #0ec492">구분</td>
@@ -316,6 +328,10 @@
 								</div>
 
 							</div></td>
+					<tr>
+						<td style="background-color: #0ec492">취급서비스</td>
+						<td><input type="file" name="file"></td>
+					</tr>
 					<tr>
 						<td colspan=2><div class="updateokbutton">
 								<button class="updateokbutton1" id="updateb_id">수정</button>

@@ -6,8 +6,23 @@
 @import "main/product/product_detail.css";
 @import "main/product/product_cart.css";
 
+* {
+  box-sizing: border-box;
+}
+
+.display_none {
+  display: none;
+}
+
+.display_block {
+  display: block;
+}
+
 .index_container {
+  display: grid;
+  grid-template-rows: 100px 1fr 180px;
   min-width: 1200px;
+  min-height: 100vh;
 }
 
 .index_shadow {
@@ -30,6 +45,16 @@ button {
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
+}
+
+dialog {
+  border: 0;
+  padding: 0;
+}
+
+dialog::backdrop {
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 header {
@@ -63,20 +88,24 @@ header {
   display: grid;
   grid-template-columns: repeat(4, 200px);
   grid-template-rows: 70px;
-  font-size: 20px;
+  font-size: 22px;
   font-weight: 400;
 }
 
 .index_tnMenu {
   display: flex;
+  border-bottom: 5px solid #fff;
   justify-content: center;
   align-items: center;
+  transition: all 0.2s ease-out;
 }
 
 .index_sideNav {
   display: flex;
   justify-content: flex-end;
   align-items: center;
+  gap: 25px;
+  font-size: 25px;
 }
 
 .index_dropMenu {
@@ -93,16 +122,33 @@ header {
 }
 
 .index_dropWrapper {
-  display: flex;
-  justify-content: center;
+  width: 1200px;
 }
 
 .index_dropMenu_menu {
+  padding: 50px 200px;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 30px;
-  height: 100px;
+  justify-content: space-between;
+  width: inherit;
+  height: 400px;
+}
+
+.index_dropMenu_txt {
+  padding: 10px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  font-size: 20px;
+  font-weight: 400;
+}
+
+.index_dropMenu_txt a:hover {
+  color: var(--red);
+}
+
+.index_dropMenu_img {
+  border-radius: 10px;
+  overflow: hidden;
 }
 
 main {
@@ -145,26 +191,4 @@ footer a {
 section {
   width: 1200px;
   padding: 100px 0;
-}
-
-.include_navi {
-  display: flex;
-  justify-content: center;
-  background-color: var(--red);
-  color: white;
-  margin-bottom: 30px;
-  font-weight: 100;
-}
-
-.include_navi_wrapper {
-  padding: 20px 0;
-  width: 1200px;
-  display: flex;
-  gap: 10px;
-}
-
-.index_sideNav {
-  display: flex;
-  gap: 25px;
-  font-size: 25px;
 }
