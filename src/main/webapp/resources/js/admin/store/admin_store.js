@@ -110,25 +110,27 @@ function updatebranch(id, sortation, area, addr, name, time, service, mapdata,
 	    $('#b_email_i').val(email);
 	   
 	    
-		var areaArray = area.split("\t");
-		var sido = areaArray[0];
-		var gugun = areaArray[1];
+	    var areaArray = area.split(" ");
+	    var sido = areaArray[0];
+	    var gugun = areaArray[1];
 
-	    
-		$('#sido1 option').filter(function() {
-		    return $(this).text() == sido;
-		}).prop('selected', true);
+	    $("#sido1").val(sido).trigger("change");
 
-		$('#gugun1 option').filter(function() {
-		    return $(this).text() == gugun;
-		}).prop('selected', true);
+	    $("#gugun1 option")
+	      .filter(function () {
+	        return $(this).text() == gugun;
+	      })
+	      .prop("selected", true);
+
+
+	    console.log(areaArray);
+	    console.log("sido : " + sido);
+	    console.log("@@@@@@WWWWW@@@@@@@@@");
+	    console.log("gugun : " + gugun);
+	    console.log("@@@@@@WWWWW@@@@@@@@@");
 	    
-		
-		console.log(sido)
-		console.log("@@@@@@WWWWW@@@@@@@@@")
-		console.log(gugun)
-		console.log("@@@@@@WWWWW@@@@@@@@@")
-	}
+	  }
+	
 
 
 function press(f){

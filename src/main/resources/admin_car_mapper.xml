@@ -37,7 +37,6 @@ FROM (
     ORDER BY TO_NUMBER(cb.cb_order) ASC, c.c_brand ASC
 ) 
 WHERE rn &gt;= #{start} and rn &lt;= #{end}
-ORDER BY TO_NUMBER(cb_order) ASC, c_brand ASC
 
 
 
