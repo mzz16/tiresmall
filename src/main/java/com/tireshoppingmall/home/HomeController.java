@@ -32,12 +32,7 @@ public class HomeController {
 		return "index";
 	}
 	
-	@RequestMapping(value = "/login", method = RequestMethod.GET)
-	public String goLogin() {
-		
-		return "main/auth/login";
-		
-	}
+	
 	
 	@RequestMapping(value = "/join", method = RequestMethod.GET)
 	public String goJoin() {

@@ -12,5 +12,7 @@ public interface MemberMapper {
 
 	AuthUserDTO getSocialMember(String socialID);
 
+	int regMemberSocial(MemberDTO mDTO);
+
 
 }

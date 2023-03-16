@@ -6,16 +6,18 @@ public class MemberDTO {
 	private String pw_password;
 	private String i_name;
 	private String i_phoneNum;
+	private String i_email;
 	public MemberDTO() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public MemberDTO(String u_id, String pw_password, String i_name, String i_phoneNum) {
+	public MemberDTO(String u_id, String pw_password, String i_name, String i_phoneNum, String i_email) {
 		super();
 		this.u_id = u_id;
 		this.pw_password = pw_password;
 		this.i_name = i_name;
 		this.i_phoneNum = i_phoneNum;
+		this.i_email = i_email;
 	}
 	public String getU_id() {
 		return u_id;
@@ -41,10 +43,12 @@ public class MemberDTO {
 	public void setI_phoneNum(String i_phoneNum) {
 		this.i_phoneNum = i_phoneNum;
 	}
-	@Override
-	public String toString() {
-		return "MemberDTO [u_id=" + u_id + ", pw_password=" + pw_password + ", i_name=" + i_name + ", i_phoneNum="
-				+ i_phoneNum + "]";
+	public String getI_email() {
+		return i_email;
 	}
+	public void setI_email(String i_email) {
+		this.i_email = i_email;
+	}
+	
 		
 }
