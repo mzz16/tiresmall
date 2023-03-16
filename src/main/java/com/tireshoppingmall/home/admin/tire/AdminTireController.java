@@ -7,6 +7,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import com.tireshoppingmall.home.admin.auth.AuthDTO;
 
@@ -79,13 +81,13 @@ public class AdminTireController {
 	}
 	//admin.tire.reg.do
 	@RequestMapping(value = "/admin.tire.reg.do", method = RequestMethod.POST)
-	public String tireRegDo(HttpServletRequest req,TireDTO tDTO) {
+	public String tireRegDo(MultipartFile file,MultipartHttpServletRequest files,HttpServletRequest req,TireDTO tDTO) {
 		
 		/*
 		 * 배열로 받아오기
 		 * String[] asd = req.getParameterValues("");*/
 		
-		tDAO.tireRegDo(tDTO,req);
+		tDAO.tireRegDo(tDTO,req,file,files);
 		
 		
 		TireDTO.TirePagsing(req);

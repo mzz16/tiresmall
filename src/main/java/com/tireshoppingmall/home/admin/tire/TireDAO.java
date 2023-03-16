@@ -8,6 +8,8 @@ import javax.servlet.http.HttpServletRequest;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 
 @Service
@@ -108,8 +110,10 @@ public class TireDAO {
 		
 		
 	}
-	public void tireRegDo(TireDTO tDTO, HttpServletRequest req) {
-		// TODO Auto-generated method stub
+	public void tireRegDo(TireDTO tDTO, HttpServletRequest req, MultipartFile file, MultipartHttpServletRequest files) {
+		
+		
+		
 		
 	}
 	

@@ -16,10 +16,8 @@ $(function() {
 		var fileName = arSplitUrl[nArLength-1];
 		$(".upload-name2").val(fileName);
 	});
-	var num=0;		//번호
 	
-	$("#admin_tire_size_button").click(function() {
-		num +=1;
+	$(document).on("click","#admin_tire_size_button",function() {
 		$("#admin_tire_size_add").append("<tr style='height: 50px;'>" +
 				"<td class='admin-tire-size-reg-content'>" +
 				"<div class='admin-tire-reg-size-modal'>" +
@@ -42,11 +40,11 @@ $(function() {
 				"</div> " +
 				"<div class='admin_tire_size_reg_modal_open'>" +
 				"<span class='tire_width size-span'>---</span>" +
-				"<span class='size-span'>/</span>" +
+				"<span class='size-span'>&nbsp;/&nbsp;</span>" +
 				"<span class='tire_ratio size-span'>--</span>" +
-				"<span class='size-span'>R</span>" +
+				"<span class='size-span'>&nbsp;R&nbsp;</span>" +
 				"<span class='tire_inch size-span'>--</span>" +
-				"<input class='tire_size_reg_width' value='' name='ti_inch' type='hidden'>" +
+				"<input class='tire_size_reg_width' value='' name='ti_inch' type='hidden'>" +//type='hidden'
 				"<input class='tire_size_reg_ratio' value='' name='ti_ratio' type='hidden'>" +
 				"<input class='tire_size_reg_inch' value='' name='ti_width' type='hidden'>" +
 				"</div>" +
@@ -68,24 +66,26 @@ $(function() {
 	
 	
 	//tire-reg-siz-reg
-	$(document).on("click",".admin_tire_size_reg_modal_open",function() {
-		$(".admin-tire-reg-size-modal").css("display","flex");
+	$(document).on("click",".admin_tire_size_reg_modal_open",function() {	
+		$(this).siblings().css("display","flex");			//형제 노드를 찾아서 열어줌
 	});
 	$(document).on("click",".admin_tire_reg_in",function() {
-		var width =$(".tire_input_width").val();
-		var ratio =$(".tire_input_ratio").val();
-		var inch =$(".tire_input_inch").val();		
-		$(".tire_width").text(width);	
-		$(".tire_ratio").text(ratio);
-		$(".tire_inch").text(inch);
+		var width = $(this).closest("tr").find(".tire_input_width").val();
+		var ratio = $(this).closest("tr").find(".tire_input_ratio").val();
+		var inch = $(this).closest("tr").find(".tire_input_inch").val();
 
+		$(this).closest("tr").find(".tire_width").text(width);
+		$(this).closest("tr").find(".tire_ratio").text(ratio);
+		$(this).closest("tr").find(".tire_inch").text(inch);
 		
-		$(".tire_size_reg_width").attr('value',width);
-		$(".tire_size_reg_ratio").attr('value',ratio);
-		$(".tire_size_reg_inch").attr('value',inch);
+		$(this).closest("tr").find(".tire_size_reg_width").attr('value',width);
+		$(this).closest("tr").find(".tire_size_reg_ratio").attr('value',ratio);
+		$(this).closest("tr").find(".tire_size_reg_inch").attr('value',inch);
+
 		
 		$(".admin-tire-reg-size-modal").css("display","none");
 	});
+	
 	$(document).on("click",".admin_tire_reg_cen",function() {
 		$(".admin-tire-reg-size-modal").css("display","none");
 	});

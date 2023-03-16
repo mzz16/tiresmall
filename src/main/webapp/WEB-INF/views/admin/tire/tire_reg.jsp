@@ -157,7 +157,7 @@
 								</tr>
 								<tbody id="admin_tire_size_add">
 								
-								
+								<!--사이에 추가할때마다 생기고 지워지는 공간  밑은 추가되는것들 -->
 									<tr style='height: 50px;'>
 										<td class='admin-tire-size-reg-content'>
 											<div class='admin-tire-reg-size-modal'>
@@ -217,7 +217,7 @@
 										<div class="filebox1 bs3-primary">
 											<input class="upload-name1" placeholder="첨부파일"
 												disabled="disabled"> <label for="file1">업로드</label>
-											<input type="file" id="file1" name="mainFile">
+											<input type="file" id="file1" name="file">
 										</div>
 									</div>
 								</div>
@@ -239,7 +239,7 @@
 										<div class="filebox2  bs3-primary">
 											<input class="upload-name2" placeholder="첨부파일"
 												disabled="disabled"> <label for="file2">업로드</label>
-											<input type="file" id="file2" name="detailFiles">
+											<input type="file" id="file2" name="files"  multiple="multiple">
 										</div>
 									</div>
 								</div>
