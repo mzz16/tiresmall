@@ -23,8 +23,8 @@ pageEncoding="UTF-8"%>
           <div class="index_hTop">
             <div class="index_hTopLeft">
               <a href="admin.order.go?m=order">관리자</a>
-              <a href="board.shoppingGuide">구매가이드</a>
-              <a onclick="board_openKakao()" style="cursor: pointer">카카오톡상담<img src="resources/web/main/board/kakaoLogo.png" style="width: 16px; vertical-align: bottom;"/></a>
+              <a href="/home">구매가이드</a>
+              <a onclick="board_openKakao()" style="cursor: pointer">카카오톡상담 <img src="resources/web/main/board/kakaoLogo.png" style="width: 16px; vertical-align: bottom;"/></a>
             </div>
             <div class="index_hTopRight">
 	            <c:choose>
@@ -100,10 +100,10 @@ pageEncoding="UTF-8"%>
           </ul>
           <ul class="index_dropBoard index_dropWrapper">
             <li class="index_dropMenu_menu">
-              <a href="board.notice">공지사항</a>
-              <a href="board.event">이벤트</a>
               <a href="board.faq">FAQ</a>
               <a href="board.ask">1:1 문의</a>
+              <a href="board.notice">공지사항</a>
+              <a href="board.event">이벤트</a>
             </li>
           </ul>
         </div>
@@ -144,6 +144,7 @@ pageEncoding="UTF-8"%>
     <script src="resources/js/index.js"></script>
     <script src="resources/js/main/search/main_search.js"></script>
     <script src="resources/js/main/board/main_board.js"></script>
+    <script src="resources/js/main/board/main_board_kakao.js"></script>
     <script src="resources/js/main/board/main_board_whereAmI.js"></script>
   </body>
 </html>

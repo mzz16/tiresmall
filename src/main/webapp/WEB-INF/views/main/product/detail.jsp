@@ -12,9 +12,7 @@ pageEncoding="UTF-8"%>
       style="background-color: var(--${product.tg_brand})"
     >
       <div class="detail_brand_wrapper">
-        <img
-          src="resources/web/main/product/${product.tg_brand}.png"
-        />
+        <img src="resources/web/main/product/${product.tg_brand}.png" />
       </div>
     </div>
     <div class="detail_container">
@@ -60,28 +58,30 @@ pageEncoding="UTF-8"%>
               >
             </div>
           </div>
-          <div class="detail_price">
-            <div class="detail_quantity">
-              <h5>수량</h5>
-              <div class="detail_quantity_box">
-                <button class="detail_minus">
-                  <i class="fa-solid fa-minus"></i>
-                </button>
-                <input
-                  class="detail_quantity_input"
-                  type="text"
-                  value="1"
-                  readonly
-                />
-                <button class="detail_plus">
-                  <i class="fa-solid fa-plus"></i>
-                </button>
+          <div class="detail_price_wrapper" style="display: none">
+            <div class="detail_price">
+              <div class="detail_quantity">
+                <h5>수량</h5>
+                <div class="detail_quantity_box">
+                  <button class="detail_minus">
+                    <i class="fa-solid fa-minus"></i>
+                  </button>
+                  <input
+                    class="detail_quantity_input"
+                    type="text"
+                    value="1"
+                    readonly
+                  />
+                  <button class="detail_plus">
+                    <i class="fa-solid fa-plus"></i>
+                  </button>
+                </div>
               </div>
-            </div>
-            <div class="detail_final">
-              <span class="detail_discount">${product.tg_dcrate}%</span>
-              <span class="detail_final_price">95,600원</span>
-              <span class="detail_not_price">147,000원</span>
+              <div class="detail_final">
+                <span class="detail_discount">${product.tg_dcrate}%</span>
+                <span class="detail_final_price"></span>
+                <span class="detail_not_price"></span>
+              </div>
             </div>
           </div>
           <div class="detail_buy">
@@ -94,9 +94,12 @@ pageEncoding="UTF-8"%>
               type="hidden"
               value="${product.tg_dcrate}"
             />
-            <input class="ti_width" type="hidden" value="205" />
-            <input class="ti_ratio" type="hidden" value="55" />
-            <input class="ti_inch" type="hidden" value="16" />
+            <input class="ti_width" type="hidden" />
+            <input class="ti_ratio" type="hidden" />
+            <input class="ti_inch" type="hidden" />
+            <input class="ti_stock" type="hidden" />
+            <input class="ti_pricegp" type="hidden" />
+            <input class="ti_pricefac" type="hidden" />
             <button class="detail_cart">장바구니</button>
             <button class="detail_go_buy">구매예약</button>
           </div>
@@ -238,9 +241,9 @@ pageEncoding="UTF-8"%>
     <dialog class="detail_size_selector">
       <form method="dialog">
         <button><i class="fa-solid fa-xmark"></i></button>
+        <div>사이즈선택</div>
+        <div class="size_wrapper"></div>
       </form>
-      <div>사이즈선택</div>
-      <div class="size_wrapper"></div>
     </dialog>
     <dialog class="detail_size_guide">
       <form method="dialog">

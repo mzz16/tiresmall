@@ -1,10 +1,17 @@
 package com.tireshoppingmall.home.board;
 
 import java.util.Date;
-import java.util.List;
 
 public class AskDTO {
-	private int a_number;
+	private int rownumber;
+	private int q_no;
+	private String q_title;
+	private String q_txt;
+	private Date q_date;
+	private String q_id;
+	private int q_reply_has;
+	private AskReplyDTO a_reply;
+	/*
 	private String a_owner_fk;
 	private String a_sortation;
 	private String a_title;
@@ -12,76 +19,70 @@ public class AskDTO {
 	private String a_photo;
 	private Date a_date;
 	private String a_status;
-	private List<AskReplyDTO> a_replys;
+	private AskReplyDTO a_reply;
+	*/
 	public AskDTO() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public AskDTO(int a_number, String a_owner_fk, String a_sortation, String a_title, String a_text, String a_photo,
-			Date a_date, String a_status, List<AskReplyDTO> a_replys) {
+	public AskDTO(int rownumber, int q_no, String q_title, String q_txt, Date q_date, String q_id, int q_reply_has,
+			AskReplyDTO a_reply) {
 		super();
-		this.a_number = a_number;
-		this.a_owner_fk = a_owner_fk;
-		this.a_sortation = a_sortation;
-		this.a_title = a_title;
-		this.a_text = a_text;
-		this.a_photo = a_photo;
-		this.a_date = a_date;
-		this.a_status = a_status;
-		this.a_replys = a_replys;
+		this.rownumber = rownumber;
+		this.q_no = q_no;
+		this.q_title = q_title;
+		this.q_txt = q_txt;
+		this.q_date = q_date;
+		this.q_id = q_id;
+		this.q_reply_has = q_reply_has;
+		this.a_reply = a_reply;
 	}
-	public int getA_number() {
-		return a_number;
+	public int getRownumber() {
+		return rownumber;
 	}
-	public void setA_number(int a_number) {
-		this.a_number = a_number;
+	public void setRownumber(int rownumber) {
+		this.rownumber = rownumber;
 	}
-	public String getA_owner_fk() {
-		return a_owner_fk;
+	public int getQ_no() {
+		return q_no;
 	}
-	public void setA_owner_fk(String a_owner_fk) {
-		this.a_owner_fk = a_owner_fk;
+	public void setQ_no(int q_no) {
+		this.q_no = q_no;
 	}
-	public String getA_sortation() {
-		return a_sortation;
+	public String getQ_title() {
+		return q_title;
 	}
-	public void setA_sortation(String a_sortation) {
-		this.a_sortation = a_sortation;
+	public void setQ_title(String q_title) {
+		this.q_title = q_title;
 	}
-	public String getA_title() {
-		return a_title;
+	public String getQ_txt() {
+		return q_txt;
 	}
-	public void setA_title(String a_title) {
-		this.a_title = a_title;
+	public void setQ_txt(String q_txt) {
+		this.q_txt = q_txt;
 	}
-	public String getA_text() {
-		return a_text;
+	public Date getQ_date() {
+		return q_date;
 	}
-	public void setA_text(String a_text) {
-		this.a_text = a_text;
+	public void setQ_date(Date q_date) {
+		this.q_date = q_date;
 	}
-	public String getA_photo() {
-		return a_photo;
+	public String getQ_id() {
+		return q_id;
 	}
-	public void setA_photo(String a_photo) {
-		this.a_photo = a_photo;
+	public void setQ_id(String q_id) {
+		this.q_id = q_id;
 	}
-	public Date getA_date() {
-		return a_date;
+	public int getQ_reply_has() {
+		return q_reply_has;
 	}
-	public void setA_date(Date a_date) {
-		this.a_date = a_date;
+	public void setQ_reply_has(int q_reply_has) {
+		this.q_reply_has = q_reply_has;
 	}
-	public String getA_status() {
-		return a_status;
+	public AskReplyDTO getA_reply() {
+		return a_reply;
 	}
-	public void setA_status(String a_status) {
-		this.a_status = a_status;
-	}
-	public List<AskReplyDTO> getA_replys() {
-		return a_replys;
-	}
-	public void setA_replys(List<AskReplyDTO> a_replys) {
-		this.a_replys = a_replys;
+	public void setA_reply(AskReplyDTO a_reply) {
+		this.a_reply = a_reply;
 	}
 }

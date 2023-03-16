@@ -8,17 +8,32 @@
 </head>
 <body>
 	<div class="board_mainContainer">
-		<div class="board_link">
-			<a href="/home"><i class="fa-solid fa-house"></i></a> <span style="color: white;">></span> <a href="board.home">고객센터</a> ${board_whereAmIOne }
-		</div>
-		
 		<div class="board_title">
 			${board_whereAmITwo }
+		</div>
+		
+		<div class="board_link">
+			<div>
+				<a href="/home"><i class="fa-solid fa-house"></i></a> <i class="fa-solid fa-chevron-right"></i> <a href="board.home">고객센터</a> ${board_whereAmIOne }
+			</div>
 		</div>
 	
 		<div class="board_sideMenu">
 			<div>
-				<a class="board_sideMenuList board_home" href="board.home">고객센터 홈</a>
+				<a class="board_sideMenuList board_home" href="board.home">고객센터</span></a>
+			</div>
+			
+			<br>
+			<br>
+			
+			<div>
+				<a class="board_sideMenuList board_faq" href="board.faq">FAQ</a>
+			</div>
+			<div>
+				<a class="board_sideMenuList board_ask" href="board.ask">1:1문의 <img class="board_askAndKakaoLogo" src="resources/web/main/board/askLogo.svg"/></a>
+			</div>
+			<div>
+				<a class="board_kakao" onclick="board_openKakao()" style="cursor: pointer">카카오톡상담 <img class="board_askAndKakaoLogo" src="resources/web/main/board/kakaoLogo.png"/></a>
 			</div>
 			
 			<br>
@@ -29,34 +44,20 @@
 			<div>
 				<a class="board_sideMenuList board_event" href="board.event">이벤트</a>
 			</div>
-			
-			<br>
-			
-			<div>
-				<a class="board_sideMenuList board_shoppingGuide" href="board.shoppingGuide">구매가이드</a>
-			</div>
-			
-			<br>
-			
-			<div>
-				<a class="board_sideMenuList board_faq" href="board.faq">FAQ</a>
-			</div>
-			<div>
-				<a class="board_sideMenuList board_ask" href="board.ask">1:1문의</a>
-			</div>
-			<div>
-				<a class="board_sideMenuList board_kakao" href="board.kakao" onclick="board_openKakao()">카카오톡상담<img src="resources/web/main/board/kakaoLogo.png" style="width: 16px; vertical-align: bottom;"/></a>
-			</div>
 		</div>
 		
 		<div class="board_sideInfo">
-			전화문의<br>
-			1234-5678<br>
+			<i class="fa-solid fa-headphones"></i> 전화문의<br>
+			<span class="board_sideInfo_20px">
+			<a href='tel:010-4073-4447'><span class="board_sideInfo_bold">1234-5678</span></a><br>
+			</span>
 			<br>
-			운영시간<br>
-			평일<span class="tab">&#9;</span>08:30 A.M. ~ 19:00 P.M.<br>
-			토요일<span class="tab">&#9;</span>08:30 A.M. ~ 16:00 P.M.<br>
-			일요일<span class="tab">&#9;</span>휴무
+			<i class="fa-solid fa-clock"></i> 운영시간<br>
+			<span class="board_sideInfo_20px">
+			평일<span class="tab">&#9;</span><span class="board_sideInfo_bold">08:30 - 19:00</span><br>
+			토요일<span class="tab">&#9;</span><span class="board_sideInfo_bold">08:30 - 16:00</span><br>
+			</span>
+			(일요일 휴무)
 		</div>
 		
 		<div class="board_contentsArea">

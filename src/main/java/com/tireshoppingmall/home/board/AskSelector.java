@@ -3,35 +3,35 @@ package com.tireshoppingmall.home.board;
 import java.math.BigDecimal;
 
 public class AskSelector {
-	private String search;
-	private BigDecimal start;
-	private BigDecimal end;
+	private String askSearch;
+	private BigDecimal begin;
+	private BigDecimal last;
 	public AskSelector() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public AskSelector(String search, BigDecimal start, BigDecimal end) {
+	public AskSelector(String askSearch, BigDecimal begin, BigDecimal last) {
 		super();
-		this.search = search;
-		this.start = start;
-		this.end = end;
+		this.askSearch = askSearch;
+		this.begin = begin;
+		this.last = last;
 	}
-	public String getSearch() {
-		return search;
+	public String getAskSearch() {
+		return askSearch;
 	}
-	public void setSearch(String search) {
-		this.search = search;
+	public void setAskSearch(String askSearch) {
+		this.askSearch = askSearch;
 	}
-	public BigDecimal getStart() {
-		return start;
+	public BigDecimal getBegin() {
+		return begin;
 	}
-	public void setStart(BigDecimal start) {
-		this.start = start;
+	public void setBegin(BigDecimal begin) {
+		this.begin = begin;
 	}
-	public BigDecimal getEnd() {
-		return end;
+	public BigDecimal getLast() {
+		return last;
 	}
-	public void setEnd(BigDecimal end) {
-		this.end = end;
+	public void setLast(BigDecimal last) {
+		this.last = last;
 	}
 }
