@@ -94,8 +94,10 @@ header {
 
 .index_tnMenu {
   display: flex;
+  border-bottom: 5px solid #fff;
   justify-content: center;
   align-items: center;
+  transition: all 0.2s ease-out;
 }
 
 .index_sideNav {
@@ -103,7 +105,7 @@ header {
   justify-content: flex-end;
   align-items: center;
   gap: 25px;
-  font-size: 25px;
+  font-size: 22px;
 }
 
 .index_dropMenu {
@@ -120,16 +122,33 @@ header {
 }
 
 .index_dropWrapper {
-  display: flex;
-  justify-content: center;
+  width: 1200px;
 }
 
 .index_dropMenu_menu {
+  padding: 50px 200px;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 30px;
-  height: 100px;
+  justify-content: space-between;
+  width: inherit;
+  height: 400px;
+}
+
+.index_dropMenu_txt {
+  padding: 10px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  font-size: 20px;
+}
+
+.index_dropMenu_txt a:hover {
+  color: var(--red);
+  font-weight: 400;
+}
+
+.index_dropMenu_img {
+  border-radius: 10px;
+  overflow: hidden;
 }
 
 main {
@@ -173,5 +192,3 @@ section {
   width: 1200px;
   padding: 100px 0;
 }
-
-

@@ -97,7 +97,7 @@ pageEncoding="UTF-8"%>
             <input class="ti_width" type="hidden" />
             <input class="ti_ratio" type="hidden" />
             <input class="ti_inch" type="hidden" />
-            <input class="ti_stock" type="hidden" />
+            <input class="ti_stock" type="hidden" value="1" />
             <input class="ti_pricegp" type="hidden" />
             <input class="ti_pricefac" type="hidden" />
             <button class="detail_cart">장바구니</button>

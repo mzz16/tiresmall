@@ -20,4 +20,10 @@ public interface AdminTireMapper {
 
 	TireDTO getTireGroupforDetail(int tirePK);
 
+	int tirePrintOnOff(TireDTO tg);
+
+	int tireSedanRecommend(TireDTO tg);
+
+	int tireSuvRecommend(TireDTO tg);
+
 }

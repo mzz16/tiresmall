@@ -24,6 +24,7 @@ public class TireDTO {
 	private int tg_print;       /* 출력 여부 */
 	private int tg_sedan;		/* 승용차 추천 1(t)/0(f) */
 	private int tg_suv;			/* suv 추천 1(t)/0(f)*/	
+
 	
 	//타이어 상세
 	private int ti_id;		
@@ -46,6 +47,8 @@ public class TireDTO {
 		// TODO Auto-generated constructor stub
 	}
 
+	
+	
 	//브랜드 페이지
 	public TireDTO(String tb_name, int tb_ea, int tb_num, int tb_order) {
 		super();
@@ -373,6 +376,91 @@ public class TireDTO {
 				+ ti_pricefac + ", ti_vat=" + ti_vat + ", start=" + start + ", end=" + end + "]";
 	}
 	
+	
+	/*
+	 * @RequestMapping(value = "/upload_ok", method = RequestMethod.POST)
+		public String upload(@RequestParam("file") MultipartFile file) {
+			
+			String fileRealName = file.getOriginalFilename(); //파일명을 얻어낼 수 있는 메서드!
+			long size = file.getSize(); //파일 사이즈
+			
+			System.out.println("파일명 : "  + fileRealName);
+			System.out.println("용량크기(byte) : " + size);
+			//서버에 저장할 파일이름 fileextension으로 .jsp이런식의  확장자 명을 구함
+			String fileExtension = fileRealName.substring(fileRealName.lastIndexOf("."),fileRealName.length());
+			String uploadFolder = "C:\\Users\\dlark\\OneDrive\\바탕 화면\\asd";
+			
+			
+		
+			  파일 업로드시 파일명이 동일한 파일이 이미 존재할 수도 있고 사용자가 
+			  업로드 하는 파일명이 언어 이외의 언어로 되어있을 수 있습니다. 
+			  타인어를 지원하지 않는 환경에서는 정산 동작이 되지 않습니다.(리눅스가 대표적인 예시)
+			  고유한 랜던 문자를 통해 db와 서버에 저장할 파일명을 새롭게 만들어 준다.
+			
+			
+			UUID uuid = UUID.randomUUID();
+			System.out.println(uuid.toString());
+			String[] uuids = uuid.toString().split("-");
+			
+			String uniqueName = uuids[0];
+			System.out.println("생성된 고유문자열" + uniqueName);
+			System.out.println("확장자명" + fileExtension);
+			
+			
+			
+			// File saveFile = new File(uploadFolder+"\\"+fileRealName); uuid 적용 전
+			
+			File saveFile = new File(uploadFolder+"\\"+uniqueName + fileExtension);  // 적용 후
+			try {
+				file.transferTo(saveFile); // 실제 파일 저장메서드(filewriter 작업을 손쉽게 한방에 처리해준다.)
+			} catch (IllegalStateException e) {
+				e.printStackTrace();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			return "fileupload/upload_ok";
+		}
+
+		
+		@RequestMapping(value = "/upload_ok2", method = RequestMethod.POST)
+		public String upload2(MultipartHttpServletRequest files,Model m) {
+			
+			//서버에서 저장 할 경로
+			String uploadFolder = "C:\\Users\\dlark\\OneDrive\\바탕 화면\\asd";
+			List<MultipartFile> list = files.getFiles("files");
+			
+			for(int i = 0; i<list.size(); i++) {
+				String fileRealName = list.get(i).getOriginalFilename();
+				long size = list.get(i).getSize();
+				
+				System.out.println("파일명 :" + fileRealName);
+				System.out.println("사이즈" + size);
+				
+				UUID uuid = UUID.randomUUID();
+				System.out.println(uuid.toString());
+				
+				String[] uuids= uuid.toString().split("-");
+				String uniqueName =	uuids[0] + uuids[1];
+				System.out.println("생성된 고유문자열" +uniqueName);
+				
+				
+				File saveFile = new File(uploadFolder + "\\"+uniqueName + fileRealName);
+				try {
+					list.get(i).transferTo(saveFile);
+					m.addAttribute("r","멀티업로드 성공!!");
+				} catch (IllegalStateException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+		
+			return "fileupload/upload_ok";
+		}
+
+*/
 	
 	
 }

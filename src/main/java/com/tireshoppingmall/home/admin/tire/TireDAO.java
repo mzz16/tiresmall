@@ -8,6 +8,8 @@ import javax.servlet.http.HttpServletRequest;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 
 @Service
@@ -108,9 +110,42 @@ public class TireDAO {
 		
 		
 	}
-	public void tireRegDo(TireDTO tDTO, HttpServletRequest req) {
-		// TODO Auto-generated method stub
+	
+	//타이어 등록작업
+	public void tireRegDo(TireDTO tDTO, HttpServletRequest req, MultipartFile file, MultipartHttpServletRequest files) {
+			
+		String fileRealName = file.getOriginalFilename(); //파일명을 얻어낼 수 있는 메서드!
+		long size = file.getSize(); //파일 사이즈
 		
+		System.out.println("파일명 : "  + fileRealName);
+		System.out.println("용량크기(byte) : " + size);
+		//서버에 저장할 파일이름 fileextension으로 .jsp이런식의  확장자 명을 구함
+		String fileExtension = fileRealName.substring(fileRealName.lastIndexOf("."),fileRealName.length());
+		String uploadFolder = "resources\\web\\main\\tire";
+		
+		
+		
+	}
+	public int tirePrintOnOff(TireDTO tg) {
+		if(ss.getMapper(AdminTireMapper.class).tirePrintOnOff(tg) == 1) {
+				return tg.getTg_print();
+		}else {
+			return 0;
+		}
+	}
+	public int tireSedanRecommend(TireDTO tg) {
+		if(ss.getMapper(AdminTireMapper.class).tireSedanRecommend(tg) == 1) {
+			return tg.getTg_sedan();
+		}else {
+			return 0;
+		}
+	}
+	public int tireSuvRecommend(TireDTO tg) {
+		if(ss.getMapper(AdminTireMapper.class).tireSuvRecommend(tg) == 1) {
+			return tg.getTg_suv();
+		}else {
+			return 0;
+		}
 	}
 	
 	

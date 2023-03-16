@@ -6,7 +6,7 @@
         from qna, auth_user
         where q_id = u_id
 	</select>
-	<select id="getAskAll" resultType="com.tireshoppingmall.home.board.AskDTO">
+	<select id="readAskAll" resultType="com.tireshoppingmall.home.board.AskDTO">
 		select *
         from (
 			select	rownum as rownumber,
@@ -23,12 +23,12 @@
         where rownumber &gt;= #{begin} and rownumber &lt;= #{last}
 	</select>
 	
-	<select id="getAskOne" resultType="com.tireshoppingmall.home.board.AskDTO">
+	<select id="readAskOne" resultType="com.tireshoppingmall.home.board.AskDTO">
 		select *
 		from qna
 		where q_no = #{q_no}
 	</select>
-	<select id="getAskReply" resultType="com.tireshoppingmall.home.board.AskReplyDTO">
+	<select id="readAskReply" resultType="com.tireshoppingmall.home.board.AskReplyDTO">
 	 	select *
 	 	from qna_reply
 	 	where q_reply_board_no = #{q_no}
@@ -60,4 +60,10 @@
 		qna
 		where q_no = #{q_no}
 	</delete>
+	
+	
+	
+	<select id="readEventAll" resultType="com.tireshoppingmall.home.board.EventDTO">
+		select * from event
+	</select>
 </mapper>

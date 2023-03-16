@@ -1,4 +1,5 @@
 $(function(){
+	
 //	let curPage = $('#product_curPage').val();
 //	let pageCount = $('#product_pageCount').val();
 //	let n = 0;
@@ -82,7 +83,7 @@ $(function(){
 						html+='<li class="paginationjs-page J-paginationjs-page" ><a href="javascript:movePageType('+pNum+')">'+pNum+'</a></li>'
 					}
 				}
-				if(curPage==pageCount){
+				if(curPage==pageCount || pageCount == 0){
 					html+='<li class="paginationjs-next disabled"><a>»</a></li>'
 				} else{
 					html+='<li class="paginationjs-next J-paginationjs-next"><a href="javascript:movePageType('+pageCount+')">»</a></li>'
@@ -111,25 +112,36 @@ $(function(){
 		})
 	})
 	
-	
-	$( "#slider-range" ).slider({
-		range: true,
-		min: 0,
-		max: 2000000,
-		step: 50000,
-		values: [ 0, 2000000 ],
-		slide: function( event, ui ) {
-			$( "#amount" ).val("￦"+ AddComma(ui.values[ 0 ]) + " - ￦" + AddComma(ui.values[ 1 ]) );
-		},
-			
-	});
-	$( "#amount" ).val( "￦"+AddComma($( "#slider-range" ).slider( "values", 0 )) +
-			" - ￦" + AddComma($( "#slider-range" ).slider( "values", 1 )) );
-		
-	
-	$('#product_priceRange_button').click(function(){
-		alert($( "#slider-range" ).slider("values",0)+', '+ $( "#slider-range" ).slider( "values", 1 ));
-	})
+//	var priceMin =0;
+//	var priceMax = 2000000;
+//	
+//	if(getParameter('pr')!=''){
+//		priceMin = getParameter('pr').split('-')[0];
+//		priceMax = getParameter('pr').split('-')[1];
+//	}
+//	
+//	$( "#slider-range" ).slider({
+//		range: true,
+//		min: 0,
+//		max: 2000000,
+//		step: 50000,
+//		values: [ priceMin, priceMax ],
+//		slide: function( event, ui ) {
+//			$( "#amount" ).val("￦"+ AddComma(ui.values[ 0 ]) + " - ￦" + AddComma(ui.values[ 1 ]) );
+//		}
+//			
+//	});
+//	$( "#amount" ).val( "￦"+AddComma($( "#slider-range" ).slider( "values", 0 )) +
+//			" - ￦" + AddComma($( "#slider-range" ).slider( "values", 1 )) );
+//		
+//	
+//	$('#product_priceRange_button').click(function(){
+//		if($('input[name="carTypeA"]:checked').val() == 0 || $('input[name="carTypeA"]:checked').val()==1){
+//			location.href='product.brand.price?b='+getParameter('b')+'&p=1&t='+$('input[name="carTypeA"]:checked').val()+'&pr='+$( "#slider-range" ).slider("values",0)+'-'+$( "#slider-range" ).slider("values",1)
+//		} else{
+//			location.href='product.brand.price?b='+getParameter('b')+'&p=1&t='+getParameter('t')+'&pr='+$( "#slider-range" ).slider("values",0)+'-'+$( "#slider-range" ).slider("values",1)
+//		}
+//	})
 			  
 			  
 		 
