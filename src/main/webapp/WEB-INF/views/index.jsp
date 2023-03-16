@@ -143,8 +143,9 @@ pageEncoding="UTF-8"%>
     <script src="https://code.jquery.com/jquery-latest.min.js"></script>
     <script src="resources/js/index.js"></script>
     <script src="resources/js/main/search/main_search.js"></script>
-    <script src="resources/js/main/board/main_board.js"></script>
     <script src="resources/js/main/board/main_board_kakao.js"></script>
     <script src="resources/js/main/board/main_board_whereAmI.js"></script>
+    <script src="resources/js/main/board/main_board_deleteAsk.js"></script>
+    <script src="resources/js/main/board/main_board_event.js"></script>
   </body>
 </html>

@@ -45,9 +45,9 @@ public class AskDAO {
         }
 		int pageCount = (int) Math.ceil(askCount / (double) countPerPage);
 		
-		List<AskDTO> asks = ss.getMapper(BoardMapper.class).getAskAll(askSearch);
+		List<AskDTO> asks = ss.getMapper(BoardMapper.class).readAskAll(askSearch);
         for (AskDTO a : asks) {
-            a.setA_reply(ss.getMapper(BoardMapper.class).getAskReply(a));
+            a.setA_reply(ss.getMapper(BoardMapper.class).readAskReply(a));
         }
 
         req.setAttribute("pageNumber", pageNumber);
@@ -70,8 +70,8 @@ public class AskDAO {
 	}
 	
 	public void readOneAsk(AskDTO a, HttpServletRequest req) {
-		AskDTO ask = (AskDTO) ss.getMapper(BoardMapper.class).getAskOne(a);
-		ask.setA_reply(ss.getMapper(BoardMapper.class).getAskReply(a));
+		AskDTO ask = (AskDTO) ss.getMapper(BoardMapper.class).readAskOne(a);
+		ask.setA_reply(ss.getMapper(BoardMapper.class).readAskReply(a));
 		
 		req.setAttribute("ask", ask);
 	}
