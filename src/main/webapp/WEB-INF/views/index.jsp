@@ -86,7 +86,7 @@ pageEncoding="UTF-8"%>
               <a href="product.brand?b=한국&p=1">한국타이어</a>
               <a href="product.brand?b=콘티넨탈&p=1">콘티넨탈타이어</a>
               <a href="product.brand?b=피렐리&p=1">피렐리타이어</a>
-              <a href="detail.test">미쉐린타이어</a>
+              <a href="product.brand?b=미쉐린&p=1">미쉐린타이어</a>
             </li>
           </ul>
           <ul class="index_dropStore index_dropWrapper">
