@@ -162,6 +162,19 @@ public class LoginSocialDAO {
 		}
 
 
+		public Boolean regMemberSocial(HttpServletRequest req, MemberDTO mDTO) {
+			
+			if(ss.getMapper(MemberMapper.class).regMemberSocial(mDTO)>=3) {
+				System.out.println("가입성공");
+				req.setAttribute("resultMem", "가입성공");
+				return true;
+			}else {
+				req.setAttribute("resultMem", "가입실패");
+				return false;
+			}			
+		}
+
+
 		
 	
 	

@@ -14,7 +14,7 @@ insert into auth_userinfo values(auth_userinfo_seq.nextval, 2 , '홍길동' ,010
 select * from auth_user;
 select * from auth_password;
 select * from auth_userinfo;
-
+ALTER TABLE auth_userInfo ADD i_email VARCHAR(25) NOT NULL;
 delete from auth_user where u_no=1;
     
 create table auth_password(
