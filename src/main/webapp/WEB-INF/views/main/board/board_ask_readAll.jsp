@@ -39,13 +39,6 @@
 							<div>
 								<fmt:formatDate value="${a.q_date }" pattern="yyyy-MM-dd"/>
 							</div>
-							<!-- 
-							<div>
-							<%--
-								${a.a_status }
-							 --%>
-							</div>
-							 -->
 							<c:choose>
 								<c:when test="${!empty a.a_reply}">
 									<div>
