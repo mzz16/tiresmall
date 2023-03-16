@@ -41,11 +41,10 @@ uri="http://java.sun.com/jsp/jstl/core" %>
                   <a onclick="location.href='logout.do'">로그아웃 </a>
                 </c:when>
                 <c:otherwise>
-                  ${sessionScope.loginMember.i_name }
                   <a href="login">로그인</a>
+              	  <a href="non-member">| 비회원 주문조회</a>
                 </c:otherwise>
               </c:choose>
-              <a href="non-member">| 비회원 주문조회</a>
             </div>
           </div>
           <div class="index_hBottom">
