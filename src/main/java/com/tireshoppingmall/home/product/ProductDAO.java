@@ -117,6 +117,15 @@ public class ProductDAO {
         int pageCount = (int) Math.ceil(productGroupCount / (double) count);
 		return new ProductGroups(pGroups, pageCount, productGroupCount, pageNo);
 	}
+
+	public void getProduct(HttpServletRequest request, ProductDTO pDTO) {
+		ProductDTO product = ss.getMapper(ProductMapper.class).getProduct(pDTO);
+		request.setAttribute("product", product);
+	}
+
+	public Sizes getProductSizes(HttpServletRequest request, ProductDTO pDTO) {
+		return new Sizes(ss.getMapper(ProductMapper.class).getProductSizes(pDTO));
+	}
 		
 
 

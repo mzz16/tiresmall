@@ -60,7 +60,7 @@ drop table branch;
 
 select * from branch;
 
-
+select * from branch where b_branchname like '%%'
 		select *
 		from
 		(select rownum as rn, b_id, b_sortation, b_area, b_addr, b_name , b_time ,
@@ -73,8 +73,7 @@ select * from branch;
 
 		
 -------------------------------------------------------------------------
-		
-		create table Car(
+	create table Car(
 		c_id varchar2(20 char) primary key,
 		c_name varchar2(20 char) not null,
 		c_year1 varchar2(9 char) not null,
@@ -83,16 +82,16 @@ select * from branch;
 		c_brand varchar2(20 char) not null,
 		c_ft varchar2(40 char) not null,
 		c_bt varchar2(40 char) not null,
+		c_fta varchar2(40 char),
+		c_bta varchar2(40 char),
+		c_print varchar2(40 char) not null,
 		c_file varchar2(2000 char)
-		FOREIGN KEY (c_brand) REFERENCES car_brand(cb_name)
-		);
+);
 		
 		
-		
-		
-insert into Car values('123455','X101','2014','2016','에어백','대우','12313154','2534533','a.jpg');
-insert into Car values('456555','X202','2013','2017','아기유모차','기아','12313154','2534533','b.jpg');
-insert into Car values('789655','X203','2012','2018','선루프','BMW','12313154','2534533','c.jpg');
+insert into Car values('2345','X101','2014','2016','에어백','대우','12313154','2534533',null,null,'출력','a.jpg');
+insert into Car values('434','X202','2013','2017','아기유모차','기아','12313154','2534533','123414',null,'출력','b.jpg');
+insert into Car values('8346','X203','2012','2018','선루프','BMW','12313154','2534533','1341233','123141515','출력','c.jpg');
 
 		
 		
@@ -117,7 +116,7 @@ drop table Car;
 
 
 		
-SELECT c_brand, COUNT(c_brand) AS cnt
+SELECT  COUNT(c_brand) AS cb_ea
 FROM car
 GROUP BY c_brand
 		
@@ -130,11 +129,17 @@ select rownum as rn,
 
 		create table car_brand(
 		cb_name varchar2(20 char)primary key,
+		
 		cb_order varchar2(20 char)
 		
 		);
 		
 		
+		
+		SELECT *
+FROM Car c
+INNER JOIN car_brand cb ON c.c_brand = cb.cb_name
+ORDER BY cb.cb_order ASC;
 		
 		select count(*)
 		from Car
@@ -142,13 +147,48 @@ select rownum as rn,
 		like
 		'%%'
 		
+SELECT  COUNT(*) AS cb_ea
+FROM car
+GROUP BY c_brand
 		
 		
-insert into car_brand values('대우','234');
-insert into car_brand values('BMW','234');
-insert into car_brand values('기아','234');
+		SELECT DISTINCT c_brand FROM car;
+		
+		
+insert into car_brand values('대우','4');
+insert into car_brand values('BMW','3');
+insert into car_brand values('기아','2');
+insert into car_brand values('람보르기니','1');
 
 
 select * from car_brand;
 
 drop table car_brand;
+
+
+
+
+
+  SELECT rownum as rn,
+           c.c_id, c.c_name, c.c_year1, c.c_year2, c.c_option,
+           cb.cb_name as c_brand, c.c_ft, c.c_bt, c.c_print, c.c_file, cb.cb_order
+    FROM Car c
+    INNER JOIN car_brand cb ON c.c_brand = cb.cb_name
+    WHERE c.c_name LIKE '%%'
+     
+    ORDER BY cb.cb_order ASC
+
+
+SELECT NVL(COUNT(*), 0) AS cb_ea
+FROM car
+INNER JOIN car_brand ON car.c_brand = car_brand.cb_name
+GROUP BY car.c_brand, car_brand.cb_order
+ORDER BY TO_NUMBER(car_brand.cb_order) ASC
+
+
+
+SELECT COALESCE(COUNT(car.c_id), 0) AS cb_ea
+FROM car_brand
+LEFT JOIN car ON car_brand.cb_name = car.c_brand
+GROUP BY car_brand.cb_name, car_brand.cb_order
+ORDER BY TO_NUMBER(car_brand.cb_order) ASC;

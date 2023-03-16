@@ -33,6 +33,7 @@
 	</beans:bean>  -->
 
 
+
 	<beans:bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource">
 		<beans:property name="driverClassName" value="oracle.jdbc.driver.OracleDriver" />
 		<beans:property name="url" value="jdbc:oracle:thin:@localhost:1521:xe" />
@@ -77,6 +78,7 @@
       <beans:property name="defaultEncoding" value="utf-8" />
 	</beans:bean>
 	
+	<!-- Ask 몇개씩 보여줄지 -->
 	<beans:bean id="aco" class="com.tireshoppingmall.home.board.AskCountOption">
 		<beans:constructor-arg value="5"></beans:constructor-arg>
 	</beans:bean>
@@ -126,7 +128,7 @@
 
 	<beans:bean id="bo"
 		class="com.tireshoppingmall.home.admin.store.BranchOption">
-		<beans:constructor-arg value="7"></beans:constructor-arg>
+		<beans:constructor-arg value="10"></beans:constructor-arg>
 	</beans:bean>
 
 
@@ -134,7 +136,7 @@
 
 	<beans:bean id="co"
 		class="com.tireshoppingmall.home.admin.car.CarOption">
-		<beans:constructor-arg value="7"></beans:constructor-arg>
+		<beans:constructor-arg value="10"></beans:constructor-arg>
 	</beans:bean>
 
 </beans:beans>
