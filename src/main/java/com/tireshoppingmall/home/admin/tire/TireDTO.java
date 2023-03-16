@@ -47,6 +47,8 @@ public class TireDTO {
 		// TODO Auto-generated constructor stub
 	}
 
+	
+	
 	//브랜드 페이지
 	public TireDTO(String tb_name, int tb_ea, int tb_num, int tb_order) {
 		super();
