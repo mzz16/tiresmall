@@ -15,13 +15,13 @@ const dropBoard = document.querySelector(".index_dropBoard");
 
 topNav.addEventListener("mouseenter", () => {
   dropMenu.style.height = "400px";
-  indexShadow.style.zIndex = "99";
+  indexShadow.style.zIndex = "9999";
 });
 
 header.addEventListener("mouseleave", () => {
   reset();
   dropMenu.style.height = "0";
-  indexShadow.style.zIndex = "-100";
+  indexShadow.style.zIndex = "-10000";
 });
 
 searchMenu.addEventListener("mouseenter", () => {
