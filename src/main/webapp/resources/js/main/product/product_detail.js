@@ -8,21 +8,31 @@ const minusBtn = document.querySelector(".detail_minus");
 
 const priceTab = document.querySelector(".detail_price_wrapper");
 
-function sizeSelect(size, price, facPrice) {
+const tg_id = document.querySelector(".tg_id").value;
+const tg_brand = document.querySelector(".tg_brand").value;
+const tg_name = document.querySelector(".tg_name").value;
+const tg_img = document.querySelector(".tg_img").value;
+const tg_dcrate = document.querySelector(".tg_dcrate").value;
+
+const quantityInput = document.querySelector(".detail_quantity_input");
+let quantityInputValue = parseInt(quantityInput.value);
+const finalPrice = document.querySelector(".detail_final_price");
+const notPrice = document.querySelector(".detail_not_price");
+
+function sizeSelect(width, ratio, inch, size, price, facPrice) {
+  finalPrice.innerText = `${parseInt(price).toLocaleString()}원`;
+  notPrice.innerText = `${parseInt(facPrice).toLocaleString()}원`;
   document.querySelector(".detail_option_size").innerText = size;
-  document.querySelector(".detail_final_price").innerText = `${parseInt(
-    price
-  ).toLocaleString()}원`;
-  document.querySelector(".detail_not_price").innerText = `${parseInt(
-    facPrice
-  ).toLocaleString()}원`;
+  document.querySelector(".ti_width").value = width;
+  document.querySelector(".ti_ratio").value = ratio;
+  document.querySelector(".ti_inch").value = inch;
+  document.querySelector(".ti_pricegp").value = price;
+  document.querySelector(".ti_pricefac").value = facPrice;
   priceTab.style.display = "block";
 }
 
 // 사이즈 선택 ajax
 sizeBtn.addEventListener("click", () => {
-  const tg_id = document.querySelector(".tg_id").value;
-  const tg_dcrate = document.querySelector(".tg_dcrate").value;
   $.ajax({
     url: "product.size.get",
     type: "POST",
@@ -37,7 +47,17 @@ sizeBtn.addEventListener("click", () => {
           Math.floor((tireSizes[i]["ti_pricefac"] * tireDiscount) / 100) * 100;
         $(".size_wrapper").append(`
           <div class="tire_size">
-            <button class="tire_size_button${i}" onclick="sizeSelect('${tireSize}', '${tirePrice}', '${tireSizes[i]["ti_pricefac"]}')"></button>
+            <button 
+              class="tire_size_button${i}"
+              onclick="sizeSelect(
+                '${tireSizes[i]["ti_width"]}',
+                '${tireSizes[i]["ti_ratio"]}',
+                '${tireSizes[i]["ti_inch"]}',
+                '${tireSize}',
+                '${tirePrice}',
+                '${tireSizes[i]["ti_pricefac"]}'
+              )
+            "></button>
           </div>
         `);
         $(`.tire_size_button${i}`).text(
@@ -52,47 +72,39 @@ sizeBtn.addEventListener("click", () => {
 
 // 수량별 가격 변동
 plusBtn.addEventListener("click", () => {
-  let quantityInput = document.querySelector(".detail_quantity_input").value;
-  let finalPrice = document.querySelector(".detail_final_price").innerText;
-  let notPrice = document.querySelector(".detail_not_price").innerText;
-  let ti_stock = document.querySelector(".ti_stock").value;
-  let ti_pricegp = document.querySelector(".ti_pricegp").value;
-  let ti_pricefac = document.querySelector(".ti_pricefac").value;
-
-  let intQuantityInput = parseInt(quantityInput);
-  let intFinalPrice = parseInt(finalPrice.replace("원", "").replace(",", ""));
-  let intNotPrice = parseInt(notPrice.replace("원", "").replace(",", ""));
-
-  intQuantityInput++;
-  intFinalPrice = intQuantityInput * intFinalPrice;
-  intNotPrice = intQuantityInput * intNotPrice;
-
-  quantityInput = intQuantityInput;
-  finalPrice = `${intFinalPrice.toLocaleString()}원`;
-  notPrice = `${intNotPrice.toLocaleString()}원`;
-  ti_stock = intQuantityInput;
-  ti_pricegp = intFinalPrice;
-  ti_pricefac = intNotPrice;
+  quantityInputValue++;
+  quantityInput.value = quantityInputValue;
+  const finalPriceValue =
+    parseInt(document.querySelector(".ti_pricegp").value) * quantityInputValue;
+  const notPriceValue =
+    parseInt(document.querySelector(".ti_pricefac").value) * quantityInputValue;
+  finalPrice.innerText = `${finalPriceValue.toLocaleString()}원`;
+  notPrice.innerText = `${notPriceValue.toLocaleString()}원`;
 });
 
 minusBtn.addEventListener("click", () => {
-  if (intInput !== 1) {
-    intInput--;
+  if (quantityInputValue !== 1) {
+    quantityInputValue--;
   }
+  quantityInput.value = quantityInputValue;
+  const finalPriceValue =
+    parseInt(document.querySelector(".ti_pricegp").value) * quantityInputValue;
+  const notPriceValue =
+    parseInt(document.querySelector(".ti_pricefac").value) * quantityInputValue;
+  finalPrice.innerText = `${finalPriceValue.toLocaleString()}원`;
+  notPrice.innerText = `${notPriceValue.toLocaleString()}원`;
 });
 
 cartBtn.addEventListener("click", () => {
-  const tg_id = document.querySelector(".tg_id").value;
-  const tg_brand = document.querySelector(".tg_brand").value;
-  const tg_name = document.querySelector(".tg_name").value;
-  const tg_img = document.querySelector(".tg_img").value;
-  const tg_dcrate = document.querySelector(".tg_dcrate").value;
   const ti_width = document.querySelector(".ti_width").value;
   const ti_ratio = document.querySelector(".ti_ratio").value;
   const ti_inch = document.querySelector(".ti_inch").value;
-  const ti_stock = document.querySelector(".ti_stock").value;
-  const ti_pricefac = document.querySelector(".ti_inch").value;
-  const ti_pricegp = document.querySelector(".ti_inch").value;
+  const ti_stock = quantityInputValue;
+  const ti_pricefac =
+    parseInt(document.querySelector(".ti_pricegp").value) * quantityInputValue;
+  const ti_pricegp =
+    parseInt(document.querySelector(".ti_pricegp").value) * quantityInputValue;
+
   const cartDTO = {
     tg_id,
     tg_brand,
