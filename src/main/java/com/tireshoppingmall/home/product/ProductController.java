@@ -32,7 +32,7 @@ public class ProductController {
 	@RequestMapping(value = "/product.brand", method = RequestMethod.GET)
 	public String goProductBrand(HttpServletRequest request, @RequestParam String b, @RequestParam int p) {
 		if (firstReq) {
-			pDAO.calcAllMsgCount();
+			pDAO.calcAllProductGroupCount();
 			firstReq = false;
 		}
 		if (b == "") {

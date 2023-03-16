@@ -76,19 +76,29 @@
 						<td class="admin_tire_table_td">${t.tg_name }</td>
 						<td class="admin_tire_table_td">
 							<c:choose>
-								<c:when test="${t.tg_print ==1 }"><button class="admin_printBTN">출력</button></c:when>
-								<c:otherwise><button class="admin_notPrintBTN">미출력</button></c:otherwise>
+								<c:when test="${t.tg_print ==1 }">
+									<button class="printbtn admin_printBTN" value="${t.tg_id }">출력</button></c:when>
+								<c:otherwise>
+									<button class="printbtn admin_notPrintBTN" value="${t.tg_id }">미출력</button></c:otherwise>
 							</c:choose> </td>
 						<td class="admin_tire_table_td">
 							<c:choose>
-								<c:when test="${t.tg_sedan ==1 }"><button class="admin_printBTN">추천</button></c:when>
-								<c:otherwise><button class="admin_notPrintBTN">일반</button></c:otherwise>
+								<c:when test="${t.tg_sedan ==1 }">
+									<button class="admin_printBTN sedanRecommend"  value="${t.tg_id }">추천</button>
+								</c:when>
+								<c:otherwise>
+									<button class="admin_notPrintBTN sedanRecommend" value="${t.tg_id }">일반</button>
+								</c:otherwise>
 							</c:choose>
 						</td>	
 						<td class="admin_tire_table_td">
 							<c:choose>
-								<c:when test="${t.tg_suv ==1 }"><button class="admin_printBTN">추천</button></c:when>
-								<c:otherwise><button class="admin_notPrintBTN">일반</button></c:otherwise>
+								<c:when test="${t.tg_suv ==1 }">
+									<button class="admin_printBTN suvRecommend" value="${t.tg_id }">추천</button>
+								</c:when>
+								<c:otherwise>
+									<button class="admin_notPrintBTN suvRecommend" value="${t.tg_id }">일반</button>
+								</c:otherwise>
 							</c:choose>
 						</td>
 						<td class="admin_tire_table_td">${t.tg_num }개</td>
