@@ -88,7 +88,7 @@ header {
   display: grid;
   grid-template-columns: repeat(4, 200px);
   grid-template-rows: 70px;
-  font-size: 22px;
+  font-size: 20px;
   font-weight: 400;
 }
 
@@ -105,7 +105,7 @@ header {
   justify-content: flex-end;
   align-items: center;
   gap: 25px;
-  font-size: 25px;
+  font-size: 22px;
 }
 
 .index_dropMenu {
@@ -139,11 +139,11 @@ header {
   flex-direction: column;
   gap: 20px;
   font-size: 20px;
-  font-weight: 400;
 }
 
 .index_dropMenu_txt a:hover {
   color: var(--red);
+  font-weight: 400;
 }
 
 .index_dropMenu_img {
