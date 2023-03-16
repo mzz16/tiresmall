@@ -120,7 +120,7 @@ create table tire_group (
 	tg_suv number(1) not null		/* suv 추천 1(t)/0(f)		tg_recommend로 해서 0(sedan) or 1(suv)로 해도 될지도?? */
 );
 
-create table tire_item (
+create table tire_item (            
 	ti_id number(5) primary key,		
 	ti_tg_id number(4) not null,		/* tire_group 테이블 pk 참조하는 것 */
 	ti_hg number(3) not null,			/* 하중 */
