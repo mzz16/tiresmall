@@ -94,6 +94,13 @@ uri="http://java.sun.com/jsp/jstl/core" %>
           </ul>
           <ul class="index_dropBrand index_dropWrapper">
             <li class="index_dropMenu_menu">
+<<<<<<< HEAD
+              <a href="product.brand?b=넥센&p=1">넥센타이어</a>
+              <a href="product.brand?b=한국&p=1">한국타이어</a>
+              <a href="product.brand?b=콘티넨탈&p=1">콘티넨탈타이어</a>
+              <a href="product.brand?b=피렐리&p=1">피렐리타이어</a>
+              <a href="product.brand?b=미쉐린&p=1">미쉐린타이어</a>
+=======
               <div class="index_dropMenu_txt">
                 <a href="product.brand?b=넥센&p=1">넥센타이어</a>
                 <a href="product.brand?b=한국&p=1">한국타이어</a>
@@ -104,6 +111,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
               <div class="index_dropMenu_img">
                 <img src="resources/web/main/index/brand/1.jpg" />
               </div>
+>>>>>>> ba1e34f22bb49093c437474996733f70d46a8d78
             </li>
           </ul>
           <ul class="index_dropStore index_dropWrapper">
