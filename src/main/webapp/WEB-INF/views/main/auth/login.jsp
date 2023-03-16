@@ -33,10 +33,10 @@
 		</div>
 		<div id="login_btn_social">
 			<div id="login_btn_kakao">
-				<button type="button" onclick="kakaoLogin()" ><img alt="" src="resources/img/auth/kakao_login_medium_wide.png"></button>
+				<button type="button" onclick="kakaoLogin()" ><img alt="" src="resources/web/main/auth/kakao_login_medium_wide.png"></button>
 			</div>
 			<div id="login_btn_naver">
-				<a href="${url }"><img src="https://developers.naver.com/doc/review_201802/CK_bEFnWMeEBjXpQ5o8N_20180202_7aot50.png"> </a>
+				<a href="${url }"><img src="resources/web/main/auth/naver_login_btn.png"> </a>
 			</div>
 		</div>
 	</div>
