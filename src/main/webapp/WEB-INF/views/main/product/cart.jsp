@@ -22,12 +22,12 @@ uri="http://java.sun.com/jsp/jstl/core"%>
         </div>
       </div>
       <div class="cart_content">
-        <div class="cart_list">
-          <c:choose>
-            <c:when test="${empty sessionScope.cartSession}">
-              <div>장바구니가 비었소</div>
-            </c:when>
-            <c:otherwise>
+        <c:choose>
+          <c:when test="${empty sessionScope.cartSession}">
+            <div>장바구니가 비었소</div>
+          </c:when>
+          <c:otherwise>
+            <div clas s="cart_list">
               <c:forEach var="tire" items="${sessionScope.cartSession}">
                 <div class="cart_product">
                   <button class="cart_product_delete">
@@ -73,29 +73,29 @@ uri="http://java.sun.com/jsp/jstl/core"%>
                   </div>
                 </div>
               </c:forEach>
-            </c:otherwise>
-          </c:choose>
-        </div>
-        <div class="cart_confirm">
-          <div class="cart_nav">
-            <div class="cart_nav_title">
-              <h2>주문 정보</h2>
             </div>
-            <div class="cart_nav_content cart_nav_origianl">
-              <h2 class="cart_nav_name">소비자 가격</h2>
-              <span class="cart_nav_value"></span>
+            <div class="cart_confirm">
+              <div class="cart_nav">
+                <div class="cart_nav_title">
+                  <h2>주문 정보</h2>
+                </div>
+                <div class="cart_nav_content cart_nav_origianl">
+                  <h2 class="cart_nav_name">소비자 가격</h2>
+                  <span class="cart_nav_value"></span>
+                </div>
+                <div class="cart_nav_content cart_nav_discount">
+                  <h2 class="cart_nav_name">할인 금액</h2>
+                  <span class="cart_nav_value"></span>
+                </div>
+                <div class="cart_nav_content cart_nav_price">
+                  <h2 class="cart_nav_name">총 결제 금액</h2>
+                  <span class="cart_nav_value"></span>
+                </div>
+                <button class="cart_nav_pay">결제하기</button>
+              </div>
             </div>
-            <div class="cart_nav_content cart_nav_discount">
-              <h2 class="cart_nav_name">할인 금액</h2>
-              <span class="cart_nav_value"></span>
-            </div>
-            <div class="cart_nav_content cart_nav_price">
-              <h2 class="cart_nav_name">총 결제 금액</h2>
-              <span class="cart_nav_value"></span>
-            </div>
-            <button class="cart_nav_pay">결제하기</button>
-          </div>
-        </div>
+          </c:otherwise>
+        </c:choose>
       </div>
     </div>
   </body>
