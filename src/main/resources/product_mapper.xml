@@ -8,6 +8,7 @@
         <if test="search2 != ''">
         	and tg_sedan = #{search2}
         </if>
+        order by tg_id 
 	</select>
 	<select id="getProductGroup" resultType="com.tireshoppingmall.home.product.ProductGroupDTO">
 		select *
@@ -19,6 +20,7 @@
                 <if test="search2 != ''">
 	               and tg_sedan = #{search2}
                 </if>
+                order by tg_id
             )
         )
         where rn &gt;= #{start} and rn &lt;= #{end}	
