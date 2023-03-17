@@ -51,3 +51,10 @@ $("#cancleModal").click(function() {
 	$("body").css("overflow", 'auto');
 
 });
+
+window.addEventListener("keydown", (e) => {
+	if(e.keyCode == 27){
+		$("#cancleModal").trigger("click");
+	}
+
+});

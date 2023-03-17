@@ -36,5 +36,9 @@
 		        order by o_no))
 	    where rn &gt;= #{start} and rn &lt;= #{end}
 	</select>
+	
+	<delete id="deleteOrder">
+		delete from product_order where o_no = #{o_no}
+	</delete>
 
 </mapper>
