@@ -1,7 +1,4 @@
-.board_ask_buttonOne {
-	float: right;
-	margin-top: 20px;
-	
+.board_ask_buttonRed {
 	width: 100px;
 	height: 40px;
 	
@@ -12,26 +9,11 @@
 	
 	font-weight: 900;
 	text-align: center;
+	
+	border: none;
 }
 
-.board_ask_buttonTwo {
-	margin-top: 20px;
-	
-	width: 100px;
-	height: 40px;
-	
-	cursor: pointer;
-	
-	background: #ab1e21;
-	color: #fff;
-	
-	font-weight: 900;
-	text-align: center;
-}
-
-.board_ask_buttonThree {
-	margin-top: 20px;
-	
+.board_ask_buttonGray {
 	width: 100px;
 	height: 40px;
 	
@@ -41,4 +23,6 @@
 	
 	font-weight: 900;
 	text-align: center;
+	
+	border: 1px solid #ddd;
 }

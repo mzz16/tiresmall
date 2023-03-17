@@ -45,22 +45,25 @@
 
 	</div>
 	
+	<c:forEach var="carcount" items="${carcount}" varStatus="status"> 
+     
 	
-	 	<c:forEach var="cb" items="${carbrands }" varStatus="status"> 
-		<div class="branddatalist_div"
-			style="border: 1px solid gray; float: left;">
-			<div class="branddatalist_div1" style="float: left;">${cb.cb_name } </div>
-			<div class="branddatalist_div2" style="float: left;">1 </div>
-			<div class="branddatalist_div3" style="float: left;">2 
-			</div>
-			<div class="branddatalist_div4" style="float: left;">
-				
-				<button type="button" onclick="deletecb1('${cb.cb_name}')">삭제</button>
-			</div>
-
-		</div>
-
-	 </c:forEach> 
+	
+</c:forEach>
+			
+			<c:forEach var="cb" items="${carbrands}" varStatus="status"> 
+     
+    <div class="branddatalist_div" style="border: 1px solid gray; float: left;">
+        <div class="branddatalist_div1" style="float: left;">${cb.cb_name}</div>
+        <div class="branddatalist_div2" style="float: left;">${empty carcount[status.index].cb_ea ? 0 : carcount[status.index].cb_ea}</div>
+        <div class="branddatalist_div3" style="float: left;">${cb.cb_order }</div>
+        <div class="branddatalist_div4" style="float: left;">
+        <button type="button"  class ="updatecarbrandbutton" onclick="updatecb1('${cb.cb_name}','${cb.cb_order }')">수정</button>
+            <button type="button" onclick="deletecb1('${cb.cb_name}')">삭제</button>
+        </div>
+    </div>
+   
+</c:forEach>
 	 
 	 
 	 
@@ -73,11 +76,11 @@
 				onsubmit="return carbrandregcall();" >
 				<table border="1" class="">
 				<tr>
-					<td>브랜드 명</td>
+					<td style="background-color: #3399ff">브랜드 명</td>
 					<td><input name="cb_name" id="cb_name"></td>
 					</tr>
 					<tr>
-					<td>표시순서</td>
+					<td style="background-color: #3399ff">표시순서</td>
 					<td><input name="cb_order" id="cb_order"></td>
 					
 		
@@ -95,6 +98,55 @@
 	 </div>
 	 
 	 
+	 
+<div id="updatebrandpopup01">
+    <div class="close">close</div>
+    <div>
+    
+
+			<form action="update.brand.do"  name="updateform"
+				onsubmit="return carbrandupdatecall();" >
+				<table border="1" class="">
+				<tr>
+					<td style="background-color: #3399ff">브랜드 명</td>
+					<td><input name="old_cb_name" id="cb_name_u" type="hidden">
+					<input name="new_cb_name" id="cb_name_n">
+					
+					</td>
+					</tr>
+					<tr>
+					<td style="background-color: #3399ff">표시순서</td>
+					<td><input name="cb_order" id="cb_order_u"></td>
+					
+		
+					</tr>
+					
+					<tr>
+					<td colspan=2><div class="carbrandupdateokbutton">
+								<button class="carbrandupdateokbutton1" id="updatecarbrand">수정</button>
+							</div></td>
+					</tr>
+					
+				</table>
+			</form>
+		
+    
+    
+    </div>
+</div>
+
+	 
+	 
+	 
+	 
+    
+    
+    
+    
+    
+
+	
+    
 	 
 	 
 	

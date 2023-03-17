@@ -3,35 +3,67 @@
 <mapper namespace="com.tireshoppingmall.home.board.BoardMapper">
 	<select id="getAskCount" resultType="java.lang.Integer">
 		select count(*)
-        from ask, ask_account
-        where a_owner_fk = aa_id
-        and a_text like '%'||#{search}||'%'
+        from qna, auth_user
+        where q_id = u_id
 	</select>
-	<select id="getAsk" resultType="com.tireshoppingmall.home.board.AskDTO">
+	<select id="readAskAll" resultType="com.tireshoppingmall.home.board.AskDTO">
 		select *
         from (
-			select	rownum as rn,
-					a_number,
-					a_owner_fk,
-					a_sortation,
-					a_title,
-					a_text,
-					a_photo,
-					a_date,
-					a_status
+			select	rownum as rownumber,
+					q_no,
+					q_title,
+					q_date
 			from (
 				select *
-				from ask, ask_account
-				where a_owner = aa_id
-				and a_txt like '%'||#{search}||'%'
-				order by s_date desc
+				from qna, auth_user
+				where q_id = u_id
+				order by q_date desc
 			)
         )
-        where rn &gt;= #{start} and rn &lt;= #{end}
+        where rownumber &gt;= #{begin} and rownumber &lt;= #{last}
 	</select>
-	<select id="getAskReply" parameterType="com.tireshoppingmall.home.board.AskDTO" resultType="com.tireshoppingmall.home.board.AskReplyDTO">
+	
+	<select id="readAskOne" resultType="com.tireshoppingmall.home.board.AskDTO">
+		select *
+		from qna
+		where q_no = #{q_no}
+	</select>
+	<select id="readAskReply" resultType="com.tireshoppingmall.home.board.AskReplyDTO">
 	 	select *
-	 	from ask_reply
-	 	where ar_number_fk = #{a_number}
+	 	from qna_reply
+	 	where q_reply_board_no = #{q_no}
+	</select>
+	
+	<insert id="createAsk">
+		insert
+		into qna
+		values(
+			qna_seq.nextval,
+			#{q_title},
+			#{q_txt},
+			sysdate,
+			'id1',
+			default
+		)
+	</insert>
+	
+	<update id="updateAsk">
+		update
+		qna
+		set	q_title = #{q_title},
+			q_txt = #{q_txt}
+		where q_no = #{q_no}
+	</update>
+	
+	<delete id="deleteAsk">
+		delete
+		qna
+		where q_no = #{q_no}
+	</delete>
+	
+	
+	
+	<select id="readEventAll" resultType="com.tireshoppingmall.home.board.EventDTO">
+		select * from event
 	</select>
 </mapper>

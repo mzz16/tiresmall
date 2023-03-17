@@ -208,6 +208,8 @@ public class CarDAO {
 	}
 
 	public void deletebrand(CarBrandDTO c, HttpServletRequest req) {
+		ss.getMapper(AdminCarMapper.class).deletebrandcar(c);
+		
 		if (ss.getMapper(AdminCarMapper.class).deletebrand(c) == 1) {
 			System.out.println("삭제완료");
 			allCarCount--;
@@ -227,12 +229,58 @@ public class CarDAO {
 		
 	}
 
-	public void getAllCar(Model m) {
-		// TODO Auto-generated method stub
+	public void getCarbrandselectlist(Model m) {
+		
+		m.addAttribute("carbrand", ss.getMapper(AdminCarMapper.class).getCarbrandselectlist());
+	}
+
+
+	
+	public void getallCarBrands(Model m) {
+		System.out.println("!!!!!!!!!!!");
+		m.addAttribute("carbrands", ss.getMapper(AdminCarMapper.class).getAllCarBrands());
+		System.out.println("!!!!!!!!!!!");
 		
 	}
-	
-	
 
+	public void getallBrandCount(CarBrandDTO c,Model m) {
+		m.addAttribute("carcount", ss.getMapper(AdminCarMapper.class).getallBrandCount(c));
+		System.out.println("@@@@@@@@@@");
+		System.out.println(m);
+		System.out.println("@@@@@@@@@@");
+
+	
+	
+	
 
 }
+	
+
+//	public void menuSession(AdminMenuSession menuSession, HttpServletRequest req) {
+	//	AdminMenuSession menu = (AdminMenuSession) req.getSession().getAttribute("menuSession");
+	//	menu.setMenu("store");
+
+
+	
+// public void getAllCar(Model m) {
+		
+		
+//	}
+
+public void updatebrand(CarBrandDTO c, HttpServletRequest req) {
+	AdminCarMapper mm = ss.getMapper(AdminCarMapper.class);
+	
+	
+	if (mm.updatebrand(c) == 1) {
+		System.out.println("수정완료");
+		mm.updatebrandcar(c);
+	}else {
+		System.out.println("수정실패");
+	}
+	
+}
+	
+	
+}
+
+

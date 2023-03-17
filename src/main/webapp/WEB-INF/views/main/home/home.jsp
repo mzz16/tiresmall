@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
   <head>
@@ -18,10 +19,11 @@ pageEncoding="UTF-8"%>
         ></video>
       </div>
       <section>
-        <h1 class="home_title">
+        <div class="home_title">
           <img src="resources/web/logo4.png" style="height: 35px" />
           <span>이용 방법</span>
-        </h1>
+          <hr />
+        </div>
         <div class="home_manual">
           <div class="home_manual_menu">
             <img
@@ -60,7 +62,10 @@ pageEncoding="UTF-8"%>
         </div>
       </section>
       <section>
-        <h1 class="home_title">MD 추천 타이어</h1>
+        <div class="home_title">
+          <span>MD 추천 타이어</span>
+          <hr />
+        </div>
         <div class="home_recommend">
           <a class="home_recommend_menu">
             <div class="home_shadow"></div>
@@ -109,7 +114,10 @@ pageEncoding="UTF-8"%>
         </div>
       </section>
       <section class="home_store_section">
-        <h1 class="home_title">매장 안내</h1>
+        <div class="home_title">
+          <span>매장 안내</span>
+          <hr />
+        </div>
         <div class="home_store">
           <a class="home_store_menu" href="/">
             <div class="home_shadow"></div>
@@ -154,6 +162,11 @@ pageEncoding="UTF-8"%>
         </div>
       </section>
     </div>
+    <c:if test="${!empty events}">
+	    <dialog class="board_event_modal_dialog">
+			  <jsp:include page="${eventModal}"></jsp:include>
+		  <dialog>
+    </c:if>
     <script src="resources/js/main/home/main_home.js"></script>
   </body>
 </html>
