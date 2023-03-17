@@ -33,20 +33,24 @@ $(function() {
 		if (val1 == "" || val2 == "" || val3 == "") {
 			alert("사이즈를 모두 선택해 주세요");
 		} else{
-/* 			let ti_width = val1;
+			let tg_brand = "";
+			let tg_name = "";
+			let ti_width = val1;
 			let ti_ratio = val2;
 			let ti_inch = val3;
- */			
+ 			
 			
 			// 임시 데이터(임시 db에 입력된 값)
-			let ti_width = 5;
-			let ti_ratio = 5;
-			let ti_inch = 1;
+//			let ti_width = 5;
+//			let ti_ratio = 5;
+//			let ti_inch = 1;
 			
 			
 			$.ajax({
 				url:"getTires.json",
-				data : {"ti_width" : ti_width,"ti_ratio" : ti_ratio, "ti_inch" : ti_inch},
+				data : {"ti_width" : ti_width,
+						"ti_ratio" : ti_ratio,
+						"ti_inch" : ti_inch },
 				success:function(data){
 				
 					$('.tire-items').empty();
@@ -64,7 +68,8 @@ $(function() {
 						$('.tire-items').append(itemDIV);
 					
 					
-					$('.show').css('display','block');
+					$('.show').css('display','flex');
+					$('.searchResultContainer').css('display','block');
 									
 				});
 				}

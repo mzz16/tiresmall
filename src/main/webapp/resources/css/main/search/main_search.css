@@ -116,23 +116,49 @@
     cursor: pointer;
 }
 
+.searchResultContainer {
+	display: none;
+	width: 1200px;
+	margin: auto;
+	text-align: center;
+}
+
+.searchResultTitle {
+	font-size: 40px;
+	font-weight: 600;
+	padding: 60px 0 20px 0;
+	color: #ab1e21
+}
+
 .tire-items {
 	width: 100%;
 }
 
 .tire-item {
-	display: flex;
-	width: 80%;
-	border: 2px solid blue;
-	height: 100px;
+	width: 1200px;
+	border: 1px solid black;
 	margin: auto;
+	margin-bottom: 30px;
 	display: none;
 }
 
 .tire-img {
-	width: 40%;
+	width: 240px;
+	height: 240px;
 }
 
 .tire-info {
-	
+	display: flex;
+	flex-direction: column;
+	margin: auto 30px;
+	width: 960px;
+}
+
+.tire-info-size {
+	display: flex;
+	justify-content: flex-end;
+}
+
+.tire-info-size div{
+	font-size: 18px;
 }

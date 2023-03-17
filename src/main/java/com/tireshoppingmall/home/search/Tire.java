@@ -5,6 +5,7 @@ public class Tire {
 	private int ti_width;
 	private int ti_ratio;
 	private int ti_inch;
+	
 	public int getTi_width() {
 		return ti_width;
 	}

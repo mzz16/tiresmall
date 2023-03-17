@@ -81,18 +81,27 @@ pageEncoding="UTF-8"%>
 		<button class="searchTireBtn" type="button" onclick="searchTire()">타이어 찾기</button>
 	</div>
 	
+	<div class="searchResultContainer">
+		<div class="searchResultTitle">검색 결과</div>
+		<hr style="margin-bottom: 50px;">
+	</div>
+	
 	<div class="tire-item">
 		<div class="tire-img">타이어이미지</div>
 		<div class="tire-info">
-			타이어이름
-			<div class="tire-info-width">width123</div>
-			<div class="tire-info-ratio">ratio123</div>
-			<div class="tire-info-inch">inch123</div>
+			<div class="tire-brand" style="font-size: 18px; padding-bottom: 10px;">타이어 브랜드</div>
+			<div class="tire-name" style="font-size: 24px; padding-bottom: 30px; font-weight: 500;">타이어이름</div>
+			<div class="tire-cost" style="font-size: 26px; padding-bottom: 10px; font-weight: 500;">타이어 가격</div>
+			<div class="tire-info-size">
+				<div class="tire-info-width">width123</div>&nbsp;/&nbsp;
+				<div class="tire-info-ratio">ratio123</div>&nbsp;/&nbsp; 
+				<div class="tire-info-inch">inch123</div>&nbsp;
+			</div>
 		</div>
 	</div>
-
+	
+	
 	<div class="tire-items">
-		
 	</div>
 </body>
 </html>
