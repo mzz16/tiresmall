@@ -26,12 +26,6 @@ $(function() {
 		val3 = $(this).text();
 	});
 	
-
-	$('#ttt').click(function() {
-		let item = $('.tire-item').clone();
-		$('.tire-items').append(item);
-	})
-	
 	
 	
 });
@@ -54,10 +48,8 @@ $(function() {
 				url:"getTires.json",
 				data : {"ti_width" : ti_width,"ti_ratio" : ti_ratio, "ti_inch" : ti_inch},
 				success:function(data){
-					
-					console.log(data.tires);
 				
-					
+					$('.tire-items').empty();
 					$.each(data.tires, function(i, item) {
 						let itemDIV = $('.tire-item').first().clone();
 						$(itemDIV).addClass('show');
@@ -68,15 +60,12 @@ $(function() {
 						$(itemDIV).find(".tire-info-width").text(getWidth);
 						$(itemDIV).find(".tire-info-ratio").text(getRatio);
 						$(itemDIV).find(".tire-info-inch").text(getInch);
-					
-						
 						
 						$('.tire-items').append(itemDIV);
 					
 					
 					$('.show').css('display','block');
-					
-					
+									
 				});
 				}
 			});
