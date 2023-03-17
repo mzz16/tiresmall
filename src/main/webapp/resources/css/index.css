@@ -78,6 +78,22 @@ header {
   align-items: center;
 }
 
+.index_hTopLeft,
+.index_hTopRight {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.index_kakao {
+  display: flex;
+  align-items: center;
+  color: #3b2a2a;
+  background-color: #fddc40;
+  border-radius: 10px;
+  padding: 2px 3px;
+}
+
 .index_hBottom {
   display: grid;
   grid-template-columns: 250px 800px 150px;
