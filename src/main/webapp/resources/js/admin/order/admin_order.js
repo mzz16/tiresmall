@@ -28,10 +28,8 @@ $('.order_modal_go').click(function() {
 		arr.push($(input).val());
 		// modal_content_td[i].innerText = val;
 	});
-	
-	$.each(arr, function(i,str) {
-	});
-	
+
+	//console.log(arr);
 	modal_content_td[0].innerText = arr[0];
 	modal_content_td[1].innerText = arr[9];
 	modal_content_td[2].innerText = arr[2];
@@ -48,20 +46,17 @@ $('.order_modal_go').click(function() {
 	modal_content_td[14].innerText = arr[8];
 	modal_content_td[15].innerText = arr[5];
 	
-	
 	let tire_tr = $(this).find('.tire_content_tr');
-	console.log(tire_tr);
-	
-	let content = `	<tr>
+	let tire_tr2 = $(tire_tr).clone();
+	let content = `<tr>
 						<th class="tire_th">종류</th>
 						<th class="tire_th">브랜드명</th>
 						<th class="tire_th">제품명</th>
 						<th class="tire_th">스펙</th>
 						<th class="tire_th">주문수량</th>
 					</tr>`
-	
 		$("#product-table").append(content);
-	$("#product-table").append(tire_tr);
+		$("#product-table").append(tire_tr2);
 	
 	
 $('.modal-label').each(function(i, rInput) {

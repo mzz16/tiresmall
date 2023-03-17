@@ -24,6 +24,12 @@ public class ProductDAO {
 		return allProductGroupCount;
 	}
 
+	public void setAllProductGroupCount(int allProductGroupCount) {
+		this.allProductGroupCount = allProductGroupCount;
+	}
+
+
+
 	public void getProductGroup(int pageNo, HttpServletRequest request) {
 		
 		int count = pgo.getProductGroupCountPerPage();	// 지금 16

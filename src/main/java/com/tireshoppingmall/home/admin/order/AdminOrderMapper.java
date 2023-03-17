@@ -10,6 +10,6 @@ public interface AdminOrderMapper {
 
 	int updateOrder(OrderSearchDTO osDTO);
 
-	boolean deleteOrder(OrderSearchDTO osDTO);
+	int deleteOrder(OrderSearchDTO osDTO);
 
 }

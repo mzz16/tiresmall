@@ -66,10 +66,15 @@ public class OrderDAO {
 			String splitProduct[] = order.getO_product().split(","); // 1/2,2/2
 			for (String product : splitProduct) {
 				int tirePK = Integer.parseInt(product.charAt(0) + ""); // 4 , 6
-				System.out.println(ss.getMapper(AdminTireMapper.class).getTireGroupforDetail(tirePK));
-				order_tires.add(ss.getMapper(AdminTireMapper.class).getTireGroupforDetail(tirePK));
+				int tireCount = product.charAt(2);
+				TireDTO tireDto = ss.getMapper(AdminTireMapper.class).getTireGroupforDetail(tirePK);
+				tireDto.setTi_count(Integer.parseInt(product.charAt(2) + ""));
+				order_tires.add(tireDto);
+				
+				System.out.println(tireCount);
 			}
 			order.setO_products(order_tires);
+			
 		}
 
 		int pageCount = (int) Math.ceil(orderCount / (double) count);
@@ -88,7 +93,7 @@ public class OrderDAO {
 	}
 
 	public void deleteOrder(OrderSearchDTO osDTO, HttpServletRequest req) {
-		if (ss.getMapper(AdminOrderMapper.class).deleteOrder(osDTO)) {
+		if (ss.getMapper(AdminOrderMapper.class).deleteOrder(osDTO) == 1) {
 			req.setAttribute("orderDelete", "삭제 성공");
 			allOrderCount--;
 			/* reg 할때 allOrderCount++; 해주세용 */

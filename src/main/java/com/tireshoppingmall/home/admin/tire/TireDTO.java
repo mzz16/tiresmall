@@ -38,7 +38,10 @@ public class TireDTO {
 	private int ti_pricegp;		/* 기표가격 */	
 	private int ti_pricefac;	/* 공장가격 */
 	private int ti_vat;			/* 부가세 */
-	
+	private int ti_count;
+
+
+
 	//페이지 작업
 	private BigDecimal start;
 	private BigDecimal end;
@@ -359,13 +362,22 @@ public class TireDTO {
 	public int getTg_id() {
 		return tg_id;
 	}
+	
 
+	public int getTi_count() {
+		return ti_count;
+	}
+
+	public void setTi_count(int ti_count) {
+		this.ti_count = ti_count;
+	}
 
 	public static void TirePagsing(HttpServletRequest req) {
 		req.getSession().setAttribute("authDTO", null);
 	}
 
-
+	
+	
 	@Override
 	public String toString() {
 		return "TireDTO [tg_id=" + tg_id + ", tg_brand=" + tg_brand + ", tg_name=" + tg_name + ", tg_img=" + tg_img
@@ -463,4 +475,5 @@ public class TireDTO {
 */
 	
 	
+
 }
