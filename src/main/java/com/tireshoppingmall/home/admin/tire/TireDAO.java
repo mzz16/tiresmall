@@ -11,12 +11,17 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
+import com.tireshoppingmall.home.product.ProductDAO;
+
 
 @Service
 public class TireDAO {
 	
 	@Autowired
 	private SqlSession ss;
+	
+	@Autowired
+	private ProductDAO pDAO;
 	
 	@Autowired					// 주입 할려면 SC에서 추가해줘야함
 	private TireOption no; 		// 한 페이지에 몇개 보여줄지 
@@ -104,6 +109,7 @@ public class TireDAO {
 	public void deleteTireGroup(HttpServletRequest req, TireDTO tg) {
 		if(ss.getMapper(AdminTireMapper.class).deleteTireGroup(tg)==1) {
 			req.setAttribute("r", "삭제성공");
+			pDAO.setAllProductGroupCount(pDAO.getAllProductGroupCount() - 1);
 		}else {
 			req.setAttribute("r", "삭제실패");
 		}
@@ -124,6 +130,7 @@ public class TireDAO {
 		String uploadFolder = "resources\\web\\main\\tire";
 		
 		
+		pDAO.setAllProductGroupCount(pDAO.getAllProductGroupCount() + 1);
 		
 	}
 	public int tirePrintOnOff(TireDTO tg) {
