@@ -302,19 +302,21 @@
 
 .size_wrapper {
   display: grid;
-  grid-template-columns: repeat(4, 225px);
+  justify-content: center;
+  grid-template-columns: repeat(4, 200px);
+  padding-bottom: 30px;
 }
 
 .tire_size {
-  padding: 6px 12.5px;
+  padding: 5px;
 }
 
 .tire_size button {
   border: 1px solid #aaa;
   flex-direction: column;
   padding: 0;
-  width: 200px;
-  font-size: 18px;
+  width: 190px;
+  font-size: 16px;
   font-weight: 400;
   border-radius: 20px;
   background-color: transparent;
@@ -327,6 +329,7 @@
 
 .tire_size button span:last-child {
   color: var(--red);
+  font-size: 18px;
 }
 
 .detail_standard_table {

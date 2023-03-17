@@ -6,7 +6,8 @@ public class ProductDTO {
 	private String tg_name;
 	private String tg_img;
 	private String tg_text;
-	private String tg_dcrate;
+	private int tg_dcrate;
+	private String tg_detail;
 	private int ti_id;
 	private int ti_tg_id;
 	private int ti_width;
@@ -21,9 +22,9 @@ public class ProductDTO {
 		// TODO Auto-generated constructor stub
 	}
 
-	public ProductDTO(int tg_id, String tg_brand, String tg_name, String tg_img, String tg_text, String tg_dcrate,
-			int ti_id, int ti_tg_id, int ti_width, int ti_ratio, int ti_inch, String ti_marking, int ti_stock,
-			int ti_pricefac) {
+	public ProductDTO(int tg_id, String tg_brand, String tg_name, String tg_img, String tg_text, int tg_dcrate,
+			String tg_detail, int ti_id, int ti_tg_id, int ti_width, int ti_ratio, int ti_inch, String ti_marking,
+			int ti_stock, int ti_pricefac) {
 		super();
 		this.tg_id = tg_id;
 		this.tg_brand = tg_brand;
@@ -31,6 +32,7 @@ public class ProductDTO {
 		this.tg_img = tg_img;
 		this.tg_text = tg_text;
 		this.tg_dcrate = tg_dcrate;
+		this.tg_detail = tg_detail;
 		this.ti_id = ti_id;
 		this.ti_tg_id = ti_tg_id;
 		this.ti_width = ti_width;
@@ -81,12 +83,20 @@ public class ProductDTO {
 		this.tg_text = tg_text;
 	}
 
-	public String getTg_dcrate() {
+	public int getTg_dcrate() {
 		return tg_dcrate;
 	}
 
-	public void setTg_dcrate(String tg_dcrate) {
+	public void setTg_dcrate(int tg_dcrate) {
 		this.tg_dcrate = tg_dcrate;
+	}
+
+	public String getTg_detail() {
+		return tg_detail;
+	}
+
+	public void setTg_detail(String tg_detail) {
+		this.tg_detail = tg_detail;
 	}
 
 	public int getTi_id() {

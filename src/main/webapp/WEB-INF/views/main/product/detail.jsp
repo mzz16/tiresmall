@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
   <head>
@@ -18,7 +19,14 @@ pageEncoding="UTF-8"%>
     <div class="detail_container">
       <div class="detail_product">
         <div class="detail_img">
-          <img src="resources/web/main/product/example.jpg" />
+          <c:choose>
+            <c:when test="${product.tg_img eq 'noimg'}">
+	          <img src="resources/web/main/product/no-tire-image.jpg" />
+            </c:when>
+            <c:otherwise>
+	          <img src="resources/web/main/tire/${product.tg_img}.jpg" />
+            </c:otherwise>
+          </c:choose>
         </div>
         <div class="detail_info">
           <div class="detail_titles">
@@ -138,7 +146,14 @@ pageEncoding="UTF-8"%>
       <div class="detail_include">
         <ul class="detail_include_detail">
           <li>
-            <img src="resources/web/main/product/detail.jpg" />
+            <c:choose>
+            <c:when test="${product.tg_detail eq 'noimg'}">
+	          <img src="resources/web/main/product/no-tire-image.jpg" />
+            </c:when>
+            <c:otherwise>
+	          <img src="resources/web/main/detail/${product.tg_detail}.jpg" />
+            </c:otherwise>
+          </c:choose>
           </li>
         </ul>
         <ul class="detail_include_confirm" style="display: none">
