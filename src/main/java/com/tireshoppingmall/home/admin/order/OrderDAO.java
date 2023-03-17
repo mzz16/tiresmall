@@ -12,7 +12,6 @@ import org.springframework.stereotype.Service;
 
 import com.tireshoppingmall.home.admin.tire.AdminTireMapper;
 import com.tireshoppingmall.home.admin.tire.TireDTO;
-import com.tireshoppingmall.home.product.ProductSelector;
 
 @Service
 public class OrderDAO {
@@ -94,7 +93,7 @@ public class OrderDAO {
 	}
 
 	public void deleteOrder(OrderSearchDTO osDTO, HttpServletRequest req) {
-		if (ss.getMapper(AdminOrderMapper.class).deleteOrder(osDTO)) {
+		if (ss.getMapper(AdminOrderMapper.class).deleteOrder(osDTO) == 1) {
 			req.setAttribute("orderDelete", "삭제 성공");
 			allOrderCount--;
 			/* reg 할때 allOrderCount++; 해주세용 */
