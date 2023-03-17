@@ -9,11 +9,10 @@ public class ProductDTO {
 	private String tg_dcrate;
 	private int ti_id;
 	private int ti_tg_id;
-	private int ti_hg;
-	private String ti_speed;
 	private int ti_width;
 	private int ti_ratio;
 	private int ti_inch;
+	private String ti_marking;
 	private int ti_stock;
 	private int ti_pricefac;
 	
@@ -23,7 +22,7 @@ public class ProductDTO {
 	}
 
 	public ProductDTO(int tg_id, String tg_brand, String tg_name, String tg_img, String tg_text, String tg_dcrate,
-			int ti_id, int ti_tg_id, int ti_hg, String ti_speed, int ti_width, int ti_ratio, int ti_inch, int ti_stock,
+			int ti_id, int ti_tg_id, int ti_width, int ti_ratio, int ti_inch, String ti_marking, int ti_stock,
 			int ti_pricefac) {
 		super();
 		this.tg_id = tg_id;
@@ -34,11 +33,10 @@ public class ProductDTO {
 		this.tg_dcrate = tg_dcrate;
 		this.ti_id = ti_id;
 		this.ti_tg_id = ti_tg_id;
-		this.ti_hg = ti_hg;
-		this.ti_speed = ti_speed;
 		this.ti_width = ti_width;
 		this.ti_ratio = ti_ratio;
 		this.ti_inch = ti_inch;
+		this.ti_marking = ti_marking;
 		this.ti_stock = ti_stock;
 		this.ti_pricefac = ti_pricefac;
 	}
@@ -107,22 +105,6 @@ public class ProductDTO {
 		this.ti_tg_id = ti_tg_id;
 	}
 
-	public int getTi_hg() {
-		return ti_hg;
-	}
-
-	public void setTi_hg(int ti_hg) {
-		this.ti_hg = ti_hg;
-	}
-
-	public String getTi_speed() {
-		return ti_speed;
-	}
-
-	public void setTi_speed(String ti_speed) {
-		this.ti_speed = ti_speed;
-	}
-
 	public int getTi_width() {
 		return ti_width;
 	}
@@ -145,6 +127,14 @@ public class ProductDTO {
 
 	public void setTi_inch(int ti_inch) {
 		this.ti_inch = ti_inch;
+	}
+
+	public String getTi_marking() {
+		return ti_marking;
+	}
+
+	public void setTi_marking(String ti_marking) {
+		this.ti_marking = ti_marking;
 	}
 
 	public int getTi_stock() {

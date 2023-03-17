@@ -99,6 +99,8 @@ public class AuthController {
 		}
 		return "main/auth/authReg";
 	}
+	
+	
 	@RequestMapping(value = "/authReg.do", method = RequestMethod.POST)
 	public String authRegDo(HttpServletRequest req,MemberDTO mDTO) {
 		mDAO.regMember(req,mDTO);
@@ -215,8 +217,9 @@ public class AuthController {
         mDTO.setU_id(id);
         mDTO.setI_name(name);
         mDTO.setI_phoneNum(phoneNum);
+        mDTO.setU_logintype("3");//소셜로그인 네이버의 경우 3
 //        System.out.println("테스트"+email);
-        System.out.println("테스트"+id);
+//        System.out.println("테스트"+id);
 //        System.out.println("테스트"+ mobile);
 //        System.out.println("테스트"+ name);
         

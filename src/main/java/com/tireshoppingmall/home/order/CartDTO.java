@@ -12,14 +12,15 @@ public class CartDTO {
 	private int ti_stock;
 	private int ti_pricegp;
 	private int ti_pricefac;
+	private String ti_marking;
 	
 	public CartDTO() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	
+
 	public CartDTO(int tg_id, String tg_brand, String tg_name, String tg_img, int tg_dcrate, int ti_width, int ti_ratio,
-			int ti_inch, int ti_stock, int ti_pricegp, int ti_pricefac) {
+			int ti_inch, int ti_stock, int ti_pricegp, int ti_pricefac, String ti_marking) {
 		super();
 		this.tg_id = tg_id;
 		this.tg_brand = tg_brand;
@@ -32,6 +33,7 @@ public class CartDTO {
 		this.ti_stock = ti_stock;
 		this.ti_pricegp = ti_pricegp;
 		this.ti_pricefac = ti_pricefac;
+		this.ti_marking = ti_marking;
 	}
 
 	public int getTg_id() {
@@ -120,5 +122,13 @@ public class CartDTO {
 
 	public void setTi_pricefac(int ti_pricefac) {
 		this.ti_pricefac = ti_pricefac;
+	}
+
+	public String getTi_marking() {
+		return ti_marking;
+	}
+
+	public void setTi_marking(String ti_marking) {
+		this.ti_marking = ti_marking;
 	}
 }
