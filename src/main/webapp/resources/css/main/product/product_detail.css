@@ -1,13 +1,14 @@
 .detail_brand {
   display: flex;
   justify-content: center;
-  align-items: center;
-  background-color: var(--nexen);
   height: 56px;
 }
 
 .detail_brand_wrapper {
   width: 1200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .detail_container {
@@ -43,6 +44,7 @@
 .detail_titles h3 {
   font-size: 22px;
   font-weight: 400;
+  line-height: 30px;
 }
 
 .detail_option {
@@ -64,7 +66,6 @@
 .detail_option_txt {
   display: flex;
   gap: 10px;
-  font-weight: 400;
   align-items: center;
 }
 
@@ -74,6 +75,10 @@
   background-color: white;
   border-radius: 5px;
   font-size: 16px;
+}
+
+.detail_option_size {
+  font-weight: 400;
 }
 
 .detail_choose {

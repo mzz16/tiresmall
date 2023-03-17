@@ -18,6 +18,8 @@
 					</a>
 				</div>
 				<div id="join_policy">
+					<input type="hidden" value="${socialID }" name="socialID">
+					
 						<div id="join_agree_all">
 							<label for="agreementAll">전체 동의</label>
 							<input id="agreementAll" type="checkbox" name="agreementAll"/>

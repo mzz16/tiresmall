@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.tireshoppingmall.home.board.EventDAO;
+import com.tireshoppingmall.home.board.EventDTO;
 import com.tireshoppingmall.home.store.StoreDAO;
 
 @Controller
@@ -17,20 +19,20 @@ public class HomeController {
 	private HomeDAO hDAO;
 	
 	@Autowired
+	private EventDAO eDAO;
+	
+	@Autowired
 	private StoreDAO sDAO;
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String home(HttpServletRequest req) {
+	public String home(EventDTO e, HttpServletRequest req) {
+		eDAO.readEvent(e, req);
+		req.setAttribute("eventModal", "../board/board_event_modal.jsp");
 		req.setAttribute("content", "main/home/home.jsp");
 		return "index";
 	}
 	
-	@RequestMapping(value = "/login", method = RequestMethod.GET)
-	public String goLogin() {
-		
-		return "main/auth/login";
-		
-	}
+	
 	
 	@RequestMapping(value = "/join", method = RequestMethod.GET)
 	public String goJoin() {
@@ -73,9 +75,4 @@ public class HomeController {
 		return "index";
 	}
 	
-	@RequestMapping(value = "/detail.test", method = RequestMethod.GET)
-	public String goDetailTest(HttpServletRequest req) {
-		req.setAttribute("content", "main/product/detail.jsp");
-		return "index";
-	}
 }

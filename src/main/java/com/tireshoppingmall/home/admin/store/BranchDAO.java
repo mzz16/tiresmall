@@ -81,6 +81,7 @@ public class BranchDAO {
 			System.out.println("null입니다");
 			search = new SearchBranchDTO();
 			search.setBranchnameInput("");
+			search.setBranchareaInput("");
 			search.setStart(new BigDecimal(start));
 			search.setEnd(new BigDecimal(end));
 			BranchCount = allBranchCount;
@@ -123,28 +124,15 @@ public class BranchDAO {
 		 String b_area1 = req.getParameter("b_area1");
 			String b_area2 = req.getParameter("b_area2");
 				String BranchareaInput = b_area1 + "\t" + b_area2;
-				b.setBranchnameInput("");
 				b.setBranchareaInput(BranchareaInput);
 				
 				req.getSession(). setAttribute("branchs", b);
 	 
 	 
 	 
+	 }	
 	 
-	 }else if(req.getParameter("branchnameInput") != null) {
-		
-		String b_name = req.getParameter("branchnameInput");
-		System.out.println("yyyyyyyyyyyyyyyyyyy");
-		System.out.println(b_name); 
-		System.out.println("yyyyyyyyyyyyyyyyyyy");
-		 b.setBranchareaInput("");
-		 String BranchnameInput = b_name;
-		 b.setBranchnameInput(BranchnameInput);
-		 req.getSession(). setAttribute("branchs", b);
-		 
-	}
-				
-	 
+	 req.getSession(). setAttribute("branchs", b);
 
 		 
 	}
@@ -275,7 +263,7 @@ public class BranchDAO {
 
 	}
 
-	public void updatebranch(BranchDTO b, HttpServletRequest req) {
+	public void updatebranch(MultipartFile file,BranchDTO b, HttpServletRequest req) {
 
 		String b_area1 = req.getParameter("b_area1");
 		String b_area2 = req.getParameter("b_area2");
@@ -319,17 +307,58 @@ public class BranchDAO {
 		System.out.println(b_cr);
 		System.out.println(b_email);
 		
-
-		if (ss.getMapper(AdminStoreMapper.class).updatebranch(b) == 1) {
-			System.out.println("수정완료");
+		if (!file.isEmpty()) { 
+		String fileRealName = b.getFile().getOriginalFilename(); 
+		long size = file.getSize(); 
 		
-		}else {
-			System.out.println("수정실패");
+		System.out.println("파일명 : "  + fileRealName);
+		System.out.println("용량크기(byte) : " + size);
+		
+		String fileExtension = fileRealName.substring(fileRealName.lastIndexOf("."),fileRealName.length());
+		String uploadFolder = servletContext.getRealPath("resources/web");
+		
+		
+		UUID uuid = UUID.randomUUID();
+		System.out.println(uuid.toString());
+		String[] uuids = uuid.toString().split("-");
+		
+		String uniqueName = uuids[0];
+		System.out.println("생성된 고유문자열" + uniqueName);
+		System.out.println("확장자명" + fileExtension);
+		
+		
+
+		File saveFile = new File(uploadFolder+"\\"+uniqueName + fileExtension);  // 적용 후
+		
+	
+		try {
+			b.getFile().transferTo(saveFile);
+			b.setB_file(uniqueName+fileExtension);
+			AdminStoreMapper mm = ss.getMapper(AdminStoreMapper.class);
+			System.out.println("upload successed!");
+			req.setAttribute("fileName", uniqueName+fileExtension);
+		
+			if (mm.updatebranch(b) == 1) {
+				allBranchCount++;
+	            System.out.println("등록성공");
+	            req.setAttribute("r", "등록성공");
+	        } else {
+	            req.setAttribute("r", "등록 실패");
+	        }
+
+	    } catch (IllegalStateException e) {
+	        e.printStackTrace();
+	    } catch (IOException e) {
+	        e.printStackTrace();
+	    }
+	}
+	}
+		
 
 			
-		}
+		
 
-	}
+	
 
 	public void deletebranch(BranchDTO b, HttpServletRequest req) {
 		if (mapper.deletebranch(b) == 1) {
@@ -338,6 +367,13 @@ public class BranchDAO {
 		}
 
 	}
+
+
+	
+	
+	//public void menuSession(AdminMenuSession menuSession, HttpServletRequest req) {
+	//	AdminMenuSession menu = (AdminMenuSession) req.getSession().getAttribute("menuSession");
+		//menu.setMenu("store");
 
 
 

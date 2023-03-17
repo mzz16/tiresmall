@@ -21,13 +21,13 @@
                 <img src="resources/web/logo.png" style="height: 50px" />
               </a>
             </div>
-			<div id="menuTitle1" class="admin-main-menu" onclick="location.href='admin.order.go'">주문 관리</div>
-			<div id="menuTitle2" class="admin-main-menu"  onclick="location.href='admin.tire.go'">타이어상품 관리</div>
-			<div id="menuTitle3" class="admin-main-menu"  onclick="location.href='admin.car.go'">차종 관리</div>
-			<div id="menuTitle4" class="admin-main-menu"  onclick="location.href='admin.auth.go'">회원 관리</div>
-			<div id="menuTitle5" class="admin-main-menu"  onclick="location.href='admin.rental.go'">렌탈 관리</div>
-			<div id="menuTitle6" class="admin-main-menu"  onclick="location.href='admin.store.go'">장착점 관리</div>
-			<div id="menuTitle7" class="admin-main-menu"  onclick="location.href='admin.notice.go'">게시판 관리</div>
+			<div id="menuTitle1" onclick="location.href='admin.order.go'">주문 관리</div>
+			<div id="menuTitle2" onclick="location.href='admin.tire.go'">타이어상품 관리</div>
+			<div id="menuTitle3" onclick="location.href='admin.car.go'">차종 관리</div>
+			<div id="menuTitle4" onclick="location.href='admin.auth.go'">회원 관리</div>
+			<div id="menuTitle5" onclick="location.href='admin.rental.go'">렌탈 관리</div>
+			<div id="menuTitle6" onclick="location.href='admin.store.go'">장착점 관리</div>
+			<div id="menuTitle7" onclick="location.href='admin.notice.go'">게시판 관리</div>
 		</nav>
 		
 	</div>

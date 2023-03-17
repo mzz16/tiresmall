@@ -10,7 +10,6 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.tireshoppingmall.home.admin.AdminMenuSession;
 import com.tireshoppingmall.home.admin.tire.AdminTireMapper;
 import com.tireshoppingmall.home.admin.tire.TireDTO;
 import com.tireshoppingmall.home.product.ProductSelector;

@@ -29,18 +29,18 @@ public class ProductDAO {
 		int count = pgo.getProductGroupCountPerPage();	// 지금 16
         int start = (pageNo - 1) * count + 1;
         int end = start + (count - 1);
-
+        
         ProductSelector search = (ProductSelector) request.getSession().getAttribute("search");
         int productGroupCount = 0;
 
-//        if (search == null) {
-//            search = new ProductSelector("", "", new BigDecimal(start), new BigDecimal(end));
-//            productGroupCount = allProductGroupCount;
-//        } else {
+        if (search == null) {
+            search = new ProductSelector("", "", new BigDecimal(start), new BigDecimal(end));
+            productGroupCount = allProductGroupCount;
+        } else {
             search.setStart(new BigDecimal(start));
             search.setEnd(new BigDecimal(end));
             productGroupCount = ss.getMapper(ProductMapper.class).getProductGroupCount(search);
-//        }
+        }
 
         List<ProductGroupDTO> pGroups = ss.getMapper(ProductMapper.class).getProductGroup(search);
         for (ProductGroupDTO pGroup : pGroups) {
@@ -67,13 +67,14 @@ public class ProductDAO {
 	}
 
 	public void searchProductGroup(String b, HttpServletRequest request) {
-		ProductSelector search = new ProductSelector("", b, new BigDecimal(0), new BigDecimal(0));
+		ProductSelector search = new ProductSelector(b, "", new BigDecimal(0), new BigDecimal(0));
 		request.getSession().setAttribute("search", search);
 	}
 	
-	public void calcAllMsgCount() {
+	public void calcAllProductGroupCount() {
 		ProductSelector pSel = new ProductSelector("", "", null, null);
 		allProductGroupCount = ss.getMapper(ProductMapper.class).getProductGroupCount(pSel);
+		System.out.println(allProductGroupCount);
 	}
 
 	public void clearSearch(HttpServletRequest request) {
@@ -81,15 +82,23 @@ public class ProductDAO {
 	}
 
 	public void searchProductGroup(String b, String t, HttpServletRequest request) {
-		ProductSelector search = new ProductSelector(t, b, new BigDecimal(0), new BigDecimal(0));
+		ProductSelector search = new ProductSelector(b, t, new BigDecimal(0), new BigDecimal(0));
 		request.getSession().setAttribute("search", search);
 	}
 
-	public ProductGroups getProductGroupJson(int p, HttpServletRequest request) {
-        
+	public ProductGroups getProductGroupJson(int pageNo, HttpServletRequest request) {
+		int count = pgo.getProductGroupCountPerPage();
+        int start = (pageNo - 1) * count + 1;
+        int end = start + (count - 1);
+		
         ProductSelector search = (ProductSelector) request.getSession().getAttribute("search");
+        int productGroupCount = 0;
         
-		List<ProductGroupDTO> pGroups = ss.getMapper(ProductMapper.class).getProductGroupJson(search);
+        search.setStart(new BigDecimal(start));
+        search.setEnd(new BigDecimal(end));
+        productGroupCount = ss.getMapper(ProductMapper.class).getProductGroupCount(search);
+        
+		List<ProductGroupDTO> pGroups = ss.getMapper(ProductMapper.class).getProductGroup(search);
 		
         for (ProductGroupDTO pGroup : pGroups) {
     		if(ss.getMapper(ProductMapper.class).getMinInchOfGroup(pGroup)!=null) {
@@ -106,8 +115,17 @@ public class ProductDAO {
     		}
         }
         
-        
-		return new ProductGroups(pGroups, 0, 0, p);
+        int pageCount = (int) Math.ceil(productGroupCount / (double) count);
+		return new ProductGroups(pGroups, pageCount, productGroupCount, pageNo);
+	}
+
+	public void getProduct(HttpServletRequest request, ProductDTO pDTO) {
+		ProductDTO product = ss.getMapper(ProductMapper.class).getProduct(pDTO);
+		request.setAttribute("product", product);
+	}
+
+	public Sizes getProductSizes(HttpServletRequest request, ProductDTO pDTO) {
+		return new Sizes(ss.getMapper(ProductMapper.class).getProductSizes(pDTO));
 	}
 		
 

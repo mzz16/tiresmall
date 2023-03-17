@@ -120,7 +120,7 @@ create table tire_group (
 	tg_suv number(1) not null		/* suv 추천 1(t)/0(f)		tg_recommend로 해서 0(sedan) or 1(suv)로 해도 될지도?? */
 );
 
-create table tire_item (
+create table tire_item (            
 	ti_id number(5) primary key,		
 	ti_tg_id number(4) not null,		/* tire_group 테이블 pk 참조하는 것 */
 	ti_hg number(3) not null,			/* 하중 */
@@ -165,4 +165,46 @@ where ti_tg_id = (select tg_id from tire_group where tg_id='1');
         tg_brand like '%%' and
 		tg_name like '%%' 
         
+        
+        
+        
+--------------------------------------------------------------------------
+---타이어 브랜드
+create table tire_brand(
+    tb_name varchar2(100 char) primary key,
+    tb_ea number(2) not null,           --1은 출력 0은 미출력
+    tb_order number(3) not null        --순서 출력
+);
 
+
+insert into tire_brand values('넥센타이어','1','1');
+insert into tire_brand values('금호타이어','1','2');
+insert into tire_brand values('미쉐린타이어','1','3');
+insert into tire_brand values('콘티넨탈타이어','1','4');
+insert into tire_brand values('한국타이어','1','5');
+insert into tire_brand values('요코하마타이어','1','6');
+insert into tire_brand values('브리지스톤타이어','1','7');
+insert into tire_brand values('굳이어타이어','1','8');
+insert into tire_brand values('던롭타이어','1','9');
+insert into tire_brand values('피렐리타이어','1','10');
+insert into tire_brand values('BF굿리치타이어','1','11');
+
+alter table tire_group                --타이어 그룹 fk연결
+add CONSTRAINT FK_tire_brand
+    FOREIGN KEY(tg_brand)
+    REFERENCES tire_brand(tb_name)
+    ON DELETE CASCADE; 
+
+
+
+select * from tire_brand;
+
+drop table tire_brand;
+
+select count(*) from tire_group left OUTER JOIN tire_item
+	on  tg_id = ti_tg_id where tg_brand = '넥센타이어'
+    
+    select * from tire_group left OUTER JOIN tire_item
+	on  tg_id = ti_tg_id
+
+delete from tire_brand where tb_name= 'BF굿리치타이어';

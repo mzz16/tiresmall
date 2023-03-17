@@ -34,6 +34,21 @@ public interface AdminCarMapper {
 
 
 	int regbrand(CarBrandDTO c);
+
+
+	List<CarBrandDTO> getCarbrandselectlist();
+
+
+	List<CarBrandDTO> getallBrandCount(CarBrandDTO c);
+
+
+	int deletebrandcar(CarBrandDTO c);
+
+
+	int updatebrand(CarBrandDTO c);
+
+
+	int updatebrandcar(CarBrandDTO c);
 	
 	
 
