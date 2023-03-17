@@ -117,9 +117,17 @@ $(function() {
 	}
 	
 	function searchTire2() {
+		console.log(1);
+	}
+	
+	function addSearch() {
 		if ($('.second').css('display') == 'flex') {
 			$('.second').css('display', 'none');
+			$('.searchTireBtn').removeAttr("onclick");
+			$('.searchTireBtn').attr("onclick","searchTire()");
 		} else {
 			$('.second').css('display','flex');
+			$('.searchTireBtn').removeAttr("onclick");
+			$('.searchTireBtn').attr("onclick","searchTire2()")
 		}	
 	}

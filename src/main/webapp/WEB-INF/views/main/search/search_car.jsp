@@ -142,7 +142,7 @@ pageEncoding="UTF-8"%>
 			</div>
 		</div>
 		<button class="searchTireBtn" type="button" onclick="searchTire()">타이어 찾기</button>
-		<button class="searchTireBtn2" type="button" onclick="searchTire2()">앞뒤 타이어 사이즈가 다른 경우</button>
+		<button class="searchTireBtn2" type="button" onclick="addSearch()">앞뒤 타이어 사이즈가 다른 경우</button>
 	</div>
 	
 	<div class="searchResultContainer">
