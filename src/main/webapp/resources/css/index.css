@@ -91,7 +91,32 @@ header {
   color: #3b2a2a;
   background-color: #fddc40;
   border-radius: 10px;
-  padding: 2px 3px;
+  padding: 3px 5px;
+}
+
+.index_logIn,
+.index_nonLogIn {
+  cursor: pointer;
+  border: 1px solid var(--red);
+  color: var(--red);
+  border-radius: 5px;
+  padding: 3px 5px;
+  transition: all 0.3s ease-in-out;
+}
+
+.index_nonLogIn {
+  border-color: black;
+  color: black;
+}
+
+.index_logIn:hover {
+  background-color: var(--red);
+  color: white;
+}
+
+.index_nonLogIn:hover {
+  background-color: black;
+  color: white;
 }
 
 .index_hBottom {

@@ -280,6 +280,55 @@
   border-top: 1px solid var(--red);
 }
 
+.detail_size_selector {
+  width: 900px;
+}
+
+.detail_dialog_title {
+  padding: 20px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 500;
+  font-size: 35px;
+}
+
+.detail_dialog_title button {
+  background-color: transparent;
+  border: none;
+  color: var(--red);
+  font-size: 30px;
+}
+
+.size_wrapper {
+  display: grid;
+  grid-template-columns: repeat(4, 225px);
+}
+
+.tire_size {
+  padding: 6px 12.5px;
+}
+
+.tire_size button {
+  border: 1px solid #aaa;
+  flex-direction: column;
+  padding: 0;
+  width: 200px;
+  font-size: 18px;
+  font-weight: 400;
+  border-radius: 20px;
+  background-color: transparent;
+  transition: all 0.3s ease-in-out;
+}
+
+.tire_size button:hover {
+  background-color: #ddd;
+}
+
+.tire_size button span:last-child {
+  color: var(--red);
+}
+
 .detail_standard_table {
   width: 550px;
   height: 400px;

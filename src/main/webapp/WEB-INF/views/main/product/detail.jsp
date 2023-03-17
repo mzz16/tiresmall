@@ -85,21 +85,37 @@ pageEncoding="UTF-8"%>
             </div>
           </div>
           <div class="detail_buy">
-            <input class="tg_id" type="hidden" value="${product.tg_id}" />
-            <input class="tg_brand" type="hidden" value="${product.tg_brand}" />
-            <input class="tg_name" type="hidden" value="${product.tg_name}" />
-            <input class="tg_img" type="hidden" value="${product.tg_img}" />
             <input
-              class="tg_dcrate"
+              class="product_tg_id"
+              type="hidden"
+              value="${product.tg_id}"
+            />
+            <input
+              class="product_tg_brand"
+              type="hidden"
+              value="${product.tg_brand}"
+            />
+            <input
+              class="product_tg_name"
+              type="hidden"
+              value="${product.tg_name}"
+            />
+            <input
+              class="product_tg_img"
+              type="hidden"
+              value="${product.tg_img}"
+            />
+            <input
+              class="product_tg_dcrate"
               type="hidden"
               value="${product.tg_dcrate}"
             />
-            <input class="ti_width" type="hidden" />
-            <input class="ti_ratio" type="hidden" />
-            <input class="ti_inch" type="hidden" />
-            <input class="ti_stock" type="hidden" value="1" />
-            <input class="ti_pricegp" type="hidden" />
-            <input class="ti_pricefac" type="hidden" />
+            <input class="product_ti_width" type="hidden" />
+            <input class="product_ti_ratio" type="hidden" />
+            <input class="product_ti_inch" type="hidden" />
+            <input class="product_ti_marking" type="hidden" />
+            <input class="product_ti_pricegp" type="hidden" />
+            <input class="product_ti_pricefac" type="hidden" />
             <button class="detail_cart">장바구니</button>
             <button class="detail_go_buy">구매예약</button>
           </div>
@@ -240,8 +256,10 @@ pageEncoding="UTF-8"%>
     </div>
     <dialog class="detail_size_selector">
       <form method="dialog">
-        <button><i class="fa-solid fa-xmark"></i></button>
-        <div>사이즈선택</div>
+        <div class="detail_dialog_title">
+          <span>사이즈선택</span>
+          <button><i class="fa-solid fa-xmark"></i></button>
+        </div>
         <div class="size_wrapper"></div>
       </form>
     </dialog>

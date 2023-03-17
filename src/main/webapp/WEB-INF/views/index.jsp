@@ -40,7 +40,9 @@ uri="http://java.sun.com/jsp/jstl/core" %>
               <c:choose>
                 <c:when test="${not empty sessionScope.loginMember.i_name}">
                   <a>${sessionScope.loginMember.i_name}님 안녕하세요!</a>
-                  <a onclick="location.href='logout.do'">로그아웃</a>
+                  <a class="index_logIn" onclick="location.href='logout.do'"
+                    >로그아웃</a
+                  >
                 </c:when>
                 <c:otherwise>
                   <a class="index_logIn" href="login">로그인</a>
