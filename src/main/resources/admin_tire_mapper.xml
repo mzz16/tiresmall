@@ -98,6 +98,23 @@
 	delete from tire_group where tg_id=#{tg_id}
 </delete>
 
+<update id="tirePrintOnOff">
+	update tire_group
+	set tg_print = #{tg_print}
+	where tg_id = #{tg_id}
+</update>
+<update id="tireSedanRecommend">
+	update tire_group
+	set tg_sedan = #{tg_sedan}
+	where tg_id = #{tg_id}
+</update>
+
+<update id="tireSuvRecommend">
+	update tire_group
+	set tg_suv = #{tg_suv}
+	where tg_id = #{tg_id}
+</update>
+
 
 
 
@@ -128,7 +145,7 @@
 <select id="getTireGroupforDetail" resultType="com.tireshoppingmall.home.admin.tire.TireDTO">
 	select * from tire_group, tire_item
 	where ti_tg_id = tg_id
-	and ti_tg_id=#{val}
+	and ti_tg_id = #{val}
 </select>
 
 

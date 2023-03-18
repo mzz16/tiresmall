@@ -64,7 +64,7 @@
 		</dependency>
 		
 <!--이게 있어야 된다고하는데 정말일까?  -->
-<!-- 	<dependency>
+ 		<dependency>
 			<groupId>com.oracle.database.security</groupId>
 			<artifactId>oraclepki</artifactId>
 			<version>21.5.0.0</version>
@@ -80,7 +80,7 @@
 			<groupId>com.oracle.database.security</groupId>
 			<artifactId>osdt_core</artifactId>
 			<version>21.5.0.0</version>
-		</dependency> -->
+		</dependency>
 
 		<!-- Spring환경에서 MyBatis쓸 수 있게 -->
 		<dependency>

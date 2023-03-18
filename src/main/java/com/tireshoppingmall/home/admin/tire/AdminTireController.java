@@ -1,12 +1,18 @@
 package com.tireshoppingmall.home.admin.tire;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import com.tireshoppingmall.home.admin.auth.AuthDTO;
 
@@ -79,13 +85,25 @@ public class AdminTireController {
 	}
 	//admin.tire.reg.do
 	@RequestMapping(value = "/admin.tire.reg.do", method = RequestMethod.POST)
-	public String tireRegDo(HttpServletRequest req,TireDTO tDTO) {
+	public String tireRegDo(@RequestParam("file") MultipartFile file,HttpServletRequest req,TireListDTO tDTO) {
+		System.out.println("음 어떤게 문제일까?1");
+		System.out.println(tDTO.toString());
+		System.out.println(tDTO.getTg_name());
 		
-		/*
-		 * 배열로 받아오기
-		 * String[] asd = req.getParameterValues("");*/
+		for (int inch : tDTO.getTi_inch()) {
+			System.out.println(inch);
+			
+		}
+		 // 배열로 받아오기
+		 String[] asd = req.getParameterValues("ti_marking");
+
+		 System.out.println("음 어떤게 문제일까?2");
+		 
+		 for (int i = 0; i < asd.length; i++) {
+			System.out.println(asd[i]);
+		}
 		
-		tDAO.tireRegDo(tDTO,req);
+//		tDAO.tireRegDo(tDTO,req,file,files);
 		
 		
 		TireDTO.TirePagsing(req);
@@ -111,7 +129,29 @@ public class AdminTireController {
 		req.setAttribute("contentPage", "tire/tire.jsp");
 		return "admin/master";
 	}
+
+	@ResponseBody
+	@RequestMapping(value = "admin.tire.print.onoff", method = RequestMethod.GET)
+	public int tirePrintOnOff(TireDTO tg) {	
+		
+		return tDAO.tirePrintOnOff(tg);
+	}
 	
+	//admin.tire.sedan.recommend
+	@ResponseBody
+	@RequestMapping(value = "admin.tire.sedan.recommend", method = RequestMethod.GET)
+	public int tireSedanRecommend(TireDTO tg) {	
+		
+		return tDAO.tireSedanRecommend(tg);
+	}	
+	
+	//admin.tire.sev.recommend
+	@ResponseBody
+	@RequestMapping(value = "admin.tire.suv.recommend", method = RequestMethod.GET)
+	public int tireSuvRecommend(TireDTO tg) {	
+		
+		return tDAO.tireSuvRecommend(tg);
+	}
 	
 	
 	

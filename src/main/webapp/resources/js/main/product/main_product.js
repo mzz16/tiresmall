@@ -1,4 +1,5 @@
 $(function(){
+	loadPrices();
 //	let curPage = $('#product_curPage').val();
 //	let pageCount = $('#product_pageCount').val();
 //	let n = 0;
@@ -56,39 +57,42 @@ $(function(){
 			const theNumber = j.theNumber;
 			const curPage = j.curPage;
 			
-			$('#product_search span').eq(0).html('총 '+theNumber+'개 상품이 검색되었습니다.');
+			$('#product_search span').eq(0).html('총 '+theNumber+'개 상품이 검색 되었습니다.');
 			
 			$('#product_container a').remove();
 			$.each(j.pGroups, function(i, s){
-				s.minPrice=AddComma(s.minPrice);
-				s.maxPrice=AddComma(s.maxPrice);
 				$('#product_container').append('<a href="detail.test?item='+ s.tg_id + '"><div class="product_item"><div class="product_item_hidden"></div>'+
 						'<div class="product_item_img"><img src="resources/web/main/product/no-tire-image.jpg"></div>'+
 						'<div class="product_item_title"><p>'+ s.tg_brand +'</p><p>'+ s.tg_name +'</p></div>'+
 						'<div class="product_item_text">'+ s.tg_text +'</div><div class="product_item_size">'+ s.minInch +'인치  ~ '+ s.maxInch +'인치</div>'+
-						'<div class="product_item_price">￦'+s.minPrice+' ~ ￦'+s.maxPrice+'</div><div class="product_item_detail"><i class="fa-solid fa-magnifying-glass"></i>상세보기</div></div></a>')
+						'<div class="product_item_price"><input type="hidden" class="pl_dcRate" value="'+s.tg_dcrate+'">￦ <span class="pl_minPriceSpan">'+s.minPrice+'</span><input type="hidden" class="pl_minPrice" value="'+s.minPrice+'"> ~ ￦ <span class="pl_maxPriceSpan">'+s.maxPrice+'</span><input type="hidden" class="pl_maxPrice" value="'+s.maxPrice+'"></div><div class="product_item_detail"><i class="fa-solid fa-magnifying-glass"></i>상세보기</div></div></a>')
 			})
+			loadPrices();
 			
-				var html = '<div class="paginationjs-pages"><ul>';
-				if(curPage == 1){
-					html+='<li class="paginationjs-prev disabled"><a>«</a></li>'
+				var html = '<div></div><div class="product_pagingButtons">';
+				if(curPage != 1){
+					html+='<div><a href="javascript:movePage(1)"><i class="fa-solid fa-angles-left"></i></a></div>'+
+						'<div><a href="javascript:movePage('+(curPage - 1)+')"><i class="fa-solid fa-chevron-left"></i></a></div>'
 				} else{
-					html+='<li class="paginationjs-prev J-paginationjs-previous"><a href="javascript:movePageType(1)">«</a></li>'
+					html+='<div><i class="fa-solid fa-angles-left" style="color:lightgray"></i></div>'+
+						'<div><i class="fa-solid fa-chevron-left" style="color:lightgray"></i></div>'
 				}
 				for (var pNum = 1; pNum <= pageCount; pNum++) {
 					if(pNum==curPage){
-						html+='<li class="paginationjs-page J-paginationjs-page active" ><a href="javascript:movePageType('+pNum+')">'+pNum+'</a></li>'
+						html+='<div class="product_pagingButtons_selected"><a href="javascript:movePage('+pNum+')" style="color: #fff;">'+pNum+'</a></div>'
 					} else{
-						html+='<li class="paginationjs-page J-paginationjs-page" ><a href="javascript:movePageType('+pNum+')">'+pNum+'</a></li>'
+						html+='<div><a href="javascript:movePage('+pNum+')">'+pNum+'</a></div>'
 					}
 				}
-				if(curPage==pageCount){
-					html+='<li class="paginationjs-next disabled"><a>»</a></li>'
+				if(curPage==pageCount || pageCount == 0){
+					html+='<div><i class="fa-solid fa-chevron-right" style="color:lightgray"></i></div>'+
+						'<div><i class="fa-solid fa-angles-right" style="color:lightgray"></i></div>'
 				} else{
-					html+='<li class="paginationjs-next J-paginationjs-next"><a href="javascript:movePageType('+pageCount+')">»</a></li>'
+					html+='<div><a href="javascript:movePage('+(curPage+1)+')"><i class="fa-solid fa-chevron-right"></i></a></div>'+
+						'<div><a href="javascript:movePage('+pageCount+')"><i class="fa-solid fa-angles-right"></i></a></div>'
 				}
-				html+='</ul></div>'
-				$('#product_wrap_paging').html(html)
+				html+='</div><div></div></div>'
+				$('#product_paging').html(html)
 		
 //			if(curPage!=1){
 //				$('#product_wrap_paging').append('<div class="product_paging_firstLast"><a href="javascript:movePage(1)">1</a> . . .</div>')
@@ -111,28 +115,55 @@ $(function(){
 		})
 	})
 	
-	
-	$( "#slider-range" ).slider({
-		range: true,
-		min: 0,
-		max: 2000000,
-		step: 50000,
-		values: [ 0, 2000000 ],
-		slide: function( event, ui ) {
-			$( "#amount" ).val("￦"+ AddComma(ui.values[ 0 ]) + " - ￦" + AddComma(ui.values[ 1 ]) );
-		},
+//	var priceMin =0;
+//	var priceMax = 2000000;
+//	
+//	if(getParameter('pr')!=''){
+//		priceMin = getParameter('pr').split('-')[0];
+//		priceMax = getParameter('pr').split('-')[1];
+//	}
+//	
+//	$( "#slider-range" ).slider({
+//		range: true,
+//		min: 0,
+//		max: 2000000,
+//		step: 50000,
+//		values: [ priceMin, priceMax ],
+//		slide: function( event, ui ) {
+//			$( "#amount" ).val("￦"+ AddComma(ui.values[ 0 ]) + " - ￦" + AddComma(ui.values[ 1 ]) );
+//		}
+//			
+//	});
+//	$( "#amount" ).val( "￦"+AddComma($( "#slider-range" ).slider( "values", 0 )) +
+//			" - ￦" + AddComma($( "#slider-range" ).slider( "values", 1 )) );
+//		
+//	
+//	$('#product_priceRange_button').click(function(){
+//		if($('input[name="carTypeA"]:checked').val() == 0 || $('input[name="carTypeA"]:checked').val()==1){
+//			location.href='product.brand.price?b='+getParameter('b')+'&p=1&t='+$('input[name="carTypeA"]:checked').val()+'&pr='+$( "#slider-range" ).slider("values",0)+'-'+$( "#slider-range" ).slider("values",1)
+//		} else{
+//			location.href='product.brand.price?b='+getParameter('b')+'&p=1&t='+getParameter('t')+'&pr='+$( "#slider-range" ).slider("values",0)+'-'+$( "#slider-range" ).slider("values",1)
+//		}
+//	})
 			
-	});
-	$( "#amount" ).val( "￦"+AddComma($( "#slider-range" ).slider( "values", 0 )) +
-			" - ￦" + AddComma($( "#slider-range" ).slider( "values", 1 )) );
-		
 	
-	$('#product_priceRange_button').click(function(){
-		alert($( "#slider-range" ).slider("values",0)+', '+ $( "#slider-range" ).slider( "values", 1 ));
-	})
-			  
-			  
-		 
+	function loadPrices(){
+		const plMinPrice = document.querySelectorAll(".pl_minPrice");		  
+		const plMaxPrice = document.querySelectorAll(".pl_maxPrice");		  
+		const plDc = document.querySelectorAll(".pl_dcRate");
+		const plMinPriceSpan = document.querySelectorAll(".pl_minPriceSpan");
+		const plMaxPriceSpan = document.querySelectorAll(".pl_maxPriceSpan");
+		for (var i = 0; i < plMinPrice.length; i++) {
+			const plDcRate = (100 - plDc[i].value) * 0.01;
+			plMinPrice[i].value = Math.floor(plMinPrice[i].value * plDcRate / 100) * 100;
+			plMaxPrice[i].value = Math.floor(plMaxPrice[i].value * plDcRate / 100) * 100;
+			plMinPriceSpan[i].innerText = parseInt(plMinPrice[i].value).toLocaleString();
+			plMaxPriceSpan[i].innerText = parseInt(plMaxPrice[i].value).toLocaleString();
+		}
+	}
+	
+	
+	
 	
 	
 	

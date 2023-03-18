@@ -958,3 +958,27 @@ a {
 }
 
 
+.admin-tire-size-reg-delete{
+	height:17px;
+	width:35px;
+	margin-left:30px;
+	margin-right:5px;
+	border-radius:7px;
+	font-weight: 900;
+	font-size: 12pt;
+	padding:6px;
+	color: #fff;
+    background-color: #dc3545;
+    border :1px solid #dc3545;
+    cursor: pointer; 
+    user-select: none;	
+    font-family: GmarketSansMedium;
+}
+
+.admin-tire-size-reg-delete:hover{
+    background-color: #a82e3a;
+    border-color: #a82e3a;
+}
+
+
+

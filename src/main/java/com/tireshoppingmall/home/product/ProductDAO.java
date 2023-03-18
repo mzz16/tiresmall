@@ -24,12 +24,18 @@ public class ProductDAO {
 		return allProductGroupCount;
 	}
 
+	public void setAllProductGroupCount(int allProductGroupCount) {
+		this.allProductGroupCount = allProductGroupCount;
+	}
+
+
+
 	public void getProductGroup(int pageNo, HttpServletRequest request) {
 		
 		int count = pgo.getProductGroupCountPerPage();	// 지금 16
         int start = (pageNo - 1) * count + 1;
         int end = start + (count - 1);
-
+        
         ProductSelector search = (ProductSelector) request.getSession().getAttribute("search");
         int productGroupCount = 0;
 
@@ -67,13 +73,14 @@ public class ProductDAO {
 	}
 
 	public void searchProductGroup(String b, HttpServletRequest request) {
-		ProductSelector search = new ProductSelector("", b, new BigDecimal(0), new BigDecimal(0));
+		ProductSelector search = new ProductSelector(b, "", new BigDecimal(0), new BigDecimal(0));
 		request.getSession().setAttribute("search", search);
 	}
 	
-	public void calcAllMsgCount() {
+	public void calcAllProductGroupCount() {
 		ProductSelector pSel = new ProductSelector("", "", null, null);
 		allProductGroupCount = ss.getMapper(ProductMapper.class).getProductGroupCount(pSel);
+		System.out.println(allProductGroupCount);
 	}
 
 	public void clearSearch(HttpServletRequest request) {
@@ -81,7 +88,7 @@ public class ProductDAO {
 	}
 
 	public void searchProductGroup(String b, String t, HttpServletRequest request) {
-		ProductSelector search = new ProductSelector(t, b, new BigDecimal(0), new BigDecimal(0));
+		ProductSelector search = new ProductSelector(b, t, new BigDecimal(0), new BigDecimal(0));
 		request.getSession().setAttribute("search", search);
 	}
 

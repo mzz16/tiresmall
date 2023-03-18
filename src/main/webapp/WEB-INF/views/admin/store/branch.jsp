@@ -36,8 +36,8 @@
 			<form action="branch.search.branchname">
 				<div class="branch-text1">주소 선택</div>
 
-				<select name="b_area1" id="sido1">
-				</select> <select name="b_area2" id="gugun1"></select> <input
+				<select name="b_area1" id="listsido1">
+				</select> <select name="b_area2" id="listgugun1"></select> <input
 					name="branchnameInput" value="" type="hidden">
 				<button class="branch-findareabutton">주소 검색</button>
 
@@ -167,8 +167,8 @@
 					<tr>
 						<td style="background-color: #0ec492">지역</td>
 						<td><div style='float: left'>
-								<select name="b_area1" id="sido1" style="width: 120px"></select>
-								<select name="b_area2" id="gugun1" style="width: 120px"></select>
+								<select name="b_area1" id="regsido1" style="width: 120px"></select>
+								<select name="b_area2" id="reggugun1" style="width: 120px"></select>
 							</div></td>
 					</tr>
 

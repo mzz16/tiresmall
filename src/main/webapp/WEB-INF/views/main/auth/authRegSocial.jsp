@@ -18,6 +18,7 @@
 		name="join_form" onsubmit="return joinCheck();">
 		<h1>${socialID}</h1>
 		<input name="u_id" type="hidden" value="${socialID}">
+		<input name="u_logintype" type="hidden" value="2"> <!--카카오 소셜로그인의 경우 로그인 타입 2 -->
 		<div id="join_container">
 			<div id="join_logo">
 				<a href="/home">
