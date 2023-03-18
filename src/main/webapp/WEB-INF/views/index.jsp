@@ -124,7 +124,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
             <li class="index_dropMenu_menu">
               <div class="index_dropMenu_txt">
                 <a href="board.faq">FAQ</a>
-                <a href="board.ask">1:1 문의</a>
+                <a href="board.ask.readall.check">1:1 문의</a>
                 <a href="board.notice">공지사항</a>
                 <a href="board.event">이벤트</a>
               </div>

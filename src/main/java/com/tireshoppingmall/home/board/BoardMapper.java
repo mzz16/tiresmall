@@ -2,6 +2,8 @@ package com.tireshoppingmall.home.board;
 
 import java.util.List;
 
+import com.tireshoppingmall.home.auth.AuthUserDTO;
+
 public interface BoardMapper {
 	int getAskCount(AskSelector askSearch);
 

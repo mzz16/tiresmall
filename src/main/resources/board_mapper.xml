@@ -4,7 +4,7 @@
 	<select id="getAskCount" resultType="java.lang.Integer">
 		select count(*)
         from qna, auth_user
-        where q_id = u_id
+        where q_id = #{u_id}	<!-- 주의 -->
 	</select>
 	<select id="readAskAll" resultType="com.tireshoppingmall.home.board.AskDTO">
 		select *
@@ -16,7 +16,7 @@
 			from (
 				select *
 				from qna, auth_user
-				where q_id = u_id
+				where q_id = #{u_id}	<!-- 주의 -->
 				order by q_date desc
 			)
         )
@@ -42,7 +42,7 @@
 			#{q_title},
 			#{q_txt},
 			sysdate,
-			'id1',
+			#{q_id},
 			default
 		)
 	</insert>

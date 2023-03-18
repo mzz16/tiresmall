@@ -21,8 +21,8 @@ create table auth_password(
     REFERENCES auth_user(u_no) ON DELETE CASCADE
 );
 create sequence auth_password_seq;
-insert into auth_password values(auth_password_seq.nextval, 2, 'test', 'qw1', sysdate);
-insert into auth_password values(auth_password_seq.nextval, 3, 'test', 'qw2', sysdate);
+insert into auth_password values(auth_password_seq.nextval, 1, 'test', 'pw1', sysdate);
+insert into auth_password values(auth_password_seq.nextval, 2, 'test', 'pw2', sysdate);
 select * from auth_password;
 drop table auth_password;
 
@@ -34,12 +34,13 @@ create table auth_userInfo(
     i_phonenum varchar2(15 char) UNIQUE NOT NULL,
     i_newdate date not null,
     i_grade number(2) not null,
+    i_email VARCHAR(25) NOT NULL,
     CONSTRAINT fk_info FOREIGN KEY(u_no)
     REFERENCES auth_user(u_no) ON DELETE CASCADE
 );
 create sequence auth_userInfo_seq;
-insert into auth_userinfo values(auth_userinfo_seq.nextval, 2, '이름하나', 01011112222, sysdate, 1);
-insert into auth_userinfo values(auth_userinfo_seq.nextval, 3, '이름둘', 01033334444, sysdate, 1);
+insert into auth_userinfo values(auth_userinfo_seq.nextval, 1, '이름하나', 01011112222, sysdate, 1, 'emailone');
+insert into auth_userinfo values(auth_userinfo_seq.nextval, 2, '이름둘', 01033334444, sysdate, 1, 'emailtwo');
 select * from auth_userinfo;
 drop table auth_userinfo;
 
@@ -75,9 +76,9 @@ create table qna_reply (
     on delete cascade
 );
 create sequence qna_reply_seq;
-insert into qna_reply values(qna_reply_seq.nextval, '답변입니다', sysdate, 33);
-insert into qna_reply values(qna_reply_seq.nextval, '답변입니다', sysdate, 32);
-insert into qna_reply values(qna_reply_seq.nextval, '답변입니다', sysdate, 31);
+insert into qna_reply values(qna_reply_seq.nextval, '답변입니다', sysdate, 21);
+insert into qna_reply values(qna_reply_seq.nextval, '답변입니다', sysdate, 20);
+insert into qna_reply values(qna_reply_seq.nextval, '답변입니다', sysdate, 19);
 select * from qna_reply;
 drop table qna_reply;
 

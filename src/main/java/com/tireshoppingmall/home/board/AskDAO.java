@@ -9,6 +9,8 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.tireshoppingmall.home.auth.AuthUserDTO;
+
 @Service
 public class AskDAO {
 	@Autowired
@@ -33,10 +35,13 @@ public class AskDAO {
 		*/
 		int last = begin + (countPerPage - 1);				// 마지막페이지의숫자
 		
+		AuthUserDTO auDTO = (AuthUserDTO) req.getSession().getAttribute("loginMember");
+		
 		AskSelector askSearch = (AskSelector) req.getSession().getAttribute("askSearch");
 		int askCount = 0;
 		if (askSearch == null) {
-			askSearch = new AskSelector("", new BigDecimal(begin), new BigDecimal(last));
+			System.out.println(allAskCount);
+			askSearch = new AskSelector("", new BigDecimal(begin), new BigDecimal(last), auDTO.getU_id());
             askCount = allAskCount;
         } else {
         	askSearch.setBegin(new BigDecimal(begin));
@@ -64,8 +69,11 @@ public class AskDAO {
         req.setAttribute("asks", asks);
 	}
 	
-	public void calculateAllAskCount() {
-		AskSelector aSel = new AskSelector("", null, null);
+	// 확인
+	public void calculateAllAskCount(HttpServletRequest req) {
+		AuthUserDTO auDTO = (AuthUserDTO) req.getSession().getAttribute("loginMember");
+		
+		AskSelector aSel = new AskSelector("", null, null, auDTO.getU_id());
 		allAskCount = ss.getMapper(BoardMapper.class).getAskCount(aSel);
 	}
 	
