@@ -14,7 +14,6 @@ import com.tireshoppingmall.home.auth.MemberDAO;
 
 @Controller
 public class BoardController {
-	private boolean askFirstReq;
 	
 	@Autowired
 	private MemberDAO mDAO;
@@ -22,9 +21,12 @@ public class BoardController {
 	@Autowired
 	private AskDAO aDAO;
 	
+	private boolean askFirstReq;
 	public BoardController() {
 		askFirstReq = true;
 	}
+	/*
+	*/
 	
 	@RequestMapping(value = "/board.faq", method = RequestMethod.GET)
 	public String boardFAQ(Model model) {
@@ -37,8 +39,8 @@ public class BoardController {
 	
 	@RequestMapping(value = "/board.ask.readall.check", method = RequestMethod.GET)
 	public String boardAsk(HttpServletRequest req, Model model) {
-		AuthUserDTO auDTO = (AuthUserDTO) req.getSession().getAttribute("loginMember");
 		if (mDAO.loginCheck(req)) {
+			AuthUserDTO auDTO = (AuthUserDTO) req.getSession().getAttribute("loginMember");
 			
 			model.addAttribute("content", "main/board/board.jsp");
 			model.addAttribute("board_whereAmIOne", "<i class=\"fa-solid fa-chevron-right\"></i> 1:1문의");
@@ -57,7 +59,9 @@ public class BoardController {
 			askFirstReq = false;
 		}
 		
+		/*
 		AskCountOption.clearAskSearch(req);
+		 */
 		
 		aDAO.readAllAsk(1, req);
 		

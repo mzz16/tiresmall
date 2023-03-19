@@ -26,6 +26,17 @@ public class AskDAO {
 	
 	@Autowired
 	private SqlSession ss;
+	
+	public void calculateAllAskCount(HttpServletRequest req) {
+		/*
+		AskSelector aSel = new AskSelector("", null, null, auDTO.getU_id());
+		allAskCount = ss.getMapper(BoardMapper.class).getAskCount(aSel);
+		 */
+		AuthUserDTO forU_id = (AuthUserDTO) req.getSession().getAttribute("loginMember");
+		allAskCount = ss.getMapper(BoardMapper.class).getAskCount(forU_id);
+	}
+	/*
+	*/
 
 	public void readAllAsk(int pageNumber, HttpServletRequest req) {
 		int countPerPage = aco.getAskCountPerPage();		// 페이지당 게시물수
@@ -35,28 +46,42 @@ public class AskDAO {
 		*/
 		int last = begin + (countPerPage - 1);				// 마지막페이지의숫자
 		
-		AuthUserDTO auDTO = (AuthUserDTO) req.getSession().getAttribute("loginMember");
-		
-		AskSelector askSearch = (AskSelector) req.getSession().getAttribute("askSearch");
+		// AskSelector askSearch = (AskSelector) req.getSession().getAttribute("askSearch");
+		AuthUserDTO forBeginLastU_id = (AuthUserDTO) req.getSession().getAttribute("loginMember");
+		// auDTO.setU_id();
+		forBeginLastU_id.setBegin(new BigDecimal(begin));
+		forBeginLastU_id.setLast(new BigDecimal(last));
 		int askCount = 0;
+		/*
 		if (askSearch == null) {
 			System.out.println(allAskCount);
-			askSearch = new AskSelector("", new BigDecimal(begin), new BigDecimal(last), auDTO.getU_id());
+		 */
+		//	askSearch = new AskSelector("", new BigDecimal(begin), new BigDecimal(last), auDTO.getU_id());
             askCount = allAskCount;
+        /*
         } else {
         	askSearch.setBegin(new BigDecimal(begin));
         	askSearch.setLast(new BigDecimal(last));
             askCount = ss.getMapper(BoardMapper.class).getAskCount(askSearch);
         }
-		int pageCount = (int) Math.ceil(askCount / (double) countPerPage);
+         */
 		
-		List<AskDTO> asks = ss.getMapper(BoardMapper.class).readAskAll(askSearch);
+		List<AskDTO> asks = ss.getMapper(BoardMapper.class).readAskAll(forBeginLastU_id);
+		// List<AskDTO> asks = ss.getMapper(BoardMapper.class).readAskAll(askSearch);
         for (AskDTO a : asks) {
             a.setA_reply(ss.getMapper(BoardMapper.class).readAskReply(a));
         }
+        
+        System.out.println("a=" + forBeginLastU_id.getBegin());
+        System.out.println("b=" + forBeginLastU_id.getLast());
+        System.out.println("c=" + forBeginLastU_id.getU_id());
+        
+        System.out.println("d=" + begin);
+        System.out.println("e=" + last);
+        
+        int pageCount = (int) Math.ceil(askCount / (double) countPerPage);
 
         req.setAttribute("pageNumber", pageNumber);
-        
         req.setAttribute("countPerPage", countPerPage);
         req.setAttribute("begin", begin);
         /*
@@ -64,17 +89,10 @@ public class AskDAO {
         */
         req.setAttribute("last", last);
         req.setAttribute("askCount", askCount);
-        req.setAttribute("pageCount", pageCount);
         
         req.setAttribute("asks", asks);
-	}
-	
-	// 확인
-	public void calculateAllAskCount(HttpServletRequest req) {
-		AuthUserDTO auDTO = (AuthUserDTO) req.getSession().getAttribute("loginMember");
-		
-		AskSelector aSel = new AskSelector("", null, null, auDTO.getU_id());
-		allAskCount = ss.getMapper(BoardMapper.class).getAskCount(aSel);
+        
+        req.setAttribute("pageCount", pageCount);
 	}
 	
 	public void readOneAsk(AskDTO a, HttpServletRequest req) {
