@@ -18,7 +18,7 @@
 		<nav id="mainMenu">
 			 <div class="index_logo">
               <a href="/home">
-                <img src="resources/web/logo.png" style="height: 50px" />
+                <img src="resources/web/logo3.png" style="height: 50px" />
               </a>
             </div>
 			<div id="menuTitle1" onclick="location.href='admin.order.go'">주문 관리</div>

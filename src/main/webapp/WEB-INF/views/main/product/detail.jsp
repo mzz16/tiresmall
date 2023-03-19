@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+pageEncoding="UTF-8"%> <%@ taglib prefix="c"
+uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
   <head>
@@ -21,10 +21,10 @@ pageEncoding="UTF-8"%>
         <div class="detail_img">
           <c:choose>
             <c:when test="${product.tg_img eq 'noimg'}">
-	          <img src="resources/web/main/product/no-tire-image.jpg" />
+              <img src="resources/web/main/product/no-tire-image.jpg" />
             </c:when>
             <c:otherwise>
-	          <img src="resources/web/main/tire/${product.tg_img}.jpg" />
+              <img src="resources/web/main/tire/${product.tg_img}.jpg" />
             </c:otherwise>
           </c:choose>
         </div>
@@ -118,6 +118,7 @@ pageEncoding="UTF-8"%>
               type="hidden"
               value="${product.tg_dcrate}"
             />
+            <input class="product_ti_id" type="hidden" />
             <input class="product_ti_width" type="hidden" />
             <input class="product_ti_ratio" type="hidden" />
             <input class="product_ti_inch" type="hidden" />
@@ -147,13 +148,13 @@ pageEncoding="UTF-8"%>
         <ul class="detail_include_detail">
           <li>
             <c:choose>
-            <c:when test="${product.tg_detail eq 'noimg'}">
-	          <img src="resources/web/main/product/no-tire-image.jpg" />
-            </c:when>
-            <c:otherwise>
-	          <img src="resources/web/main/detail/${product.tg_detail}.jpg" />
-            </c:otherwise>
-          </c:choose>
+              <c:when test="${product.tg_detail eq 'noimg'}">
+                <img src="resources/web/main/product/no-tire-image.jpg" />
+              </c:when>
+              <c:otherwise>
+                <img src="resources/web/main/detail/${product.tg_detail}.jpg" />
+              </c:otherwise>
+            </c:choose>
           </li>
         </ul>
         <ul class="detail_include_confirm" style="display: none">
@@ -327,13 +328,35 @@ pageEncoding="UTF-8"%>
       </div>
     </dialog>
     <dialog class="detail_cart_dialog">
-      <div class="detail_cart_dialog_txt">
-        <span>상품이 장바구니에 담겼습니다.</span>
-        <h1>지금 확인하시겠습니까?</h1>
-      </div>
       <form method="dialog">
-        <button onclick="location.href = 'cart'">확인</button>
-        <button>취소</button>
+        <div class="detail_cart_dialog_txt">
+          <span>상품이 장바구니에 담겼습니다.</span>
+          <h1>장바구니로 이동하시겠습니까?</h1>
+        </div>
+        <button class="detail_cart_confirm" onclick="location.href = 'cart'">
+          확인
+        </button>
+        <button class="detail_cart_cancel">취소</button>
+      </form>
+    </dialog>
+    <dialog class="detail_cart_dialog">
+      <form method="dialog">
+        <div class="detail_cart_dialog_txt">
+          <span>이미 장바구니에 담긴 상품입니다.</span>
+          <h1>장바구니로 이동하시겠습니까?</h1>
+        </div>
+        <button class="detail_cart_confirm" onclick="location.href = 'cart'">
+          확인
+        </button>
+        <button class="detail_cart_cancel">취소</button>
+      </form>
+    </dialog>
+    <dialog class="detail_size_warning">
+      <form method="dialog">
+        <div class="detail_cart_dialog_txt">
+          <span>사이즈를 선택해주세요.</span>
+        </div>
+        <button>닫기</button>
       </form>
     </dialog>
     <script src="resources/js/main/product/product_detail.js"></script>
