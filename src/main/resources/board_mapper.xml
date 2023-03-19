@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.tireshoppingmall.home.board.BoardMapper">
-	<select id="getAskCount" resultType="java.lang.Integer">
+	<select id="getQnaCount" resultType="java.lang.Integer">
 		select count(*)
         from qna, auth_user
         where	u_id = #{u_id} and
         		q_id = #{u_id}
 	</select>
-	<select id="readAskAll" resultType="com.tireshoppingmall.home.board.AskDTO">
+	<select id="readallQna" resultType="com.tireshoppingmall.home.board.BoardQnaDTO">
 		select *
         from (
 			select	rownum as rownumber,
@@ -25,18 +25,18 @@
         where rownumber &gt;= #{begin} and rownumber &lt;= #{last}
 	</select>
 	
-	<select id="readAskOne" resultType="com.tireshoppingmall.home.board.AskDTO">
+	<select id="readoneQna" resultType="com.tireshoppingmall.home.board.BoardQnaDTO">
 		select *
 		from qna
 		where q_no = #{q_no}
 	</select>
-	<select id="readAskReply" resultType="com.tireshoppingmall.home.board.AskReplyDTO">
+	<select id="readQnaReply" resultType="com.tireshoppingmall.home.board.BoardQnaReplyDTO">
 	 	select *
 	 	from qna_reply
 	 	where q_reply_board_no = #{q_no}
 	</select>
 	
-	<insert id="createAsk">
+	<insert id="createQna">
 		insert
 		into qna
 		values(
@@ -49,7 +49,7 @@
 		)
 	</insert>
 	
-	<update id="updateAsk">
+	<update id="updateQna">
 		update
 		qna
 		set	q_title = #{q_title},
@@ -57,7 +57,7 @@
 		where q_no = #{q_no}
 	</update>
 	
-	<delete id="deleteAsk">
+	<delete id="deleteQna">
 		delete
 		qna
 		where q_no = #{q_no}
@@ -65,7 +65,7 @@
 	
 	
 	
-	<select id="readEventAll" resultType="com.tireshoppingmall.home.board.EventDTO">
+	<select id="readallEvent" resultType="com.tireshoppingmall.home.board.BoardEventDTO">
 		select * from event
 	</select>
 </mapper>

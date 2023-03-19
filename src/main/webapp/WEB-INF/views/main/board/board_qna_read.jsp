@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,83 +9,70 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<div class="board_faq_column">
-		<div>전체</div>
-		<div>주문/배송</div>
-		<div>상품</div>
-		<div>장착</div>
-		<div>반품/교환/취소</div>
-		<div>기타</div>
+	<div class="board_qna_r_column">
+		<div>번호</div>
+		<div>제목</div>
+		<div>등록일</div>
+		<div>처리현황</div>
 	</div>
 	
 	<div>
-		<div>
-			<%--
-			<c:if test="${!empty 검색어 }">
-			 --%>
-				"ㅁㅁ"로 검색한 결과: ㅁㅁ건
-			<%--
-			</c:if>
-			 --%>
-		</div>
-		
-		<div>
-			<select>
-			    <option value="all">전체</option>
-			    <option value="title">제목</option>
-			    <option value="txt">내용</option>
-			</select>
-			<input>
-			<a>조회</a>
-		</div>
-	</div>
-	
-	<div class="board_faq_listContainer">
 		<c:choose>
-			<c:when test="${empty faqs }">
-				<div class="board_faq_none">
+			<c:when test="${empty qnas }">
+				<div class="board_qna_r_none">
 					<div>
-						조회된 데이터가 없습니다.
+						등록된 문의내용이 없습니다
 					</div>
 				</div>
 			</c:when>
 			<c:otherwise>
-				<c:forEach var="f" items="${faqs }">
-					<div class="board_faq_list">
+				<c:set var="num" value="${qnaCount - ((pageNumber - 1) * countPerPage) }"/>
+				<c:forEach var="q" items="${qnas }">
+					<div class="board_qna_r_list">
 						<div>
-							Q
-						</div>	
-						<div class="board_faq_list_title">
-							${f.f_title }
+							${num }
 						</div>
 						<div>
-							A
+							<a href="board.qna.readdetail?q_no=${q.q_no}">${q.q_title }</a>
 						</div>
-						<div class="board_faq_list_txt">
-							${f.f_txt }
+						<div>
+							<fmt:formatDate value="${q.q_date }" pattern="yyyy-MM-dd"/>
 						</div>
+						<c:choose>
+							<c:when test="${!empty q.q_reply}">
+								<div>
+									답변완료 <i class="fa-regular fa-circle-check"></i>
+								</div>
+							</c:when>
+							<c:otherwise>
+								<div>
+									답변대기
+								</div>
+							</c:otherwise>
+						</c:choose>
 					</div>
+					<c:set var="num" value="${num-1 }"/>
 				</c:forEach>
 			</c:otherwise>
 		</c:choose>
 	</div>
 	
-	<div class="board_faq_buttons">
+	<div class="board_qna_r_buttons">
 		<div></div>
 		
 		<c:choose>
-			<c:when test="${empty faqs }">
+			<c:when test="${empty qnas }">
 				<div></div>
 			</c:when>
 			<c:otherwise>
-				<div class="board_faq_pagingButtons">
+				<div class="board_qna_r_pagingButtons">
 					<c:choose>
 						<c:when test="${pageNumber != 1 }">
 							<div>
-								<a href="board.faq.paging?pn=1"><i class="fa-solid fa-angles-left"></i></a>
+								<a href="board.qna.read.paging?pn=1"><i class="fa-solid fa-angles-left"></i></a>
 							</div>
 							<div>
-								<a href="board.faq.paging?pn=${pageNumber - 1 }"><i class="fa-solid fa-chevron-left"></i></a>
+								<a href="board.qna.read.paging?pn=${pageNumber - 1 }"><i class="fa-solid fa-chevron-left"></i></a>
 							</div>
 						</c:when>
 						<c:otherwise>
@@ -105,13 +93,13 @@
 					<c:forEach var="page" begin="1" end="${pageCount }">
 						<c:choose>
 							<c:when test="${(page == param.pn) or (pageNumber == 1 and pageNumber == page) }">
-								<div class="board_faq_pagingButtons_selected">
-									<a href="board.faq.paging?pn=${page }" style="color: #fff;">${page }</a>
+								<div class="board_qna_r_pagingButtons_selected">
+									<a href="board.qna.read.paging?pn=${page }" style="color: #fff;">${page }</a>
 								</div>
 							</c:when>
 							<c:otherwise>
 								<div>
-									<a href="board.faq.paging?pn=${page }">${page }</a>
+									<a href="board.qna.read.paging?pn=${page }">${page }</a>
 								</div>
 							</c:otherwise>
 						</c:choose>
@@ -120,10 +108,10 @@
 					<c:choose>
 						<c:when test="${pageNumber != pageCount }">
 							<div>
-								<a href="board.faq.paging?pn=${pageNumber + 1 }"><i class="fa-solid fa-chevron-right"></i></a>
+								<a href="board.qna.read.paging?pn=${pageNumber + 1 }"><i class="fa-solid fa-chevron-right"></i></a>
 							</div>
 							<div>
-								<a href="board.faq.paging?pn=${pageCount }"><i class="fa-solid fa-angles-right"></i></a>
+								<a href="board.qna.read.paging?pn=${pageCount }"><i class="fa-solid fa-angles-right"></i></a>
 							</div>
 						</c:when>
 						<c:otherwise>
@@ -140,6 +128,7 @@
 		</c:choose>
 		
 		<div>
+			<button class="board_qna_buttonRed" onclick="location.href='board.qna.create.go'">문의등록</button>
 		</div>
 	</div>
 </body>
