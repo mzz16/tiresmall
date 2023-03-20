@@ -65,6 +65,11 @@ public class MemberDAO {
 		req.getSession().setAttribute("loginMember", null);		
 	}
 
+	public void getMyOrder(HttpServletRequest req, AuthUserDTO aDTO) {
+
+		ss.getMapper(MemberMapper.class).getMyOrder(aDTO);
+	}
+
 	
 	 
 	
