@@ -82,16 +82,14 @@ select * from branch where b_branchname like '%%'
 		c_brand varchar2(20 char) not null,
 		c_ft varchar2(40 char) not null,
 		c_bt varchar2(40 char) not null,
-		c_fta varchar2(40 char),
-		c_bta varchar2(40 char),
 		c_print varchar2(40 char) not null,
 		c_file varchar2(2000 char)
 );
 		
 		
-insert into Car values('2345','X101','2014','2016','에어백','대우','12313154','2534533',null,null,'출력','a.jpg');
-insert into Car values('434','X202','2013','2017','아기유모차','기아','12313154','2534533','123414',null,'출력','b.jpg');
-insert into Car values('8346','X203','2012','2018','선루프','BMW','12313154','2534533','1341233','123141515','출력','c.jpg');
+insert into Car values('2345','X101','2014','2016','에어백','대우','12313154','2534533','출력','a.jpg');
+insert into Car values('434','X202','2013','2017','아기유모차','기아','12313154','2534533','출력','b.jpg');
+insert into Car values('8346','X203','2012','2018','선루프','BMW','12313154','2534533','출력','c.jpg');
 
 		
 		

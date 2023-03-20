@@ -65,23 +65,53 @@
 	</div>
 
 
+	<table id="admin_car_content">
+				<tr>
+					<td class="admin_car_content_title admin_car_no" style="border-right: 1px solid white;">No.</td>
+					<td class="admin_car_content_title admin_car_branchname" style="border-right: 1px solid white;">장착점명</td>
+					<td class="admin_car_content_title admin_phonenumber" style="border-right: 1px solid white;">연락처</td>
+					<td class="admin_car_content_title admin_car_area" style="border-right: 1px solid white;">지역</td>
+					<td class="admin_car_content_title admin_car_manage" style="border-right: 1px solid white;">관리</td>
+				</tr>
 
 
-	<div class="branchdata_div_outter">
-		<div class="branchdata_div" style="float: left; margin-top: 5px;">
+<c:if test="${empty branchs}">
+		<table>
+			<tr>
+				<td colspan="5" style="text-align: center;">데이터가 존재하지않습니다.</td>
+			</tr>
+		</table>
+	</c:if>
 
-			<div class="branchdata_div1"
-				style="border: 1px solid gray; float: left;">No.</div>
-			<div class="branchdata_div2"
-				style="border: 1px solid gray; float: left;">장착점명</div>
-			<div class="branchdata_div3"
-				style="border: 1px solid gray; float: left;">연락처</div>
-			<div class="branchdata_div4"
-				style="border: 1px solid gray; float: left;">지역</div>
-			<div class="branchdata_div5"
-				style="border: 1px solid gray; float: left;">관리</div>
-		</div>
-	</div>
+
+	
+		<c:forEach items="${branchs }" var="b" varStatus="status">
+					<tr id="admin_cars_content">
+						<td class="admin_car_table_td">${status.count + (curPage-1)*count}</td>
+						<td class="admin_car_table_td">[${b.b_sortation}]
+				${b.b_branchname }</td>
+						<td class="admin_car_table_td"> ${b.b_branchnumber }</td>
+						<td class="admin_car_table_td">
+							${b.b_area }
+							</td>
+						<td class="admin_car_table_td">
+						<button class="updatebranchbutton"
+					onclick="updatebranch('${b.b_id}', '${b.b_sortation }',
+					'${b.b_area }','${b.b_addr } ',
+					'${b.b_name }','${b.b_time }',
+					'${b.b_service }','${b.b_mapdata }','${b.b_manager }',
+					'${b.b_managernumber}','${b.b_branchname}','${b.b_branchnumber}',
+					'${b.b_cr}','${b.b_email}')">수정</button>
+					<button type="button" class="updatebranchbutton"
+					id="updatebranch('${b.b_id}')" onclick="deletebranch('${b.b_id}')">삭제</button>
+						</td>
+						
+					</tr>
+				</c:forEach>
+			</table>
+
+	
+			
 
 	<c:if test="${empty branchs}">
 		<table>
@@ -92,30 +122,10 @@
 	</c:if>
 
 
-	<c:forEach var="b" items="${branchs }" varStatus="status">
-		<div class="branchdatalist_div"
-			style="border: 1px solid gray; float: left;">
-			<div class="branchdatalist_div1" style="float: left;">${status.count }</div>
-			<div class="branchdatalist_div2" style="float: left;">[${b.b_sortation}]
-				${b.b_branchname }</div>
-			<div class="branchdatalist_div3" style="float: left;">${b.b_branchnumber }
-			</div>
-			<div class="branchdatalist_div4" style="float: left;">${b.b_area }</div>
-			<div class="branchdatalist_div5" style="float: left;">
-
-				<button class="updatebranchbutton"
-					onclick="updatebranch('${b.b_id}', '${b.b_sortation }',
-					'${b.b_area }','${b.b_addr } ',
-					'${b.b_name }','${b.b_time }',
-					'${b.b_service }','${b.b_mapdata }','${b.b_manager }',
-					'${b.b_managernumber}','${b.b_branchname}','${b.b_branchnumber}',
-					'${b.b_cr}','${b.b_email}')">수정</button>
-				<button type="button" class="updatebranchbutton"
-					id="updatebranch('${b.b_id}')" onclick="deletebranch('${b.b_id}')">삭제</button>
-			</div>
-
-		</div>
-	</c:forEach>
+	
+	
+	
+	
 	<div id="paging-box" class="branch-paging-box">
 		<c:if test="${curPage != 1 }">
 			<a href="branch.page.change?p=${curPage - 1 }">이전</a>
@@ -137,6 +147,8 @@
 			<a href="branch.page.change?p=${curPage + 1 }">다음</a>
 		</c:if>
 	</div>
+	
+
 
 
 

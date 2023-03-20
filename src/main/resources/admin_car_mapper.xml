@@ -26,7 +26,7 @@ SELECT *
 FROM (
     SELECT rownum as rn,
            c.c_id, c.c_name, c.c_year1, c.c_year2, c.c_option,
-           c.c_brand, c.c_ft, c.c_bt, c.c_fta, c.c_bta, c.c_print, c.c_file,
+           c.c_brand, c.c_ft, c.c_bt, c.c_print, c.c_file,
            cb.cb_name, cb.cb_order
     FROM Car c
     INNER JOIN car_brand cb ON c.c_brand = cb.cb_name
@@ -59,7 +59,7 @@ ORDER BY cb.cb_order ASC;
 		parameterType="com.tireshoppingmall.home.admin.car.CarDTO">
 
 		insert into Car
-		values(#{c_id},#{c_name},#{c_year1},#{c_year2},#{c_option},#{c_brand},#{c_ft},#{c_bt},#{c_fta},#{c_bta},#{c_print},#{c_file})
+		values(#{c_id},#{c_name},#{c_year1},#{c_year2},#{c_option},#{c_brand},#{c_ft},#{c_bt},#{c_print},#{c_file})
 
 	</insert>
 	
@@ -82,11 +82,9 @@ ORDER BY cb.cb_order ASC;
 	
 	c_ft = #{c_ft},
 	
-	c_fta = #{c_fta},
-	
+
 	c_bt = #{c_bt},
 	
-	c_bta = #{c_bta},
 	
 	c_print = #{c_print}
 	
