@@ -11,7 +11,7 @@
 	상품 주문/배송 장착 반품/교환/취소<br>
 	<div>
 		<img src="resources/web/main/board/askLogo.svg" style="width: 50px;"/>
-		<a class="board_sideMenuList" href="board.ask">1:1문의하기</a>
+		<a class="board_sideMenuList" href="board.ask.readall.check">1:1문의하기</a>
 	</div>
 	<div>
 		<img src="resources/web/main/board/kakaoLogo.png" style="width: 50px;"/>

@@ -30,7 +30,7 @@
 				<a class="board_sideMenuList board_faq" href="board.faq">FAQ</a>
 			</div>
 			<div>
-				<a class="board_sideMenuList board_ask" href="board.ask">1:1문의 <img class="board_askAndKakaoLogo" src="resources/web/main/board/askLogo.svg"/></a>
+				<a class="board_sideMenuList board_ask" href="board.ask.readall.check">1:1문의 <img class="board_askAndKakaoLogo" src="resources/web/main/board/askLogo.svg"/></a>
 			</div>
 			<div>
 				<a class="board_kakao" onclick="board_openKakao()" style="cursor: pointer">카카오톡상담 <img class="board_askAndKakaoLogo" src="resources/web/main/board/kakaoLogo.png"/></a>
