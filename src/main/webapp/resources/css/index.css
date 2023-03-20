@@ -5,6 +5,7 @@
 @import "main/board/main_board.css";
 @import "main/product/product_detail.css";
 @import "main/product/product_cart.css";
+@import "main/product/product_pay.css";
 
 * {
   box-sizing: border-box;

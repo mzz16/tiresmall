@@ -111,7 +111,7 @@ minusBtn.addEventListener("click", () => {
   notPrice.innerText = `${notPriceValue.toLocaleString()}원`;
 });
 
-cartBtn.addEventListener("click", () => {
+function insertToCart(go) {
   const product_ti_id = document.querySelector(".product_ti_id").value;
   const product_ti_width = document.querySelector(".product_ti_width").value;
   const product_ti_ratio = document.querySelector(".product_ti_ratio").value;
@@ -143,30 +143,47 @@ cartBtn.addEventListener("click", () => {
     ti_pricegp: product_ti_pricegp,
   };
 
-  // 장바구니 추가
-  if (product_ti_id !== "") {
-    $.ajax({
-      url: "cart.add",
-      type: "POST",
-      data: cartDTO,
-      success: function (result) {
-        if (result === 1) {
-          const cartDialog = document.querySelectorAll(
-            ".detail_cart_dialog"
-          )[0];
-          cartDialog.showModal();
-        } else {
-          const cartDialog = document.querySelectorAll(
-            ".detail_cart_dialog"
-          )[1];
-          cartDialog.showModal();
-        }
-      },
-    });
+  if (go) {
+    if (product_ti_id !== "") {
+      $.ajax({
+        url: "cart.pay",
+        type: "POST",
+        data: cartDTO,
+        success: function (result) {
+          if (result === 1) {
+            location.href = "pay.go";
+          }
+        },
+      });
+    } else {
+      document.querySelector(".detail_size_warning").showModal();
+    }
   } else {
-    document.querySelector(".detail_size_warning").showModal();
+    // 장바구니 추가
+    if (product_ti_id !== "") {
+      $.ajax({
+        url: "cart.add",
+        type: "POST",
+        data: cartDTO,
+        success: function (result) {
+          if (result === 1) {
+            const cartDialog = document.querySelectorAll(
+              ".detail_cart_dialog"
+            )[0];
+            cartDialog.showModal();
+          } else {
+            const cartDialog = document.querySelectorAll(
+              ".detail_cart_dialog"
+            )[1];
+            cartDialog.showModal();
+          }
+        },
+      });
+    } else {
+      document.querySelector(".detail_size_warning").showModal();
+    }
   }
-});
+}
 
 methodBtn.addEventListener("click", () => {
   const sizeGuide = document.querySelector(".detail_size_guide");

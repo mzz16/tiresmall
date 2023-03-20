@@ -125,8 +125,12 @@ uri="http://java.sun.com/jsp/jstl/core"%>
             <input class="product_ti_marking" type="hidden" />
             <input class="product_ti_pricegp" type="hidden" />
             <input class="product_ti_pricefac" type="hidden" />
-            <button class="detail_cart">장바구니</button>
-            <button class="detail_go_buy">구매예약</button>
+            <button class="detail_cart" onclick="insertToCart(false)">
+              장바구니
+            </button>
+            <button class="detail_go_buy" onclick="insertToCart(true)">
+              구매예약
+            </button>
           </div>
         </div>
       </div>

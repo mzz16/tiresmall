@@ -30,4 +30,11 @@ public class CartDAO {
 		return 1;
 	}
 
+	public int directPay(CartDTO cDTO, HttpServletRequest req) {
+		ArrayList<CartDTO> cList = (ArrayList<CartDTO>) req.getSession().getAttribute("cartSession");
+		cList.clear();
+		cList.add(cDTO);
+		return 1;
+	}
+
 }
