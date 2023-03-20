@@ -28,6 +28,10 @@
 	margin-bottom: 30px;
 }
 
+.second {
+	display: none;
+}
+
 .conditionItemBox {
 	display: flex;
 	flex-direction: column;
@@ -60,7 +64,7 @@
 	flex-wrap: wrap;
 }
 
-.vhrItem1{
+.vhrcss {
 	width: 150px;
 	text-align: center;
 	height: 60px;
@@ -68,19 +72,95 @@
 	font-weight: 500;
 	font-size: 18px;
 }
-.vhrItem2{
-	width: 150px;
+
+.vhrcss:hover {
+	background-color: #ab1e21;
+	color: white;
+	cursor: pointer;
+}
+
+.searchTireBtn {
+    width: 200px;
+    height: 50px;
+    font-size: 18px;
+    line-height: 50px;
+    background: #ab1e21;
+    color: white;
+    margin: 20px auto;
+    cursor: pointer;
+}
+
+.searchResultContainer {
+	display: none;
+	width: 1200px;
+	margin: auto;
 	text-align: center;
-	height: 60px;
-	line-height: 60px;
-	font-weight: 500;
+}
+
+.searchResultTitle {
+	font-size: 40px;
+	font-weight: 600;
+	padding: 60px 0 20px 0;
+	color: #ab1e21
+}
+
+.tire-items {
+	width: 100%;
+}
+
+.tire-item {
+	width: 1200px;
+	border: 1px solid black;
+	margin: auto;
+	margin-bottom: 30px;
+	display: none;
+}
+
+.tire-img {
+	width: 240px;
+	height: 240px;
+}
+
+.tire-info {
+	display: flex;
+	flex-direction: column;
+	margin: auto 30px;
+	width: 960px;
+}
+
+.tire-info-size {
+	display: flex;
+	justify-content: flex-end;
+}
+
+.tire-info-size div{
 	font-size: 18px;
 }
-.vhrItem3{
-	width: 150px;
-	text-align: center;
-	height: 60px;
-	line-height: 60px;
-	font-weight: 500;
+
+.tire-brand {
 	font-size: 18px;
+	padding-bottom: 10px;
+}
+
+.tire-name {
+	font-size: 24px;
+	padding-bottom: 30px;
+	font-weight: 500;
+}
+
+.tire-price {
+	font-size: 26px;
+	padding-bottom: 10px;
+	font-weight: 500;
+}
+
+.tire-search-fail {
+	width: 1200px;
+	display: none;
+	margin: auto;
+	padding-bottom: 50px;
+	font-size: 32px;
+	font-weight: 600;
+	text-align: center;
+	color: #ab1e21;
 }
