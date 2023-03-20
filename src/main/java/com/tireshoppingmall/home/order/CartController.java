@@ -39,4 +39,10 @@ public class CartController {
 	public int deleteCart(CartDTO cDTO, HttpServletRequest req) {
 		return cDAO.deleteCart(cDTO, req);
 	}
+	
+	@ResponseBody
+	@RequestMapping(value = "/cart.pay", method = RequestMethod.POST)
+	public int directPay(CartDTO cDTO, HttpServletRequest req) {
+		return cDAO.directPay(cDTO, req);
+	}
 }

@@ -5,6 +5,7 @@
 @import "main/board/main_board.css";
 @import "main/product/product_detail.css";
 @import "main/product/product_cart.css";
+@import "main/product/product_pay.css";
 
 * {
   box-sizing: border-box;
@@ -55,6 +56,10 @@ dialog {
 
 dialog::backdrop {
   background-color: rgba(0, 0, 0, 0.5);
+}
+
+a:focus {
+  outline: none;
 }
 
 header {
