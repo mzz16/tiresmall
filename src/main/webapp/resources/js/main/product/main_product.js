@@ -1,5 +1,12 @@
 $(function(){
-	loadPrices();
+	loadPrices(); // 가격 최소, 최대 가져오는 함수 호출
+	
+	// radio 체크
+	$('input[type="radio"]').eq(0).attr('checked','checked')
+	if(getParameter('t')!=''){
+		$('input[value='+getParameter('t')+']').attr('checked','checked')
+	}
+
 //	let curPage = $('#product_curPage').val();
 //	let pageCount = $('#product_pageCount').val();
 //	let n = 0;
@@ -22,7 +29,11 @@ $(function(){
 //	}
 	
 	$('input[name="carTypeA"]').click(function getProductJSON(){
-		$.getJSON("product.brand.type.ajax?b="+getParameter('b')+"&p=1&t="+$('input[name="carTypeA"]:checked').val(),function(j){
+		var paramTv = 1;
+		if(getParameter('tv')==2){
+			paramTv=2;
+		}
+		$.getJSON("product.brand.type.ajax?b="+getParameter('b')+"&p=1&t="+$('input[name="carTypeA"]:checked').val()+'&tv='+paramTv,function(j){
 			console.log(JSON.stringify(j));
 			
 //			$('#product_search span').eq(0).html('총 '+j.pGroups.length+'개 상품이 검색되었습니다.');
@@ -64,32 +75,32 @@ $(function(){
 				$('#product_container').append('<a href="detail.test?item='+ s.tg_id + '"><div class="product_item"><div class="product_item_hidden"></div>'+
 						'<div class="product_item_img"><img src="resources/web/main/product/no-tire-image.jpg"></div>'+
 						'<div class="product_item_title"><p>'+ s.tg_brand +'</p><p>'+ s.tg_name +'</p></div>'+
-						'<div class="product_item_text">'+ s.tg_text +'</div><div class="product_item_size">'+ s.minInch +'인치  ~ '+ s.maxInch +'인치</div>'+
+						'<div class="product_item_size">'+ s.minInch +'인치  ~ '+ s.maxInch +'인치</div>'+
 						'<div class="product_item_price"><input type="hidden" class="pl_dcRate" value="'+s.tg_dcrate+'">￦ <span class="pl_minPriceSpan">'+s.minPrice+'</span><input type="hidden" class="pl_minPrice" value="'+s.minPrice+'"> ~ ￦ <span class="pl_maxPriceSpan">'+s.maxPrice+'</span><input type="hidden" class="pl_maxPrice" value="'+s.maxPrice+'"></div><div class="product_item_detail"><i class="fa-solid fa-magnifying-glass"></i>상세보기</div></div></a>')
 			})
 			loadPrices();
 			
 				var html = '<div></div><div class="product_pagingButtons">';
 				if(curPage != 1){
-					html+='<div><a href="javascript:movePage(1)"><i class="fa-solid fa-angles-left"></i></a></div>'+
-						'<div><a href="javascript:movePage('+(curPage - 1)+')"><i class="fa-solid fa-chevron-left"></i></a></div>'
+					html+='<div><a href="javascript:movePageType(1)"><i class="fa-solid fa-angles-left"></i></a></div>'+
+						'<div><a href="javascript:movePageType('+(curPage - 1)+')"><i class="fa-solid fa-chevron-left"></i></a></div>'
 				} else{
 					html+='<div><i class="fa-solid fa-angles-left" style="color:lightgray"></i></div>'+
 						'<div><i class="fa-solid fa-chevron-left" style="color:lightgray"></i></div>'
 				}
 				for (var pNum = 1; pNum <= pageCount; pNum++) {
 					if(pNum==curPage){
-						html+='<div class="product_pagingButtons_selected"><a href="javascript:movePage('+pNum+')" style="color: #fff;">'+pNum+'</a></div>'
+						html+='<div class="product_pagingButtons_selected"><a href="javascript:movePageType('+pNum+')" style="color: #fff;">'+pNum+'</a></div>'
 					} else{
-						html+='<div><a href="javascript:movePage('+pNum+')">'+pNum+'</a></div>'
+						html+='<div><a href="javascript:movePageType('+pNum+')">'+pNum+'</a></div>'
 					}
 				}
 				if(curPage==pageCount || pageCount == 0){
 					html+='<div><i class="fa-solid fa-chevron-right" style="color:lightgray"></i></div>'+
 						'<div><i class="fa-solid fa-angles-right" style="color:lightgray"></i></div>'
 				} else{
-					html+='<div><a href="javascript:movePage('+(curPage+1)+')"><i class="fa-solid fa-chevron-right"></i></a></div>'+
-						'<div><a href="javascript:movePage('+pageCount+')"><i class="fa-solid fa-angles-right"></i></a></div>'
+					html+='<div><a href="javascript:movePageType('+(curPage+1)+')"><i class="fa-solid fa-chevron-right"></i></a></div>'+
+						'<div><a href="javascript:movePageType('+pageCount+')"><i class="fa-solid fa-angles-right"></i></a></div>'
 				}
 				html+='</div><div></div></div>'
 				$('#product_paging').html(html)
@@ -186,7 +197,10 @@ function movePage(pageNumber){
 
 // type별 조회시 paging하는 함수 
 function movePageType(pageNumber){
-	location.href='product.brand.type?b='+getParameter('b')+'&p='+pageNumber+'&t='+$('input[name="carTypeA"]:checked').val()
+	if(getParameter('tv')==2){
+		location.href='product.brand.type?b='+getParameter('b')+'&p='+pageNumber+'&t='+$('input[name="carTypeA"]:checked').val()+'&tv=2'
+	}
+	location.href='product.brand.type?b='+getParameter('b')+'&p='+pageNumber+'&t='+$('input[name="carTypeA"]:checked').val()+'&tv=1'
 }
 
 // url에서 파라미터 이름으로 파라미터 값 가져오는 함수
