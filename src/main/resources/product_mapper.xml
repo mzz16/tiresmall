@@ -11,7 +11,7 @@
 	        		and tg_${search2} &gt;= #{search3}
         		</when>
         		<otherwise>
-        			and tg_sedan &gt;= #{search3} or tg_suv &gt;= #{search3}
+        			and (tg_sedan &gt;= #{search3} or tg_suv &gt;= #{search3})
         		</otherwise>
        		</choose>
         </if>
