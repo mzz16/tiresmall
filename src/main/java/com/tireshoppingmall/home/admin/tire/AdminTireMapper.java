@@ -18,7 +18,7 @@ public interface AdminTireMapper {
 
 	int deleteTireGroup(TireDTO tg);
 
-	TireDTO getTireGroupforDetail(int tirePK);
+	List<TireDTO> getTireGroupforDetail(int tirePK);
 
 	int tirePrintOnOff(TireDTO tg);
 
