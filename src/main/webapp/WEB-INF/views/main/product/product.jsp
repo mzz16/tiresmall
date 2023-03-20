@@ -29,8 +29,8 @@
 			<span>총 ${theNumber }개 상품이 검색 되었습니다. </span>
 			<div id="product_search_type">
 				<input name="carTypeA" type="radio" value=""> 전체 타입
-				<input name="carTypeA" type="radio" value="1"> 승용차
-				<input name="carTypeA" type="radio" value="0"> SUV
+				<input name="carTypeA" type="radio" value="sedan"> 승용차
+				<input name="carTypeA" type="radio" value="suv"> SUV
 			</div>
 		</div>
 		<div id="product_container">

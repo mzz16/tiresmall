@@ -1,5 +1,12 @@
 $(function(){
-	loadPrices();
+	loadPrices(); // 가격 최소, 최대 가져오는 함수 호출
+	
+	// radio 체크
+	$('input[type="radio"]').eq(0).attr('checked','checked')
+	if(getParameter('t')!=''){
+		$('input[value='+getParameter('t')+']').attr('checked','checked')
+	}
+
 //	let curPage = $('#product_curPage').val();
 //	let pageCount = $('#product_pageCount').val();
 //	let n = 0;
@@ -22,7 +29,11 @@ $(function(){
 //	}
 	
 	$('input[name="carTypeA"]').click(function getProductJSON(){
-		$.getJSON("product.brand.type.ajax?b="+getParameter('b')+"&p=1&t="+$('input[name="carTypeA"]:checked').val(),function(j){
+		var paramTv = 1;
+		if(getParameter('tv')==2){
+			paramTv=2;
+		}
+		$.getJSON("product.brand.type.ajax?b="+getParameter('b')+"&p=1&t="+$('input[name="carTypeA"]:checked').val()+'&tv='+paramTv,function(j){
 			console.log(JSON.stringify(j));
 			
 //			$('#product_search span').eq(0).html('총 '+j.pGroups.length+'개 상품이 검색되었습니다.');
@@ -71,25 +82,25 @@ $(function(){
 			
 				var html = '<div></div><div class="product_pagingButtons">';
 				if(curPage != 1){
-					html+='<div><a href="javascript:movePage(1)"><i class="fa-solid fa-angles-left"></i></a></div>'+
-						'<div><a href="javascript:movePage('+(curPage - 1)+')"><i class="fa-solid fa-chevron-left"></i></a></div>'
+					html+='<div><a href="javascript:movePageType(1)"><i class="fa-solid fa-angles-left"></i></a></div>'+
+						'<div><a href="javascript:movePageType('+(curPage - 1)+')"><i class="fa-solid fa-chevron-left"></i></a></div>'
 				} else{
 					html+='<div><i class="fa-solid fa-angles-left" style="color:lightgray"></i></div>'+
 						'<div><i class="fa-solid fa-chevron-left" style="color:lightgray"></i></div>'
 				}
 				for (var pNum = 1; pNum <= pageCount; pNum++) {
 					if(pNum==curPage){
-						html+='<div class="product_pagingButtons_selected"><a href="javascript:movePage('+pNum+')" style="color: #fff;">'+pNum+'</a></div>'
+						html+='<div class="product_pagingButtons_selected"><a href="javascript:movePageType('+pNum+')" style="color: #fff;">'+pNum+'</a></div>'
 					} else{
-						html+='<div><a href="javascript:movePage('+pNum+')">'+pNum+'</a></div>'
+						html+='<div><a href="javascript:movePageType('+pNum+')">'+pNum+'</a></div>'
 					}
 				}
 				if(curPage==pageCount || pageCount == 0){
 					html+='<div><i class="fa-solid fa-chevron-right" style="color:lightgray"></i></div>'+
 						'<div><i class="fa-solid fa-angles-right" style="color:lightgray"></i></div>'
 				} else{
-					html+='<div><a href="javascript:movePage('+(curPage+1)+')"><i class="fa-solid fa-chevron-right"></i></a></div>'+
-						'<div><a href="javascript:movePage('+pageCount+')"><i class="fa-solid fa-angles-right"></i></a></div>'
+					html+='<div><a href="javascript:movePageType('+(curPage+1)+')"><i class="fa-solid fa-chevron-right"></i></a></div>'+
+						'<div><a href="javascript:movePageType('+pageCount+')"><i class="fa-solid fa-angles-right"></i></a></div>'
 				}
 				html+='</div><div></div></div>'
 				$('#product_paging').html(html)
@@ -186,7 +197,10 @@ function movePage(pageNumber){
 
 // type별 조회시 paging하는 함수 
 function movePageType(pageNumber){
-	location.href='product.brand.type?b='+getParameter('b')+'&p='+pageNumber+'&t='+$('input[name="carTypeA"]:checked').val()
+	if(getParameter('tv')==2){
+		location.href='product.brand.type?b='+getParameter('b')+'&p='+pageNumber+'&t='+$('input[name="carTypeA"]:checked').val()+'&tv=2'
+	}
+	location.href='product.brand.type?b='+getParameter('b')+'&p='+pageNumber+'&t='+$('input[name="carTypeA"]:checked').val()+'&tv=1'
 }
 
 // url에서 파라미터 이름으로 파라미터 값 가져오는 함수
