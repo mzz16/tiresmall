@@ -119,7 +119,7 @@ pageEncoding="UTF-8"%>
           <hr />
         </div>
         <div class="home_store">
-          <a class="home_store_menu" href="/">
+          <a class="home_store_menu" href="store?id=1">
             <div class="home_shadow"></div>
             <img
               class="home_store_img"
@@ -127,7 +127,7 @@ pageEncoding="UTF-8"%>
             />
             <span class="home_store_txt">타이어쇼핑몰</span>
           </a>
-          <a class="home_store_menu" href="/">
+          <a class="home_store_menu" href="store?id=2">
             <div class="home_shadow"></div>
             <img
               class="home_store_img"
@@ -135,7 +135,7 @@ pageEncoding="UTF-8"%>
             />
             <span class="home_store_txt">타이어테크 죽동점</span>
           </a>
-          <a class="home_store_menu" href="/">
+          <a class="home_store_menu" href="store?id=3">
             <div class="home_shadow"></div>
             <img
               class="home_store_img"
@@ -143,7 +143,7 @@ pageEncoding="UTF-8"%>
             />
             <span class="home_store_txt">논산 타이어쇼핑몰</span>
           </a>
-          <a class="home_store_menu" href="/">
+          <a class="home_store_menu" href="store?id=4">
             <div class="home_shadow"></div>
             <img
               class="home_store_img"
@@ -151,7 +151,7 @@ pageEncoding="UTF-8"%>
             />
             <span class="home_store_txt">타이어테크 연무점</span>
           </a>
-          <a class="home_store_menu" href="/">
+          <a class="home_store_menu" href="store?id=5">
             <div class="home_shadow"></div>
             <img
               class="home_store_img"
