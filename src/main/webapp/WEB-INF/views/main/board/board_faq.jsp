@@ -10,10 +10,10 @@
 <body>
 	<div class="board_faq_column">
 		<div><a href="board.faq.read.search?f_sortation=">전체</a></div>
-		<div><a href="board.faq.read.search?f_sortation=주문배송">주문/배송</a></div>
+		<div><a href="board.faq.read.search?f_sortation=주문/배송">주문/배송</a></div>
 		<div><a href="board.faq.read.search?f_sortation=상품">상품</a></div>
 		<div><a href="board.faq.read.search?f_sortation=장착">장착</a></div>
-		<div><a href="board.faq.read.search?f_sortation=반품교환취소">반품/교환/취소</a></div>
+		<div><a href="board.faq.read.search?f_sortation=반품/교환/취소">반품/교환/취소</a></div>
 		<div><a href="board.faq.read.search?f_sortation=기타">기타</a></div>
 	</div>
 	

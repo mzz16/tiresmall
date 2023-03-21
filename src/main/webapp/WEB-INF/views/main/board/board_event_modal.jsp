@@ -19,8 +19,8 @@
 							<a href="#"><img src="resources/web/main/board/${e.e_mainimg }"/></a>
 						</div>
 						<form class="board_event_modal_buttons" method="dialog">
-							<button value="1">오늘은 그만 보기</button>
-							<button value="2">닫기</button>
+							<button onclick="clickToSetBoardEventModalCookie();">오늘은 그만 보기</button>
+							<button>닫기</button>
 						</form>
 					</div>
 				</div>
