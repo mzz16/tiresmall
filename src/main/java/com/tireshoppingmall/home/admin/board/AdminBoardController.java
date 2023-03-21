@@ -135,7 +135,7 @@ public class AdminBoardController {
 	@RequestMapping(value = "/search.faq.do", method = RequestMethod.GET)
 	public String searchFaq(HttpServletRequest req, SearchDTO sDTO) {
 
-		faqDAO.searchFaq(req, sDTO);
+		faqDAO.searchFaq(sDTO, req);
 		faqDAO.getFaq(1, req);
 		req.setAttribute("subMenuPage", "board/board_subMenu.jsp");
 		req.setAttribute("contentPage", "board/faq_board.jsp");
