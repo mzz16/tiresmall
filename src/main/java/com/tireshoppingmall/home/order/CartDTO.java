@@ -6,6 +6,7 @@ public class CartDTO {
 	private String tg_name;
 	private String tg_img;
 	private int tg_dcrate;
+	private int ti_id;
 	private int ti_width;
 	private int ti_ratio;
 	private int ti_inch;
@@ -19,14 +20,15 @@ public class CartDTO {
 		// TODO Auto-generated constructor stub
 	}
 
-	public CartDTO(int tg_id, String tg_brand, String tg_name, String tg_img, int tg_dcrate, int ti_width, int ti_ratio,
-			int ti_inch, int ti_stock, int ti_pricegp, int ti_pricefac, String ti_marking) {
+	public CartDTO(int tg_id, String tg_brand, String tg_name, String tg_img, int tg_dcrate, int ti_id, int ti_width,
+			int ti_ratio, int ti_inch, int ti_stock, int ti_pricegp, int ti_pricefac, String ti_marking) {
 		super();
 		this.tg_id = tg_id;
 		this.tg_brand = tg_brand;
 		this.tg_name = tg_name;
 		this.tg_img = tg_img;
 		this.tg_dcrate = tg_dcrate;
+		this.ti_id = ti_id;
 		this.ti_width = ti_width;
 		this.ti_ratio = ti_ratio;
 		this.ti_inch = ti_inch;
@@ -74,6 +76,14 @@ public class CartDTO {
 
 	public void setTg_dcrate(int tg_dcrate) {
 		this.tg_dcrate = tg_dcrate;
+	}
+
+	public int getTi_id() {
+		return ti_id;
+	}
+
+	public void setTi_id(int ti_id) {
+		this.ti_id = ti_id;
 	}
 
 	public int getTi_width() {

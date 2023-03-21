@@ -18,6 +18,7 @@
 					<div><span class="board_ask_cu_important">* 내용은 2000자까지 입력이 가능합니다.</span></div>
 				</div>
 			</div>
+			<input type="hidden" name="q_id" value="${sessionScope.loginMember.u_id }">
 		</div>
 		
 		<div class="board_ask_cu_request">*는 필수 입력사항입니다.</div>

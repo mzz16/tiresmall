@@ -5,8 +5,6 @@ create table auth_user(
     u_logintype number(2) not null
 );
 create sequence auth_user_seq;
-insert into auth_user values(auth_user_seq.nextval, 'id1', 1);
-insert into auth_user values(auth_user_seq.nextval, 'id2', 1);
 select * from auth_user;
 drop table auth_user;
 
@@ -21,8 +19,6 @@ create table auth_password(
     REFERENCES auth_user(u_no) ON DELETE CASCADE
 );
 create sequence auth_password_seq;
-insert into auth_password values(auth_password_seq.nextval, 2, 'test', 'qw1', sysdate);
-insert into auth_password values(auth_password_seq.nextval, 3, 'test', 'qw2', sysdate);
 select * from auth_password;
 drop table auth_password;
 
@@ -34,12 +30,11 @@ create table auth_userInfo(
     i_phonenum varchar2(15 char) UNIQUE NOT NULL,
     i_newdate date not null,
     i_grade number(2) not null,
+    i_email VARCHAR(25) NOT NULL,
     CONSTRAINT fk_info FOREIGN KEY(u_no)
     REFERENCES auth_user(u_no) ON DELETE CASCADE
 );
 create sequence auth_userInfo_seq;
-insert into auth_userinfo values(auth_userinfo_seq.nextval, 2, '이름하나', 01011112222, sysdate, 1);
-insert into auth_userinfo values(auth_userinfo_seq.nextval, 3, '이름둘', 01033334444, sysdate, 1);
 select * from auth_userinfo;
 drop table auth_userinfo;
 
@@ -57,9 +52,12 @@ create table qna (
     on delete cascade
 );
 create sequence qna_seq;
-insert into qna values(qna_seq.nextval, '제목1', '내용1', sysdate, 'id1', default);
-insert into qna values(qna_seq.nextval, '제목2', '내용2', sysdate, 'id1', default);
-insert into qna values(qna_seq.nextval, '제목3', '내용3', sysdate, 'id1', default);
+insert into qna values(qna_seq.nextval, 'name1_title1', 'name1_txt1', sysdate, 'id1', default);
+insert into qna values(qna_seq.nextval, 'name1_title2', 'name1_txt2', sysdate, 'id1', default);
+insert into qna values(qna_seq.nextval, 'name1_title3', 'name1_txt3', sysdate, 'id1', default);
+insert into qna values(qna_seq.nextval, 'name2_title1', 'name2_txt1', sysdate, 'id2', default);
+insert into qna values(qna_seq.nextval, 'name2_title2', 'name2_txt2', sysdate, 'id2', default);
+insert into qna values(qna_seq.nextval, 'name2_title3', 'name2_txt3', sysdate, 'id2', default);
 select * from qna;
 drop table qna;
 
@@ -75,9 +73,8 @@ create table qna_reply (
     on delete cascade
 );
 create sequence qna_reply_seq;
-insert into qna_reply values(qna_reply_seq.nextval, '답변입니다', sysdate, 33);
-insert into qna_reply values(qna_reply_seq.nextval, '답변입니다', sysdate, 32);
-insert into qna_reply values(qna_reply_seq.nextval, '답변입니다', sysdate, 31);
+insert into qna_reply values(qna_reply_seq.nextval, 'name1_reply', sysdate, 80);
+insert into qna_reply values(qna_reply_seq.nextval, 'name2_reply', sysdate, 50);
 select * from qna_reply;
 drop table qna_reply;
 

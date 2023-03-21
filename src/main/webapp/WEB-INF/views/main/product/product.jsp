@@ -29,15 +29,17 @@
 			<span>총 ${theNumber }개 상품이 검색 되었습니다. </span>
 			<div id="product_search_type">
 				<input name="carTypeA" type="radio" value=""> 전체 타입
-				<input name="carTypeA" type="radio" value="1"> 승용차
-				<input name="carTypeA" type="radio" value="0"> SUV
+				<input name="carTypeA" type="radio" value="sedan"> 승용차
+				<input name="carTypeA" type="radio" value="suv"> SUV
 			</div>
 		</div>
 		<div id="product_container">
 			<c:forEach items="${pGroups }" var="pGroup">
 				<a href="product.detail?tg_id=${pGroup.tg_id }">
 					<div class="product_item">
-						<div class="product_item_hidden"></div>
+						<div class="product_item_hidden">
+							<div class="product_item_hidden product_img_border"></div>
+						</div>
 						<div class="product_item_img">
 						<c:choose>
 							<c:when test="${pGroup.tg_img eq 'noimg'}">
@@ -52,7 +54,6 @@
 							<p>${pGroup.tg_brand }</p>
 							<p class="item_title_p">${pGroup.tg_name }</p>
 						</div>
-						<div class="product_item_text">${pGroup.tg_text }</div>
 						<div class="product_item_size">${pGroup.minInch }인치  ~ ${pGroup.maxInch }인치</div>
 						<div class="product_item_price">
 								<input type="hidden" class="pl_dcRate" value="${pGroup.tg_dcrate}">
