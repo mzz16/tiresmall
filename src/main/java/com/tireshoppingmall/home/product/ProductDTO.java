@@ -9,7 +9,6 @@ public class ProductDTO {
 	private int tg_dcrate;
 	private String tg_detail;
 	private int ti_id;
-	private int ti_tg_id;
 	private int ti_width;
 	private int ti_ratio;
 	private int ti_inch;
@@ -23,8 +22,8 @@ public class ProductDTO {
 	}
 
 	public ProductDTO(int tg_id, String tg_brand, String tg_name, String tg_img, String tg_text, int tg_dcrate,
-			String tg_detail, int ti_id, int ti_tg_id, int ti_width, int ti_ratio, int ti_inch, String ti_marking,
-			int ti_stock, int ti_pricefac) {
+			String tg_detail, int ti_id, int ti_width, int ti_ratio, int ti_inch, String ti_marking, int ti_stock,
+			int ti_pricefac) {
 		super();
 		this.tg_id = tg_id;
 		this.tg_brand = tg_brand;
@@ -34,7 +33,6 @@ public class ProductDTO {
 		this.tg_dcrate = tg_dcrate;
 		this.tg_detail = tg_detail;
 		this.ti_id = ti_id;
-		this.ti_tg_id = ti_tg_id;
 		this.ti_width = ti_width;
 		this.ti_ratio = ti_ratio;
 		this.ti_inch = ti_inch;
@@ -105,14 +103,6 @@ public class ProductDTO {
 
 	public void setTi_id(int ti_id) {
 		this.ti_id = ti_id;
-	}
-
-	public int getTi_tg_id() {
-		return ti_tg_id;
-	}
-
-	public void setTi_tg_id(int ti_tg_id) {
-		this.ti_tg_id = ti_tg_id;
 	}
 
 	public int getTi_width() {

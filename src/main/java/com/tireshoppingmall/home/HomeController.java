@@ -74,5 +74,4 @@ public class HomeController {
 		req.setAttribute("content", "main/store/store.jsp");
 		return "index";
 	}
-	
 }

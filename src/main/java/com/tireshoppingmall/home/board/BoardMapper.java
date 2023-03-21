@@ -2,10 +2,14 @@ package com.tireshoppingmall.home.board;
 
 import java.util.List;
 
-public interface BoardMapper {
-	int getAskCount(AskSelector askSearch);
+import com.tireshoppingmall.home.auth.AuthUserDTO;
 
-	List<AskDTO> readAskAll(AskSelector askSearch);
+public interface BoardMapper {
+	// int getAskCount(AskSelector askSearch);
+	int getAskCount(AuthUserDTO forU_id);
+
+	// List<AskDTO> readAskAll(AskSelector askSearch);
+	List<AskDTO> readAskAll(AuthUserDTO auDTO);
 
 	AskDTO readAskOne(AskDTO a);
 	AskReplyDTO readAskReply(AskDTO a);

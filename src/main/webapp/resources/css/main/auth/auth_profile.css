@@ -1,9 +1,4 @@
-@import "main_board_faq.css";
-@import "main_board_ask.css";
-@import "main_board_ask_readAll.css";
-@import "main_board_ask_readOne.css";
-@import "main_board_ask_cu.css";
-@import "main_board_event_dialog.css";
+
 
 .board_mainContainer {
 	display: grid;

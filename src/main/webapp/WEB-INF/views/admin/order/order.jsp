@@ -24,7 +24,7 @@
 
 	<div id="order_modal" class="order_modal hidden" style="display: none;">
 
-		<form id="update_modal" action="update.order.do">
+		
 			<div class="modal-wrapper">
 				<div class="order_modalcontent">
 					<div class="order_header">주문 관리</div>
@@ -89,11 +89,7 @@
 							<tr>
 								<td class="left_td_long">방문예약일</td>
 								<td class="modal_content_td long"></td>
-								<td colspan="2">
-								<c:if test="">
-								직영점 방문 예약일입니다. 상품을 준비하고 주문자에게 해피콜해주세요.
-								</c:if>
-								</td>
+								<td class="modal_content_td" colspan="2">직영점 방문 예약일입니다. 상품을 준비하고 주문자에게 해피콜해주세요.</td>
 							</tr>
 							<tr>
 								<td class="left_td_long">주문진행</td>
@@ -121,16 +117,18 @@
 								</td>
 							</tr>
 						</table>
-
 					</div>
-					<div class="modalBtn">
-						<button class="modalBtn1">저장</button>
-						<button class="modalBtn2 modal-del" id="deleteModal" type="button">삭제</button>
-						<button class="modalBtn2" id="cancleModal" type="button">닫기</button>
-					</div>
+						<form id="update_modal" action="update.order.do">
+							<div class="modalBtn">
+								<button class="modalBtn1" id="updateModal" type="button">저장</button>
+								<input type="hidden" name="o_no" id="o_no">
+								<input type="hidden" name="o_step" id="o_step">
+								<button class="modalBtn2 modal-del" id="deleteModal" type="button">삭제</button>
+								<button class="modalBtn2" id="cancleModal" type="button">닫기</button>
+							</div>
+						</form>
 				</div>
 			</div>
-		</form>
 	</div>
 
 	<div class="container">
@@ -189,7 +187,7 @@
 									<input name="o_step" value="${o.o_step }" id="orderStep_M">
 									<input name="o_name" value="${o.o_name }" id="userName_M">
 									<input name="o_phone" value="${o.o_phone }" id="userPhoneNum_M">
-									<input name="o_no" value="${o.o_no }" id="orderInput_M"> 
+									<input name="o_no" value="${o.o_no }" id="orderNo_M"> 
 									<input name="o_tireinstalldate" value="${o.o_tireinstalldate }" id="tireInstallDate_M"> 
 									<input name="o_deliverymethod" value="${o.o_deliverymethod }" id="deliveryMethod_M">
 									<input name="o_paymethod" value="${o.o_paymethod }" id="orderPayMethod_M">
@@ -210,7 +208,7 @@
 											<td class="tire_content_td">타이어<input type="hidden" value="${ordered_tire.ti_id }"> </td>
 											<td class="tire_content_td">${ordered_tire.tg_brand }</td>
 											<td class="tire_content_td">${ordered_tire.tg_name }</td>
-											<td class="tire_content_td">${ordered_tire.ti_width }/${ordered_tire.ti_ratio }${ordered_tire.ti_inch }${ordered_tire.ti_hg }${ordered_tire.ti_speed } </td>
+											<td class="tire_content_td">${ordered_tire.ti_width }/${ordered_tire.ti_ratio }R${ordered_tire.ti_inch }<%-- ${ordered_tire.ti_marking } --%> </td>
 											<td class="tire_content_td">${ordered_tire.ti_count }</td>
 									</tr>
 									</c:forEach>
@@ -225,7 +223,7 @@
 								<td class="td_c4"><fmt:formatDate
 										pattern="yyyy-MM-dd HH:mm:ss" value="${o.o_orderdate }" /></td>
 								<td class="td_c5">${o.o_name }</td>
-								<td class="td_c6">0${o.o_phone }</td>
+								<td class="td_c6">${o.o_phone }</td>
 								<td class="td_c7">${o.o_ordername }</td>
 								<td class="td_c8">${o.o_price }</td>
 								<td class="td_c9">${o.o_paymethod }</td>
@@ -237,6 +235,15 @@
 												</c:when>
 										<c:when test="${o.o_step eq '결제대기'}">
 												결제대기
+												</c:when>
+										<c:when test="${o.o_step eq '배송준비중'}">
+												배송준비중
+												</c:when>
+										<c:when test="${o.o_step eq '배송중'}">
+												배송중
+												</c:when>
+										<c:when test="${o.o_step eq '배송완료'}">
+												배송완료
 												</c:when>
 										<c:when test="${o.o_step eq '주문취소'}">
 												주문취소

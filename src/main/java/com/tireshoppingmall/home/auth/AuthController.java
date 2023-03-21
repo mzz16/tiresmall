@@ -73,11 +73,19 @@ public class AuthController {
 	}
 	@RequestMapping(value = "/login.do", method = RequestMethod.POST)
 	public String loginDo(MemberDTO mDTO, HttpServletRequest req) {
-		
 		mDAO.login(mDTO,req);
-		mDAO.loginCheck( req);
-		req.setAttribute("content", "main/home/home.jsp");
-		return "index";
+		mDAO.loginCheck(req);
+		
+		// 로그인페이지를통하여들어온경우:	로그인후에 홈화면으로
+		if (req.getSession().getAttribute("loginRequiredByAsk") == null) {
+			req.setAttribute("content", "main/home/home.jsp");
+			return "index";
+		// 1:1문의페이지를통하여들어온경우:	로그인후에 1:1문의화면으로
+		} else {
+			req.getSession().setAttribute("loginRequiredByAsk", null);	
+			return "redirect: board.ask.readall.check";
+		}
+		
 	}
 	@RequestMapping(value = "/logout.do", method = RequestMethod.GET)
 	public String logoutDo(MemberDTO mDTO, HttpServletRequest req) {
@@ -250,7 +258,25 @@ public class AuthController {
     }
 
 
-
+    @RequestMapping(value = "/profile", method = RequestMethod.GET)
+	public String myProfileGo(HttpServletRequest req,Model model) {
+    	model.addAttribute("content", "main/auth/myProfile.jsp");
+		model.addAttribute("board_whereAmIOne", "<i class=\"fa-solid fa-chevron-right\"></i> 주문 조회");
+		model.addAttribute("board_whereAmITwo", "주문 조회");
+		model.addAttribute("profile_contents", "myOrderList.jsp");
+		
+		return "index";
+	}
+    @RequestMapping(value = "/profile.myInfo", method = RequestMethod.GET)
+    public String myProfileInfoGo(HttpServletRequest req,Model model) {
+    	
+    	model.addAttribute("content", "main/auth/myProfile.jsp");
+    	model.addAttribute("board_whereAmIOne", "<i class=\"fa-solid fa-chevron-right\"></i> myProfile");
+    	model.addAttribute("board_whereAmITwo", "나의 회원정보");
+    	model.addAttribute("profile_contents", "profileInfo.jsp");
+    	
+    	return "index";
+    }
 
 
 

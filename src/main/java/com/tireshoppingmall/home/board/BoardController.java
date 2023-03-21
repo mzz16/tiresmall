@@ -9,16 +9,24 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.tireshoppingmall.home.auth.AuthUserDTO;
+import com.tireshoppingmall.home.auth.MemberDAO;
+
 @Controller
 public class BoardController {
-	private boolean askFirstReq;
+	
+	@Autowired
+	private MemberDAO mDAO;
 	
 	@Autowired
 	private AskDAO aDAO;
 	
+	private boolean askFirstReq;
 	public BoardController() {
 		askFirstReq = true;
 	}
+	/*
+	*/
 	
 	@RequestMapping(value = "/board.faq", method = RequestMethod.GET)
 	public String boardFAQ(Model model) {
@@ -29,27 +37,31 @@ public class BoardController {
 		return "index";
 	}
 	
-	@RequestMapping(value = "/board.ask", method = RequestMethod.GET)
-	public String boardAsk(Model model) {
-		model.addAttribute("content", "main/board/board.jsp");
-		model.addAttribute("board_whereAmIOne", "<i class=\"fa-solid fa-chevron-right\"></i> 1:1문의");
-		model.addAttribute("board_whereAmITwo", "1:1문의");
-		if (true) {
-			model.addAttribute("board_contents", "board_ask_loginRequired.jsp");
-		} else if (false) {
-			model.addAttribute("board_contents", "board_ask_loginRequired.jsp");
+	@RequestMapping(value = "/board.ask.readall.check", method = RequestMethod.GET)
+	public String boardAsk(HttpServletRequest req, Model model) {
+		if (mDAO.loginCheck(req)) {
+			AuthUserDTO auDTO = (AuthUserDTO) req.getSession().getAttribute("loginMember");
+			
+			model.addAttribute("content", "main/board/board.jsp");
+			model.addAttribute("board_whereAmIOne", "<i class=\"fa-solid fa-chevron-right\"></i> 1:1문의");
+			model.addAttribute("board_whereAmITwo", "1:1문의");
+			return "redirect: board.ask.readall?u_id=" + auDTO.getU_id();
+		} else {
+			req.getSession().setAttribute("loginRequiredByAsk", "YES");
+			return "redirect: login";
 		}
-		return "index";
 	}
 	
 	@RequestMapping(value = "/board.ask.readall", method = RequestMethod.GET)
-	public String boardAskReadall(HttpServletRequest req, Model model) {
+	public String boardAskReadall(HttpServletRequest req, Model model, AuthUserDTO auDTO) {
 		if (askFirstReq) {
-			aDAO.calculateAllAskCount();
+			aDAO.calculateAllAskCount(req);
 			askFirstReq = false;
 		}
 		
+		/*
 		AskCountOption.clearAskSearch(req);
+		 */
 		
 		aDAO.readAllAsk(1, req);
 		
