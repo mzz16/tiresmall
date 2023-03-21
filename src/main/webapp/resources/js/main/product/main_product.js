@@ -72,7 +72,7 @@ $(function(){
 			
 			$('#product_container a').remove();
 			$.each(j.pGroups, function(i, s){
-				$('#product_container').append('<a href="detail.test?item='+ s.tg_id + '"><div class="product_item"><div class="product_item_hidden"></div>'+
+				$('#product_container').append('<a href="product.detail?tg_id='+ s.tg_id + '"><div class="product_item"><div class="product_item_hidden"></div>'+
 						'<div class="product_item_img"><img src="resources/web/main/product/no-tire-image.jpg"></div>'+
 						'<div class="product_item_title"><p>'+ s.tg_brand +'</p><p>'+ s.tg_name +'</p></div>'+
 						'<div class="product_item_size">'+ s.minInch +'인치  ~ '+ s.maxInch +'인치</div>'+
