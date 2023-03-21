@@ -11,7 +11,7 @@
 	<form  action="authReg.do"  method="post" 
 		name="join_form" onsubmit="return joinCheck();">
 		<!-- 홈페이지 회원 가입의 경우 타입 1번 -->
-		<input name="u_logintype" value="1">
+		<input name="u_logintype" value="1" type="hidden" >
 		 
 		<div id="join_container">
 			<div id="join_logo">
