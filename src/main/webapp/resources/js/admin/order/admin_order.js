@@ -1,11 +1,17 @@
 $("#datepicker" ).datepicker({
-    	dateFormat: 'yy/mm/dd'
+    	dateFormat: 'yy/mm/dd',
+    	maxDate: 0
 });
     
 $("#datepicker1" ).datepicker({
-		dateFormat: 'yy/mm/dd'
+		dateFormat: 'yy/mm/dd',
+		maxDate: 0
 });
-
+$( function() {
+	  $( "#datepicker" ).datepicker({
+	 
+	  });
+	} );
 
 $('.order_modal_go').click(function() {
 	$("#product-table").empty();

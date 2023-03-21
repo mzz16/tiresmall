@@ -56,8 +56,6 @@ public class AdminBoardController {
 
 	@RequestMapping(value = "/search.do", method = RequestMethod.GET)
 	public String search(HttpServletRequest req, SearchDTO sDTO) {
-		System.out.println(sDTO.getSelectOption());
-		System.out.println(sDTO.getTitleInput());
 		
 		bDAO.searchBoard(sDTO, req);
 		bDAO.getNotice(1, req);
