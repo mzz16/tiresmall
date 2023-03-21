@@ -30,6 +30,13 @@
 	grid-area: rac_status;
 	border-right:1px solid #ddd;
 }
+/*
+클래스지정어떻게해야할까
+*/
+.board_qna_r_column_selected {
+	border-top: 3px solid #ab1e21;
+	border-bottom: none;
+}
 
 
 

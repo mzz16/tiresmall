@@ -16,46 +16,44 @@
 		<div>처리현황</div>
 	</div>
 	
-	<div>
-		<c:choose>
-			<c:when test="${empty qnas }">
-				<div class="board_qna_r_none">
-					<div>
-						등록된 문의내용이 없습니다
-					</div>
+	<c:choose>
+		<c:when test="${empty qnas }">
+			<div class="board_qna_r_none">
+				<div>
+					등록된 문의내용이 없습니다
 				</div>
-			</c:when>
-			<c:otherwise>
-				<c:set var="num" value="${qnaCount - ((pageNumber - 1) * countPerPage) }"/>
-				<c:forEach var="q" items="${qnas }">
-					<div class="board_qna_r_list">
-						<div>
-							${num }
-						</div>
-						<div>
-							<a href="board.qna.readdetail?q_no=${q.q_no}">${q.q_title }</a>
-						</div>
-						<div>
-							<fmt:formatDate value="${q.q_date }" pattern="yyyy-MM-dd"/>
-						</div>
-						<c:choose>
-							<c:when test="${!empty q.q_reply}">
-								<div>
-									답변완료 <i class="fa-regular fa-circle-check"></i>
-								</div>
-							</c:when>
-							<c:otherwise>
-								<div>
-									답변대기
-								</div>
-							</c:otherwise>
-						</c:choose>
+			</div>
+		</c:when>
+		<c:otherwise>
+			<c:set var="num" value="${qnaCount - ((pageNumber - 1) * countPerPage) }"/>
+			<c:forEach var="q" items="${qnas }">
+				<div class="board_qna_r_list">
+					<div>
+						${num }
 					</div>
-					<c:set var="num" value="${num-1 }"/>
-				</c:forEach>
-			</c:otherwise>
-		</c:choose>
-	</div>
+					<div>
+						<a href="board.qna.readdetail?q_no=${q.q_no}">${q.q_title }</a>
+					</div>
+					<div>
+						<fmt:formatDate value="${q.q_date }" pattern="yyyy-MM-dd"/>
+					</div>
+					<c:choose>
+						<c:when test="${!empty q.q_reply}">
+							<div>
+								답변완료 <i class="fa-regular fa-circle-check"></i>
+							</div>
+						</c:when>
+						<c:otherwise>
+							<div>
+								답변대기
+							</div>
+						</c:otherwise>
+					</c:choose>
+				</div>
+				<c:set var="num" value="${num-1 }"/>
+			</c:forEach>
+		</c:otherwise>
+	</c:choose>
 	
 	<div class="board_qna_r_buttons">
 		<div></div>

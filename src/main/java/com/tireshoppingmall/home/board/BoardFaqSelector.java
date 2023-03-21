@@ -3,17 +3,40 @@ package com.tireshoppingmall.home.board;
 import java.math.BigDecimal;
 
 public class BoardFaqSelector {
+	private String f_sortation;
+	private String faqSearchSelection;
+	private String faqSearch;
 	private BigDecimal begin;
 	private BigDecimal last;
-	private String faqSearch;
 	public BoardFaqSelector() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public BoardFaqSelector(BigDecimal begin, BigDecimal last, String faqSearch) {
+	public BoardFaqSelector(String f_sortation, String faqSearchSelection, String faqSearch, BigDecimal begin,
+			BigDecimal last) {
 		super();
+		this.f_sortation = f_sortation;
+		this.faqSearchSelection = faqSearchSelection;
+		this.faqSearch = faqSearch;
 		this.begin = begin;
 		this.last = last;
+	}
+	public String getF_sortation() {
+		return f_sortation;
+	}
+	public void setF_sortation(String f_sortation) {
+		this.f_sortation = f_sortation;
+	}
+	public String getFaqSearchSelection() {
+		return faqSearchSelection;
+	}
+	public void setFaqSearchSelection(String faqSearchSelection) {
+		this.faqSearchSelection = faqSearchSelection;
+	}
+	public String getFaqSearch() {
+		return faqSearch;
+	}
+	public void setFaqSearch(String faqSearch) {
 		this.faqSearch = faqSearch;
 	}
 	public BigDecimal getBegin() {
@@ -27,11 +50,5 @@ public class BoardFaqSelector {
 	}
 	public void setLast(BigDecimal last) {
 		this.last = last;
-	}
-	public String getFaqSearch() {
-		return faqSearch;
-	}
-	public void setFaqSearch(String faqSearch) {
-		this.faqSearch = faqSearch;
 	}
 }

@@ -9,65 +9,65 @@
 </head>
 <body>
 	<div class="board_faq_column">
-		<div>전체</div>
-		<div>주문/배송</div>
-		<div>상품</div>
-		<div>장착</div>
-		<div>반품/교환/취소</div>
-		<div>기타</div>
+		<div><a href="board.faq.read.search?f_sortation=">전체</a></div>
+		<div><a href="board.faq.read.search?f_sortation=주문배송">주문/배송</a></div>
+		<div><a href="board.faq.read.search?f_sortation=상품">상품</a></div>
+		<div><a href="board.faq.read.search?f_sortation=장착">장착</a></div>
+		<div><a href="board.faq.read.search?f_sortation=반품교환취소">반품/교환/취소</a></div>
+		<div><a href="board.faq.read.search?f_sortation=기타">기타</a></div>
 	</div>
 	
 	<div>
 		<div>
-			<%--
-			<c:if test="${!empty 검색어 }">
-			 --%>
-				"ㅁㅁ"로 검색한 결과: ㅁㅁ건
-			<%--
+			<c:if test="${!empty faqSearch }">
+				"${faqSearch }"로 검색한 결과: ${faqCount }건
 			</c:if>
-			 --%>
 		</div>
 		
 		<div>
-			<select>
-			    <option value="all">전체</option>
-			    <option value="title">제목</option>
-			    <option value="txt">내용</option>
-			</select>
-			<input>
-			<a>조회</a>
+			<form action="board.faq.read.search">
+				<select name="faqSearchSelection">
+				    <option value="1" <c:if test="${faqSearchSelectionAfterSearch == 1 }">selected="selected"</c:if>>전체</option>
+				    <option value="2" <c:if test="${faqSearchSelectionAfterSearch == 2 }">selected="selected"</c:if>>제목</option>
+				    <option value="3" <c:if test="${faqSearchSelectionAfterSearch == 3 }">selected="selected"</c:if>>내용</option>
+				</select>
+				<input name="faqSearch" value=${faqSearchAfterSearch }>
+				<button>조회</button>
+			</form>
 		</div>
 	</div>
 	
-	<div class="board_faq_listContainer">
-		<c:choose>
-			<c:when test="${empty faqs }">
-				<div class="board_faq_none">
-					<div>
-						조회된 데이터가 없습니다.
-					</div>
+	<c:choose>
+		<c:when test="${empty faqs }">
+			<div class="board_faq_none">
+				<div>
+					조회된 데이터가 없습니다.
 				</div>
-			</c:when>
-			<c:otherwise>
+			</div>
+		</c:when>
+		<c:otherwise>
+			<div class="board_faq_listContainer">
 				<c:forEach var="f" items="${faqs }">
-					<div class="board_faq_list">
+					<div class="board_faq_list_top">
 						<div>
 							Q
 						</div>	
-						<div class="board_faq_list_title">
+						<div>
 							${f.f_title }
 						</div>
+					</div>
+					<div class="board_faq_list_bottom">
 						<div>
 							A
 						</div>
-						<div class="board_faq_list_txt">
+						<div>
 							${f.f_txt }
 						</div>
 					</div>
 				</c:forEach>
-			</c:otherwise>
-		</c:choose>
-	</div>
+			</div>
+		</c:otherwise>
+	</c:choose>
 	
 	<div class="board_faq_buttons">
 		<div></div>
@@ -139,8 +139,7 @@
 			</c:otherwise>
 		</c:choose>
 		
-		<div>
-		</div>
+		<div></div>
 	</div>
 </body>
 </html>

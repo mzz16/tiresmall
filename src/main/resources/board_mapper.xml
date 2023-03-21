@@ -1,13 +1,73 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.tireshoppingmall.home.board.BoardMapper">
+	<select id="getFaqCount" resultType="java.lang.Integer">
+		select count(*)
+		from faq
+		<choose>
+			<when test="f_sortation != null">
+				where f_sortation like '%'||#{f_sortation}||'%'
+			</when>
+			<otherwise>
+				<if test="faqSearchSelection == 1">
+					where	f_title like '%'||#{faqSearch}||'%' or
+							f_txt like '%'||#{faqSearch}||'%'
+				</if>
+				<if test="faqSearchSelection == 2">
+					where	f_title like '%'||#{faqSearch}||'%'
+				</if>
+				<if test="faqSearchSelection == 3">
+					where	f_txt like '%'||#{faqSearch}||'%'
+				</if>
+			</otherwise>
+		</choose>
+	</select>
+	<select id="readFaq" resultType="com.tireshoppingmall.home.board.BoardFaqDTO">
+		select *
+        from (
+			select	rownum as rownumber,
+					f_title,
+					f_txt
+			from (
+				select *
+				from faq
+				<choose>
+					<when test="f_sortation != null">
+						where f_sortation like '%'||#{f_sortation}||'%'
+						<!-- 
+						 order by f_title;
+						 -->
+					</when>
+					<otherwise>
+						<if test="faqSearchSelection == 1">
+							where	f_title like '%'||#{faqSearch}||'%' or
+									f_txt like '%'||#{faqSearch}||'%'
+						</if>
+						<if test="faqSearchSelection == 2">
+							where	f_title like '%'||#{faqSearch}||'%'
+						</if>
+						<if test="faqSearchSelection == 3">
+							where	f_txt like '%'||#{faqSearch}||'%'
+						</if>
+						<!-- 
+						order by f_sortation
+						 -->
+					</otherwise>
+				</choose>
+			)
+        )
+        where rownumber &gt;= #{begin} and rownumber &lt;= #{last}
+	</select>
+
+
+
 	<select id="getQnaCount" resultType="java.lang.Integer">
 		select count(*)
         from qna, auth_user
         where	u_id = #{u_id} and
         		q_id = #{u_id}
 	</select>
-	<select id="readallQna" resultType="com.tireshoppingmall.home.board.BoardQnaDTO">
+	<select id="readQna" resultType="com.tireshoppingmall.home.board.BoardQnaDTO">
 		select *
         from (
 			select	rownum as rownumber,
@@ -25,7 +85,7 @@
         where rownumber &gt;= #{begin} and rownumber &lt;= #{last}
 	</select>
 	
-	<select id="readoneQna" resultType="com.tireshoppingmall.home.board.BoardQnaDTO">
+	<select id="readdetailQna" resultType="com.tireshoppingmall.home.board.BoardQnaDTO">
 		select *
 		from qna
 		where q_no = #{q_no}
@@ -65,7 +125,7 @@
 	
 	
 	
-	<select id="readallEvent" resultType="com.tireshoppingmall.home.board.BoardEventDTO">
+	<select id="readEvent" resultType="com.tireshoppingmall.home.board.BoardEventDTO">
 		select * from event
 	</select>
 </mapper>

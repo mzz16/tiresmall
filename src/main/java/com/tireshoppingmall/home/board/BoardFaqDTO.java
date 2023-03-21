@@ -1,6 +1,5 @@
 package com.tireshoppingmall.home.board;
 
-import java.math.BigDecimal;
 import java.util.Date;
 
 public class BoardFaqDTO {
@@ -9,22 +8,17 @@ public class BoardFaqDTO {
 	private String f_title;
 	private String f_txt;
 	private Date f_date;
-	private BigDecimal begin;
-	private BigDecimal end;
 	public BoardFaqDTO() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public BoardFaqDTO(int f_no, String f_sortation, String f_title, String f_txt, Date f_date, BigDecimal begin,
-			BigDecimal end) {
+	public BoardFaqDTO(int f_no, String f_sortation, String f_title, String f_txt, Date f_date) {
 		super();
 		this.f_no = f_no;
 		this.f_sortation = f_sortation;
 		this.f_title = f_title;
 		this.f_txt = f_txt;
 		this.f_date = f_date;
-		this.begin = begin;
-		this.end = end;
 	}
 	public int getF_no() {
 		return f_no;
@@ -55,17 +49,5 @@ public class BoardFaqDTO {
 	}
 	public void setF_date(Date f_date) {
 		this.f_date = f_date;
-	}
-	public BigDecimal getBegin() {
-		return begin;
-	}
-	public void setBegin(BigDecimal begin) {
-		this.begin = begin;
-	}
-	public BigDecimal getEnd() {
-		return end;
-	}
-	public void setEnd(BigDecimal end) {
-		this.end = end;
 	}
 }

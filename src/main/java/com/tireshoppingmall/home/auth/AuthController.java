@@ -83,7 +83,7 @@ public class AuthController {
 		// 1:1문의페이지를통하여들어온경우:	로그인후에 1:1문의화면으로
 		} else {
 			req.getSession().setAttribute("loginRequiredByQna", null);	
-			return "redirect: board.qna.readall.check";
+			return "redirect: board.qna.check";
 		}
 		
 	}

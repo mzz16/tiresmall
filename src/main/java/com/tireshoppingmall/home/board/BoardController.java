@@ -24,35 +24,10 @@ public class BoardController {
 	@Autowired
 	private BoardQnaDAO bqDAO;
 	
-	/*
-	private boolean BoardFaqFirstReq;
-	private boolean BoardQnaFirstReq;
-	
-	public BoardController() {
-		BoardFaqFirstReq = true;
-		BoardQnaFirstReq = true;
-	}
-	*/
-	
-	@RequestMapping(value = "/board.faq.readall", method = RequestMethod.GET)
-	public String boardFaqReadall(HttpServletRequest req, Model model) {
-		// BoardFaqCountOption.clearFaqSearch(req);
-		req.getSession().setAttribute("FaqSearch", null);
-		
-		// bfDAO.calculateFaqCount(req);
-		
-		bfDAO.readallFaq(1, req);
-		
-		/*
-		if (BoardFaqFirstReq) {
-			bfDAO.calculateFaqCount(req);
-			BoardFaqFirstReq = false;
-		}
-		*/
-		
-		/*
-		BoardQnaCountOption.clearQnaSearch(req);
-		 */
+	@RequestMapping(value = "/board.faq.read", method = RequestMethod.GET)
+	public String boardFaqRead(HttpServletRequest req, Model model) {
+		req.getSession().setAttribute("FaqIroiro", null);
+		bfDAO.readFaq(1, req);
 		
 		model.addAttribute("content", "main/board/board.jsp");
 		model.addAttribute("board_whereAmIOne", "<i class=\"fa-solid fa-chevron-right\"></i> FAQ");
@@ -60,22 +35,10 @@ public class BoardController {
 		model.addAttribute("board_contents", "board_faq.jsp");
 		return "index";
 	}
-	@RequestMapping(value = "/board.faq.readsearched", method = RequestMethod.GET)
-	public String boardFaqReadsearched(BoardFaqSelector bfSel, HttpServletRequest req, Model model) {
-		req.getSession().setAttribute("search", bfSel);
-		
-		bfDAO.calculateFaqCount(req);
-		/*
-		if (BoardFaqFirstReq) {
-			bfDAO.calculateFaqCount(req);
-			BoardFaqFirstReq = false;
-		}
-		*/
-		
-		/*
-		BoardQnaCountOption.clearQnaSearch(req);
-		 */
-		bfDAO.readallFaq(1, req);
+	@RequestMapping(value = "/board.faq.read.search", method = RequestMethod.GET)
+	public String boardFaqReadSearch(BoardFaqSelector bfSelector, HttpServletRequest req, Model model) {
+		req.getSession().setAttribute("FaqIroiro", bfSelector);
+		bfDAO.readFaq(1, req);
 		
 		model.addAttribute("content", "main/board/board.jsp");
 		model.addAttribute("board_whereAmIOne", "<i class=\"fa-solid fa-chevron-right\"></i> FAQ");
@@ -84,19 +47,8 @@ public class BoardController {
 		return "index";
 	}
 	@RequestMapping(value = "/board.faq.read.paging", method = RequestMethod.GET)
-	public String boardFaqSearchReadPaging(HttpServletRequest req, Model model) {
-		bfDAO.calculateFaqCount(req);
-		/*
-		if (BoardFaqFirstReq) {
-			bfDAO.calculateFaqCount(req);
-			BoardFaqFirstReq = false;
-		}
-		*/
-		
-		/*
-		BoardQnaCountOption.clearQnaSearch(req);
-		 */
-		bfDAO.readallFaq(1, req);
+	public String boardFaqReadPaging(@RequestParam int pn, HttpServletRequest req, Model model) {
+		bfDAO.readFaq(pn, req);
 		
 		model.addAttribute("content", "main/board/board.jsp");
 		model.addAttribute("board_whereAmIOne", "<i class=\"fa-solid fa-chevron-right\"></i> FAQ");
@@ -106,14 +58,14 @@ public class BoardController {
 	}
 	
 	@RequestMapping(value = "/board.qna.check", method = RequestMethod.GET)
-	public String boardQna(HttpServletRequest req, Model model) {
+	public String boardQnaCheck(HttpServletRequest req, Model model) {
 		if (mDAO.loginCheck(req)) {
-			AuthUserDTO auDTO = (AuthUserDTO) req.getSession().getAttribute("loginMember");
+			AuthUserDTO forU_id = (AuthUserDTO) req.getSession().getAttribute("loginMember");
 			
 			model.addAttribute("content", "main/board/board.jsp");
 			model.addAttribute("board_whereAmIOne", "<i class=\"fa-solid fa-chevron-right\"></i> 1:1문의");
 			model.addAttribute("board_whereAmITwo", "1:1문의");
-			return "redirect: board.qna.readall?u_id=" + auDTO.getU_id();
+			return "redirect: board.qna.read?u_id=" + forU_id.getU_id();
 		} else {
 			req.getSession().setAttribute("loginRequiredByQna", "YES");
 			return "redirect: login";
@@ -122,45 +74,33 @@ public class BoardController {
 	
 	@RequestMapping(value = "/board.qna.read", method = RequestMethod.GET)
 	public String boardQnaRead(HttpServletRequest req, Model model) {
-		bqDAO.calculateQnaCount(req);
-		/*
-		if (BoardQnaFirstReq) {
-			bqDAO.calculateQnaCount(req);
-			BoardQnaFirstReq = false;
-		}
-		*/
-		
-		/*
-		BoardQnaCountOption.clearQnaSearch(req);
-		 */
-		
-		bqDAO.readallQna(1, req);
+		bqDAO.readQna(1, req);
 		
 		model.addAttribute("content", "main/board/board.jsp");
 		model.addAttribute("board_whereAmIOne", "<i class=\"fa-solid fa-chevron-right\"></i> 1:1문의");
 		model.addAttribute("board_whereAmITwo", "1:1문의");
-		model.addAttribute("board_contents", "board_qna_readall.jsp");
+		model.addAttribute("board_contents", "board_qna_read.jsp");
 		return "index";
 	}
-	@RequestMapping(value = "/board.qna.readall.paging", method = RequestMethod.GET)
-	public String boardQnaReadallPaging(@RequestParam int pn, HttpServletRequest req, Model model) {
-		bqDAO.readallQna(pn, req);
+	@RequestMapping(value = "/board.qna.read.paging", method = RequestMethod.GET)
+	public String boardQnaReadPaging(@RequestParam int pn, HttpServletRequest req, Model model) {
+		bqDAO.readQna(pn, req);
 		
 		model.addAttribute("content", "main/board/board.jsp");
 		model.addAttribute("board_whereAmIOne", "<i class=\"fa-solid fa-chevron-right\"></i> 1:1문의");
 		model.addAttribute("board_whereAmITwo", "1:1문의");
-		model.addAttribute("board_contents", "board_qna_readall.jsp");
+		model.addAttribute("board_contents", "board_qna_read.jsp");
 		return "index";
 	}
 	
-	@RequestMapping(value = "/board.qna.readone", method = RequestMethod.GET)
-	public String boardQnaReadone(BoardQnaDTO bq, HttpServletRequest req, Model model) {
-		bqDAO.readoneQna(bq, req);
+	@RequestMapping(value = "/board.qna.readdetail", method = RequestMethod.GET)
+	public String boardQnaReaddetail(BoardQnaDTO bq, HttpServletRequest req, Model model) {
+		bqDAO.readdetailQna(bq, req);
 		
 		model.addAttribute("content", "main/board/board.jsp");
 		model.addAttribute("board_whereAmIOne", "<i class=\"fa-solid fa-chevron-right\"></i> 1:1문의");
 		model.addAttribute("board_whereAmITwo", "1:1문의");
-		model.addAttribute("board_contents", "board_qna_readone.jsp");
+		model.addAttribute("board_contents", "board_qna_readdetail.jsp");
 		return "index";
 	}
 	
@@ -185,7 +125,7 @@ public class BoardController {
 	
 	@RequestMapping(value = "/board.qna.update.go", method = RequestMethod.GET)
 	public String boardQnaUpdateGo(BoardQnaDTO bq, HttpServletRequest req, Model model) {
-		bqDAO.readoneQna(bq, req);
+		bqDAO.readdetailQna(bq, req);
 		
 		model.addAttribute("content", "main/board/board.jsp");
 		model.addAttribute("board_whereAmIOne", "<i class=\"fa-solid fa-chevron-right\"></i> 1:1문의");
@@ -208,12 +148,12 @@ public class BoardController {
 	public String boardQnaDelete(BoardQnaDTO bq, HttpServletRequest req, Model model) {
 		bqDAO.deleteQna(bq, req);
 		
-		bqDAO.readallQna(1, req);
+		bqDAO.readQna(1, req);
 		
 		model.addAttribute("content", "main/board/board.jsp");
 		model.addAttribute("board_whereAmIOne", "<i class=\"fa-solid fa-chevron-right\"></i> 1:1문의");
 		model.addAttribute("board_whereAmITwo", "1:1문의");
-		model.addAttribute("board_contents", "board_qna_readall.jsp");
+		model.addAttribute("board_contents", "board_qna_read.jsp");
 		return "index";
 	}
 	

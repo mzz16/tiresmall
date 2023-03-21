@@ -5,13 +5,17 @@ import java.util.List;
 import com.tireshoppingmall.home.auth.AuthUserDTO;
 
 public interface BoardMapper {
-	// int getcountQna(BoardQnaSelector qnaSearch);
+	int getFaqCount(BoardFaqSelector forIroiro);
+	
+	List<BoardFaqDTO> readFaq(BoardFaqSelector forIroiro);
+	
+	
+	
 	int getQnaCount(AuthUserDTO forU_id);
 
-	// List<QnaDTO> readallQna(BoardQnaSelector qnaSearch);
-	List<BoardQnaDTO> readallQna(AuthUserDTO auDTO);
+	List<BoardQnaDTO> readQna(AuthUserDTO auDTO);
 
-	BoardQnaDTO readoneQna(BoardQnaDTO a);
+	BoardQnaDTO readdetailQna(BoardQnaDTO a);
 	BoardQnaReplyDTO readQnaReply(BoardQnaDTO a);
 
 	int createQna(BoardQnaDTO a);
@@ -22,5 +26,5 @@ public interface BoardMapper {
 	
 	
 
-	List<BoardEventDTO> readallEvent(BoardEventDTO e);
+	List<BoardEventDTO> readEvent(BoardEventDTO e);
 }

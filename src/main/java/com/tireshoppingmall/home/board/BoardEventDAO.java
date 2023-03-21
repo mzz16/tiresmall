@@ -14,7 +14,7 @@ public class BoardEventDAO {
 	private SqlSession ss;
 
 	public void readEvent(BoardEventDTO e, HttpServletRequest req) {
-		List<BoardEventDTO> events = ss.getMapper(BoardMapper.class).readallEvent(e);
+		List<BoardEventDTO> events = ss.getMapper(BoardMapper.class).readEvent(e);
 		req.setAttribute("events", events);
 	}
 }
