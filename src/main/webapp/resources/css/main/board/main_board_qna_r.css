@@ -1,4 +1,4 @@
-.board_ask_readAll_column {
+.board_qna_r_column {
 	display: grid;
 	grid-template-columns: 80px 1fr 120px 120px;
 	grid-template-rows: 51px;
@@ -11,29 +11,36 @@
 	
 	border-top: 1px solid #000;
 }
-.board_ask_readAll_column > div {
+.board_qna_r_column > div {
 	border-bottom: 1px solid #ddd;
 	border-left: 1px solid #ddd;
 	
 	padding: 15px;
 }
-.board_ask_readAll_column > div:nth-child(1) {
+.board_qna_r_column > div:nth-child(1) {
 	grid-area: rac_num;
 }
-.board_ask_readAll_column > div:nth-child(2) {
+.board_qna_r_column > div:nth-child(2) {
 	grid-area: rac_title;
 }
-.board_ask_readAll_column > div:nth-child(3) {
+.board_qna_r_column > div:nth-child(3) {
 	grid-area: rac_date;
 }
-.board_ask_readAll_column > div:nth-child(4) {
+.board_qna_r_column > div:nth-child(4) {
 	grid-area: rac_status;
 	border-right:1px solid #ddd;
 }
+/*
+클래스지정어떻게해야할까
+*/
+.board_qna_r_column_selected {
+	border-top: 3px solid #ab1e21;
+	border-bottom: none;
+}
 
 
 
-.board_ask_readAll_none {
+.board_qna_r_none {
 	width: 950px;
 	height: 255px;
 	
@@ -45,13 +52,13 @@
 	border-bottom: 1px solid #ddd;
 	border-left: 1px solid #ddd;
 }
-.board_ask_readAll_none > div {
+.board_qna_r_none > div {
 	padding: 120px;
 }
 
 
 
-.board_ask_readAll_list {
+.board_qna_r_list {
 	display: grid;
 	grid-template-columns: 80px 1fr 120px 120px;
 	grid-template-rows: 51px;
@@ -61,39 +68,39 @@
 	
 	text-align: center;
 }
-.board_ask_readAll_list div {
+.board_qna_r_list div {
 	border-bottom: 1px solid #ddd;
 	border-left: 1px solid #ddd;
 	
 	padding: 15px;
 }
-.board_ask_readAll_list div:nth-child(1) {
+.board_qna_r_list div:nth-child(1) {
 	grid-area: ral_num;
 }
-.board_ask_readAll_list div:nth-child(2) {
+.board_qna_r_list div:nth-child(2) {
 	grid-area: ral_title;
 	
 	text-align: left;
 	font-weight: 400;
 }
-.board_ask_readAll_list div:nth-child(2) > a {
+.board_qna_r_list div:nth-child(2) > a {
 	width: 100%;
 }
-.board_ask_readAll_list div:nth-child(2) > a:hover {
+.board_qna_r_list div:nth-child(2) > a:hover {
 	width: 100%;
 	text-decoration : underline;
 }
-.board_ask_readAll_list div:nth-child(3) {
+.board_qna_r_list div:nth-child(3) {
 	grid-area: ral_date;
 }
-.board_ask_readAll_list div:nth-child(4) {
+.board_qna_r_list div:nth-child(4) {
 	grid-area: ral_status;
 	border-right:1px solid #ddd;
 }
 
 
 
-.board_ask_readAll_buttons {
+.board_qna_r_buttons {
 	display: flex;
 	
 	width: 950px;
@@ -107,10 +114,10 @@
 
 
 
-.board_ask_readAll_pagingButtons {
+.board_qna_r_pagingButtons {
 	display: flex;
 }
-.board_ask_readAll_pagingButtons > div {
+.board_qna_r_pagingButtons > div {
 	width: 28px;
 	height: 28px;
 	
@@ -120,7 +127,7 @@
 	
 	border-radius: 2px;
 }
-.board_ask_readAll_pagingButtons_selected {
+.board_qna_r_pagingButtons_selected {
 	background-color: #ab1e21;
 	color: #fff;
 	font-weight: 500;

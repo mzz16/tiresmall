@@ -2,7 +2,7 @@ package com.tireshoppingmall.home.board;
 
 import java.util.Date;
 
-public class EventDTO {
+public class BoardEventDTO {
 	private int e_no;
 	private String e_title;
 	private Date e_date;
@@ -12,11 +12,11 @@ public class EventDTO {
 	private String e_mainimg;
 	private String e_detailimg;
 	private String e_status;
-	public EventDTO() {
+	public BoardEventDTO() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public EventDTO(int e_no, String e_title, Date e_date, String e_content, Date e_duration, int e_popup,
+	public BoardEventDTO(int e_no, String e_title, Date e_date, String e_content, Date e_duration, int e_popup,
 			String e_mainimg, String e_detailimg, String e_status) {
 		super();
 		this.e_no = e_no;

@@ -170,8 +170,8 @@ uri="http://java.sun.com/jsp/jstl/core" %>
           <ul class="index_dropBoard index_dropWrapper">
             <li class="index_dropMenu_menu">
               <div class="index_dropMenu_txt">
-                <a class="index_dropBoard_a" href="board.faq">FAQ</a>
-                <a class="index_dropBoard_a" href="board.ask.readall.check"
+                <a class="index_dropBoard_a" href="board.faq.read">FAQ</a>
+                <a class="index_dropBoard_a" href="board.qna.check"
                   >1:1 문의</a
                 >
                 <a class="index_dropBoard_a" href="board.notice">공지사항</a>
@@ -226,7 +226,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
     <script src="resources/js/main/search/main_search.js"></script>
     <script src="resources/js/main/board/main_board_kakao.js"></script>
     <script src="resources/js/main/board/main_board_whereAmI.js"></script>
-    <script src="resources/js/main/board/main_board_deleteAsk.js"></script>
+    <script src="resources/js/main/board/main_board_deleteQna.js"></script>
     <script src="resources/js/main/board/main_board_event.js"></script>
   </body>
 </html>
