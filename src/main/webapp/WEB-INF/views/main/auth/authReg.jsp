@@ -4,14 +4,20 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>대전 타이어쇼핑몰</title>
+<link
+rel="shortcut icon"
+href="resources/web/favicon.png"
+type="image/png"
+/>
+<link rel="icon" href="resources/web/favicon.png" type="image/png" />
 <link rel="stylesheet" href="resources/css/main/auth/auth.css">
 </head>
 <body>
 	<form  action="authReg.do"  method="post" 
 		name="join_form" onsubmit="return joinCheck();">
 		<!-- 홈페이지 회원 가입의 경우 타입 1번 -->
-		<input name="u_logintype" value="1">
+		<input name="u_logintype" value="1" type="hidden" >
 		 
 		<div id="join_container">
 			<div id="join_logo">

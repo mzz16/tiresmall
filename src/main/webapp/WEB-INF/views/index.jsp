@@ -79,8 +79,17 @@ uri="http://java.sun.com/jsp/jstl/core" %>
               />
             </div>
             <div class="index_sideNav">
-              <a href="profile"><i class="fa-regular fa-user"></i></a>
-              <a href="cart"><i class="fa-solid fa-basket-shopping"></i></a>
+              <c:choose>
+                <c:when test="${not empty sessionScope.loginMember.i_name}">
+                  <a href="profile"
+                    ><img src="resources/web/main/user.png"
+                  /></a>
+                </c:when>
+                <c:otherwise>
+                  <a href="login"><img src="resources/web/main/user.png" /></a>
+                </c:otherwise>
+              </c:choose>
+              <a href="cart"><img src="resources/web/main/cart.png" /></a>
             </div>
           </div>
         </div>
@@ -212,6 +221,8 @@ uri="http://java.sun.com/jsp/jstl/core" %>
     </div>
     <script src="https://code.jquery.com/jquery-latest.min.js"></script>
     <script src="resources/js/index.js"></script>
+    <script src="resources/js/main/order/cart.js"></script>
+    <script src="resources/js/main/order/pay.js"></script>
     <script src="resources/js/main/search/main_search.js"></script>
     <script src="resources/js/main/board/main_board_kakao.js"></script>
     <script src="resources/js/main/board/main_board_whereAmI.js"></script>

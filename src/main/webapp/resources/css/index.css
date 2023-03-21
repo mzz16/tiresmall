@@ -3,8 +3,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500&display=swap");
 @import "main/home/main_home.css";
 @import "main/board/main_board.css";
+@import "main/auth/auth_profile.css";
+@import "main/auth/auth_profileInfo.css";
+@import "main/auth/auth_orderList.css";
 @import "main/product/product_detail.css";
 @import "main/product/product_cart.css";
+@import "main/product/product_pay.css";
 
 * {
   box-sizing: border-box;
@@ -55,6 +59,10 @@ dialog {
 
 dialog::backdrop {
   background-color: rgba(0, 0, 0, 0.5);
+}
+
+a:focus {
+  outline: none;
 }
 
 header {

@@ -7,7 +7,6 @@ $("#datepicker" ).datepicker({
 });
 
 
-
 $('.order_modal_go').click(function() {
 	$("#product-table").empty();
 	const modal_content_td = document.querySelectorAll(".modal_content_td");
@@ -16,10 +15,41 @@ $('.order_modal_go').click(function() {
 	$('#order_modal').css('z-index', '3');
 	// 모달 on
 	
-	$("#update_modal").attr("action", "")
-	$("body").css("overflow", 'hidden');
+	$('#updateModal').click(function() {
+		
+		$("#o_no").val($('#orderNo_M').val());
+		$("#o_step").val($(".modal-label:checked").val());
 
+		if (!confirm('수정 하시겠습니까?')) {
+			// 취소
+		} else {
+			$("#update_modal").submit();
+		}
+		
+	})
 	
+	/* $("body").css("overflow", 'hidden'); */ // 모달 스크롤 기능 view 합친후에 주석제거 요망
+
+	$('#deleteModal').click(function() {
+		var odNo = $("#orderNo_M").val();
+		if (!confirm('정말 삭제 하시겠습니까?')) {
+			// 취소
+		} else {
+			$.ajax({
+				type: "GET",
+				url: "delete.order.do",
+				data: {o_no:odNo},
+				success: function(result) {
+					if (result === 1) {
+						location.href = "admin.order.go";
+					} else {
+						console.log("삭제 실패");
+					}
+				}
+			})
+			
+		}
+	})
 	
 		
 	let inputs = $(this).find('input');
@@ -29,7 +59,7 @@ $('.order_modal_go').click(function() {
 		// modal_content_td[i].innerText = val;
 	});
 
-	//console.log(arr);
+	// console.log(arr);
 	modal_content_td[0].innerText = arr[0];
 	modal_content_td[1].innerText = arr[9];
 	modal_content_td[2].innerText = arr[2];
@@ -40,11 +70,16 @@ $('.order_modal_go').click(function() {
 	modal_content_td[8].innerText = arr[15];
 	modal_content_td[9].innerText = arr[16];
 	modal_content_td[10].innerText = arr[18];
-	
 	modal_content_td[12].innerText = arr[17];
 	modal_content_td[13].innerText = arr[7];
 	modal_content_td[14].innerText = arr[8];
 	modal_content_td[15].innerText = arr[5];
+	
+	/*	if(arr[5]!=''){
+		modal_content_td[16].innerText = '직영점 방문 예약일입니다. 상품을 준비하고 주문자에게 해피콜해주세요.';		
+	}else {
+		modal_content_td[16].innerText =  '';
+	}*/
 	
 	let tire_tr = $(this).find('.tire_content_tr');
 	let tire_tr2 = $(tire_tr).clone();
@@ -76,15 +111,6 @@ window.addEventListener("keydown", (e) => {
 	}
 
 });
-
-
-	
-	
-	
-	
-	
-	
-	
 	
 	
 })
