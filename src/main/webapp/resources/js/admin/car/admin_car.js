@@ -93,22 +93,32 @@ function updatecar(id, name, year1, year2, option, brand, ft, bt, print, c_file)
 	
 	 //...
 
-    // c_ft_u와 c_bt_u에서 값을 가져온 뒤 콤마로 분할하여 배열로 저장
-    var ftArray = ft.split(',');
-    var btArray = bt.split(',');
+	// c_ft_u와 c_bt_u에서 값을 가져온 뒤 콤마로 분할하여 배열로 저장
+	var ftArray = ft.split(',');
+	var btArray = bt.split(',');
 
-    // addupdateSize()를 호출하여 각각의 값을 넣어줌
-    for (var i = 0; i < Math.max(ftArray.length, btArray.length); i++) {
-        addupdateSize();
-        var ftValue = i < ftArray.length ? ftArray[i] : "";
-        var btValue = i < btArray.length ? btArray[i] : "";
-        $('#updatesizeInputs .ftinputstyle:last input').val(ftValue);
-        $('#updatesizeInputs .btinputstyle:last input').val(btValue);
-    }
+	// div를 생성할 개수를 구한다
+	var numOfDivs = Math.max(ftArray.length, btArray.length);
 
-    //...
-	
+	// 기존에 있던 div들을 모두 제거한다
+	$('#updatesizeInputs').empty();
 
+	// numOfDivs 만큼 div를 생성한다
+	for (var i = 0; i < numOfDivs; i++) {
+		addupdateSize();
+	}
+
+	console.log("!!!!!!");
+	console.log(numOfDivs);
+	console.log("!!!!!!");
+
+	// 생성된 div에 값을 넣어준다
+	for (var i = 0; i < numOfDivs; i++) {
+		var ftValue = i < ftArray.length ? ftArray[i] : "";
+		var btValue = i < btArray.length ? btArray[i] : "";
+		$('#updatesizeInputs .ftinputstyle:eq(' + i + ') input').val(ftValue);
+		$('#updatesizeInputs .btinputstyle:eq(' + i + ') input').val(btValue);
+	}
 }
 
 function updatecb1(name, order) {
@@ -144,17 +154,14 @@ function updatecb1(name, order) {
 
 
 function addSize() {
-	  var ftInput = '<div style="display: block;"><div class="ftinputstyle" style="float: left;"><input style="height: 30px; width:193px;" name="c_ft" id="c_ft" class="c_ftinput"></div></div>';
+	  var ftInput = '<div style="display: block;"><div class="ftinputstyle" style="float: left;"><input style="height: 30px; width:198px;" name="c_ft" id="c_ft" class="c_ftinput"></div></div>';
 	  var btInput = '<div style="display: block;"><div class="btinputstyle" style="float: left;"><input style="height: 30px; width:193px;" name="c_bt" id="c_bt" class="c_btinput"></div></div>';
-	  var tmInput = '<div class="tminputstyle" style="float: left;">' +
+	  var tmInput = '<div class="tmreginputstyle" style="float: left;">' +
 	    '<div class="admin-tire-size-reg-delete">' + '삭제</div>' + '</div>';
 	  var sizeInputs = document.getElementById('sizeInputs');
 	  var newInput =  '<div class="size-info">' +
-	  	'<br>' +
-	    '<br>' +
-	    '<br>' +
-	    '<br>' +
-	   
+	  	'<br><br>' +
+	
 	    '<div class="ftbttmstyle">' +
 	    '<div class="ftstyle" style="height: 30px; width:200px; border: 1px solid white;">앞타이어</div>' +
 	    '<div class="btstyle" style="height: 30px; width:200px; border: 1px solid white;">뒤타이어</div>' +
@@ -180,12 +187,12 @@ function addupdateSize() {
 	  
 	  // ... 새로운 요소의 내용을 추가
 	  
-	  var ftInput = '<div style="display: block;"><div class="ftinputstyle" style="float: left;"><input style="height: 30px; width:193px;" name="c_ft" id="c_ft_u" class="c_ftinput"></div></div>';
-	  var btInput = '<div style="display: block;"><div class="btinputstyle" style="float: left;"><input style="height: 30px; width:193px;" name="c_bt" id="c_bt_u" class="c_btinput"></div></div>';
+	  var ftInput = '<div style="display: block;"><div class="ftinputstyle" style="float: left;"><input style="height: 40px; width:197px;" name="c_ft" id="c_ft_u" class="c_ftinput"></div></div>';
+	  var btInput = '<div style="display: block;"><div class="btinputstyle" style="float: left;"><input style="height: 40px; width:195px;" name="c_bt" id="c_bt_u" class="c_btinput"></div></div>';
 	  var tmInput = '<div class="tminputstyle" style="float: left;">' +
 	                  '<div class="admin-tire-size-reg-delete">삭제</div>' +
 	                '</div>';
-	  newInput.innerHTML = '<br><br><br><br>' +
+	  newInput.innerHTML = '<br><br><br>' +
 	                       '<div class="ftbttmstyle">' +
 	                         '<div class="ftstyle" style="height: 30px; width:200px; border: 1px solid white;">앞타이어</div>' +
 	                         '<div class="btstyle" style="height: 30px; width:200px; border: 1px solid white;">뒤타이어</div>' +

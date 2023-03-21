@@ -304,8 +304,16 @@ select {
 .tminputstyle {
 	border: 1px solid gray;
 	text-align: center;
-	height: 36px;
-	width: 197px;
+	height: 43px;
+	width: 198px;
+	line-height: 36px;
+}
+
+.tmreginputstyle {
+	border: 1px solid gray;
+	text-align: center;
+	height: 35px;
+	width: 198px;
 	line-height: 36px;
 }
 
@@ -790,7 +798,7 @@ a {
 }
 
 .admin_car_year {
-	width: 18%;
+	width: 10%;
 }
 
 .admin_car_name {
@@ -806,7 +814,7 @@ a {
 }
 
 .authadmin_manage {
-	width: 10%;
+	width: 18%;
 }
 
 .admin_car_management {
@@ -962,8 +970,8 @@ a {
 
 #admin_tire_size_button{
 	width:79px;
-	margin:10px;
-	padding:5px 10px;
+	margin:15px;
+	padding:5px 15px;
 	cursor: pointer;
 	color: #fff;
     background-color: #198754;
@@ -976,6 +984,7 @@ a {
     background-color: #157347;
 
 }
+
 
 #admin-tire-size-reg{
 	border-spacing:0px;
@@ -1122,18 +1131,21 @@ a {
 .admin-tire-size-reg-delete{
 	height:17px;
 	width:35px;
-	margin-left:30px;
+	margin-top:3px;
+	margin-left:75px;
 	margin-right:5px;
+	line-height: 17px;
 	border-radius:7px;
 	font-weight: 900;
 	font-size: 12pt;
-	padding:6px;
+	padding:8px;
 	color: #fff;
     background-color: #dc3545;
     border :1px solid #dc3545;
     cursor: pointer; 
     user-select: none;	
     font-family: GmarketSansMedium;
+    text-align: center;
 }
 
 .admin-tire-size-reg-delete:hover{
@@ -1167,12 +1179,66 @@ a {
 
 
 
+.updatecarbutton {
+	width: 130px;
+  height: 40px;
+  padding: 10px 25px;
+  border: 2px solid #000;
+  font-family: 'Lato', sans-serif;
+  top:5px;
+  font-weight: 500;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+  z-index: 2;
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+.updatecarbutton:after {
+  position: absolute;
+  content: " ";
+  z-index: -1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transition: all 0.3s ease;
+}
+.updatecarbutton:hover {
+  box-shadow:  4px 4px 6px 0 rgba(255,255,255,.5),
+              -4px -4px 6px 0 rgba(116, 125, 136, .2), 
+    inset -4px -4px 6px 0 rgba(255,255,255,.5),
+    inset 4px 4px 6px 0 rgba(116, 125, 136, .3);
+  color: #fff;
+}
+.updatecarbutton:hover:after {
+  -webkit-transform: scale(2) rotate(180deg);
+  transform: scale(2) rotate(180deg);
+  background: #000;
+  box-shadow:  4px 4px 6px 0 rgba(255,255,255,.5),
+              -4px -4px 6px 0 rgba(116, 125, 136, .2), 
+    inset -4px -4px 6px 0 rgba(255,255,255,.5),
+    inset 4px 4px 6px 0 rgba(116, 125, 136, .3);
+}
 
 
+.admin_tire_size_button{
+	width:79px;
+	margin:10px;
+	padding:5px 10px;
+	cursor: pointer;
+	color: #fff;
+    background-color: #198754;
+    border: none;
+    border-radius: 8px;
+   
+}
+.admin_tire_size_button:hover {
+	color: #fff;
+    background-color: #157347;
 
-
-
-
-
+}
 
 

@@ -10,8 +10,8 @@
 
 <link rel="stylesheet"
 	href="resources/css/admin/car/admin_car.css">
+<link rel="stylesheet" href="resources/css/admin/board/notice_board.css">
 <script src="resources/js/admin/car/admin_car.js"></script>
-
 <script type="text/javascript">
 
 
@@ -220,10 +220,10 @@ function addSize2() {
 					<tr>
 				<td style="background-color: #3399ff">타이어사이즈</td>
 <td>
-  <button type="button" onclick="addSize()">사이즈 추가</button>
+  <button type="button" onclick="addSize()" class = "admin_tire_size_button">사이즈 추가</button>
   <br>
-  
-  
+  <br>
+  <br>
   
   <div class="ftbttmstyle">
     <div class="ftstyle" style="height: 30px; width:200px; border: 1px solid white;">앞타이어</div>
@@ -232,12 +232,12 @@ function addSize2() {
   </div>
   <div id="sizeInputs">
     <div style="display: block;">
-      <div class="ftinputstyle" style="float: left;"><input style="height: 30px; width:193px;" name="c_ft" id="c_ft" class="c_ftinput"></div>
+      <div class="ftinputstyle" style="float: left;"><input style="height: 30px; width:198px;" name="c_ft" id="c_ft" class="c_ftinput"></div>
       <div class="btinputstyle" style="float: left;"><input style="height: 30px; width:193px;" name="c_bt" id="c_bt" class="c_btinput"></div>
-      <div class="tminputstyle" style="float: left;">기본 타이어입니다.</div></div>
+      <div class="tmreginputstyle" style="float: left;">기본 타이어입니다.</div></div>
     </div>
     
-  
+
     
     
 </td>
@@ -318,24 +318,23 @@ function addSize2() {
 					<tr>
 					<td style="background-color: #3399ff">타이어사이즈</td>
 	<td>
-  <button type="button" onclick="addupdateSize()">사이즈 추가</button>
-  <br>
+  <button type="button" onclick="addupdateSize()" class = "admin_tire_size_button">사이즈 추가</button>
   
+  <div id="updatesizeInputs"></div>
   
-  
-  <div class="ftbttmstyle">
+ <%-- <div class="ftbttmstyle">
     <div class="ftstyle" style="height: 30px; width:200px; border: 1px solid white;">앞타이어</div>
     <div class="btstyle" style="height: 30px; width:200px; border: 1px solid white;">뒤타이어</div>
     <div class="tmstyle" style="height: 30px; width:200px; border: 1px solid white;">관리</div>
   </div>
-  <div id="updatesizeInputs">
+  
     <div style="display: block;">
       <div class="ftinputstyle" style="float: left;"><input style="height: 30px; width:193px;" name="c_ft" id="c_ft_u" class="c_ftinput"></div>
       <div class="btinputstyle" style="float: left;"><input style="height: 30px; width:193px;" name="c_bt" id="c_bt_u" class="c_btinput"></div>
       <div class="tminputstyle" style="float: left;">기본 타이어입니다.</div></div>
     </div>
     
-  
+  --%>
     
     
 </td>

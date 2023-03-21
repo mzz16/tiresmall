@@ -17,6 +17,7 @@
 <script src="resources/js/admin/store/regvaluecheck.js"></script>
 <script src="resources/js/admin/store/updatevaluecheck.js"></script>
 <link rel="stylesheet" type="text/css" href="jquery/jquery-ui.css" />
+<link rel="stylesheet" href="resources/css/admin/board/notice_board.css">
 <link rel="stylesheet"
 	href="resources/css/admin/store/branch-findselect.css">
 
