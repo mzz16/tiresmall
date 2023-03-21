@@ -9,7 +9,7 @@ uri="http://java.sun.com/jsp/jstl/core"%>
     <title>Insert title here</title>
   </head>
   <body>
-    <div class="pay_container">
+    <form action="pay.complete" method="post" class="pay_container">
       <div class="pay_titles">
         <div class="pay_title_left">
           <h1>구매예약</h1>
@@ -66,21 +66,21 @@ uri="http://java.sun.com/jsp/jstl/core"%>
                 <div class="pay_product_right">
                   <span class="pay_product_price"><fmt:formatNumber value="${tire.ti_stock * tire.ti_pricegp}" type="currency" currencySymbol="" />원</span>
                 </div>
-                <input type="hidden" class="cart_tg_id" value="${tire.tg_id}">
-                <input type="hidden" class="cart_tg_brand" value="${tire.tg_brand}">
-                <input type="hidden" class="cart_tg_name" value="${tire.tg_name}">
-                <input type="hidden" class="cart_tg_img" value="${tire.tg_img}">
-                <input type="hidden" class="cart_tg_dcrate" value="${tire.tg_dcrate}">
-                <input type="hidden" class="cart_ti_id" value="${tire.ti_id}">
-                <input type="hidden" class="cart_ti_width" value="${tire.ti_width}">
-                <input type="hidden" class="cart_ti_ratio" value="${tire.ti_ratio}">
-                <input type="hidden" class="cart_ti_inch" value="${tire.ti_inch}">
-                <input type="hidden" class="cart_ti_stock" value="${tire.ti_stock}">
-                <input type="hidden" class="cart_ti_pricegp" value="${tire.ti_pricegp}">
-                <input type="hidden" class="cart_ti_pricefac" value="${tire.ti_pricefac}">
-                <input type="hidden" class="cart_ti_marking" value="${tire.ti_marking}">
-                <input type="hidden" class="cart_final_price" value="${tire.ti_stock * tire.ti_pricegp}" />
-                <input type="hidden" class="cart_finalFac_price" value="${tire.ti_stock * tire.ti_pricefac}"/>
+                <input type="hidden" class="pay_tg_id" value="${tire.tg_id}">
+                <input type="hidden" class="pay_tg_brand" value="${tire.tg_brand}">
+                <input type="hidden" class="pay_tg_name" value="${tire.tg_name}">
+                <input type="hidden" class="pay_tg_img" value="${tire.tg_img}">
+                <input type="hidden" class="pay_tg_dcrate" value="${tire.tg_dcrate}">
+                <input type="hidden" class="pay_ti_id" value="${tire.ti_id}">
+                <input type="hidden" class="pay_ti_width" value="${tire.ti_width}">
+                <input type="hidden" class="pay_ti_ratio" value="${tire.ti_ratio}">
+                <input type="hidden" class="pay_ti_inch" value="${tire.ti_inch}">
+                <input type="hidden" class="pay_ti_stock" value="${tire.ti_stock}">
+                <input type="hidden" class="pay_ti_pricegp" value="${tire.ti_pricegp}">
+                <input type="hidden" class="pay_ti_pricefac" value="${tire.ti_pricefac}">
+                <input type="hidden" class="pay_ti_marking" value="${tire.ti_marking}">
+                <input type="hidden" class="pay_final_price" value="${tire.ti_stock * tire.ti_pricegp}" />
+                <input type="hidden" class="pay_finalFac_price" value="${tire.ti_stock * tire.ti_pricefac}"/>
               </div>
             </c:forEach>
           </div>
@@ -89,11 +89,52 @@ uri="http://java.sun.com/jsp/jstl/core"%>
               <span>장착방법</span>
             </div>
             <ul>
-              <li>장착점 선택</li>
-              <li>장착점 주소</li>
-              <li>전화번호</li>
-              <li>영업시간</li>
-              <li>장착예정일</li>
+              <li>
+                <div>
+                  <span>장착점 선택</span>
+                </div>
+                <div>
+                  <select name="" id="">
+                    <option value="">타이어쇼핑몰</option>
+                    <option value="">타이어테크 죽동점</option>
+                    <option value="">논산 타이어쇼핑몰</option>
+                    <option value="">타이어테크 연무점</option>
+                    <option value="">타이어테크 반월점</option>
+                  </select>
+                </div>
+              </li>
+              <li>
+                <div>
+                  <span>장착점 주소</span>
+                </div>
+                <div>
+                  <span>대전광역시 서구 신갈마로 83 (갈마동)</span>
+                </div>
+              </li>
+              <li>
+                <div>
+                  <span>전화번호</span>
+                </div>
+                <div>
+                  <span>042 - 545 - 8008</span>
+                </div>
+              </li>
+              <li>
+                <div>
+                  <span>영업시간</span>
+                </div>
+                <div>
+                  <span>평일 : 08:30 ~ 19:00 / 토요일 08:30 ~ 16:00 (일요일 휴무)</span>
+                </div>
+              </li>
+              <li>
+                <div>
+                  <span>장착예정일</span>
+                </div>
+                <div>
+                  <input type="date">
+                </div>
+              </li>
             </ul>
           </div>
           <div class="pay_customerInfo">
@@ -101,21 +142,76 @@ uri="http://java.sun.com/jsp/jstl/core"%>
               <span>주문자 정보</span>
             </div>
             <ul>
-              <li>주문자명</li>
-              <li>연락처</li>
-              <li>이메일</li>
-              <li>차량정보</li>
-              <li>차량번호</li>
-              <li>기타요청</li>
+              <li>
+                <div>
+                  <span>주문자명</span>
+                </div>
+                <div>
+                  <input type="text">
+                </div>
+              </li>
+              <li>
+                <div>
+                  <span>연락처</span>
+                </div>
+                <div>
+                  <input type="text">
+                </div>
+              </li>
+              <li>
+                <div>
+                  <span>이메일</span>
+                </div>
+                <div>
+                  <input type="text">
+                </div>
+              </li>
+              <li>
+                <div>
+                  <span>차량정보</span>
+                </div>
+                <div>
+                  <select name="" id="">
+                    <option value="">2023</option>
+                  </select>
+                  <select name="" id="">
+                    <option value="">현대</option>
+                  </select>
+                  <select name="" id="">
+                    <option value="">그랜절</option>
+                  </select>
+                </div>
+              </li>
+              <li>
+                <div>
+                  <span>차량번호</span>
+                </div>
+                <div>
+                  <input type="text">
+                </div>
+              </li>
+              <li>
+                <div>
+                  <span>기타요청</span>
+                </div>
+                <div>
+                  <input type="text">
+                </div>
+              </li>
             </ul>
           </div>
           <div class="pay_payInfo">
             <div class="pay_subtitles">
               <span>결제 정보</span>
             </div>
+            <div>
+              <input type="radio" name="payMethod" checked>
+              <label>현장결제</label>
+              <input type="radio" name="payMethod">
+              <label>무통장</label>
+            </div>
             <ul>
-              <li>무통장</li>
-              <li>현장결제</li>
+              <li>안전운전하세요</li>
             </ul>
           </div>
         </div>
@@ -140,6 +236,6 @@ uri="http://java.sun.com/jsp/jstl/core"%>
           </div>
         </div>
       </div>
-    </div>
+    </form>
   </body>
 </html>
