@@ -59,6 +59,7 @@ $('.order_modal_go').click(function() {
 		// modal_content_td[i].innerText = val;
 	});
 
+
 	// console.log(arr);
 	modal_content_td[0].innerText = arr[0];
 	modal_content_td[1].innerText = arr[9];
