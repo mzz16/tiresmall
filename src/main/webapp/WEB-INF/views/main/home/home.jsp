@@ -163,9 +163,9 @@ pageEncoding="UTF-8"%>
       </section>
     </div>
     <c:if test="${!empty events}">
-	    <dialog class="board_event_modal_dialog">
-			  <jsp:include page="${eventModal}"></jsp:include>
-		  <dialog>
+		<dialog class="board_event_modal_dialog">
+			<jsp:include page="${eventModal}"></jsp:include>
+		<dialog>
     </c:if>
     <script src="resources/js/main/home/main_home.js"></script>
   </body>
