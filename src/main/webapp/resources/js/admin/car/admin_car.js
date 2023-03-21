@@ -17,6 +17,8 @@ $(document).ready(
 					function(event) {
 						if (event.target.className == 'close'
 								|| event.target.className == 'backon') {
+							 $(".preview-image .upload-thumb").attr("src", "");
+							    $(".fileinputstyle").text("");
 							$("#carregpopup01").hide(); // close버튼 이거나 뒷배경 클릭시
 														// 팝업 삭제
 							$(".backon").hide();
@@ -55,6 +57,8 @@ function deletecar(carrr) {
 
 }
 
+
+
 function updatecar(id, name, year1, year2, option, brand, ft, bt, print, c_file) {
 
 	// c_bta_u나 c_fta_u에 값이 들어있는 경우
@@ -73,6 +77,8 @@ function updatecar(id, name, year1, year2, option, brand, ft, bt, print, c_file)
 						function(event) {
 							if (event.target.className == 'close'
 									|| event.target.className == 'backon') {
+								 $(".preview-image .update-upload-thumb").attr("src", "");
+								    $(".updatefileinputstyle").text("");
 								$("#updatecarpopup01").hide(); // close버튼 이거나
 																// 뒷배경 클릭시 팝업 삭제
 								$(".backon").hide();
@@ -88,7 +94,7 @@ function updatecar(id, name, year1, year2, option, brand, ft, bt, print, c_file)
 	$('#c_print_u').val(print);
 	$('#c_option_u').val(option);
 	$('#c_brand_u').val(brand);
-	$('#c_file_u').val(c_file);
+	$('.updatefileinputstyle').html(c_file);
 	$('#c_file_u').attr('readonly', true);
 	
 	 //...
@@ -137,6 +143,7 @@ function updatecb1(name, order) {
 						function(event) {
 							if (event.target.className == 'close'
 									|| event.target.className == 'backon') {
+								
 								$("#updatebrandpopup01").hide(); // close버튼
 																	// 이거나 뒷배경
 																	// 클릭시 팝업 삭제
@@ -208,3 +215,40 @@ function addupdateSize() {
 	    });
 	  }
 	}
+
+function previewImagereg(event) {
+	  var input = event.target;
+	  var preview = document.querySelector('.preview-image .upload-thumb');
+	  var filename = input.files[0].name;
+	  var fileinputstyle = document.querySelector('.fileinputstyle');
+
+	  if (input.files && input.files[0]) {
+	    var reader = new FileReader();
+	    reader.onload = function(event) {
+	      preview.src = event.target.result;
+	    }
+	    reader.readAsDataURL(input.files[0]);
+	  }
+
+	  fileinputstyle.textContent = filename;
+	
+	}
+
+function previewImage(event) {
+	  var input = event.target;
+	  var preview = document.querySelector('.preview-image .update-upload-thumb');
+	  var filename = input.files[0].name;
+	  var fileinputstyle = document.querySelector('.updatefileinputstyle');
+
+	  if (input.files && input.files[0]) {
+	    var reader = new FileReader();
+	    reader.onload = function(event) {
+	      preview.src = event.target.result;
+	    }
+	    reader.readAsDataURL(input.files[0]);
+	  }
+
+	  fileinputstyle.textContent = filename;
+	
+	}
+

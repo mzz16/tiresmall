@@ -106,6 +106,7 @@ select {
 	box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 	cursor: pointer;
 	transition: all 0.3s ease-in-out;
+	margin-right:20px; 
 }
 
 .car-findareabutton:hover {
@@ -115,31 +116,85 @@ select {
 }
 
 .carRegButton {
-	width: 200px;
-	font-size: 16px;
-	font-weight: 600;
-	color: #fff;
-	cursor: pointer;
-	margin: 20px;
-	height: 55px;
-	text-align: center;
+ 
+	display: flex;
+	background-color: #5F5F5F;
+	color: #FFFFFF;
 	border: none;
-	background-size: 300% 100%;
+	padding: 10px 20px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	margin-top: 20px;
+	margin-left: 20px;
+	margin-right: 20px;
+	font-size: 16px;
+	font-weight: bold;
 	border-radius: 50px;
-	moz-transition: all .4s ease-in-out;
-	-o-transition: all .4s ease-in-out;
-	-webkit-transition: all .4s ease-in-out;
-	transition: all .4s ease-in-out;
-	background-image: linear-gradient(to right, #25aae1, #4481eb, #04befe, #3f86ed);
-	box-shadow: 0 4px 15px 0 rgba(65, 132, 234, 0.75);
+	box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+	cursor: pointer;
+	transition: all 0.3s ease-in-out;
 }
 
 .carRegButton:hover {
-	background-position: 100% 0;
-	moz-transition: all .4s ease-in-out;
-	-o-transition: all .4s ease-in-out;
-	-webkit-transition: all .4s ease-in-out;
-	transition: all .4s ease-in-out;
+	background-color: #FFFFFF;
+	color: #5F5F5F;
+	box-shadow: 0 5px 10px rgba(0, 0, 0, 0.4);
+}
+
+.carregokbutton1{
+	
+display: flex;
+	background-color: #5F5F5F;
+	color: #FFFFFF;
+	border: none;
+	padding: 10px 20px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	margin-top: 20px;
+	margin-left: 20px;
+	margin-right: 20px;
+	font-size: 16px;
+	font-weight: bold;
+	border-radius: 50px;
+	box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+	cursor: pointer;
+	transition: all 0.3s ease-in-out;
+}
+
+.carregokbutton1:hover {
+	background-color: #FFFFFF;
+	color: #5F5F5F;
+	box-shadow: 0 5px 10px rgba(0, 0, 0, 0.4);
+}
+
+
+.updatecarokbutton1{
+	
+display: flex;
+	background-color: #5F5F5F;
+	color: #FFFFFF;
+	border: none;
+	padding: 10px 20px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	margin-top: 20px;
+	margin-left: 20px;
+	margin-right: 20px;
+	font-size: 16px;
+	font-weight: bold;
+	border-radius: 50px;
+	box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+	cursor: pointer;
+	transition: all 0.3s ease-in-out;
+}
+
+.updatecarokbutton1:hover {
+	background-color: #FFFFFF;
+	color: #5F5F5F;
+	box-shadow: 0 5px 10px rgba(0, 0, 0, 0.4);
 }
 
 .carRegButton1 {
@@ -293,6 +348,25 @@ select {
 	text-align: center;
 	border: 1px solid gray;
 	line-height: 30px;
+}
+.fileinputstyle{
+  text-align: center;
+  border: 1px solid gray;
+  line-height: 35px;
+  margin-bottom: 20px;
+  height: 36px;
+ 	width:199px;
+ 	margin-left: 30px;
+}
+
+.updatefileinputstyle{
+  text-align: center;
+  border: 1px solid gray;
+  line-height: 35px;
+  margin-bottom: 20px;
+  height: 36px;
+ 	width:199px;
+ 	margin-left: 30px;
 }
 
 .btinputstyle {
@@ -1225,9 +1299,9 @@ a {
 
 
 .admin_tire_size_button{
-	width:79px;
-	margin:10px;
-	padding:5px 10px;
+	width:100px;
+	margin:0px;
+	padding:10px 3px;
 	cursor: pointer;
 	color: #fff;
     background-color: #198754;
@@ -1241,4 +1315,76 @@ a {
 
 }
 
+.modal_table td {
+	border: 1px solid black;
 
+}
+
+
+
+
+.upload-thumb {
+  max-width: 100px;
+  margin-top: 10px;
+}
+
+
+.update-upload-thumb {
+  max-width: 100px;
+  margin-top: 10px;
+}
+
+
+
+.admin-tire-img-container{
+	display: flex;
+	width: 100%;
+	margin: 10px;
+}
+.admin-tire-img-contain{
+	width: 49%;	
+}
+.admin-tire-img-title{
+	display:flex;
+	justify-content:center;
+	align-items:center;
+	color: #fff;
+	background: #6b6b6b;
+	border: 2px solid #6b6b6b;
+	min-height: 50px;
+}
+.admin-tire-img-content{
+	border: 2px solid #6b6b6b;
+	min-height: 50px;
+	display: flex;
+    justify-content:center;
+    align-items: center;
+}
+
+
+
+.custom-file-upload {
+  display: inline-block;
+  padding: .5em .75em;
+  color: #999;
+  font-size: inherit;
+  line-height: normal;
+  vertical-align: middle;
+  background-color: #fdfdfd;
+  cursor: pointer;
+  border: 1px solid #ebebeb;
+  border-bottom-color: #e2e2e2;
+  border-radius: .25em;
+}
+
+.custom-file-upload:hover {
+  background-color: #e6e6e6;
+}
+
+.custom-file-upload:active {
+  background-color: #d9d9d9;
+}
+
+.custom-file-upload input[type="file"] {
+  display: none;
+}

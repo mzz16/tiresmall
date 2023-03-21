@@ -169,11 +169,25 @@
 					</tr>
 					<tr>
 						<td style="background-color: #0ec492">사진</td>
-						<td><input type="file" name="file"></td>
-					</tr>
+						<td>
+						
+    <div class="preview-image" style="float: left;">
+      <div class="upload-display" style="float: left;">
+        <div class="upload-thumb-wrap" style="float: left;"><img class="upload-thumb"></div>
+      </div>
+    </div>
+    <div class="fileinputstyle" style="float: left; margin-top: 20px;">없음</div>
+    <label class="custom-file-upload" style="margin-top: 20px;">
+      <input type="file" name="file" onchange="previewImagereg(event)">
+      파일 선택
+    </label>
+  </td>
+</tr>
+						
+					
 					<tr>
 						<td style="background-color: #0ec492">임시 id</td>
-						<td><input name="b_id" id="inputid"></td>
+						<td><input name="b_id" id="inputid" style = "width:180px; height: 30px;"></td>
 					</tr>
 
 
@@ -188,22 +202,22 @@
 
 					<tr>
 						<td style="background-color: #0ec492">장착점명</td>
-						<td><input name="b_name" id="inputname"></td>
+						<td><input name="b_name" id="inputname" style = "width:180px; height: 30px;"></td>
 					</tr>
 
 					<tr>
 						<td style="background-color: #0ec492">상세주소</td>
-						<td><input name="b_addr" id="inputaddr"></td>
+						<td><input name="b_addr" id="inputaddr" style = "width:400px; height: 30px;"></td>
 					</tr>
 
 					<tr>
 						<td style="background-color: #0ec492">영업시간</td>
-						<td><input name="b_time" id="inputregtime"></td>
+						<td><input name="b_time" id="inputregtime" style = "width:400px; height: 30px;"></td>
 					</tr>
 
 					<tr>
 						<td style="background-color: #0ec492">취급서비스</td>
-						<td><input name="b_service" id="service"></td>
+						<td><input name="b_service" id="service" style = "width:400px; height: 30px;"></td>
 					</tr>
 
 					<tr>
@@ -213,8 +227,8 @@
 
 					<tr>
 						<td style="background-color: #0ec492">연락처명</td>
-						<td>담당자명 <input name="b_manager"> 전화번호 <input
-							name="b_managernumber"></td>
+						<td>담당자명 <input name="b_manager" style = "width:180px; height: 30px;"> 전화번호 <input
+							name="b_managernumber" style = "width:180px; height: 30px;"></td>
 					</tr>
 
 					<tr>
@@ -342,8 +356,22 @@
 
 							</div></td>
 					<tr>
-						<td style="background-color: #0ec492">취급서비스</td>
-						<td><input type="file" name="file"></td>
+						<td style="background-color: #0ec492">대표이미지</td>
+						<td>
+						
+    <div class="preview-image" style="float: left;">
+      <div class="upload-display" style="float: left;">
+        <div class="upload-thumb-wrap" style="float: left;"><img class="update-upload-thumb"></div>
+      </div>
+    </div>
+    <div class="updatefileinputstyle" style="float: left; margin-top: 20px;"></div>
+    <label class="custom-file-upload" style="margin-top: 20px;">
+      <input type="file" name="file" onchange="previewImage(event)">
+      파일 선택
+    </label>
+  
+						
+						</td>
 					</tr>
 					<tr>
 						<td colspan=2><div class="updateokbutton">

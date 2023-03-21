@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>차종 브랜드 관리 페이지</title>
 <link rel="stylesheet"
 	href="resources/css/admin/car/admin_car_brand.css">
 	
@@ -116,13 +116,13 @@
 				<tr>
 					<td style="background-color: #3399ff">브랜드 명</td>
 					<td><input name="old_cb_name" id="cb_name_u" type="hidden">
-					<input name="new_cb_name" id="cb_name_n">
+					<input name="new_cb_name" id="cb_name_n" style = "width:180px; height: 30px;">
 					
 					</td>
 					</tr>
 					<tr>
 					<td style="background-color: #3399ff">표시순서</td>
-					<td><input name="cb_order" id="cb_order_u"></td>
+					<td><input name="cb_order" id="cb_order_u" style = "width:180px; height: 30px;"></td>
 					
 		
 					</tr>
