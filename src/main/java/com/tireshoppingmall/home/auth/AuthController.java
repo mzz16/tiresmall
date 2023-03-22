@@ -242,7 +242,7 @@ public class AuthController {
         	mDAO.loginCheck(req);   
         	model.addAttribute("content", "main/home/home.jsp");
             return "redirect:/"; //본인 원하는 경로 설정
-		}else {
+		} else {
 			//회원가입 성공하면
 			if (lsDAO.regMemberSocial(req,mDTO)) {
 				lsDAO.login(id,req);
@@ -252,9 +252,7 @@ public class AuthController {
 			}
 			req.setAttribute("content", "main/home/home.jsp");
 			return "redirect:/"; //본인 원하는 경로 설정}
-			
 		}
-        
     }
 
 
