@@ -158,7 +158,11 @@ uri="http://java.sun.com/jsp/jstl/fmt"%>
           <c:choose>
             <c:when test="${not empty sessionScope.loginMember.i_name}">
               <ul class="pay_customerInfo">
-                <input type="hidden" name="o_sortation" value="0" />
+                <input
+                  type="hidden"
+                  name="o_sortation"
+                  value="${sessionScope.loginMember.u_no}"
+                />
                 <li>
                   <div>
                     <span>주문자명</span>
