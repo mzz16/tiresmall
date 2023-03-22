@@ -73,11 +73,19 @@ public class AuthController {
 	}
 	@RequestMapping(value = "/login.do", method = RequestMethod.POST)
 	public String loginDo(MemberDTO mDTO, HttpServletRequest req) {
-		
 		mDAO.login(mDTO,req);
-		mDAO.loginCheck( req);
-		req.setAttribute("content", "main/home/home.jsp");
-		return "index";
+		mDAO.loginCheck(req);
+		
+		// 로그인페이지를통하여들어온경우:	로그인후에 홈화면으로
+		if (req.getSession().getAttribute("loginRequiredByAsk") == null) {
+			req.setAttribute("content", "main/home/home.jsp");
+			return "index";
+		// 1:1문의페이지를통하여들어온경우:	로그인후에 1:1문의화면으로
+		} else {
+			req.getSession().setAttribute("loginRequiredByAsk", null);	
+			return "redirect: board.ask.readall.check";
+		}
+		
 	}
 	@RequestMapping(value = "/logout.do", method = RequestMethod.GET)
 	public String logoutDo(MemberDTO mDTO, HttpServletRequest req) {

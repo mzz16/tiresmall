@@ -1,8 +1,10 @@
 package com.tireshoppingmall.home.auth;
 
+import java.math.BigDecimal;
+
 public class AuthUserDTO {
 
-	private int u_no;
+	private String u_no;
 	private String u_id;
 	private int u_logintype;
 	private String i_name;
@@ -13,13 +15,17 @@ public class AuthUserDTO {
 	private String i_caryear;
 	private String i_carnum;
 	
+	// 1:1문의 페이징관련
+	private BigDecimal begin;
+	private BigDecimal last;
+	
 	public AuthUserDTO() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public AuthUserDTO(int u_no, String u_id, int u_logintype, String i_name, String i_phoneNum, String i_email,
-			String i_carbrand, String i_carname, String i_caryear, String i_carnum) {
+	public AuthUserDTO(String u_no, String u_id, int u_logintype, String i_name, String i_phoneNum, String i_email,
+			String i_carbrand, String i_carname, String i_caryear, String i_carnum, BigDecimal begin, BigDecimal last) {
 		super();
 		this.u_no = u_no;
 		this.u_id = u_id;
@@ -31,15 +37,15 @@ public class AuthUserDTO {
 		this.i_carname = i_carname;
 		this.i_caryear = i_caryear;
 		this.i_carnum = i_carnum;
+		this.begin = begin;
+		this.last = last;
 	}
 
-
-
-	public int getU_no() {
+	public String getU_no() {
 		return u_no;
 	}
 
-	public void setU_no(int u_no) {
+	public void setU_no(String u_no) {
 		this.u_no = u_no;
 	}
 
@@ -114,9 +120,24 @@ public class AuthUserDTO {
 	public void setI_carnum(String i_carnum) {
 		this.i_carnum = i_carnum;
 	}
+
+	public BigDecimal getBegin() {
+		return begin;
+	}
+
+	public void setBegin(BigDecimal begin) {
+		this.begin = begin;
+	}
+
+	public BigDecimal getLast() {
+		return last;
+	}
+
+	public void setLast(BigDecimal last) {
+		this.last = last;
+	}
+
 	
-	
-	
-	
-	
+
+
 }

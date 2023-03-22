@@ -29,22 +29,24 @@
 			<span>총 ${theNumber }개 상품이 검색 되었습니다. </span>
 			<div id="product_search_type">
 				<input name="carTypeA" type="radio" value=""> 전체 타입
-				<input name="carTypeA" type="radio" value="1"> 승용차
-				<input name="carTypeA" type="radio" value="0"> SUV
+				<input name="carTypeA" type="radio" value="sedan"> 승용차
+				<input name="carTypeA" type="radio" value="suv"> SUV
 			</div>
 		</div>
 		<div id="product_container">
 			<c:forEach items="${pGroups }" var="pGroup">
 				<a href="product.detail?tg_id=${pGroup.tg_id }">
 					<div class="product_item">
-						<div class="product_item_hidden"></div>
+						<div class="product_item_hidden">
+							<div class="product_item_hidden product_img_border"></div>
+						</div>
 						<div class="product_item_img">
 						<c:choose>
 							<c:when test="${pGroup.tg_img eq 'noimg'}">
 								<img src="resources/web/main/product/no-tire-image.jpg">
 							</c:when>
 							<c:otherwise>
-								<img src="${pGroup.tg_img }"> <!-- 타이어 등록 기능 되면 경로지정 -->
+								<img src="resources/web/main/tire/${pGroup.tg_img }"> <!-- 타이어 등록 기능 되면 경로지정 -->
 							</c:otherwise>					
 						</c:choose>
 						</div>
@@ -52,60 +54,92 @@
 							<p>${pGroup.tg_brand }</p>
 							<p class="item_title_p">${pGroup.tg_name }</p>
 						</div>
-						<div class="product_item_text">${pGroup.tg_text }</div>
 						<div class="product_item_size">${pGroup.minInch }인치  ~ ${pGroup.maxInch }인치</div>
 						<div class="product_item_price">
-							￦<fmt:formatNumber type="currency" currencySymbol="">
-								${pGroup.minPrice }
-							</fmt:formatNumber>
-								~ ￦<fmt:formatNumber type="currency" currencySymbol="">
-								${pGroup.maxPrice }
-							</fmt:formatNumber>
+								<input type="hidden" class="pl_dcRate" value="${pGroup.tg_dcrate}">
+							￦ <span class="pl_minPriceSpan">${pGroup.minPrice }</span>
+								<input type="hidden" class="pl_minPrice" value="${pGroup.minPrice}">
+								~ ￦  <span class="pl_maxPriceSpan">${pGroup.maxPrice }</span>
+								<input type="hidden" class="pl_maxPrice" value="${pGroup.maxPrice}">
 						</div>
 						<div class="product_item_detail"><i class="fa-solid fa-magnifying-glass"></i>상세보기</div>
 					</div>
 				</a>
 			</c:forEach>
 		</div>
-		<div id="product_wrap_paging" class="paginationjs paginationjs-theme-red paginationjs-big">
-			<div class="paginationjs-pages">
-				<ul>
+		
+		<div id="product_paging">
+			<div></div>
+			
+			<div class="product_pagingButtons">
+				<c:choose>
+					<c:when test="${curPage != 1 }">
+						<div>
+							<a href="javascript:movePage(1)"><i class="fa-solid fa-angles-left"></i></a>
+						</div>
+						<div>
+							<a href="javascript:movePage(${curPage - 1 })"><i class="fa-solid fa-chevron-left"></i></a>
+						</div>
+					</c:when>
+					<c:otherwise>
+						<div>
+							<i class="fa-solid fa-angles-left" style="color:lightgray"></i>
+						</div>
+						<div>
+							<i class="fa-solid fa-chevron-left" style="color:lightgray"></i>
+						</div>
+					</c:otherwise>
+				</c:choose>
+				
+				<%--
+				<c:forEach var="page" begin="${begin }" end="${end }">
+				 --%>
+				<%--
+				 --%>
+				<c:forEach var="page" begin="1" end="${pageCount }">
 					<c:choose>
-						<c:when test="${curPage eq 1}">
-							<li class="paginationjs-prev disabled"><a>«</a></li>
+						<c:when test="${page == curPage }">
+							<div class="product_pagingButtons_selected">
+								<a href="javascript:movePage(${page })" style="color: #fff;">${page }</a>
+							</div>
 						</c:when>
 						<c:otherwise>
-							<li class="paginationjs-prev J-paginationjs-previous"><a href="javascript:movePage(1)">«</a></li>
+							<div>
+								<a href="javascript:movePage(${page })">${page }</a>
+							</div>
 						</c:otherwise>
 					</c:choose>
-					<c:forEach var="pNum" begin="1" end="${pageCount }">
-						<c:choose>
-							<c:when test="${pNum eq curPage}">
-								<li class="paginationjs-page J-paginationjs-page active" ><a href="javascript:movePage(${pNum })">${pNum }</a></li>
-							</c:when>
-							<c:otherwise>
-								<li class="paginationjs-page J-paginationjs-page" ><a href="javascript:movePage(${pNum })">${pNum }</a></li>
-							</c:otherwise>
-						</c:choose>
-					</c:forEach>
-					<c:choose>
-						<c:when test="${curPage eq pageCount}">
-							<li class="paginationjs-next disabled"><a>»</a></li>
-						</c:when>
-						<c:otherwise>
-							<li class="paginationjs-next J-paginationjs-next"><a href="javascript:movePage(${pageCount })">»</a></li>
-						</c:otherwise>
-					</c:choose>
-				</ul>
+				</c:forEach>
+				
+				<c:choose>
+					<c:when test="${curPage != pageCount and pageCount != 0}">
+						<div>
+							<a href="javascript:movePage(${curPage + 1 })"><i class="fa-solid fa-chevron-right"></i></a>
+						</div>
+						<div>
+							<a href="javascript:movePage(${pageCount })"><i class="fa-solid fa-angles-right"></i></a>
+						</div>
+					</c:when>
+					<c:otherwise>
+						<div>
+							<i class="fa-solid fa-chevron-right" style="color:lightgray"></i>
+						</div>
+						<div>
+							<i class="fa-solid fa-angles-right" style="color:lightgray"></i>
+						</div>
+					</c:otherwise>
+				</c:choose>
 			</div>
+			<div></div>
 		</div>
+		
 		
 		<div id="product_nav">
 			<div class="product_nav_brand">
 				<a href="product.brand?b=&p=1">
 					<div id="product_brand_all">All</div>
 				</a>
-				<div class="product_nav_brandNameBadge">전체 조회</div>
+				<div class="product_nav_brandNameBadge">모든 브랜드</div>
 			</div>
 			<div class="product_nav_brand">
 				<a href="product.brand?b=넥센&p=1">

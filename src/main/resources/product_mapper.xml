@@ -5,9 +5,17 @@
 		select count(*)
         from tire_group
         where tg_brand like '%'||#{search}||'%'
-        <if test="search2 != ''">
-        	and tg_sedan = #{search2}
+        <if test="search3 != ''">
+        	<choose>
+        		<when test="search2 != ''">
+	        		and tg_${search2} &gt;= #{search3}
+        		</when>
+        		<otherwise>
+        			and (tg_sedan &gt;= #{search3} or tg_suv &gt;= #{search3})
+        		</otherwise>
+       		</choose>
         </if>
+        order by tg_id 
 	</select>
 	<select id="getProductGroup" resultType="com.tireshoppingmall.home.product.ProductGroupDTO">
 		select *
@@ -16,9 +24,17 @@
                 from (
                     select * from tire_group
                 where tg_brand like '%'||#{search}||'%'
-                <if test="search2 != ''">
-	               and tg_sedan = #{search2}
-                </if>
+                <if test="search3 != ''">
+	                <choose>
+		        		<when test="search2 != ''">
+			        		and tg_${search2} &gt;= #{search3}
+		        		</when>
+		        		<otherwise>
+		        			and (tg_sedan &gt;= #{search3} or tg_suv &gt;= #{search3})
+		        		</otherwise>
+	        		</choose>
+        		</if>
+                order by tg_id
             )
         )
         where rn &gt;= #{start} and rn &lt;= #{end}	

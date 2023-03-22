@@ -40,7 +40,9 @@ uri="http://java.sun.com/jsp/jstl/core" %>
               <c:choose>
                 <c:when test="${not empty sessionScope.loginMember.i_name}">
                   <a>${sessionScope.loginMember.i_name}님 안녕하세요!</a>
-                  <a onclick="location.href='logout.do'">로그아웃</a>
+                  <a class="index_logIn" onclick="location.href='logout.do'"
+                    >로그아웃</a
+                  >
                 </c:when>
                 <c:otherwise>
                   <a class="index_logIn" href="login">로그인</a>
@@ -160,7 +162,9 @@ uri="http://java.sun.com/jsp/jstl/core" %>
             <li class="index_dropMenu_menu">
               <div class="index_dropMenu_txt">
                 <a class="index_dropBoard_a" href="board.faq">FAQ</a>
-                <a class="index_dropBoard_a" href="board.ask">1:1 문의</a>
+                <a class="index_dropBoard_a" href="board.ask.readall.check"
+                  >1:1 문의</a
+                >
                 <a class="index_dropBoard_a" href="board.notice">공지사항</a>
                 <a class="index_dropBoard_a" href="board.event">이벤트</a>
               </div>
@@ -208,6 +212,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
     </div>
     <script src="https://code.jquery.com/jquery-latest.min.js"></script>
     <script src="resources/js/index.js"></script>
+    <script src="resources/js/main/order/cart.js"></script>
     <script src="resources/js/main/search/main_search.js"></script>
     <script src="resources/js/main/board/main_board_kakao.js"></script>
     <script src="resources/js/main/board/main_board_whereAmI.js"></script>
