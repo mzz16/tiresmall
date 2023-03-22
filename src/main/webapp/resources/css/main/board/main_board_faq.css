@@ -36,6 +36,12 @@
 	grid-area: fc_g;
 	border-right: 1px solid #ddd;
 }
+/*
+.board_faq_column > div > a {
+	width: 100%;
+	height: 100%;
+}
+*/
 
 
 
