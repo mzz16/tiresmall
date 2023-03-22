@@ -75,10 +75,12 @@ $(function() {
 					$('.tire-items').empty();
 					
 					if(data.tires[0] == undefined) {
-						$('tire-items').append($('tire-search-fail').first().clone());
+						$('.tire-items').css('display','none');
+						$('.tire-items').append($('tire-search-fail').first().clone());
 						$('.searchResultContainer').css('display','block');
 						$('.tire-search-fail').css('display','block');
 					} else {
+						$('.tire-items').css('display','grid');
 						$('.tire-search-fail').css('display','none');
 					}
 				
@@ -104,11 +106,9 @@ $(function() {
 						
 						$('.tire-items').append(itemDIV);
 						
-						
 					
-					
-					$('.show').css('display','flex');
-					$('.searchResultContainer').css('display','block');
+						$('.show').css('display','flex');
+						$('.searchResultContainer').css('display','block');
 									
 				});
 				}

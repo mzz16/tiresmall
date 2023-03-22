@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -157,7 +158,13 @@ pageEncoding="UTF-8"%>
 	
 	<!-- 검색결과가 있을 경우 복사 될 태그 -->
 	<div class="tire-item">
-		<div class="tire-img">타이어이미지</div>
+		<div class="tire-hidden">
+			<div class="tire-hidden tire-img-border"></div>
+		</div>
+		<div class="tire-img"></div>
+	</div>
+	
+	<!-- <div class="tire-img">타이어이미지</div>
 		<div class="tire-info">
 			<div class="tire-brand">타이어 브랜드</div>
 			<div class="tire-name">타이어이름</div>
@@ -167,12 +174,11 @@ pageEncoding="UTF-8"%>
 				<div class="tire-info-ratio">ratio123</div>&nbsp;/&nbsp; 
 				<div class="tire-info-inch">inch123</div>&nbsp;
 			</div>
-		</div>
-	</div>
+		</div> -->
+	
 	
 	<!-- 검색된 결과를 담을 DIV -->
 	<div class="tire-items">
-			
 	</div>
 	
 </body>
