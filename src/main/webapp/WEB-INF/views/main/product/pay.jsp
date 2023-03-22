@@ -168,7 +168,11 @@ uri="http://java.sun.com/jsp/jstl/fmt"%>
                     <span>주문자명</span>
                   </div>
                   <div>
-                    <input type="text" name="o_name" />
+                    <input
+                      type="text"
+                      name="o_name"
+                      value="${sessionScope.loginMember.i_name}"
+                    />
                   </div>
                 </li>
                 <li>
@@ -176,7 +180,11 @@ uri="http://java.sun.com/jsp/jstl/fmt"%>
                     <span>연락처</span>
                   </div>
                   <div>
-                    <input type="text" name="o_phone" />
+                    <input
+                      type="text"
+                      name="o_phone"
+                      value="${sessionScope.loginMember.i_phoneNum}"
+                    />
                   </div>
                 </li>
                 <li>
@@ -184,7 +192,11 @@ uri="http://java.sun.com/jsp/jstl/fmt"%>
                     <span>이메일</span>
                   </div>
                   <div>
-                    <input type="text" name="o_email" />
+                    <input
+                      type="text"
+                      name="o_email"
+                      value="${sessionScope.loginMember.i_email}"
+                    />
                   </div>
                 </li>
                 <li>
@@ -198,8 +210,8 @@ uri="http://java.sun.com/jsp/jstl/fmt"%>
                     <select name="o_carbrand">
                       <option value="현대">현대</option>
                     </select>
-                    <select name="o_canumber">
-                      <option value="">그랜절</option>
+                    <select name="o_carname">
+                      <option value="그랜절">그랜절</option>
                     </select>
                   </div>
                 </li>
@@ -208,7 +220,11 @@ uri="http://java.sun.com/jsp/jstl/fmt"%>
                     <span>차량번호</span>
                   </div>
                   <div>
-                    <input type="text" name="o_carnumber" />
+                    <input
+                      type="text"
+                      name="o_carnumber"
+                      value="${sessionScope.loginMember.i_carnum}"
+                    />
                   </div>
                 </li>
                 <li>
@@ -259,8 +275,8 @@ uri="http://java.sun.com/jsp/jstl/fmt"%>
                     <select name="o_carbrand">
                       <option value="현대">현대</option>
                     </select>
-                    <select name="o_canumber">
-                      <option value="">그랜절</option>
+                    <select name="o_carname">
+                      <option value="그랜절">그랜절</option>
                     </select>
                   </div>
                 </li>
@@ -310,6 +326,8 @@ uri="http://java.sun.com/jsp/jstl/fmt"%>
               <h2 class="pay_nav_name">총 결제 금액</h2>
               <span class="pay_nav_value"></span>
             </div>
+            <input type="hidden" name="o_deliverymethod" value="직영점" />
+            <input type="hidden" name="o_step" value="결제대기" />
             <button class="pay_nav_pay">결제하기</button>
           </div>
         </div>

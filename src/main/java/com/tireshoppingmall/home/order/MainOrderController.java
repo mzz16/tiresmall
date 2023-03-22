@@ -7,10 +7,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.tireshoppingmall.home.auth.AuthUserDTO;
+import com.tireshoppingmall.home.auth.MemberDAO;
+
 
 @Controller
 public class MainOrderController {
-	
 	@Autowired
 	MainOrderDAO mODAO;
 	
@@ -23,6 +25,7 @@ public class MainOrderController {
 	@RequestMapping(value = "/pay.complete", method = RequestMethod.POST)
 	public String completePay(HttpServletRequest req, MainOrderDTO mODTO) {
 		System.out.println(mODTO);
+		mODAO.setValues(req, mODTO);
 		req.setAttribute("content", "main/product/complete.jsp");
 		return "index";
 	}
