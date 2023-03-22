@@ -207,7 +207,12 @@ function loadPrices(){
 
 // paging 함수
 function movePage(pageNumber){
-	location.href=location.href.substring(0,location.href.lastIndexOf('p')+2) + pageNumber + location.href.substring(location.href.lastIndexOf('p')+3)
+	var urlBeforeParam = location.href.substr(0,location.href.lastIndexOf('?')+1);
+	var paramsOfUrl = location.href.substr(location.href.lastIndexOf('?')+1);
+	var params = new URLSearchParams(paramsOfUrl);
+	params.set('p', pageNumber)
+	paramsOfUrl=params.toString();
+	location.href=urlBeforeParam+paramsOfUrl
 }
 
 // type별 조회시 paging하는 함수 
