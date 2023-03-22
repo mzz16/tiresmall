@@ -99,7 +99,7 @@ $(function() {
 						$(itemDIV).find(".tire-img").text(getImg);
 						$(itemDIV).find(".tire-brand").text(getBrand);
 						$(itemDIV).find(".tire-name").text(getName);
-						$(itemDIV).find(".tire-price").text("판매가 : " + getPrice + "원");
+						$(itemDIV).find(".tire-price").text(" ￦  " + getPrice + "원");
 						$(itemDIV).find(".tire-info-width").text(getWidth);
 						$(itemDIV).find(".tire-info-ratio").text(getRatio);
 						$(itemDIV).find(".tire-info-inch").text(getInch);

@@ -6,6 +6,7 @@ pageEncoding="UTF-8"%>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
 <link rel="stylesheet" href="resources/css/main/search/main_search.css" />
 <script src="https://code.jquery.com/jquery-3.6.3.js"
 	integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM="
@@ -162,6 +163,19 @@ pageEncoding="UTF-8"%>
 			<div class="tire-hidden tire-img-border"></div>
 		</div>
 		<div class="tire-img"></div>
+		<div class="tire-info">
+			<p class="tire-brand"></p>
+			<p class="tire-name"></p>
+		</div>
+		<div class="tire-info-size">
+			<div class="tire-info-width">width123</div>&nbsp;/&nbsp;
+			<div class="tire-info-ratio">ratio123</div>&nbsp;/&nbsp; 
+			<div class="tire-info-inch">inch123</div>&nbsp;
+		</div>
+		<div class="tire-price"></div>
+		<div class="tire-detail-go">
+			<i class="fa-solid fa-magnifying-glass"></i>상세보기
+		</div>
 	</div>
 	
 	<!-- <div class="tire-img">타이어이미지</div>

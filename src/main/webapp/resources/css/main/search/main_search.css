@@ -144,6 +144,23 @@
     position: relative;
 }
 
+.tire-item:hover .tire-hidden {
+	display: block;
+}
+
+.tire-item:hover .tire-info p:nth-child(2){
+	text-decoration: underline;
+}
+
+.tire-item:hover .tire-detail-go{
+	background-color: #AB1E21;
+	color: white;
+}
+
+.tire-img {
+	width: 100%;
+}
+
 .tire-img-border {
 	position: absolute;
     top: 5px;
@@ -154,21 +171,14 @@
     background-color: rgba(255,255,255,0.1);
 }
 
-.tire-img {
-	width: 240px;
-	height: 240px;
-}
-
 .tire-info {
-	display: flex;
-	flex-direction: column;
-	margin: auto 30px;
-	width: 960px;
+	text-align: center;
+    width: 270px;
 }
 
 .tire-info-size {
+	font-size: 15pt;
 	display: flex;
-	justify-content: flex-end;
 }
 
 .tire-info-size div{
@@ -176,20 +186,30 @@
 }
 
 .tire-brand {
-	font-size: 18px;
-	padding-bottom: 10px;
+	font-size: 17pt;
+    color: darkgray;
 }
 
 .tire-name {
-	font-size: 24px;
-	padding-bottom: 30px;
-	font-weight: 500;
+	font-size: 20pt;
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .tire-price {
 	font-size: 26px;
 	padding-bottom: 10px;
 	font-weight: 500;
+}
+
+.tire-detail-go {
+	width: 292px;
+    display: flex;
+    font-size: 20pt;
+    align-items: center;
+    justify-content: center;
 }
 
 .tire-search-fail {
