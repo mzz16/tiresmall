@@ -9,12 +9,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class EventDAO {
+public class BoardEventDAO {
 	@Autowired
 	private SqlSession ss;
 
-	public void readEvent(EventDTO e, HttpServletRequest req) {
-		List<EventDTO> events = ss.getMapper(BoardMapper.class).readEventAll(e);
+	public void readEvent(BoardEventDTO e, HttpServletRequest req) {
+		List<BoardEventDTO> events = ss.getMapper(BoardMapper.class).readEvent(e);
 		req.setAttribute("events", events);
 	}
 }

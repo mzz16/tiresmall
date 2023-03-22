@@ -2,22 +2,16 @@ package com.tireshoppingmall.home.board;
 
 import java.util.Date;
 
-public class AskReplyDTO {
+public class BoardQnaReplyDTO {
 	private int q_reply_no;
 	private String q_reply_txt;
 	private Date q_reply_date;
 	private int q_reply_board_no;
-	/*
-	private int ar_number;
-	private int ar_number_fk;
-	private String ar_text;
-	private Date ar_date;
-	*/
-	public AskReplyDTO() {
+	public BoardQnaReplyDTO() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public AskReplyDTO(int q_reply_no, String q_reply_txt, Date q_reply_date, int q_reply_board_no) {
+	public BoardQnaReplyDTO(int q_reply_no, String q_reply_txt, Date q_reply_date, int q_reply_board_no) {
 		super();
 		this.q_reply_no = q_reply_no;
 		this.q_reply_txt = q_reply_txt;

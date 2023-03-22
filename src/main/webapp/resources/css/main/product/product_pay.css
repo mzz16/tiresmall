@@ -127,7 +127,16 @@
   font-weight: 500;
 }
 
+.pay_shipMethod li,
+.pay_customerInfo li {
+  display: grid;
+  grid-template-columns: 150px 1fr;
+  padding: 10px;
+}
+
 .pay_nav {
+  position: sticky;
+  top: 100px;
   display: flex;
   flex-direction: column;
   border: 1px solid #ddd;
