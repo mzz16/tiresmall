@@ -1,5 +1,5 @@
 $(function(){
-	checkForHash();
+//	checkForHash();
 	loadPrices(); // 가격 최소, 최대 가져오는 함수 호출
 	
 	// radio 체크
@@ -158,14 +158,18 @@ function getProductJSON(page){
 				html+='</div><div></div></div>'
 				$('#product_paging').html(html)
 				
-				let hashUrl = '';
-			    if(document.URL.indexOf('#') > -1){
-			        let url = document.URL.substring(0, document.URL.indexOf('#'))
-			        hashUrl = url + '#'+getParameter('b')+'_1_'+$('input[name="carTypeA"]:checked').val();
-			    } else {
-			        hashUrl = document.URL += '#'+getParameter('b')+'_1_'+$('input[name="carTypeA"]:checked').val();
-			    }
-			    window.location.replace(hashUrl);
+//				let hashUrl = '';
+//			    if(document.URL.indexOf('#') > -1){
+//			        let url = document.URL.substring(0, document.URL.indexOf('#'))
+//			        hashUrl = url + '#'+getParameter('b')+'_1_'+$('input[name="carTypeA"]:checked').val();
+//			    } else {
+//			        hashUrl = document.URL += '#'+getParameter('b')+'_1_'+$('input[name="carTypeA"]:checked').val();
+//			    }
+				 if(document.URL.indexOf('#') > -1){
+					 window.location.replace(location.href.substr(0,location.href.indexOf('#'))+'#type');
+				 } else{
+					 window.location.replace(location.href+'#type');
+				 }
 				
 		
 //			if(curPage!=1){
@@ -244,8 +248,7 @@ function checkForHash() {
 		if(url.indexOf('brand.type')==-1){
 			url+='.type';
 		}
-		url+='?b='+HashLocationName.split('_')[0]+
-		'&p='+HashLocationName.split('_')[1]+'&t='+HashLocationName.split('_')[2]
+		url+='?b='+HashLocationName.split('_')[0]+'&p='+HashLocationName.split('_')[1]+'&t='+HashLocationName.split('_')[2]
 		location.href=url;
 	} 
 }
