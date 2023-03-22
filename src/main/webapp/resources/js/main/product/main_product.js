@@ -85,12 +85,8 @@ $(function(){
 	
 }) // ready 끝
 function getProductJSON(page){
-		var paramTv = 1;
-		if(getParameter('tv')==2){
-			paramTv=2;
-		}
-		$.getJSON("product.brand.type.ajax?b="+getParameter('b')+"&p="+page+"&t="+$('input[name="carTypeA"]:checked').val()+'&tv='+paramTv,function(j){
-			console.log("product.brand.type.ajax?b="+getParameter('b')+"&p="+page+"&t="+$('input[name="carTypeA"]:checked').val()+'&tv='+paramTv)
+		
+		$.getJSON("product.brand.type.ajax?b="+getParameter('b')+"&p="+page+"&t="+$('input[name="carTypeA"]:checked').val(),function(j){
 			console.log(JSON.stringify(j));
 			
 //			$('#product_search span').eq(0).html('총 '+j.pGroups.length+'개 상품이 검색되었습니다.');
@@ -165,12 +161,9 @@ function getProductJSON(page){
 				let hashUrl = '';
 			    if(document.URL.indexOf('#') > -1){
 			        let url = document.URL.substring(0, document.URL.indexOf('#'))
-			        hashUrl = url + '#'+getParameter('b')+'_1_'+$('input[name="carTypeA"]:checked').val()+'_'+getParameter('tv');
+			        hashUrl = url + '#'+getParameter('b')+'_1_'+$('input[name="carTypeA"]:checked').val();
 			    } else {
-			        hashUrl = document.URL += '#'+getParameter('b')+'_1_'+$('input[name="carTypeA"]:checked').val()+'_'+getParameter('tv');
-			    }
-			    if(getParameter('tv')==''){
-			    	hashUrl+='1';
+			        hashUrl = document.URL += '#'+getParameter('b')+'_1_'+$('input[name="carTypeA"]:checked').val();
 			    }
 			    window.location.replace(hashUrl);
 				
@@ -219,10 +212,7 @@ function movePage(pageNumber){
 
 // type별 조회시 paging하는 함수 
 function movePageType(pageNumber){
-	if(getParameter('tv')==2){
-		location.href='product.brand.type?b='+getParameter('b')+'&p='+pageNumber+'&t='+$('input[name="carTypeA"]:checked').val()+'&tv=2'
-	}
-	location.href='product.brand.type?b='+getParameter('b')+'&p='+pageNumber+'&t='+$('input[name="carTypeA"]:checked').val()+'&tv=1'
+	location.href='product.brand.type?b='+getParameter('b')+'&p='+pageNumber+'&t='+$('input[name="carTypeA"]:checked').val()
 }
 
 // url에서 파라미터 이름으로 파라미터 값 가져오는 함수
@@ -250,7 +240,7 @@ function checkForHash() {
 			url+='.type';
 		}
 		url+='?b='+HashLocationName.split('_')[0]+
-		'&p='+HashLocationName.split('_')[1]+'&t='+HashLocationName.split('_')[2]+'&tv='+HashLocationName.split('_')[3]
+		'&p='+HashLocationName.split('_')[1]+'&t='+HashLocationName.split('_')[2]
 		location.href=url;
 	} 
 }
