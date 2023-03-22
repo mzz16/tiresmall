@@ -1,0 +1,156 @@
+.board_faq_column {
+	display: grid;
+	grid-template-columns: 1fr 150px 150px 150px 150px 150px;
+	grid-template-rows: 48px;
+	grid-template-areas: "fc_all fc_jb fc_s fc_j fc_bgc fc_g";
+	
+	background-color: #fafafa;
+	
+	text-align: center;
+	font-weight: 300;
+	color: #777;
+}
+.board_faq_column > div {
+	border-top: 1px solid #ddd;
+	border-left: 1px solid #ddd;
+	border-bottom: 1px solid #ddd;
+	
+	padding: 15px;
+}
+.board_faq_column > div:nth-child(1) {
+	grid-area: fc_all;
+}
+.board_faq_column > div:nth-child(2) {
+	grid-area: fc_jb;
+}
+.board_faq_column > div:nth-child(3) {
+	grid-area: fc_s;
+}
+.board_faq_column > div:nth-child(4) {
+	grid-area: fc_j;
+}
+.board_faq_column > div:nth-child(5) {
+	grid-area: fc_bgc;
+}
+.board_faq_column > div:nth-child(6) {
+	grid-area: fc_g;
+	border-right: 1px solid #ddd;
+}
+
+
+
+.board_faq_none {
+	width: 950px;
+	height: 350px;
+	
+	background-color: #fff;
+	
+	text-align: center;
+	
+	border-top: 1px solid #000;
+	border-right:1px solid #ddd;
+	border-bottom: 1px solid #ddd;
+	border-left: 1px solid #ddd;
+}
+.board_faq_none > div {
+	padding: 166px;
+}
+
+
+
+.board_faq_listContainer {
+	border-top: 1px solid #000;
+}
+.board_faq_list_top {
+	display: grid;
+	grid-template-columns: 110px 1fr;
+	grid-template-rows: 50px;
+	grid-template-areas: "fl_q fl_title";
+	
+	background-color: #fff;
+	
+	text-align: center;
+}
+.board_faq_list_top div {
+}
+.board_faq_list_top div:nth-child(1) {
+	grid-area: fl_q;
+	padding: 15px;
+	
+	background-color: #f5f5f5;
+	
+	border-right: 1px solid #ddd;
+	border-bottom: 1px solid #ddd;
+	border-left: 1px solid #ddd;
+}
+.board_faq_list_top div:nth-child(2) {
+	grid-area: fl_title;
+	
+	border-right: 1px solid #ddd;
+	border-bottom: 1px solid #ddd;
+}
+.board_faq_list_top div:nth-child(2) > div {
+	width: 100%;
+}
+.board_faq_list_top div:nth-child(2) > div:hover {
+	width: 100%;
+	text-decoration : underline;
+}
+.board_faq_list_bottom {
+	display: grid;
+	grid-template-columns: 110px 1fr;
+	grid-template-areas: "fl_a fl_txt";
+	
+	background-color: #fff;
+	
+	text-align: center;
+}
+.board_faq_list_bottom div {
+	padding: 15px;
+	
+	border-right: 1px solid #ddd;
+	border-bottom: 1px solid #ddd;
+	border-left: 1px solid #ddd;
+}
+.board_faq_list_bottom div:nth-child(1) {
+	grid-area: fl_a;
+}
+.board_faq_list_bottom div:nth-child(2) {
+	grid-area: fl_txt;
+}
+
+
+
+.board_faq_buttons {
+	display: flex;
+	
+	width: 950px;
+	height: 51px;
+	
+	margin-top: 20px;
+	margin-bottom: 120px;
+	
+	justify-content: space-between
+}
+
+
+
+.board_faq_pagingButtons {
+	display: flex;
+}
+.board_faq_pagingButtons > div {
+	width: 28px;
+	height: 28px;
+	
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	
+	border-radius: 2px;
+}
+.board_faq_pagingButtons_selected {
+	background-color: #ab1e21;
+	color: #fff;
+	font-weight: 500;
+	padding-bottom: 1px;
+}

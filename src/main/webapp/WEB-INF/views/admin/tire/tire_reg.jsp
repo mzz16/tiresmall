@@ -178,7 +178,8 @@
 													</div>
 												</div>
 											</div> 
-											<div class='admin_tire_size_reg_modal_open'>
+					
+										<div class='admin_tire_size_reg_modal_open'>
 												<span class='tire_width size-span'>---</span>
 												<span class='size-span'>/</span>
 												<span class='tire_ratio size-span'>--</span>

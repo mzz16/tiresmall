@@ -2,40 +2,30 @@ package com.tireshoppingmall.home.board;
 
 import java.util.Date;
 
-public class AskDTO {
+public class BoardQnaDTO {
 	private int rownumber;
 	private int q_no;
 	private String q_title;
 	private String q_txt;
 	private Date q_date;
-	private String q_id;
+	private int q_u_no;
 	private int q_reply_has;
-	private AskReplyDTO a_reply;
-	/*
-	private String a_owner_fk;
-	private String a_sortation;
-	private String a_title;
-	private String a_text;
-	private String a_photo;
-	private Date a_date;
-	private String a_status;
-	private AskReplyDTO a_reply;
-	*/
-	public AskDTO() {
+	private BoardQnaReplyDTO q_reply;
+	public BoardQnaDTO() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public AskDTO(int rownumber, int q_no, String q_title, String q_txt, Date q_date, String q_id, int q_reply_has,
-			AskReplyDTO a_reply) {
+	public BoardQnaDTO(int rownumber, int q_no, String q_title, String q_txt, Date q_date, int q_u_no, int q_reply_has,
+			BoardQnaReplyDTO q_reply) {
 		super();
 		this.rownumber = rownumber;
 		this.q_no = q_no;
 		this.q_title = q_title;
 		this.q_txt = q_txt;
 		this.q_date = q_date;
-		this.q_id = q_id;
+		this.q_u_no = q_u_no;
 		this.q_reply_has = q_reply_has;
-		this.a_reply = a_reply;
+		this.q_reply = q_reply;
 	}
 	public int getRownumber() {
 		return rownumber;
@@ -67,11 +57,11 @@ public class AskDTO {
 	public void setQ_date(Date q_date) {
 		this.q_date = q_date;
 	}
-	public String getQ_id() {
-		return q_id;
+	public int getQ_u_no() {
+		return q_u_no;
 	}
-	public void setQ_id(String q_id) {
-		this.q_id = q_id;
+	public void setQ_u_no(int q_u_no) {
+		this.q_u_no = q_u_no;
 	}
 	public int getQ_reply_has() {
 		return q_reply_has;
@@ -79,10 +69,10 @@ public class AskDTO {
 	public void setQ_reply_has(int q_reply_has) {
 		this.q_reply_has = q_reply_has;
 	}
-	public AskReplyDTO getA_reply() {
-		return a_reply;
+	public BoardQnaReplyDTO getQ_reply() {
+		return q_reply;
 	}
-	public void setA_reply(AskReplyDTO a_reply) {
-		this.a_reply = a_reply;
+	public void setQ_reply(BoardQnaReplyDTO q_reply) {
+		this.q_reply = q_reply;
 	}
 }
