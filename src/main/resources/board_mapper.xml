@@ -26,6 +26,7 @@
 		select *
         from (
 			select	rownum as rownumber,
+					f_no,
 					f_title,
 					f_txt
 			from (
