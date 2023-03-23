@@ -181,7 +181,7 @@ $(document).on("click", ".imgbtn", function(e) {
 	    	col2El.find('img').remove();
 	    	for (var i = 0; i < cnt; i++) {
 	    	col2El.prepend("<img class='img"+i+"'>");
-	    	$('.img'+i).attr("src", "resources/upload-event/"+ fileNames[i]);
+	    	col2El.find(".img"+i).attr("src", "resources/upload-event/"+ fileNames[i]);
 	    	}
 	    	col3El.find('.cancle-btn').trigger("click");
 	    },
