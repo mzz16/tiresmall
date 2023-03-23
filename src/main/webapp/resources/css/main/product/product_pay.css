@@ -134,6 +134,11 @@
   padding: 10px;
 }
 
+.pay_customerInfo input {
+  padding: 10px;
+  border: 1px solid #ddd;
+}
+
 .pay_nav {
   position: sticky;
   top: 100px;
