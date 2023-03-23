@@ -192,6 +192,7 @@ uri="http://java.sun.com/jsp/jstl/fmt"%>
                       name="o_phone"
                       value="${sessionScope.loginMember.i_phoneNum}"
                       class="pay_phone_input"
+                      placeholder="-을 제외하고 입력해주세요"
                     />
                     <span class="pay_phone_confirm"></span>
                   </div>
