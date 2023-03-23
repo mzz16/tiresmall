@@ -178,7 +178,7 @@
 			<if test="idInput != ''">	
           	  au.u_id = #{idInput} and
             </if>
-           	  q.q_title like '%'||#{titleInput}||'%' order by q_no))
+           	  q.q_title like '%'||#{titleInput}||'%' order by q_date desc))
         where rn &gt;= #{start} and rn &lt;= #{end}
 	</select>
         

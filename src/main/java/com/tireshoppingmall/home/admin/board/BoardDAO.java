@@ -59,6 +59,7 @@ public class BoardDAO {
 		req.setAttribute("pageCount", pageCount);
 		req.setAttribute("notices", notices);
 		req.setAttribute("curPage", pageNo);
+		req.setAttribute("searchVal", search.getTitleInput());
 	}
 	
 
