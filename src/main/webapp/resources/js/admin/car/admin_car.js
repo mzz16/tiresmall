@@ -97,6 +97,13 @@ function updatecar(id, name, year1, year2, option, brand, ft, bt, print, c_file)
 	$('.updatefileinputstyle').html(c_file);
 	$('#c_file_u').attr('readonly', true);
 	
+	 const carImg = document.getElementById('carImg');
+	  carImg.src = `resources/web/${c_file}`;
+	  
+	  document.querySelector('.update-upload-thumb').addEventListener('load', function() {
+		  document.getElementById('carImg').style.display = 'none';
+		});
+	  
 	 //...
 
 	// c_ft_u와 c_bt_u에서 값을 가져온 뒤 콤마로 분할하여 배열로 저장
@@ -124,8 +131,25 @@ function updatecar(id, name, year1, year2, option, brand, ft, bt, print, c_file)
 		var btValue = i < btArray.length ? btArray[i] : "";
 		$('#updatesizeInputs .ftinputstyle:eq(' + i + ') input').val(ftValue);
 		$('#updatesizeInputs .btinputstyle:eq(' + i + ') input').val(btValue);
+		
+		
+		
+		
 	}
+	
+	
+	if (file) {
+	    var reader = new FileReader();
+	    reader.onload = function(e) {
+	      $(".preview-image .update-upload-thumb").attr("src", e.target.result);
+	    };
+	    reader.readAsDataURL(file);
+	  }
+
+	
+	
 }
+ 
 
 function updatecb1(name, order) {
 

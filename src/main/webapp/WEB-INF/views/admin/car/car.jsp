@@ -151,25 +151,23 @@ function addSize2() {
 	
 	
 
-	<div id="paging-box" class="car-paging-box">
+	<div id="paging-box">
 		<c:if test="${curPage != 1 }">
-			<a href="car.page.change?p=${curPage - 1 }">이전</a>
+			<a style="color: black;" href="car.page.change?p=${curPage - 1 }">이전</a>
 		</c:if>
 
 		<c:forEach var="page" begin="1" end="${pageCount }">
 			<c:choose>
-				<c:when
-					test="${page eq param.p or (curPage == 1 and curPage == page)}">
-					<a style="color: black" href="car.page.change?p=${page }">${page }
-					</a>
-				</c:when>
-				<c:otherwise>
-					<a href="car.page.change?p=${page }">${page } </a>
-				</c:otherwise>
-			</c:choose>
+					<c:when test="${page eq param.p or (curPage == 1 and curPage == page)}">
+						<a style="color:white; background-color: #333;" href="notice.page.change?p=${page }">${page } </a>
+					</c:when>
+					<c:otherwise>
+						<a style="color: black;" href="car.page.change?p=${page }">${page } </a>
+					</c:otherwise>
+				</c:choose>
 		</c:forEach>
 		<c:if test="${curPage != pageCount }">
-			<a href="car.page.change?p=${curPage + 1 }">다음</a>
+			<a style="color: black;" href="car.page.change?p=${curPage + 1 }">다음</a>
 		</c:if>
 	</div>
 
@@ -335,18 +333,21 @@ function addSize2() {
 				
 				<tr>
   <td style="background-color: #3399ff; text-align: center;">차종이미지</td>
-  <td>
-    <div class="preview-image" style="float: left;">
-      <div class="upload-display" style="float: left;">
-        <div class="upload-thumb-wrap" style="float: left;"><img class="update-upload-thumb"></div>
+<td>
+  <div class="preview-image" style="float: left;">
+    <div class="upload-display" style="float: left;">
+      <div class="upload-thumb-wrap" style="float: left;">
+        <img class="c_img_css" id="carImg" src="resources/web/(기존에 저장된 파일명)">
+        <img class="update-upload-thumb">
       </div>
     </div>
-    <div class="updatefileinputstyle" style="float: left; margin-top: 20px;"></div>
-    <label class="custom-file-upload" style="margin-top: 20px;">
-      <input type="file" name="file" onchange="previewImage(event)">
-      파일 선택
-    </label>
-  </td>
+  </div>
+  <div class="updatefileinputstyle" style="float: left; margin-top: 20px;">없음</div>
+  <label class="custom-file-upload" style="margin-top: 20px;">
+    <input type="file" name="file" onchange="previewImage(event)">
+    파일 선택
+  </label>
+</td>
 </tr>	
 			
 					
