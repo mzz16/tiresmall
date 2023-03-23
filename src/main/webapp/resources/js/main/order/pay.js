@@ -20,3 +20,9 @@ payNavValue[1].innerText = `${(
   payAllFacPrices - payAllGpPrices
 ).toLocaleString()}원`;
 payNavValue[2].innerText = `${payAllGpPrices.toLocaleString()}원`;
+
+const payForm = document.querySelector(".pay_container");
+
+payForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+});
